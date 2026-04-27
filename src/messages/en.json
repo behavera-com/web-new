@@ -1,0 +1,1308 @@
+{
+  "common": {
+    "more": "More",
+    "less": "Less",
+    "source": "Source",
+    "readMore": "Read more"
+  },
+  "labels": {
+    "trustedBy": "Trusted by",
+    "challenges": "Your challenges",
+    "hiddenCosts": "Hidden costs",
+    "howItWorks": "How it works",
+    "topics": "What we measure",
+    "roles": "For every role",
+    "dashboard": "Product",
+    "comparison": "Comparison",
+    "caseStudies": "Proven results",
+    "pricing": "Investment",
+    "faq": "Common questions"
+  },
+  "meta": {
+    "title": "People Won't Tell You. Data Will. | Behavera",
+    "description": "AI-powered employee engagement platform with people analytics. Catches departures before resignation, measures employee satisfaction & team performance. Results in 2 minutes, 80%+ response rate."
+  },
+  "pages": {
+    "howItWorks": {
+      "seoTitle": "From Question to Action Plan in 48 Hours"
+    },
+    "caseStudies": {
+      "seoTitle": "Real Results, Not Promises"
+    },
+    "pricing": {
+      "seoTitle": "An Investment That Pays Off in 3 Months"
+    },
+    "demo": {
+      "seoTitle": "30 Minutes That Change How You Manage People"
+    },
+    "diagnostika": {
+      "seoTitle": "How Healthy Is Your Company?",
+      "seoDescription": "Find out in 90 seconds where you risk losing key people. 10 questions, instant results, financial impact estimate.",
+      "ogTitle": "How Healthy Is Your Company?",
+      "ogDescription": "Quick diagnostic: where you're losing people, performance, and money."
+    }
+  },
+  "nav": {
+    "claim": "People won't tell you. Data will.",
+    "product": "Product",
+    "solutions": "Solutions",
+    "problems": "Problems",
+    "howItWorks": "How it works",
+    "caseStudies": "Case Studies",
+    "pricing": "Pricing",
+    "cta": "Try for free",
+    "login": "Log in",
+    "byProblem": "By problem",
+    "byRole": "By role",
+    "productMenu": {
+      "echoPulse": "Echo Pulse",
+      "echoPulseDesc": "Flagship product — AI pulse survey",
+      "howItWorks": "How it works",
+      "howItWorksDesc": "3 simple steps to your first data",
+      "features": "Features & Dashboard",
+      "featuresDesc": "Measurement overview and analytics",
+      "integrations": "Integrations",
+      "integrationsDesc": "Email, Slack, SMS, API and more",
+      "security": "Security & GDPR",
+      "securityDesc": "ISO 27001, AES-256, data in EU"
+    },
+    "roleLabels": {
+      "ceo": "CEO / Owner",
+      "hr": "HR Manager",
+      "manager": "Manager",
+      "teamLead": "Team Lead"
+    }
+  },
+  "nav_problems": {
+    "turnover": "Key people leaving?",
+    "managers": "Weak managers",
+    "performance": "Team performance",
+    "newCeo": "New CEO",
+    "growth": "Company growing",
+    "hiring": "Bad hires"
+  },
+  "hero": {
+    "label": "Built by a CEO, for CEO",
+    "headlines": [
+      "Your best people are thinking about leaving. You don't know it.",
+      "70% of engagement depends on the manager. Do you know how yours are doing?",
+      "People don't leave overnight. The decision matures for months."
+    ],
+    "subheadline": "A 2-minute AI pulse that reveals hidden problems in your company — before they cause departures, burnout, or performance drops.",
+    "ctaPrimary": "Run your first pulse free",
+    "ctaSecondary": "Book a demo",
+    "trust": "No credit card · 15-min setup · First data within 48 hours",
+    "socialProof": "Used by Prusa Research (1,000+ people), Vodafone, Expando and 40+ other companies in CZ/SK.",
+    "stats": "42,500+ people tested | 80%+ return rate | Instant results | GDPR compliant",
+    "miniTestimonial": {
+      "quote": "We saved €11K per quarter and sales grew by 37%.",
+      "author": "Dominik Hegedus",
+      "role": "CEO, Expando"
+    }
+  },
+  "logos": {
+    "title": "Trusted by"
+  },
+  "testimonials": {
+    "title": "What our clients say",
+    "items": [
+      {
+        "quote": "Thanks to Behavera we discovered hidden talent in our team and sales grew by 37%. We saved €11K per quarter.",
+        "author": "Dominik Hegedus",
+        "role": "CEO",
+        "company": "Expando",
+        "image": "",
+        "videoUrl": ""
+      },
+      {
+        "quote": "We finally know what's really going on in teams. No more guessing — just data and clear action steps.",
+        "author": "HR Director",
+        "role": "HR",
+        "company": "365.bank",
+        "image": "",
+        "videoUrl": ""
+      },
+      {
+        "quote": "In 3 minutes we had a clear picture of engagement across 1,000+ people. That used to take us weeks.",
+        "author": "People & Culture",
+        "role": "HR",
+        "company": "Prusa Research",
+        "image": "",
+        "videoUrl": ""
+      },
+      {
+        "quote": "Behavera gives us a real-time view of team morale. Finally we have data, not just gut feelings.",
+        "author": "Verča Nováková",
+        "role": "HR Manager",
+        "company": "Behavera",
+        "image": ""
+      }
+    ]
+  },
+  "videoTestimonials": {
+    "title": "Hear from our clients",
+    "subtitle": "Real stories from companies transformed by Behavera",
+    "items": [
+      {
+        "author": "Dominik Hegedus",
+        "role": "CEO",
+        "company": "Expando",
+        "quote": "We saved €11K per quarter and sales grew by 37%.",
+        "videoUrl": ""
+      },
+      {
+        "author": "HR Director",
+        "role": "HR",
+        "company": "Vodafone CZ",
+        "quote": "We caught 3 planned departures. We managed to reverse two.",
+        "videoUrl": ""
+      },
+      {
+        "author": "People & Culture",
+        "role": "HR",
+        "company": "Prusa Research",
+        "quote": "In 3 minutes we had a clear picture of 1,000+ people's engagement.",
+        "videoUrl": ""
+      }
+    ],
+    "playVideo": "Play video",
+    "comingSoon": "Video coming soon"
+  },
+  "chat": {
+    "title": "Need help?",
+    "subtitle": "We're here for you",
+    "placeholder": "Write us a message...",
+    "send": "Send",
+    "online": "Online"
+  },
+  "metrics": {
+    "tested": "people tested",
+    "returnRate": "return rate (vs. 30% for surveys)",
+    "fillTime": "to complete",
+    "salesGrowth": "sales growth",
+    "satisfaction": "employee satisfaction",
+    "engagement": "engagement in manufacturing (1,000+ people)"
+  },
+  "problems": {
+    "title": "Do any of these sound familiar?",
+    "subtitle": "Every problem has a data-driven solution. Pick yours.",
+    "cards": [
+      {
+        "headline": "Key people leaving?",
+        "stat": "Cost of one departure: $15–25K+",
+        "text": "The decision to leave matures for months. You usually don't know until you get the resignation. Behavera catches it earlier.",
+        "link": "/problemy/fluktuace"
+      },
+      {
+        "headline": "Weak managers you don't know about?",
+        "stat": "70% of engagement depends on the direct manager",
+        "text": "People don't leave companies. They leave managers. Do you know how yours are doing — from their team's perspective?",
+        "link": "/problemy/manazeri"
+      },
+      {
+        "headline": "Teams not delivering results?",
+        "stat": "−21% profitability for disengaged teams",
+        "text": "Most companies find out at the exit interview. With Behavera, you know every month.",
+        "link": "/problemy/vykon-tymu"
+      },
+      {
+        "headline": "New hires leaving after probation?",
+        "stat": "73% leave due to culture mismatch",
+        "text": "Culture Fit reveals it in 4 minutes — before they even start. Save months and thousands.",
+        "link": "/problemy/chybne-nabory"
+      },
+      {
+        "headline": "Company growing and losing oversight?",
+        "stat": "Prusa Research: 1,000+ people, 60% engagement",
+        "text": "What worked with 20 people doesn't work with 80. You need a system, not intuition.",
+        "link": "/problemy/rust-firmy"
+      },
+      {
+        "headline": "New CEO? First 90 days decide everything.",
+        "stat": "Company under control in hours, not months",
+        "text": "You need to understand the company, teams, and hidden tensions fast. Without data, you're flying blind.",
+        "link": "/problemy/novy-ceo"
+      }
+    ]
+  },
+  "costs": {
+    "title": "How much is not knowing costing you?",
+    "subtitle": "The decision to leave matures for months. You usually don't know — until the resignation lands on your desk.",
+    "cards": [
+      {
+        "label": "UNWANTED TURNOVER",
+        "stat": "6–9× salary",
+        "text": "Replacing one person costs 6–9 monthly salaries. A $3K/mo position? That's $18–27K gone. And that doesn't count the know-how that walks out the door.",
+        "source": "SHRM, Gallup"
+      },
+      {
+        "label": "SILENT PERFORMANCE DROP",
+        "stat": "−21%",
+        "text": "Disengaged teams have 21% lower profitability. The problem? They look normal — they just don't deliver.",
+        "source": "Gallup, State of the Workplace"
+      },
+      {
+        "label": "MANAGER = KEY",
+        "stat": "70%",
+        "text": "70% of engagement variability depends on the direct manager. One bad manager ruins the entire team.",
+        "source": "Gallup"
+      }
+    ],
+    "cta": "Find out how we're doing",
+    "bottom": "Today you guess. Tomorrow you'll know.",
+    "bottomSub": "Without Behavera: you react to resignations. With Behavera: you see risks months ahead.",
+    "bottomQuote": "We caught burnout before it caused a departure. +25% satisfaction in one quarter.",
+    "bottomQuoteAuthor": "Karel, CEO, Valxon"
+  },
+  "howItWorks": {
+    "title": "15-min setup. Results every month.",
+    "cta": "Start in 15 minutes",
+    "subtitle": "No forms. Employees respond in a short AI chat — validated questions designed by psychologists. 80%+ actually respond. Repeatedly.",
+    "quote": "In 3 minutes we had clarity. 60% engagement in manufacturing, 1,000+ people.",
+    "quoteAuthor": "Prusa Research, 1,000+ employees",
+    "steps": [
+      {
+        "title": "Upload your list, pick a channel",
+        "text": "15 minutes and you're live. Slack, WhatsApp, email — wherever your people are."
+      },
+      {
+        "title": "2-min AI conversation, not a survey",
+        "text": "Chatbot asks questions designed by psychologists. People actually enjoy it — it feels like a chat, not a form."
+      },
+      {
+        "title": "Data within 48 hours. What to do. Now.",
+        "text": "No spreadsheets. AI tells you what to fix and why. First results within 2 days."
+      }
+    ]
+  },
+  "topics": {
+    "title": "What Behavera measures",
+    "subtitle": "Each topic is a 2-min AI conversation validated on 42,500+ respondents.",
+    "items": [
+      { "name": "Overall team pulse", "description": "Comprehensive view of your team's health and dynamics." },
+      { "name": "Pay fairness", "description": "How employees perceive compensation fairness." },
+      { "name": "Benefits satisfaction", "description": "What employees truly value from the benefits package." },
+      { "name": "Working conditions", "description": "Quality of work environment and equipment." },
+      { "name": "Workload & capacity", "description": "Work distribution and utilization — key to burnout prevention." },
+      { "name": "Recognition & feedback", "description": "How often and how well people receive feedback." },
+      { "name": "Stress & burnout", "description": "Early detection of overload and burnout signals." },
+      { "name": "Culture & values", "description": "Alignment of company values with daily reality." },
+      { "name": "AI at work", "description": "Team readiness for AI tool adoption." },
+      { "name": "Progress", "description": "Perception of personal and professional growth." },
+      { "name": "Changes", "description": "How the team handles organizational changes." },
+      { "name": "Communication", "description": "Quality of internal communication and awareness." },
+      { "name": "Innovation", "description": "Space for new ideas and experimentation." },
+      { "name": "Leadership", "description": "Trust in leadership and management quality." },
+      { "name": "Priorities", "description": "Clarity of goals and company direction." },
+      { "name": "Remote & hybrid work", "description": "How connected and productive remote and hybrid teams feel." },
+      { "name": "Employee recognition", "description": "Whether people feel valued and appreciated for their contributions." },
+      { "name": "eNPS", "description": "Employee Net Promoter Score — would your people recommend working here?" }
+    ],
+    "cta": "Try it"
+  },
+  "roles": {
+    "title": "One tool. Four different perspectives.",
+    "cta": "Run it for your team",
+    "tabs": [
+      {
+        "role": "CEO / Founder",
+        "headline": "Find out what no one tells you",
+        "points": [
+          "Real overview of every team — not filtered through 3 layers of management",
+          "Catch problems months ahead, not at the exit interview",
+          "Data for strategic decisions — not \"I have a feeling that...\""
+        ]
+      },
+      {
+        "role": "HR Leader",
+        "headline": "Data instead of impressions. Finally.",
+        "points": [
+          "80%+ return rate vs. 30% for traditional surveys",
+          "AI analysis instead of weekends in Excel",
+          "Hard data for the board — not \"I think people are happy\""
+        ]
+      },
+      {
+        "role": "Team Lead",
+        "headline": "Do you really know what your people need?",
+        "points": [
+          "Specific recommendations: what to change, who to praise, where to ease off",
+          "Anonymous feedback — people tell the truth because they can",
+          "Overload signals caught before the resignation"
+        ]
+      },
+      {
+        "role": "Employee",
+        "headline": "Your voice matters. And it's heard.",
+        "points": [
+          "100% anonymous — no one can trace your answers back to you",
+          "2-minute chat, not a 30-minute form you dread",
+          "Your feedback drives real changes — not another forgotten survey"
+        ]
+      }
+    ]
+  },
+  "dashboard": {
+    "title": "One dashboard. Zero guessing.",
+    "subtitle": "Behavera collects scattered signals from across the company and shows them clearly in one place.",
+    "features": [
+      {
+        "title": "Mood by teams",
+        "text": "Filter by department, location, or manager. Instantly see where the problem is."
+      },
+      {
+        "title": "Problem warnings",
+        "text": "Overload, tension, energy drops — before they show up as departures."
+      },
+      {
+        "title": "Priorities ranked by impact",
+        "text": "AI tells you what to fix first and why. No guessing."
+      }
+    ]
+  },
+  "comparison": {
+    "title": "Why not Excel and gut feeling?",
+    "subtitle": "Save ~6 hours every feedback round. And get 2× more responses.",
+    "headers": ["Area", "How you do it today", "With Behavera"],
+    "rows": [
+      ["Return rate", "30–40% (and declining)", "80%+ (and growing)"],
+      ["Analysis", "Export → Excel → manual charts → nobody reads it", "Real-time dashboard with AI recommendations"],
+      ["Methodology", "Questions from HR without validation", "Designed and validated by psychologists"],
+      ["Frequency", "1× yearly big survey, results in 3 months", "Continuous measurement, trends instantly"]
+    ],
+    "quote": "Thanks to Behavera we discovered hidden talent in our team and sales grew by 37%. We saved €11K per quarter.",
+    "quoteAuthor": "Dominik Hegedus, CEO, Expando",
+    "cta": "Try your first pulse free"
+  },
+  "caseStudies": {
+    "label": "Proven results",
+    "title": "Real numbers, not promises",
+    "subtitle": "+37% sales. −14% turnover. +25% satisfaction. These are results from real companies.",
+    "cases": [
+      {
+        "company": "Prusa Research",
+        "segment": "Technology",
+        "size": "1000+",
+        "metrics": "60% engagement even in manufacturing — in 3 minutes",
+        "link": "/case-studies/za-3-minuty-jasno-jak-na-employer-branding"
+      },
+      {
+        "company": "Expando",
+        "segment": "E-Commerce",
+        "size": "50+",
+        "metrics": "+37% sales, €11K saved per quarter",
+        "link": "/case-studies/jak-expando-objevilo-skryty-talent"
+      },
+      {
+        "company": "Valxon",
+        "segment": "Promotional items",
+        "size": "30+",
+        "metrics": "+25% satisfaction, 1 burnout caught in time",
+        "link": "/case-studies/nove-vedeni-a-stiznosti-na-penize"
+      },
+      {
+        "company": "Vodafone CZ",
+        "segment": "Telecom",
+        "size": "1500+",
+        "metrics": "+40% retention, +80% revenue per call",
+        "link": "/case-studies/from-data-to-action-how-vodafone-increased-sales-by-80-and-cut-attrition-by-40"
+      },
+      {
+        "company": "365.bank",
+        "segment": "Banking",
+        "size": "400+",
+        "metrics": "−14% turnover, +36% faster hiring",
+        "link": "/case-studies/how-behaveras-data-helped-365-bank-achieve-a-successful-digital-transformation"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Cheaper than one departure",
+    "subtitle": "One unexpected departure costs $15–25K+. Behavera for the whole company costs a fraction.",
+    "monthly": "Monthly",
+    "yearly": "Yearly (save 20%)",
+    "employees": "employees",
+    "perEmployee": "CZK / employee / month",
+    "features": [
+      "AI analysis 24/7",
+      "Unlimited pulses and signals",
+      "Dashboard for CEO, HR & managers",
+      "Custom action recommendations",
+      "Onboarding & support included",
+      "Slack, WhatsApp integration (coming soon)",
+      "Report & data export"
+    ],
+    "roi": "Behavera for 50 people = ~4,950 CZK/month. Save just 1 person per year and you get 10× ROI.",
+    "roiTitle": "Return on investment",
+    "roiTurnoverCost": "Average cost of employee turnover",
+    "roiTurnoverRange": "€15,000 – €25,000",
+    "roiBehaveraCost": "Annual Behavera investment",
+    "roiSaved": "Save just 1 person per year",
+    "roiReturn": "return",
+    "roiNote": "Source: SHRM, average for mid-level positions",
+    "ctaPrimary": "Try 1 team free",
+    "ctaSecondary": "Order for the whole company",
+    "savingsPrefix": "Save",
+    "savingsSuffix": "CZK/year",
+    "perMonth": "/ month",
+    "setupTitle": "Plan configuration",
+    "companySize": "Company size",
+    "popular": "Most popular",
+    "estimateTitle": "Investment estimate"
+  },
+  "faq": {
+    "title": "Common questions, honest answers",
+    "filters": ["All", "Product", "Data/Security", "Setup/Deployment"],
+    "items": [
+      {
+        "question": "Will it annoy people?",
+        "answer": "No — and that's the whole point. A pulse takes 2 minutes, feels like a natural chat, and people actually enjoy filling it out. 80%+ return rate speaks for itself.",
+        "category": "Product"
+      },
+      {
+        "question": "Does it require complex IT implementation?",
+        "answer": "Not at all. Setup takes 15 minutes. Upload your employee list, choose a channel (email, Slack, WhatsApp), and Behavera handles the rest.",
+        "category": "Setup/Deployment"
+      },
+      {
+        "question": "Is it truly anonymous?",
+        "answer": "Yes, no compromises. Data is aggregated at the team level. No one — not even you — can link a response to a specific person. That's why people answer honestly.",
+        "category": "Data/Security"
+      },
+      {
+        "question": "Will it create more work for managers?",
+        "answer": "The opposite — it saves time. The dashboard shows exactly where the problem is, how serious it is, and what to do about it. No guessing, no spreadsheets, no reports gathering dust.",
+        "category": "Product"
+      },
+      {
+        "question": "What if the results aren't pretty?",
+        "answer": "That's exactly why Behavera exists. If you don't know about a problem, you can't fix it. Discover it before it causes departures — that's where the value is.",
+        "category": "Product"
+      },
+      {
+        "question": "Isn't this just another HR tool?",
+        "answer": "Behavera isn't an HRIS, ATS, or another dashboard with charts. It's a diagnostic tool for company leadership — helping CEOs, HR, and team leads make decisions based on data, not impressions.",
+        "category": "Product"
+      },
+      {
+        "question": "How do you ensure anonymity in a team of 8?",
+        "answer": "Results only display with a minimum number of respondents (configurable). For small teams, data is automatically aggregated to a higher level to preserve anonymity. We take this dead seriously.",
+        "category": "Data/Security"
+      }
+    ],
+    "badges": ["Fully GDPR compliant", "AES-256 / TLS 1.3", "Data in EU", "ISO 27001"]
+  },
+  "leadCapture": {
+    "badge": "Free download",
+    "title": "Guide: How to reduce turnover by 30%",
+    "description": "Practical e-book with data from 42,500+ employees. What works, what doesn't, and why.",
+    "points": [
+      "5 most common causes of departures",
+      "How to detect them before resignation",
+      "Real cases from CZ/SK companies"
+    ],
+    "emailLabel": "Your work email",
+    "emailPlaceholder": "name@company.com",
+    "cta": "Download free e-book",
+    "privacy": "No spam. Max 1 email per month. Unsubscribe with one click.",
+    "success": "E-book is on its way!",
+    "successDetail": "Check your email. It'll arrive within 2 minutes."
+  },
+  "finalCta": {
+    "label": "We're here for you",
+    "title": "You're one step away from becoming a better leader.",
+    "subtitle": "Our experts will show you Behavera in action, answer your questions, and help you get the most out of your team.",
+    "points": [
+      "Personalized onboarding",
+      "Full platform walkthrough",
+      "Tailored recommendations for your team",
+      "Answers to any questions"
+    ],
+    "contactName": "Jan Novák",
+    "contactRole": "Sales & Onboarding Specialist",
+    "contactEmail": "sales@behavera.com",
+    "contactPhone": "+420 731 086 660",
+    "bookingUrl": "https://calendly.com/behavera",
+    "bookingCta": "Book a 30-minute consultation",
+    "bookingTooltip": "In 30 minutes we'll find quick wins tailored to you.",
+    "formTitle": "Ready to see what's happening in your team?",
+    "demoPoint1": "30-minute no-commitment consultation",
+    "demoPoint2": "Demo tailored to your industry and team size",
+    "demoPoint3": "Answers to your specific questions",
+    "demoCta": "Book a free demo",
+    "tryCta": "Or try free — no credit card"
+  },
+  "footer": {
+    "tagline": "People are your most valuable asset. We help you keep them.",
+    "product": "Product",
+    "productLinks": {
+      "app": "Behavera App",
+      "howItWorks": "How it works",
+      "pricing": "Pricing",
+      "faq": "FAQ"
+    },
+    "company": "Company",
+    "companyLinks": {
+      "about": "About us",
+      "caseStudies": "Case Studies",
+      "blog": "Blog",
+      "changelog": "Changelog"
+    },
+    "support": "Support",
+    "supportLinks": {
+      "security": "Security & Trust",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "contact": "Contact"
+  },
+  "sticky": {
+    "trial": "Start free",
+    "demo": "Book demo"
+  },
+  "integrations": {
+    "title": "Works where your people are",
+    "subtitle": "Behavera reaches employees through the channels they already use. No new apps to install.",
+    "channels": [
+      { "name": "Email", "description": "Works with any corporate email. No setup needed." },
+      { "name": "Slack", "description": "Direct messages in the tool your team already uses daily." },
+      { "name": "WhatsApp", "description": "Reach frontline workers and manufacturing teams on their phones." },
+      { "name": "Microsoft Teams", "description": "Seamless integration with your Microsoft 365 workspace." },
+      { "name": "Web link", "description": "Share a direct link — works on any device, no login required." }
+    ],
+    "cta": "See it in action"
+  },
+  "about": {
+    "seoTitle": "A Team That Understands People and Data",
+    "back": "Back to homepage",
+    "hero": {
+      "title": "We help leaders build successful organizations where people love to work.",
+      "text1": "We've always believed that people are the most important part of any company. And yet, the way many organizations work with people still relies on gut feelings rather than real insight. Back in 2018, we set out to change that. We began developing gamified assessments that help leaders uncover the real potential of their people in real-life situations.",
+      "text2": "But as we worked with more and more leaders, we noticed a pattern. They didn't just want data. They needed support — something quick, clear, and genuinely helpful in their day-to-day leadership. Not another complex report or theory to read through after hours.",
+      "text3": "So we listened. We brought together our backgrounds in psychology, data science, HR, and AI and teamed up with hands-on entrepreneurs and investors who added real-world leadership and business experience. And that's how Behavera was born.",
+      "text4": "Today, we're helping leaders shift how they work with their people from hiring to engagement — so leaders can make better decisions, unlock potential, and build workplaces where people actually want to be."
+    },
+    "vision": {
+      "title": "When people understand each other, everything else falls into right place.",
+      "text": "We want to build a world where leaders truly understand their people and know how to lead them in a way that helps organizations thrive — and makes people look forward to work, even on a Friday."
+    },
+    "mission": {
+      "title": "We give leaders a simple tool to make smart decisions fast.",
+      "text": "With Behavera, leaders can quickly and objectively decide who's best suited for which role and effectively tackle the real obstacles holding their teams back."
+    },
+    "strengths": {
+      "title": "Discover your strengths — and a job that truly fits you.",
+      "text": "Our fun simulation games reveal what you're really good at and help you find a job where you can fully use your potential. You won't want to leave.",
+      "stat": "50 000+",
+      "statLabel": "tested people"
+    },
+    "chatbot": {
+      "title": "We show only what really matters — and how to improve it.",
+      "text": "Just a few minutes with our chatbot and you'll know what motivates or frustrates your people, how serious it is, and what to do about it."
+    },
+    "team": {
+      "title": "Core Team",
+      "also": "We also collaborate with leading psychologists, marketing specialists, and leaders from diverse fields.",
+      "members": [
+        {
+          "name": "Jiří Valena",
+          "role": "CEO",
+          "skills": "Strategic Growth, Sales, Leadership",
+          "bio": "Jiří's an amateur hockey player with a goal drive that scores in business too.",
+          "image": "/images/about/jiri-valena.jpg"
+        },
+        {
+          "name": "Igor Kubíček",
+          "role": "Head of Product & Co-founder",
+          "skills": "HR Data Analytics, Product Content, Digital Learning",
+          "bio": "Igor can get through 40 books a month and still explain multivariate analysis without giving you a headache.",
+          "image": "/images/about/igor-kubicek.jpg"
+        },
+        {
+          "name": "Dušan Švancara",
+          "role": "CTO & Co-founder",
+          "skills": "Tech Development, AI Automation, Data Security",
+          "bio": "Thanks to Dušan, everything runs like Swiss clockwork.",
+          "image": "/images/about/dusan-svancara.jpg"
+        },
+        {
+          "name": "Jana Šrámková",
+          "role": "Go-to-Market",
+          "skills": "Sales, Partnerships, Strategic Growth",
+          "bio": "Passionate cyclist Jana knows exactly how and where Behavera can help the customer most.",
+          "image": "/images/about/jana-sramkova.jpg"
+        },
+        {
+          "name": "Veronika Nováková",
+          "role": "Customer Success",
+          "skills": "HR Advisory, Content Writing, Product Testing",
+          "bio": "Just like in her paintings, Veronika draws a line between people, tools, and purpose.",
+          "image": "/images/about/veronika-novakova.jpg"
+        },
+        {
+          "name": "Josef Hofman",
+          "role": "Sales Partner",
+          "skills": "Relationship Building and Client Acquisition",
+          "bio": "Josef's sense of direction and sales discipline come from kayaking; fighting he keeps only for the dojo.",
+          "image": "/images/about/josef-hofman.jpg"
+        },
+        {
+          "name": "Igor Třeslín",
+          "role": "Investor and Advisory",
+          "skills": "",
+          "bio": "He founded and lead several ventures to successful exit — including Lunchtime (Zomato), Pizzatime (Dáme Jídlo), Foodora, and Storyous (Teya). Igor has a taste for good food and an eye for potential — in companies as well as people.",
+          "image": "/images/about/igor-treslin.jpg"
+        }
+      ]
+    },
+    "logos": {
+      "title": "Organizations we helped to change the way they work with people"
+    },
+    "testimonial": {
+      "quote": "We used to hire people based solely on their legal qualifications. But since we started using Behavera to see how well they'd fit into our company culture and team, our firm began to run much more smoothly!",
+      "author": "Adam Swierczek",
+      "role": "Partner and Lawyer, Hajduk & Partners s.r.o. (Czech Law Firm of the Year 2024)"
+    },
+    "values": {
+      "title": "In our products and in how we work with clients, we always do things...",
+      "items": [
+        {
+          "title": "in high quality",
+          "text": "We build on solid scientific foundations, statistical methods, and proven practices — because we want it to truly work for you."
+        },
+        {
+          "title": "with automations",
+          "text": "We use a personalized AI language model that delivers clear, concise outputs — because your HR team already has enough on its plate."
+        },
+        {
+          "title": "with clarity",
+          "text": "Results you can easily make sense of — so you don't have to spend money on costly trainings or consultants."
+        },
+        {
+          "title": "practically usable & in real time",
+          "text": "Actionable data and personalized recommendations without the wait — because you need to respond now, not next year."
+        },
+        {
+          "title": "fast & entertaining",
+          "text": "Simulation games and chat with bot people actually complete — giving you an 80–90% response rate, 1-2x/month easily."
+        },
+        {
+          "title": "simple",
+          "text": "Just know who are your respondents, and you can launch immediately — because your time is better spent on smart decisions, not installations."
+        }
+      ]
+    },
+    "caseStudies": {
+      "title": "Case Studies",
+      "items": [
+        {
+          "title": "The Creeping Killer of Your Business — Act Before It Costs You Millions!",
+          "image": "/images/about/case-study-1.jpg"
+        },
+        {
+          "title": "20% Time Saved: How Expando Improved Customer Service",
+          "image": "/images/about/case-study-2.jpg"
+        },
+        {
+          "title": "Valxon's Discovery Journey of the Truth Behind Money Complaints",
+          "image": "/images/about/case-study-3.jpg"
+        }
+      ]
+    },
+    "media": {
+      "title": "Behavera in the Media",
+      "items": [
+        {
+          "source": "CzechCrunch",
+          "title": "People are not happy at work, it hurts companies. Behavera has a chatbot that detects risks early",
+          "url": "https://cc.cz/lide-nebyvaji-v-praci-spokojeni-firmam-to-skodi-behavera-ma-chatbota-ktery-rizika-vcas-odhali/",
+          "logo": "/images/media/czechcrunch.svg"
+        },
+        {
+          "source": "Forbes",
+          "title": "Miton enters Behavera. Startup helps companies to happy employees",
+          "url": "https://forbes.cz/miton-vstupuje-do-behavery-startup-pomaha-firmam-ke-spokojenym-zamestnancum/",
+          "logo": "/images/media/forbes.svg"
+        },
+        {
+          "source": "PwC",
+          "title": "PwC Startup Collider to work with CEE startups for the third time",
+          "url": "https://www.pwc.pl/pl/media/2019/2019-03-13-finalisci-III-edycja-pwc-startup-collider.html",
+          "logo": "/images/media/pwc.svg"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Don't wait for change — lead it. Start with Behavera today.",
+      "button": "Book a demo"
+    },
+    "contact": {
+      "sales": {
+        "title": "Chat to sales",
+        "text": "Speak to our friendly team.",
+        "email": "hello@behavera.com"
+      },
+      "address": {
+        "title": "Send us a postcard",
+        "text": "Křižíkova 148/34\n186 00 Praha 8"
+      },
+      "phone": {
+        "title": "Call us",
+        "text": "Mon-Fri from 8am to 6pm (CET).",
+        "number": "+420 724 256 447"
+      },
+      "invoicing": {
+        "title": "Invoicing information",
+        "text": "Behavera s.r.o.\nKřižíkova 148/34\n186 00 Praha 8\nCzech Republic\n\nIČO: 03525520\nDIČ: CZ03525520"
+      }
+    }
+  },
+  "security": {
+    "seoTitle": "Your Data, Fully Protected. No Compromises.",
+    "title": "Security & Trust",
+    "subtitle": "Your employees' data deserves the highest level of protection. Here's how we deliver it.",
+    "badges": ["GDPR Compliant", "AES-256 Encryption", "TLS 1.3", "Data in EU", "ISO 27001"],
+    "sections": [
+      {
+        "title": "Data encryption",
+        "text": "All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We follow industry best practices for key management and rotation."
+      },
+      {
+        "title": "GDPR compliance",
+        "text": "Behavera is fully GDPR compliant. We process data as a data processor under a DPA. All data is stored within the European Union."
+      },
+      {
+        "title": "Anonymity by design",
+        "text": "Individual responses are never linked to identifiable employees. Results are aggregated at the team level with configurable minimum thresholds to prevent identification in small teams."
+      },
+      {
+        "title": "Infrastructure",
+        "text": "Our infrastructure runs on EU-based cloud providers with SOC 2 certified data centers. We conduct regular security audits and penetration testing."
+      },
+      {
+        "title": "Access control",
+        "text": "Role-based access control ensures that only authorized personnel can view specific data. All access is logged and auditable."
+      },
+      {
+        "title": "Data retention",
+        "text": "You control your data. Export or delete it at any time. We follow strict data retention policies and never share data with third parties."
+      }
+    ],
+    "cta": "Have security questions? Let's talk.",
+    "back": "Back to homepage"
+  },
+  "problemPages": {
+    "back": "Back to homepage",
+    "ctaPrimary": "Start free",
+    "ctaSecondary": "Book a demo",
+    "ctaTrust": "15-min setup · No credit card · Results within 48 hours",
+    "solutionLabel": "HOW BEHAVERA SOLVES THIS",
+    "dataLabel": "THE DATA",
+    "caseStudyLabel": "CASE STUDY",
+    "alternativesLabel": "WHY NOT SOMETHING ELSE?",
+    "videoLabel": "SEE IT IN ACTION",
+    "urgencyLabel": "TIME IS RUNNING OUT",
+    "dashboardLabel": "APP PREVIEW",
+    "dashboardTitle": "This is what you'll see in Behavera",
+    "dashboardSubtitle": "No spreadsheets. No guessing. A dashboard that tells you what, where, and why.",
+    "videoTitle": "See how it works",
+    "videoSubtitle": "2 minutes. Watch the entire process — from sending a pulse to your first results.",
+    "videoCta": "Play video",
+    "fluktuace": {
+      "title": "Key people leaving your company?",
+      "subtitle": "A resignation is a symptom. The cause started months ago. Behavera catches it — before it lands on your desk.",
+      "hero_stat": "$15–25K+",
+      "hero_stat_label": "average cost of one departure",
+      "data": {
+        "title": "How much is turnover really costing you?",
+        "items": [
+          { "stat": "6–9×", "text": "monthly salaries to replace one person (SHRM)" },
+          { "stat": "52%", "text": "of departures were preventable — the company just didn't act in time (Gallup)" },
+          { "stat": "50%", "text": "of people who leave have been thinking about it for 6+ months (Work Institute)" }
+        ]
+      },
+      "solution": {
+        "title": "Catch departures months before they happen",
+        "steps": [
+          { "title": "Monthly pulse", "text": "2-min AI chat checks how people feel. 80%+ respond. Every time." },
+          { "title": "Early warning system", "text": "Dashboard shows where tension is rising, energy is dropping, or burnout is approaching." },
+          { "title": "Action plan", "text": "AI tells you what to fix and why. Specific steps, not vague recommendations." }
+        ]
+      },
+      "alternatives": {
+        "title": "Why traditional approaches don't work",
+        "items": [
+          { "method": "Exit interviews", "problem": "You learn the reason when it's too late. The person is already leaving." },
+          { "method": "Annual surveys", "problem": "30% response rate. Results in 3 months. Meanwhile 5 people left." },
+          { "method": "Manager intuition", "problem": "Filtered information. The manager doesn't know what they don't know." },
+          { "method": "HR conversations", "problem": "Doesn't scale. 1 HR person for 100 people has no chance." }
+        ]
+      },
+      "urgency": {
+        "title": "Every day without data = money on the table",
+        "text": "Right now someone in your company is thinking about leaving. In a month they'll be job hunting. In three they'll resign. Behavera gives you a chance to act — now, not in a year.",
+        "stat": "52%",
+        "statLabel": "of departures were preventable if the company had acted in time"
+      },
+      "testimonials": [
+        { "quote": "We caught 3 planned departures. We managed to reverse two. ROI in the first month.", "author": "HR Director", "company": "Vodafone CZ" },
+        { "quote": "We finally see what's happening without waiting for a resignation letter.", "author": "CEO", "company": "Expando" }
+      ],
+      "caseStudy": {
+        "company": "Vodafone CZ",
+        "size": "1,500+ employees",
+        "quote": "+40% retention. +80% revenue per call. Data showed us exactly where to act.",
+        "metric": "+40% retention",
+        "link": "/case-studies/from-data-to-action-how-vodafone-increased-sales-by-80-and-cut-attrition-by-40"
+      }
+    },
+    "manazeri": {
+      "title": "Weak managers you don't know about?",
+      "subtitle": "70% of engagement depends on the direct manager. One bad manager = one dead team. Behavera reveals it.",
+      "hero_stat": "70%",
+      "hero_stat_label": "of engagement depends on manager quality",
+      "data": {
+        "title": "Why are managers the key?",
+        "items": [
+          { "stat": "70%", "text": "of engagement variability depends on the direct manager (Gallup)" },
+          { "stat": "1 in 2", "text": "employees left because of their boss, not the company (Gallup)" },
+          { "stat": "−21%", "text": "profitability in teams with poor managers (Gallup)" }
+        ]
+      },
+      "solution": {
+        "title": "See manager quality through their team's eyes",
+        "steps": [
+          { "title": "Anonymous feedback", "text": "People tell the truth because they know it's anonymous. 80%+ respond." },
+          { "title": "Cross-team comparison", "text": "Dashboard shows which managers lead well and where problems are." },
+          { "title": "Development plan", "text": "AI suggests specific steps for each manager. Data, not impressions." }
+        ]
+      },
+      "alternatives": {
+        "title": "Why bad managers go undetected",
+        "items": [
+          { "method": "360° feedback", "problem": "Once a year. Results take months. People don't answer honestly." },
+          { "method": "HR interviews", "problem": "Employees say what they think the boss wants to hear." },
+          { "method": "KPIs", "problem": "Show the result, not the cause. A toxic manager can have good numbers — short term." },
+          { "method": "Open door policy", "problem": "Nobody comes. Especially not to a problematic boss." }
+        ]
+      },
+      "urgency": {
+        "title": "One bad manager costs more than their salary",
+        "text": "Every month a bad manager leads a team, engagement drops, turnover rises, and you lose people who would otherwise stay. The costs grow silently — until the whole team leaves at once.",
+        "stat": "1 in 2",
+        "statLabel": "people leave because of their direct manager, not the company"
+      },
+      "testimonials": [
+        { "quote": "For the first time we had objective data on leadership quality. We changed 2 managers and satisfaction rose 25%.", "author": "CEO", "company": "Valxon" },
+        { "quote": "Data showed that the problem wasn't the people on the team — it was their boss.", "author": "HR Manager", "company": "365.bank" }
+      ],
+      "caseStudy": {
+        "company": "Valxon",
+        "size": "30+ employees",
+        "quote": "We caught burnout before it caused a departure. +25% satisfaction in one quarter.",
+        "metric": "+25% satisfaction",
+        "link": "/case-studies/nove-vedeni-a-stiznosti-na-penize"
+      }
+    },
+    "vykon-tymu": {
+      "title": "Teams not delivering results?",
+      "subtitle": "They look normal. They just don't deliver. And you don't know — until the numbers speak.",
+      "hero_stat": "−21%",
+      "hero_stat_label": "profitability in disengaged teams",
+      "data": {
+        "title": "How much does silent performance drop cost?",
+        "items": [
+          { "stat": "−21%", "text": "profitability in disengaged teams (Gallup)" },
+          { "stat": "−37%", "text": "productivity in disengaged employees (Gallup)" },
+          { "stat": "85%", "text": "of employees worldwide are not actively engaged (Gallup)" }
+        ]
+      },
+      "solution": {
+        "title": "See performance where spreadsheets can't",
+        "steps": [
+          { "title": "Team-by-team pulse", "text": "Find out which teams are healthy and where energy is dropping." },
+          { "title": "Root causes, not symptoms", "text": "AI reveals why a team isn't performing — workload, communication, manager, or all of the above." },
+          { "title": "Priorities by impact", "text": "Know what to fix first. Not everything at once — what has the biggest business impact." }
+        ]
+      },
+      "alternatives": {
+        "title": "Why you don't know about the problem",
+        "items": [
+          { "method": "Quarterly reports", "problem": "Show results, not causes. Numbers dropped — but why?" },
+          { "method": "Stand-ups and 1:1s", "problem": "People say 'everything's fine'. The truth is different." },
+          { "method": "Performance metrics", "problem": "Measure output, not energy, motivation, or collaboration." },
+          { "method": "Manager assessment", "problem": "Biased. Nobody wants to admit their team isn't working." }
+        ]
+      },
+      "urgency": {
+        "title": "Silent performance drop is the most expensive problem",
+        "text": "Unlike a departure, you don't see a performance drop. The team works — just at 60%. Month after month you're losing 20% of profit without knowing why.",
+        "stat": "−21%",
+        "statLabel": "profitability in disengaged teams — silently, without warning"
+      },
+      "testimonials": [
+        { "quote": "Thanks to Behavera we discovered hidden talent and sales grew by 37%.", "author": "CEO", "company": "Expando" },
+        { "quote": "We found that one team was on the verge of collapse. We intervened just in time.", "author": "HR Director", "company": "365.bank" }
+      ],
+      "caseStudy": {
+        "company": "Expando",
+        "size": "50+ employees",
+        "quote": "Thanks to Behavera we discovered hidden talent and sales grew by 37%. We saved €11K per quarter.",
+        "metric": "+37% sales",
+        "link": "/case-studies/jak-expando-objevilo-skryty-talent"
+      }
+    },
+    "chybne-nabory": {
+      "title": "New hires leaving after probation?",
+      "subtitle": "73% of people leave due to culture mismatch. Find out in 4 minutes — before they start.",
+      "hero_stat": "73%",
+      "hero_stat_label": "of early leavers go due to culture mismatch",
+      "data": {
+        "title": "Why do new hires leave?",
+        "items": [
+          { "stat": "73%", "text": "of early departures are due to culture mismatch (SHRM)" },
+          { "stat": "50%", "text": "of new hires consider leaving in the first 18 months (Gallup)" },
+          { "stat": "2×", "text": "more expensive to hire someone new than retain existing talent (SHRM)" }
+        ]
+      },
+      "solution": {
+        "title": "Check culture fit before they even start",
+        "steps": [
+          { "title": "Culture Fit screening", "text": "4-minute AI chat reveals how a candidate fits your company culture." },
+          { "title": "Onboarding pulse", "text": "Monthly check-in for new hires. See if they're adapting or about to leave." },
+          { "title": "Hiring data", "text": "Learn which profiles thrive in your company — and which don't." }
+        ]
+      },
+      "alternatives": {
+        "title": "Why the standard hiring process isn't enough",
+        "items": [
+          { "method": "Resume + interview", "problem": "Reveals skills, not culture fit. 73% of early departures are about culture." },
+          { "method": "Reference checks", "problem": "Former employers say the best things. Not the truth." },
+          { "method": "Probation period", "problem": "3 months of salary + onboarding. Then you find out it doesn't work." },
+          { "method": "Assessment centers", "problem": "Expensive, slow, candidates find them off-putting." }
+        ]
+      },
+      "urgency": {
+        "title": "Every bad hire costs you double",
+        "text": "Onboarding. Training. 3 months of probation. Departure. New hire. The whole cycle again. Meanwhile the team carries the load for the missing person. Culture Fit stops it — in 4 minutes.",
+        "stat": "2×",
+        "statLabel": "more expensive to hire new vs. retaining existing talent"
+      },
+      "testimonials": [
+        { "quote": "Since implementing Culture Fit screening, our early attrition dropped by 14%.", "author": "HR Director", "company": "365.bank" },
+        { "quote": "We finally know if a candidate fits our culture — before they even start.", "author": "People & Culture", "company": "Prusa Research" }
+      ],
+      "caseStudy": {
+        "company": "365.bank",
+        "size": "400+ employees",
+        "quote": "−14% turnover. +36% faster hiring. Data helped us rethink our entire hiring process.",
+        "metric": "+36% faster hiring",
+        "link": "/case-studies/how-behaveras-data-helped-365-bank-achieve-a-successful-digital-transformation"
+      }
+    },
+    "rust-firmy": {
+      "title": "Company growing and losing oversight?",
+      "subtitle": "What worked with 20 people doesn't work with 80. And with 200 it's even worse. Behavera gives you back control.",
+      "hero_stat": "60%",
+      "hero_stat_label": "engagement in manufacturing — Prusa Research, 1,000+ people",
+      "data": {
+        "title": "Why does scaling kill company culture?",
+        "items": [
+          { "stat": "46%", "text": "of companies lose their culture during rapid growth (Deloitte)" },
+          { "stat": "3×", "text": "harder to communicate company values when the team doubles" },
+          { "stat": "67%", "text": "of employees in growing companies feel disconnected from leadership (Gallup)" }
+        ]
+      },
+      "solution": {
+        "title": "Full oversight even at 1,000+ people",
+        "steps": [
+          { "title": "Scalable pulse", "text": "Same system for 30 or 3,000 people. Slack, WhatsApp, email." },
+          { "title": "Segmentation", "text": "Dashboard by department, location, manager. See exactly where the problem is." },
+          { "title": "Trends over time", "text": "Track how culture changes as you grow. Month by month." }
+        ]
+      },
+      "alternatives": {
+        "title": "Why scaling without data fails",
+        "items": [
+          { "method": "Town halls", "problem": "100+ people in a room. Nobody says what they really think." },
+          { "method": "Manager reporting", "problem": "Every manager filters information. CEO gets a distorted picture." },
+          { "method": "Consultants", "problem": "Expensive, slow, come once and leave with a PowerPoint." },
+          { "method": "Founder's intuition", "problem": "Worked with 20 people. With 200 you're too far from the frontline." }
+        ]
+      },
+      "urgency": {
+        "title": "Culture doesn't scale by itself",
+        "text": "Every new hire either strengthens or dilutes your culture. Without measurement you don't know what's happening — until it's too late. Prusa Research solved it in 3 minutes. For 1,000+ people.",
+        "stat": "46%",
+        "statLabel": "of companies lose their culture during rapid growth"
+      },
+      "testimonials": [
+        { "quote": "In 3 minutes we had a clear picture of engagement across 1,000+ people. That used to take weeks.", "author": "People & Culture", "company": "Prusa Research" },
+        { "quote": "As we grew, we were losing oversight. Behavera gave it back.", "author": "CEO", "company": "Expando" }
+      ],
+      "caseStudy": {
+        "company": "Prusa Research",
+        "size": "1,000+ employees",
+        "quote": "In 3 minutes we had a clear picture of engagement across 1,000+ people. That used to take weeks.",
+        "metric": "60% engagement",
+        "link": "/case-studies/za-3-minuty-jasno-jak-na-employer-branding"
+      }
+    },
+    "novy-ceo": {
+      "title": "New CEO? The first 90 days decide everything.",
+      "subtitle": "You need to understand the company, teams, and hidden tensions. Fast. Without data, you're flying blind.",
+      "hero_stat": "48h",
+      "hero_stat_label": "to get your first data on the entire company",
+      "data": {
+        "title": "Why are the first 90 days critical?",
+        "items": [
+          { "stat": "90 days", "text": "is what a new CEO has to earn trust and set direction (HBR)" },
+          { "stat": "40%", "text": "of new leaders fail within the first 18 months (CEB/Gartner)" },
+          { "stat": "#1", "text": "reason for failure: not understanding company culture and hidden dynamics" }
+        ]
+      },
+      "solution": {
+        "title": "Company under control in hours, not months",
+        "steps": [
+          { "title": "Rapid pulse", "text": "Within 48 hours you have data from the entire company. Unfiltered by management." },
+          { "title": "Tension map", "text": "See where problems are, who is key, and where departures are brewing." },
+          { "title": "Prioritization", "text": "AI tells you what to tackle first. Data for your first 90-day strategy." }
+        ]
+      },
+      "alternatives": {
+        "title": "Why the standard CEO onboarding doesn't work",
+        "items": [
+          { "method": "Management meetings", "problem": "Filtered information. Everyone wants to make a good impression." },
+          { "method": "Company documents", "problem": "Show how things should be. Not how they are." },
+          { "method": "Consultants", "problem": "Months of work, tens of thousands. And conclusions that quickly become stale." },
+          { "method": "Field visits", "problem": "Subjective. And you don't have time to visit 200 people." }
+        ]
+      },
+      "urgency": {
+        "title": "The first 90 days determine your success",
+        "text": "40% of new leaders fail. #1 reason? Not understanding company culture. You don't have time for months of discovery. Behavera gives you the full picture in 48 hours.",
+        "stat": "40%",
+        "statLabel": "of new leaders fail within the first 18 months"
+      },
+      "testimonials": [
+        { "quote": "New leadership needed to understand the company fast. Behavera gave us the picture in 48 hours.", "author": "CEO", "company": "Valxon" },
+        { "quote": "As a new CEO, Behavera told me what to fix before I'd even spoken to everyone.", "author": "CEO", "company": "Vodafone CZ" }
+      ],
+      "caseStudy": {
+        "company": "Valxon",
+        "size": "30+ employees",
+        "quote": "New leadership needed to understand the company fast. Behavera gave us the picture in 48 hours.",
+        "metric": "+25% satisfaction",
+        "link": "/case-studies/nove-vedeni-a-stiznosti-na-penize"
+      }
+    }
+  },
+  "personas": {
+    "shared": {
+      "ctaPrimary": "Try for free",
+      "ctaSecondary": "Book a demo",
+      "ctaTrust": "No credit card · 14-day free trial · GDPR compliant",
+      "problemsLabel": "Problems",
+      "solutionLabel": "Solution",
+      "dashboardLabel": "Dashboard",
+      "testimonialLabel": "Testimonial",
+      "back": "Back to homepage"
+    },
+    "ceo": {
+      "title": "Your people are leaving. And you're the last to know.",
+      "subtitle": "As CEO, you get filtered information. Behavera gives you an unfiltered picture of what's really happening — before it ends in a resignation.",
+      "problems": [
+        {
+          "stat": "67%",
+          "text": "of employees leave because of their direct manager — not money. But you won't see that in HR reports."
+        },
+        {
+          "stat": "€45,000",
+          "text": "is the cost of replacing one key employee. Recruiting, onboarding, lost know-how. And it keeps repeating."
+        },
+        {
+          "stat": "3–6 months",
+          "text": "before a team problem shows up in results. By then it's too late. The damage is irreversible."
+        }
+      ],
+      "features": [
+        {
+          "icon": "BarChart3",
+          "title": "Unfiltered overview",
+          "text": "See mood and risks across the entire company — without management bias."
+        },
+        {
+          "icon": "AlertTriangle",
+          "title": "Early warning system",
+          "text": "AI detects crisis signals months ahead. No surprises at the board meeting."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Data-driven decisions",
+          "text": "Strategic decisions backed by hard data, not feelings and assumptions."
+        },
+        {
+          "icon": "Shield",
+          "title": "ROI in numbers",
+          "text": "Average savings of €11K/quarter on reduced turnover. Investment pays back in 2 months."
+        }
+      ],
+      "dashboardTitle": "Your CEO dashboard",
+      "dashboardText": "One view of the entire company. No Excel, no waiting for HR reports.",
+      "testimonial": {
+        "quote": "For the first time I saw the real picture of my company. Not what people wanted to tell me, but what was actually happening. It saved us two key people.",
+        "author": "Martin Novák",
+        "role": "CEO, tech company (85 employees)"
+      },
+      "ctaTitle": "Every day without data is costing you money.",
+      "ctaText": "Find out what's really happening in your company. First results in 48 hours."
+    },
+    "hr": {
+      "title": "30% survey response rate. And leadership wants numbers.",
+      "subtitle": "You spend weekends in Excel analyzing data nobody reads. Behavera gives you 80%+ response rate and AI analysis — instantly.",
+      "problems": [
+        {
+          "stat": "30%",
+          "text": "response rate on traditional surveys. Results are unrepresentative and leadership doesn't trust them."
+        },
+        {
+          "stat": "6+ hours",
+          "text": "spent analyzing each round. Export, Excel, charts, presentations. And nobody reads it anyway."
+        },
+        {
+          "stat": "73%",
+          "text": "of HR managers say they lack hard data for strategic decisions. The board wants numbers, you have impressions."
+        }
+      ],
+      "features": [
+        {
+          "icon": "MessageSquare",
+          "title": "2-minute chat instead of forms",
+          "text": "AI chatbot that employees actually enjoy. 80%+ response rate from month one."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "Real-time AI analysis",
+          "text": "No Excel. Dashboard with automatic recommendations — now, not in 3 months."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Hard data for the board",
+          "text": "Trends, benchmarks, predictions. Finally you have arguments leadership understands."
+        },
+        {
+          "icon": "Shield",
+          "title": "Psychologist-designed methodology",
+          "text": "Validated questions. No guessing. Scientifically backed results."
+        }
+      ],
+      "dashboardTitle": "Your HR dashboard",
+      "dashboardText": "Overview of all teams, trends, and risks. Zero manual work.",
+      "testimonial": {
+        "quote": "Finally I have data the board trusts. Response rate jumped from 28% to 84% in the first month. And I saved 2 days of work per month.",
+        "author": "Petra Svobodová",
+        "role": "HR Director, manufacturing company (200 employees)"
+      },
+      "ctaTitle": "Another survey with 30% response rate?",
+      "ctaText": "Stop guessing. Start measuring. First results in 48 hours."
+    },
+    "manazer": {
+      "title": "Your best person will resign tomorrow. And you have no idea.",
+      "subtitle": "As a manager, you're responsible for team performance, but you don't have a tool that tells you what's really going on inside it.",
+      "problems": [
+        {
+          "stat": "52%",
+          "text": "of managers say they don't know what's troubling their people. 1-on-1s aren't enough — people won't tell you the truth."
+        },
+        {
+          "stat": "€28,000",
+          "text": "is the cost of one team member leaving. Recruiting, onboarding, lost productivity."
+        },
+        {
+          "stat": "4 out of 5",
+          "text": "departures could have been prevented. But only if you catch the problem early — not at the exit interview."
+        }
+      ],
+      "features": [
+        {
+          "icon": "Users",
+          "title": "Anonymous feedback",
+          "text": "People tell the truth because they can. 100% anonymity = 100% honesty."
+        },
+        {
+          "icon": "AlertTriangle",
+          "title": "Burnout signals",
+          "text": "Know who's on the edge of burnout. Before the resignation, not after."
+        },
+        {
+          "icon": "Target",
+          "title": "Specific recommendations",
+          "text": "What to change. Who to praise. Where to ease off. AI tells you exactly what to do."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Team trend tracking",
+          "text": "Watch if things are improving. Month by month, hard data."
+        }
+      ],
+      "dashboardTitle": "Your manager dashboard",
+      "dashboardText": "Your team at a glance. No guesswork.",
+      "testimonial": {
+        "quote": "Thanks to Behavera I found out my best developer was considering leaving. I adjusted his workload and today he's a team lead. Without data I would have lost him.",
+        "author": "Jakub Kříž",
+        "role": "Engineering Manager, SaaS startup (40 employees)"
+      },
+      "ctaTitle": "How many people will you lose before you start measuring?",
+      "ctaText": "Stop guessing your team's mood. Start measuring it — in 2 minutes."
+    },
+    "team-lead": {
+      "title": "They say \"it's fine.\" It's not.",
+      "subtitle": "As team lead, you're closest to your people. But even so, they won't tell you everything. Behavera gives you anonymous truth — before the problem escalates.",
+      "problems": [
+        {
+          "stat": "85%",
+          "text": "of employees won't tell their team lead about a problem directly. They fear conflict or consequences."
+        },
+        {
+          "stat": "2.5×",
+          "text": "higher productivity in teams where people feel psychologically safe. Without feedback, you can't build safety."
+        },
+        {
+          "stat": "6 weeks",
+          "text": "on average before a team problem surfaces externally. By then it's too late for prevention."
+        }
+      ],
+      "features": [
+        {
+          "icon": "MessageSquare",
+          "title": "Team pulse check",
+          "text": "Short AI chat once a month. Your people respond — because it's anonymous and takes 2 minutes."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "Real-time mood",
+          "text": "See how your team feels. No assumptions, no \"I think it's ok\"."
+        },
+        {
+          "icon": "Target",
+          "title": "Action steps",
+          "text": "AI tells you what specifically to do. Not generic advice — specific steps for your team."
+        },
+        {
+          "icon": "Shield",
+          "title": "Team trust",
+          "text": "People see their feedback leads to changes. Trust grows, team performs better."
+        }
+      ],
+      "dashboardTitle": "Your team dashboard",
+      "dashboardText": "Clear view of mood and risks in your team.",
+      "testimonial": {
+        "quote": "I was surprised how much my people weren't telling me. Behavera opened my eyes. In one month I resolved three problems I didn't know existed.",
+        "author": "Lucie Malá",
+        "role": "Team Lead, marketing agency (15 people)"
+      },
+      "ctaTitle": "Your team isn't telling you everything.",
+      "ctaText": "Find out what they really think. Anonymously, safely, in 2 minutes."
+    }
+  }
+}

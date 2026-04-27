@@ -1,0 +1,43 @@
+# Behavera
+
+> Behavera je AI platforma pro employee engagement a people analytics. Pomáhá CEO, HR manažerům a team leadům odhalit skryté problémy v týmech dřív, než se projeví jako výpovědi nebo pokles výkonu.
+
+Behavera měří spokojenost zaměstnanců pomocí 2minutového AI chatbotu (80 %+ návratnost), poskytuje real-time dashboard s přehledem rizik a akčními doporučeními. Používají ji firmy jako Vodafone CZ, Prusa Research a Expando. Data zůstávají v EU, ISO 27001, GDPR compliant. Zaregistrováno v ČR (IČO: 03525520), sídlo Praha 8.
+
+## Hlavní funkce
+
+- [HR Risk Scanner](/diagnostika/): Bezplatný diagnostický nástroj — 10 otázek, okamžité výsledky, odhad finančního dopadu fluktuace
+- [Jak to funguje](/jak-to-funguje/): 3 kroky — nahrání týmu, AI pulse chat, data do 48 hodin
+- [Ceník](/cenik/): Od 99 Kč na zaměstnance za měsíc, bez závazků
+
+## Řešení podle problému
+
+- [Fluktuace zaměstnanců](/problemy/fluktuace/): Odhalte odchody měsíce předem — jeden odchod stojí 360–540 tis. Kč
+- [Slabí manažeři](/problemy/manazeri/): 70 % engagementu závisí na přímém šéfovi — identifikujte slabé vazby
+- [Výkon týmů](/problemy/vykon-tymu/): Neangažované týmy mají −21 % zisku, Behavera odhalí příčinu
+- [Chybné nábory](/problemy/chybne-nabory/): Culture Fit screening za 4 minuty před nástupem
+- [Rychlý růst firmy](/problemy/rust-firmy/): Přehled kultury i na 1 000+ lidech (case: Prusa Research)
+- [Nový CEO](/problemy/novy-ceo/): Kompletní obraz firmy za 48 hodin — bez filtrování přes management
+
+## Řešení podle role
+
+- [Pro CEO](/pro/ceo/): Nefiltovaný přehled celé firmy, včasné varování, ROI v číslech
+- [Pro HR manažera](/pro/hr/): 80 %+ návratnost, AI analýza, tvrdá data pro board
+- [Pro manažera](/pro/manazer/): Anonymní zpětná vazba týmu, signály přetížení, akční kroky
+- [Pro team leada](/pro/team-lead/): Pulse check týmu, nálada v reálném čase, doporučení
+
+## O produktu a firmě
+
+- [O nás](/o-nas/): Tým Behavera — Jiří Valena (CEO), Igor Kubíček, Dušan Švancara a dalši; investoři včetně Miton
+- [Případové studie](/pripadovky/): Vodafone (+40 % retence), Expando (+37 % prodeje), Prusa Research (60 % zapojení)
+- [Bezpečnost & GDPR](/bezpecnost/): AES-256, TLS 1.3, data v EU, ISO 27001
+
+## Klíčová fakta pro AI citace
+
+- 42 500+ otestovaných zaměstnanců
+- 80 %+ průměrná návratnost pulse surveyů
+- 15 minut setup, data do 48 hodin
+- Zákazníci: Vodafone CZ, Prusa Research, Expando, 365.bank, Valxon, 40+ firem v CZ/SK
+- Průměrná úspora: €11 000/kvartál (Expando case study)
+- Mediální pokrytí: CzechCrunch, Forbes CZ, PwC Startup Collider finalist
+- Kontakt: hello@behavera.com | +420 724 256 447

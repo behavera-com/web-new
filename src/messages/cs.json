@@ -1,0 +1,1308 @@
+{
+  "common": {
+    "more": "Více",
+    "less": "Méně",
+    "source": "Zdroj",
+    "readMore": "Číst více"
+  },
+  "labels": {
+    "trustedBy": "Důvěřuje nám",
+    "challenges": "Vaše výzvy",
+    "hiddenCosts": "Skryté náklady",
+    "howItWorks": "Jak to funguje",
+    "topics": "Co měříme",
+    "roles": "Pro každou roli",
+    "dashboard": "Produkt",
+    "comparison": "Srovnání",
+    "caseStudies": "Ověřené výsledky",
+    "pricing": "Investice",
+    "faq": "Časté dotazy"
+  },
+  "meta": {
+    "title": "Lidé vám to neřeknou. Data ano. | Behavera",
+    "description": "Behavera je AI platforma pro employee engagement a people analytics. Odhalí odchody dřív než výpověď, měří spokojenost zaměstnanců a výkon týmů. Výsledky za 2 minuty, 80 %+ návratnost."
+  },
+  "pages": {
+    "howItWorks": {
+      "seoTitle": "Od otázky po akční plán za 48 hodin"
+    },
+    "caseStudies": {
+      "seoTitle": "Reálné výsledky, ne sliby"
+    },
+    "pricing": {
+      "seoTitle": "Investice, která se vrátí do 3 měsíců"
+    },
+    "demo": {
+      "seoTitle": "30 minut, které změní váš přístup k lidem"
+    },
+    "diagnostika": {
+      "seoTitle": "Jak zdravá je vaše firma?",
+      "seoDescription": "Zjistěte za 90 sekund, kde vám hrozí ztráta klíčových lidí. 10 otázek, okamžité výsledky, odhad finančního dopadu.",
+      "ogTitle": "Jak zdravá je vaše firma?",
+      "ogDescription": "Rychlá diagnostika: kde ztrácíte lidi, výkon a peníze."
+    }
+  },
+  "nav": {
+    "claim": "Lidé vám to neřeknou. Data ano.",
+    "product": "Produkt",
+    "solutions": "Řešení",
+    "problems": "Problémy",
+    "howItWorks": "Jak to funguje",
+    "caseStudies": "Případovky",
+    "pricing": "Ceník",
+    "cta": "Vyzkoušet zdarma",
+    "login": "Přihlásit se",
+    "byProblem": "Podle problému",
+    "byRole": "Podle role",
+    "productMenu": {
+      "echoPulse": "Echo Pulse",
+      "echoPulseDesc": "Vlajkový produkt — pulse survey s AI",
+      "howItWorks": "Jak to funguje",
+      "howItWorksDesc": "3 jednoduché kroky k prvním datům",
+      "features": "Funkce a dashboard",
+      "featuresDesc": "Přehled měření a analytiky",
+      "integrations": "Integrace",
+      "integrationsDesc": "Email, Slack, SMS, API a další",
+      "security": "Bezpečnost & GDPR",
+      "securityDesc": "ISO 27001, AES-256, data v EU"
+    },
+    "roleLabels": {
+      "ceo": "CEO / Majitel",
+      "hr": "HR manažer",
+      "manager": "Manažer",
+      "teamLead": "Team Lead"
+    }
+  },
+  "nav_problems": {
+    "turnover": "Fluktuace",
+    "managers": "Slabí manažeři",
+    "performance": "Výkon týmů",
+    "newCeo": "Nový CEO",
+    "growth": "Firma roste",
+    "hiring": "Chybné nábory"
+  },
+  "hero": {
+    "label": "Vyvinuto CEO pro CEO",
+    "headlines": [
+      "Nevíte, kdo zítra podá výpověď.",
+      "Jeden špatný manažer vás stojí miliony. Ročně.",
+      "Vaše nejlepší lidi právě teď někdo přetahuje."
+    ],
+    "subheadline": "AI pulse survey, který odhalí skryté problémy ve firmě. Dřív, než je uvidíte na stole jako výpověď.",
+    "ctaPrimary": "Spustit zdarma",
+    "ctaSecondary": "Chci demo",
+    "trust": "15 minut setup · Bez karty · První data do 48 hodin",
+    "socialProof": "Vodafone. Prusa Research. Expando. 40+ firem v CZ/SK.",
+    "stats": "42 500+ lidí | 80 %+ návratnost | GDPR | Data v EU",
+    "miniTestimonial": {
+      "quote": "Ušetřili jsme 11 000 € za kvartál a prodeje vzrostly o 37 %.",
+      "author": "Dominik Hegedus",
+      "role": "CEO, Expando"
+    }
+  },
+  "logos": {
+    "title": "Důvěřuje nám"
+  },
+  "testimonials": {
+    "title": "Co říkají naši klienti",
+    "items": [
+      {
+        "quote": "Díky Behavera jsme objevili skrytý talent v týmu a prodeje vzrostly o 37 %. Ušetřili jsme 11 000 € za kvartál.",
+        "author": "Dominik Hegedus",
+        "role": "CEO",
+        "company": "Expando",
+        "image": "",
+        "videoUrl": ""
+      },
+      {
+        "quote": "Konečně víme, co se v týmech doopravdy děje. Žádné hádání — jen data a jasné kroky.",
+        "author": "HR Director",
+        "role": "HR",
+        "company": "365.bank",
+        "image": "",
+        "videoUrl": ""
+      },
+      {
+        "quote": "Za 3 minuty jsme měli jasný obraz zapojení 1 000+ lidí. Dřív nám to trvalo týdny.",
+        "author": "People & Culture",
+        "role": "HR",
+        "company": "Prusa Research",
+        "image": "",
+        "videoUrl": ""
+      },
+      {
+        "quote": "Behavera nám dává přehled o náladě v týmech v reálném čase. Konečně máme data, ne jen pocity.",
+        "author": "Verča Nováková",
+        "role": "HR manažerka",
+        "company": "Behavera",
+        "image": ""
+      }
+    ]
+  },
+  "videoTestimonials": {
+    "title": "Poslechněte si příběhy našich klientů",
+    "subtitle": "Reálné zkušenosti firem, které Behavera změnila",
+    "items": [
+      {
+        "author": "Dominik Hegedus",
+        "role": "CEO",
+        "company": "Expando",
+        "quote": "Ušetřili jsme 11 000 € za kvartál a prodeje vzrostly o 37 %.",
+        "videoUrl": ""
+      },
+      {
+        "author": "HR Director",
+        "role": "HR",
+        "company": "Vodafone CZ",
+        "quote": "Zachytili jsme 3 připravované odchody. Dva se nám podařilo zvrátit.",
+        "videoUrl": ""
+      },
+      {
+        "author": "People & Culture",
+        "role": "HR",
+        "company": "Prusa Research",
+        "quote": "Za 3 minuty jsme měli jasný obraz zapojení 1 000+ lidí.",
+        "videoUrl": ""
+      }
+    ],
+    "playVideo": "Přehrát video",
+    "comingSoon": "Video brzy"
+  },
+  "chat": {
+    "title": "Potřebujete poradit?",
+    "subtitle": "Jsme tu pro vás",
+    "placeholder": "Napište nám zprávu...",
+    "send": "Odeslat",
+    "online": "Online"
+  },
+  "metrics": {
+    "tested": "lidí otestováno",
+    "returnRate": "návratnost",
+    "fillTime": "na vyplnění",
+    "salesGrowth": "prodeje (Expando)",
+    "satisfaction": "spokojenost (Valxon)",
+    "engagement": "zapojení (Prusa, 1 000+ lidí)"
+  },
+  "problems": {
+    "title": "Který z těchto problémů máte?",
+    "subtitle": "Klikněte. Ukážeme řešení.",
+    "cards": [
+      {
+        "headline": "Odcházejí vám lidé?",
+        "stat": "Jeden odchod = 360–540 tis. Kč",
+        "text": "Výpověď je symptom. Příčina vznikla před měsíci. Behavera ji zachytí.",
+        "link": "/problemy/fluktuace"
+      },
+      {
+        "headline": "Špatní manažeři?",
+        "stat": "70 % engagementu = šéf",
+        "text": "Lidé neodcházejí z firem. Odcházejí od šéfů.",
+        "link": "/problemy/manazeri"
+      },
+      {
+        "headline": "Týmy nefungují?",
+        "stat": "−21 % zisk u demotivovaných týmů",
+        "text": "Vypadají normálně. Jen nedodávají. A vy to nevíte.",
+        "link": "/problemy/vykon-tymu"
+      },
+      {
+        "headline": "Noví lidé odcházejí?",
+        "stat": "73 % kvůli nesouladu s kulturou",
+        "text": "Culture Fit to zjistí za 4 minuty. Před nástupem.",
+        "link": "/problemy/chybne-nabory"
+      },
+      {
+        "headline": "Rostete a ztrácíte kontrolu?",
+        "stat": "Prusa: 1 000+ lidí, 60 % zapojení",
+        "text": "Co fungovalo s 20 lidmi, nefunguje s 80.",
+        "link": "/problemy/rust-firmy"
+      },
+      {
+        "headline": "Nový CEO? 90 dní rozhoduje.",
+        "stat": "Firma pod kontrolou za hodiny",
+        "text": "Bez dat střílíte naslepo.",
+        "link": "/problemy/novy-ceo"
+      }
+    ]
+  },
+  "costs": {
+    "title": "Kolik vás stojí nevědět?",
+    "subtitle": "Tři čísla, která změní váš pohled na people management.",
+    "cards": [
+      {
+        "label": "FLUKTUACE",
+        "stat": "6–9×",
+        "text": "Tolik měsíčních platů stojí náhrada jednoho člověka. Know-how odejde s ním.",
+        "source": "SHRM, Gallup"
+      },
+      {
+        "label": "VÝKON",
+        "stat": "−21%",
+        "text": "O tolik nižší zisk mají neangažované týmy. Vypadají normálně. Jen nedodávají.",
+        "source": "Gallup"
+      },
+      {
+        "label": "MANAŽER",
+        "stat": "70%",
+        "text": "Engagementu závisí na přímém šéfovi. Jeden špatný manažer = jeden mrtvý tým.",
+        "source": "Gallup"
+      }
+    ],
+    "cta": "Zjistit, jak na tom jsme",
+    "bottom": "Dnes hádáte. Zítra budete vědět.",
+    "bottomSub": "Bez Behavera: reagujete na výpovědi. S Behavera: vidíte rizika měsíce předem.",
+    "bottomQuote": "Zachytili jsme burnout dřív, než způsobil odchod. +25 % spokojenost za kvartál.",
+    "bottomQuoteAuthor": "Karel, CEO, Valxon"
+  },
+  "howItWorks": {
+    "title": "15 minut. A víte.",
+    "cta": "Spustit za 15 minut",
+    "subtitle": "Žádné formuláře. AI chat, 2 minuty, 80 %+ lidí odpoví. Opakovaně.",
+    "quote": "Za 3 minuty jsme měli jasno. 60 % zapojení ve výrobě, 1 000+ lidí.",
+    "quoteAuthor": "Prusa Research, 1 000+ zaměstnanců",
+    "steps": [
+      {
+        "title": "Nahrajte seznam lidí",
+        "text": "15 minut. Slack, WhatsApp nebo e-mail."
+      },
+      {
+        "title": "2min AI chat místo dotazníku",
+        "text": "Otázky od psychologů. Lidi to baví."
+      },
+      {
+        "title": "Data do 48 hodin. Co dělat. Hned.",
+        "text": "Žádný Excel. AI řekne co řešit a proč. První výsledky máte do 2 dnů."
+      }
+    ]
+  },
+  "topics": {
+    "title": "Co měříme",
+    "subtitle": "18 oblastí. Ověřeno na 42 500+ lidech.",
+    "items": [
+      { "name": "Pulse týmu", "description": "Zdraví a dynamika týmu." },
+      { "name": "Odměny", "description": "Férovost odměňování." },
+      { "name": "Benefity", "description": "Co lidi skutečně oceňují." },
+      { "name": "Podmínky", "description": "Prostředí a vybavení." },
+      { "name": "Zátěž", "description": "Kde hrozí burnout." },
+      { "name": "Feedback", "description": "Kvalita zpětné vazby." },
+      { "name": "Vyhoření", "description": "Včasná detekce." },
+      { "name": "Kultura", "description": "Hodnoty vs. realita." },
+      { "name": "AI v práci", "description": "Připravenost na AI." },
+      { "name": "Růst", "description": "Osobní a profesní." },
+      { "name": "Změny", "description": "Zvládání změn." },
+      { "name": "Komunikace", "description": "Interní informovanost." },
+      { "name": "Inovace", "description": "Prostor pro nápady." },
+      { "name": "Leadership", "description": "Důvěra ve vedení." },
+      { "name": "Priority", "description": "Jasnost směru." },
+      { "name": "Remote & hybrid", "description": "Jak se cítí vzdálené a hybridní týmy." },
+      { "name": "Uznání", "description": "Cítí se lidé oceněni za svůj přínos?" },
+      { "name": "eNPS", "description": "Doporučili by vaši lidé firmu jako zaměstnavatele?" }
+    ],
+    "cta": "Vyzkoušet"
+  },
+  "roles": {
+    "title": "Co z toho má každý?",
+    "cta": "Spustit pro svůj tým",
+    "tabs": [
+      {
+        "role": "CEO",
+        "headline": "Zjistíte, co vám nikdo neřekne.",
+        "points": [
+          "Přehled bez filtrování přes management",
+          "Problémy měsíce předem, ne na exit interview",
+          "Data, ne dojmy"
+        ]
+      },
+      {
+        "role": "HR",
+        "headline": "Data místo dojmů.",
+        "points": [
+          "80 % návratnost vs. 30 % u průzkumů",
+          "AI analýza, ne víkendy v Excelu",
+          "Tvrdá čísla pro board"
+        ]
+      },
+      {
+        "role": "Team Lead",
+        "headline": "Víte, co vaši lidé potřebují?",
+        "points": [
+          "Co změnit. Koho pochválit. Kde ubrat.",
+          "Anonymní pravda od lidí",
+          "Přetížení zachytíte dřív než výpověď"
+        ]
+      },
+      {
+        "role": "Zaměstnanec",
+        "headline": "Váš hlas je slyšet. A má dopad.",
+        "points": [
+          "100% anonymita — nikdo vaše odpovědi nedohledá",
+          "2 minuty v chatu, ne 30minutový formulář",
+          "Vaše zpětná vazba vede k reálným změnám — ne k dalšímu zapomenutému průzkumu"
+        ]
+      }
+    ]
+  },
+  "dashboard": {
+    "title": "Jeden dashboard. Nula hádání.",
+    "subtitle": "Všechno na jednom místě. Okamžitě.",
+    "features": [
+      {
+        "title": "Nálada podle týmů",
+        "text": "Oddělení. Lokality. Manažeři. Okamžitě vidíte problém."
+      },
+      {
+        "title": "Varování",
+        "text": "Přetížení. Napětí. Pokles energie. Dřív než odchody."
+      },
+      {
+        "title": "Co řešit první",
+        "text": "AI seřadí priority podle dopadu na byznys."
+      }
+    ]
+  },
+  "comparison": {
+    "title": "Excel a intuice vs. Behavera",
+    "subtitle": "−6 hodin na každém kole. 2× víc odpovědí.",
+    "headers": ["", "Dnes", "S Behavera"],
+    "rows": [
+      ["Návratnost", "30–40 %", "80 %+"],
+      ["Analýza", "Excel, nikdo to nečte", "AI dashboard, hned"],
+      ["Otázky", "Bez validace", "Od psychologů"],
+      ["Frekvence", "1× ročně, výsledky za 3 měsíce", "Každý měsíc, hned"]
+    ],
+    "quote": "Díky Behavera jsme objevili skrytý talent v týmu a prodeje vzrostly o 37 %. Za kvartál jsme ušetřili €11K.",
+    "quoteAuthor": "Dominik Hegedus, CEO, Expando",
+    "cta": "Zkusit zdarma"
+  },
+  "caseStudies": {
+    "label": "Ověřené výsledky",
+    "title": "Čísla, ne sliby.",
+    "subtitle": "+37 % prodeje. −14 % fluktuace. +80 % tržby na hovor. Reálné firmy.",
+    "cases": [
+      {
+        "company": "Prusa Research",
+        "segment": "Technologie",
+        "size": "1000+",
+        "metrics": "60 % zapojení ve výrobě. Za 3 minuty.",
+        "link": "/case-studies/za-3-minuty-jasno-jak-na-employer-branding"
+      },
+      {
+        "company": "Expando",
+        "segment": "E-Commerce",
+        "size": "50+",
+        "metrics": "+37 % prodeje. €11K ušetřeno/kvartál.",
+        "link": "/case-studies/jak-expando-objevilo-skryty-talent"
+      },
+      {
+        "company": "Valxon",
+        "segment": "Rekl. předměty",
+        "size": "30+",
+        "metrics": "+25 % spokojenost. 1 burnout zachycen.",
+        "link": "/case-studies/nove-vedeni-a-stiznosti-na-penize"
+      },
+      {
+        "company": "Vodafone CZ",
+        "segment": "Telekomunikace",
+        "size": "1500+",
+        "metrics": "+40 % retence. +80 % tržby/hovor.",
+        "link": "/case-studies/from-data-to-action-how-vodafone-increased-sales-by-80-and-cut-attrition-by-40"
+      },
+      {
+        "company": "365.bank",
+        "segment": "Bankovnictví",
+        "size": "400+",
+        "metrics": "−14 % fluktuace. +36 % rychlejší nábor.",
+        "link": "/case-studies/how-behaveras-data-helped-365-bank-achieve-a-successful-digital-transformation"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Levnější než jeden odchod.",
+    "subtitle": "Jeden odchod = 360–540 tis. Kč. Behavera pro celou firmu = zlomek.",
+    "monthly": "Měsíčně",
+    "yearly": "Ročně (−20 %)",
+    "employees": "lidí",
+    "perEmployee": "Kč / člověk / měsíc",
+    "features": [
+      "AI analýza 24/7",
+      "Neomezené pulzy",
+      "Dashboard pro CEO, HR, manažery",
+      "Doporučení k akci",
+      "Onboarding zdarma",
+      "Slack, WhatsApp integrace",
+      "Export dat"
+    ],
+    "roi": "50 lidí = 4 950 Kč/měsíc. Zachráníte 1 člověka ročně = 10× návratnost.",
+    "roiTitle": "Návratnost investice",
+    "roiTurnoverCost": "Průměrné náklady na odchod zaměstnance",
+    "roiTurnoverRange": "360 000 – 540 000 Kč",
+    "roiBehaveraCost": "Roční investice do Behavera",
+    "roiSaved": "Zachráníte-li 1 člověka ročně",
+    "roiReturn": "návratnost",
+    "roiNote": "Zdroj: SHRM, průměr ČR pro pozice 40–80 tis. Kč/měsíc",
+    "ctaPrimary": "Zkusit zdarma",
+    "ctaSecondary": "Objednat",
+    "savingsPrefix": "Ušetříte",
+    "savingsSuffix": "Kč/rok",
+    "perMonth": "/ měsíc",
+    "setupTitle": "Nastavení tarifu",
+    "companySize": "Velikost firmy",
+    "popular": "Nejoblíbenější",
+    "estimateTitle": "Odhad investice"
+  },
+  "faq": {
+    "title": "Otázky a odpovědi",
+    "filters": ["Vše", "Produkt", "Data/Bezpečnost", "Setup"],
+    "items": [
+      {
+        "question": "Bude to lidi otravovat?",
+        "answer": "2 minuty. Chat, ne formulář. 80 %+ lidí vyplní rádo. Opakovaně.",
+        "category": "Produkt"
+      },
+      {
+        "question": "Složitý setup?",
+        "answer": "15 minut. Nahrajte lidi, zvolte kanál. Hotovo.",
+        "category": "Setup"
+      },
+      {
+        "question": "Je to anonymní?",
+        "answer": "Ano. Data agregovaná na úrovni týmu. Nikdo nepřiřadí odpověď k člověku. Proto odpovídají upřímně.",
+        "category": "Data/Bezpečnost"
+      },
+      {
+        "question": "Přidělá to práci?",
+        "answer": "Ušetří. Dashboard říká co, kde a proč. Žádné tabulky.",
+        "category": "Produkt"
+      },
+      {
+        "question": "Co když výsledky nebudou hezké?",
+        "answer": "Proto Behavera existuje. Problém, o kterém nevíte, vyřešit nemůžete.",
+        "category": "Produkt"
+      },
+      {
+        "question": "Další HR nástroj?",
+        "answer": "Ne. Diagnostika pro vedení firmy. CEO, HR, team leadi. Data místo dojmů.",
+        "category": "Produkt"
+      },
+      {
+        "question": "Anonymita v malém týmu?",
+        "answer": "Minimum respondentů pro zobrazení. Malé týmy se agregují výš. Bereme to vážně.",
+        "category": "Data/Bezpečnost"
+      }
+    ],
+    "badges": ["GDPR", "AES-256 / TLS 1.3", "Data v EU", "ISO 27001"]
+  },
+  "leadCapture": {
+    "badge": "Zdarma ke stažení",
+    "title": "Průvodce: Jak snížit fluktuaci o 30 %",
+    "description": "Praktický e-book s daty od 42 500+ zaměstnanců. Co funguje, co ne a proč.",
+    "points": [
+      "5 nejčastějších příčin odchodů",
+      "Jak je odhalit dřív než výpověď",
+      "Reálné případy z CZ/SK firem"
+    ],
+    "emailLabel": "Váš pracovní e-mail",
+    "emailPlaceholder": "jmeno@firma.cz",
+    "cta": "Stáhnout e-book zdarma",
+    "privacy": "Žádný spam. Maximálně 1 e-mail měsíčně. Odhlásíte se jedním klikem.",
+    "success": "E-book je na cestě!",
+    "successDetail": "Podívejte se do e-mailu. Dorazí do 2 minut."
+  },
+  "finalCta": {
+    "label": "Jsme tu pro vás",
+    "title": "Už jen krok vás dělí od lepšího vedení lidí.",
+    "subtitle": "Naši experti vám ukážou Behavera v praxi, zodpoví otázky a pomohou vám vytěžit maximum z vašeho týmu.",
+    "points": [
+      "Osobní onboarding na míru",
+      "Představení všech funkcí platformy",
+      "Doporučení pro váš tým a situaci",
+      "Odpověď na jakékoli dotazy"
+    ],
+    "contactName": "Jan Novák",
+    "contactRole": "Sales & Onboarding specialista",
+    "contactEmail": "sales@behavera.com",
+    "contactPhone": "+420 731 086 660",
+    "bookingUrl": "https://calendly.com/behavera",
+    "bookingCta": "Rezervovat konzultaci na 30 minut",
+    "bookingTooltip": "Během 30 minut najdeme quick wins přímo pro vás.",
+    "formTitle": "Připraveni zjistit, co se děje ve vašem týmu?",
+    "demoPoint1": "30minutová konzultace bez závazků",
+    "demoPoint2": "Ukázka na vašem odvětví a velikosti firmy",
+    "demoPoint3": "Odpovědi na vaše konkrétní otázky",
+    "demoCta": "Domluvit demo zdarma",
+    "tryCta": "Nebo vyzkoušet zdarma bez karty"
+  },
+  "footer": {
+    "tagline": "Lidé jsou to nejcennější. My vám pomůžeme je udržet.",
+    "product": "Produkt",
+    "productLinks": {
+      "app": "Behavera App",
+      "howItWorks": "Jak to funguje",
+      "pricing": "Ceník",
+      "faq": "FAQ"
+    },
+    "company": "Společnost",
+    "companyLinks": {
+      "about": "O nás",
+      "caseStudies": "Případové studie",
+      "blog": "Blog",
+      "changelog": "Changelog"
+    },
+    "support": "Podpora",
+    "supportLinks": {
+      "security": "Bezpečnost & důvěra",
+      "terms": "Obchodní podmínky",
+      "privacy": "Ochrana osobních údajů"
+    },
+    "contact": "Kontakt"
+  },
+  "sticky": {
+    "trial": "Spustit zdarma",
+    "demo": "Demo"
+  },
+  "integrations": {
+    "title": "Funguje tam, kde jsou vaši lidé",
+    "subtitle": "Behavera oslovuje zaměstnance přes kanály, které už používají. Žádné nové aplikace.",
+    "channels": [
+      { "name": "Email", "description": "Funguje s jakýmkoliv firemním emailem. Bez nastavování." },
+      { "name": "Slack", "description": "Přímé zprávy v nástroji, který váš tým denně používá." },
+      { "name": "WhatsApp", "description": "Dosáhněte na výrobu a terénní pracovníky přímo na telefonu." },
+      { "name": "Microsoft Teams", "description": "Bezproblémová integrace s vaším Microsoft 365." },
+      { "name": "Web odkaz", "description": "Sdílejte přímý odkaz — funguje na jakémkoliv zařízení, bez přihlášení." }
+    ],
+    "cta": "Podívejte se, jak to funguje"
+  },
+  "about": {
+    "seoTitle": "Tým, který rozumí lidem i datům",
+    "back": "Zpět na homepage",
+    "hero": {
+      "title": "Pomáháme lídrům budovat úspěšné organizace, kde lidé rádi pracují.",
+      "text1": "Vždy jsme věřili, že lidé jsou nejdůležitější součástí každé firmy. A přesto se způsob, jakým mnohé organizace pracují s lidmi, stále opírá o pocity místo skutečných dat. V roce 2018 jsme se rozhodli to změnit. Začali jsme vyvíjet gamifikované assessmenty, které pomáhají lídrům odhalit skutečný potenciál jejich lidí v reálných situacích.",
+      "text2": "Ale jak jsme pracovali s čím dál více lídry, všimli jsme si vzorce. Nechtěli jen data. Potřebovali podporu — něco rychlého, jasného a skutečně užitečného pro jejich každodenní vedení. Žádnou další složitou zprávu nebo teorii ke čtení po práci.",
+      "text3": "Tak jsme naslouchali. Spojili jsme naše zkušenosti z psychologie, datové vědy, HR a AI a spojili se s podnikateli a investory, kteří přidali reálné zkušenosti z vedení firem. A tak se zrodila Behavera.",
+      "text4": "Dnes pomáháme lídrům změnit způsob, jakým pracují se svými lidmi — od náboru po engagement — aby mohli dělat lepší rozhodnutí, odemknout potenciál a budovat pracoviště, kde lidé skutečně chtějí být."
+    },
+    "vision": {
+      "title": "Když si lidé rozumí, všechno ostatní zapadne na své místo.",
+      "text": "Chceme budovat svět, kde lídři skutečně rozumí svým lidem a vědí, jak je vést způsobem, který pomáhá organizacím prosperovat — a díky kterému se lidé těší do práce, i v pátek."
+    },
+    "mission": {
+      "title": "Dáváme lídrům jednoduchý nástroj pro rychlá a chytrá rozhodnutí.",
+      "text": "S Behavera mohou lídři rychle a objektivně rozhodnout, kdo se nejlépe hodí na kterou roli, a efektivně řešit skutečné překážky, které brzdí jejich týmy."
+    },
+    "strengths": {
+      "title": "Objevte své silné stránky — a práci, která vám skutečně sedí.",
+      "text": "Naše zábavné simulační hry odhalí, v čem jste opravdu dobří, a pomohou vám najít práci, kde můžete naplno využít svůj potenciál. Nebudete chtít odejít.",
+      "stat": "50 000+",
+      "statLabel": "otestovaných lidí"
+    },
+    "chatbot": {
+      "title": "Ukazujeme jen to, na čem skutečně záleží — a jak to zlepšit.",
+      "text": "Stačí pár minut s naším chatbotem a budete vědět, co vaše lidi motivuje nebo frustruje, jak vážné to je a co s tím dělat."
+    },
+    "team": {
+      "title": "Náš tým",
+      "also": "Spolupracujeme také s předními psychology, marketingovými specialisty a lídry z různých oborů.",
+      "members": [
+        {
+          "name": "Jiří Valena",
+          "role": "CEO",
+          "skills": "Strategický růst, obchod, leadership",
+          "bio": "Jiří je amatérský hokejista s tahem na bránu, který skóruje i v byznysu.",
+          "image": "/images/about/jiri-valena.jpg"
+        },
+        {
+          "name": "Igor Kubíček",
+          "role": "Head of Product & spoluzakladatel",
+          "skills": "HR Data Analytics, produktový obsah, digitální vzdělávání",
+          "bio": "Igor přečte 40 knih za měsíc a ještě vám vysvětlí vícerozměrnou analýzu, aniž by vás rozbolela hlava.",
+          "image": "/images/about/igor-kubicek.jpg"
+        },
+        {
+          "name": "Dušan Švancara",
+          "role": "CTO & spoluzakladatel",
+          "skills": "Tech Development, AI automatizace, bezpečnost dat",
+          "bio": "Díky Dušanovi všechno běží jako švýcarské hodinky.",
+          "image": "/images/about/dusan-svancara.jpg"
+        },
+        {
+          "name": "Jana Šrámková",
+          "role": "Go-to-Market",
+          "skills": "Obchod, partnerství, strategický růst",
+          "bio": "Vášnivá cyklistka Jana přesně ví, jak a kde může Behavera zákazníkovi nejvíc pomoci.",
+          "image": "/images/about/jana-sramkova.jpg"
+        },
+        {
+          "name": "Veronika Nováková",
+          "role": "Customer Success",
+          "skills": "HR poradenství, tvorba obsahu, testování produktu",
+          "bio": "Stejně jako ve svých obrazech, Veronika spojuje lidi, nástroje a smysl.",
+          "image": "/images/about/veronika-novakova.jpg"
+        },
+        {
+          "name": "Josef Hofman",
+          "role": "Sales Partner",
+          "skills": "Budování vztahů a akvizice klientů",
+          "bio": "Josefův smysl pro směr a obchodní disciplínu má z kajakářství; bojování si nechává jen pro dojo.",
+          "image": "/images/about/josef-hofman.jpg"
+        },
+        {
+          "name": "Igor Třeslín",
+          "role": "Investor a poradce",
+          "skills": "",
+          "bio": "Založil a dovedl k úspěšnému exitu několik firem — včetně Lunchtime (Zomato), Pizzatime (Dáme Jídlo), Foodora a Storyous (Teya). Igor má vkus na dobré jídlo a oko na potenciál — ve firmách i v lidech.",
+          "image": "/images/about/igor-treslin.jpg"
+        }
+      ]
+    },
+    "logos": {
+      "title": "Organizace, kterým jsme pomohli změnit způsob práce s lidmi"
+    },
+    "testimonial": {
+      "quote": "Dříve jsme přijímali lidi pouze na základě jejich právní kvalifikace. Ale od té doby, co jsme začali používat Behavera k posouzení, jak zapadnou do naší firemní kultury a týmu, naše kancelář začala fungovat mnohem hladčeji!",
+      "author": "Adam Swierczek",
+      "role": "Partner a advokát, Hajduk & Partners s.r.o. (Česká advokátní kancelář roku 2024)"
+    },
+    "values": {
+      "title": "V našich produktech i ve spolupráci s klienty děláme věci vždy...",
+      "items": [
+        {
+          "title": "kvalitně",
+          "text": "Stavíme na solidních vědeckých základech, statistických metodách a ověřených postupech — protože chceme, aby to pro vás skutečně fungovalo."
+        },
+        {
+          "title": "s automatizací",
+          "text": "Používáme personalizovaný AI jazykový model, který dodává jasné a stručné výstupy — protože váš HR tým už má dost práce."
+        },
+        {
+          "title": "srozumitelně",
+          "text": "Výsledky, kterým snadno porozumíte — abyste nemuseli utrácet za drahá školení nebo konzultanty."
+        },
+        {
+          "title": "prakticky využitelně a v reálném čase",
+          "text": "Akční data a personalizovaná doporučení bez čekání — protože reagovat potřebujete teď, ne za rok."
+        },
+        {
+          "title": "rychle a zábavně",
+          "text": "Simulační hry a chat s botem, které lidé skutečně dokončí — s 80–90% návratností, 1-2× měsíčně bez problémů."
+        },
+        {
+          "title": "jednoduše",
+          "text": "Stačí vědět, kdo jsou vaši respondenti, a můžete spustit okamžitě — protože váš čas je lepší investovat do chytrých rozhodnutí, ne do instalací."
+        }
+      ]
+    },
+    "caseStudies": {
+      "title": "Případové studie",
+      "items": [
+        {
+          "title": "Plíživý zabiják vašeho podnikání — jednejte, než vás to bude stát miliony!",
+          "image": "/images/about/case-study-1.jpg"
+        },
+        {
+          "title": "20 % ušetřeného času: Jak Expando zlepšilo zákaznický servis",
+          "image": "/images/about/case-study-2.jpg"
+        },
+        {
+          "title": "Cesta Valxonu za pravdou skrytou za stížnostmi na peníze",
+          "image": "/images/about/case-study-3.jpg"
+        }
+      ]
+    },
+    "media": {
+      "title": "Behavera v médiích",
+      "items": [
+        {
+          "source": "CzechCrunch",
+          "title": "Lidé nejsou v práci šťastní, firmám to škodí. Behavera má chatbota, který rizika odhalí včas",
+          "url": "https://cc.cz/lide-nebyvaji-v-praci-spokojeni-firmam-to-skodi-behavera-ma-chatbota-ktery-rizika-vcas-odhali/",
+          "logo": "/images/media/czechcrunch.svg"
+        },
+        {
+          "source": "Forbes",
+          "title": "Miton vstupuje do Behavera. Startup pomáhá firmám ke šťastným zaměstnancům",
+          "url": "https://forbes.cz/miton-vstupuje-do-behavery-startup-pomaha-firmam-ke-spokojenym-zamestnancum/",
+          "logo": "/images/media/forbes.svg"
+        },
+        {
+          "source": "PwC",
+          "title": "PwC Startup Collider potřetí spolupracuje se startupy ze střední a východní Evropy",
+          "url": "https://www.pwc.pl/pl/media/2019/2019-03-13-finalisci-III-edycja-pwc-startup-collider.html",
+          "logo": "/images/media/pwc.svg"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Nečekejte na změnu — veďte ji. Začněte s Behavera ještě dnes.",
+      "button": "Domluvit demo"
+    },
+    "contact": {
+      "sales": {
+        "title": "Napište nám",
+        "text": "Ozvěte se našemu týmu.",
+        "email": "hello@behavera.com"
+      },
+      "address": {
+        "title": "Pošlete nám pohlednici",
+        "text": "Křižíkova 148/34\n186 00 Praha 8"
+      },
+      "phone": {
+        "title": "Zavolejte nám",
+        "text": "Po-Pá od 8:00 do 18:00 (CET).",
+        "number": "+420 724 256 447"
+      },
+      "invoicing": {
+        "title": "Fakturační údaje",
+        "text": "Behavera s.r.o.\nKřižíkova 148/34\n186 00 Praha 8\nČeská republika\n\nIČO: 03525520\nDIČ: CZ03525520"
+      }
+    }
+  },
+  "security": {
+    "seoTitle": "Vaše data v bezpečí. Bez kompromisů.",
+    "title": "Bezpečnost & důvěra",
+    "subtitle": "Data vašich zaměstnanců si zaslouží nejvyšší ochranu. Takhle ji zajišťujeme.",
+    "badges": ["GDPR", "AES-256", "TLS 1.3", "Data v EU", "ISO 27001"],
+    "sections": [
+      {
+        "title": "Šifrování dat",
+        "text": "Všechna data jsou šifrována v klidu (AES-256) i při přenosu (TLS 1.3). Dodržujeme best practices pro správu a rotaci klíčů."
+      },
+      {
+        "title": "GDPR compliance",
+        "text": "Behavera je plně v souladu s GDPR. Data zpracováváme jako zpracovatel na základě DPA. Všechna data zůstávají v EU."
+      },
+      {
+        "title": "Anonymita od základu",
+        "text": "Odpovědi jednotlivců nelze propojit s konkrétními zaměstnanci. Výsledky se agregují na úrovni týmů s nastavitelným minimálním počtem respondentů."
+      },
+      {
+        "title": "Infrastruktura",
+        "text": "Běžíme na cloudových providerech v EU s SOC 2 certifikovanými datovými centry. Provádíme pravidelné bezpečnostní audity a penetrační testy."
+      },
+      {
+        "title": "Řízení přístupu",
+        "text": "Role-based access control zajišťuje, že konkrétní data vidí jen oprávněné osoby. Veškerý přístup je logovaný a auditovatelný."
+      },
+      {
+        "title": "Uchovávání dat",
+        "text": "Svá data máte pod kontrolou. Exportujte nebo smažte kdykoliv. Dodržujeme přísné zásady uchovávání dat a nikdy je nesdílíme s třetími stranami."
+      }
+    ],
+    "cta": "Máte bezpečnostní dotazy? Ozvěte se nám.",
+    "back": "Zpět na homepage"
+  },
+  "problemPages": {
+    "back": "Zpět na homepage",
+    "ctaPrimary": "Spustit zdarma",
+    "ctaSecondary": "Chci demo",
+    "ctaTrust": "15 minut setup · Bez karty · Výsledky do 48 hodin",
+    "solutionLabel": "JAK TO BEHAVERA ŘEŠÍ",
+    "dataLabel": "DATA",
+    "caseStudyLabel": "PŘÍPADOVÁ STUDIE",
+    "alternativesLabel": "PROČ NE JINAK?",
+    "videoLabel": "PODÍVEJTE SE",
+    "urgencyLabel": "ČAS BĚŽÍ",
+    "dashboardLabel": "UKÁZKA Z APLIKACE",
+    "dashboardTitle": "Takhle to vidíte v Behavera",
+    "dashboardSubtitle": "Žádné tabulky. Žádné hádání. Dashboard, který řekne co, kde a proč.",
+    "videoTitle": "Podívejte se, jak to funguje",
+    "videoSubtitle": "2 minuty. Uvidíte celý proces — od odeslání pulse po první výsledky.",
+    "videoCta": "Přehrát video",
+    "fluktuace": {
+      "title": "Odcházejí vám klíčoví lidé?",
+      "subtitle": "Výpověď je symptom. Příčina vznikla před měsíci. Behavera ji zachytí — dřív, než ji uvidíte na stole.",
+      "hero_stat": "360–540 tis. Kč",
+      "hero_stat_label": "průměrný náklad jednoho odchodu",
+      "data": {
+        "title": "Kolik vás fluktuace skutečně stojí?",
+        "items": [
+          { "stat": "6–9×", "text": "měsíčních platů stojí náhrada jednoho člověka (SHRM)" },
+          { "stat": "52 %", "text": "odchodů bylo předvídatelných — firma jen nezasáhla včas (Gallup)" },
+          { "stat": "50 %", "text": "lidí, kteří odejdou, o tom přemýšlí 6+ měsíců předem (Work Institute)" }
+        ]
+      },
+      "solution": {
+        "title": "Zachytíte odchody měsíce předem",
+        "steps": [
+          { "title": "Měsíční pulse", "text": "2min AI chat zjistí, jak se lidé cítí. 80 %+ odpoví. Opakovaně." },
+          { "title": "Včasné varování", "text": "Dashboard ukáže, kde roste napětí, klesá energie nebo se blíží burnout." },
+          { "title": "Akční plán", "text": "AI řekne, co řešit a proč. Konkrétní kroky, ne vágní doporučení." }
+        ]
+      },
+      "alternatives": {
+        "title": "Proč tradiční přístupy nefungují?",
+        "items": [
+          { "method": "Exit interview", "problem": "Dozvíte se důvod, až je pozdě. Člověk už odchází." },
+          { "method": "Roční průzkum", "problem": "30 % návratnost. Výsledky za 3 měsíce. Mezitím 5 lidí odešlo." },
+          { "method": "Manažerská intuice", "problem": "Filtrovaná informace. Manažer neví, co neví." },
+          { "method": "HR pohovory", "problem": "Neškálovatelné. 1 HR na 100 lidí nemá šanci." }
+        ]
+      },
+      "urgency": {
+        "title": "Každý den bez dat = peníze na stole",
+        "text": "Právě teď někdo ve vaší firmě přemýšlí o odchodu. Za měsíc bude hledat. Za tři podá výpověď. Behavera vám dá šanci zasáhnout — teď, ne za rok.",
+        "stat": "52 %",
+        "statLabel": "odchodů šlo předejít, kdyby firma zasáhla včas"
+      },
+      "testimonials": [
+        { "quote": "Zachytili jsme 3 připravované odchody. Dva se nám podařilo zvrátit. ROI za první měsíc.", "author": "HR Director", "company": "Vodafone CZ" },
+        { "quote": "Konečně vidíme, co se děje, aniž bychom museli čekat na výpověď.", "author": "CEO", "company": "Expando" }
+      ],
+      "caseStudy": {
+        "company": "Vodafone CZ",
+        "size": "1 500+ zaměstnanců",
+        "quote": "+40 % retence. +80 % tržby na hovor. Data nám ukázala, kde přesně zasáhnout.",
+        "metric": "+40 % retence",
+        "link": "/case-studies/from-data-to-action-how-vodafone-increased-sales-by-80-and-cut-attrition-by-40"
+      }
+    },
+    "manazeri": {
+      "title": "Máte slabé manažery a nevíte o tom?",
+      "subtitle": "70 % engagementu závisí na přímém šéfovi. Jeden špatný manažer = jeden mrtvý tým. Behavera to odhalí.",
+      "hero_stat": "70 %",
+      "hero_stat_label": "engagementu závisí na kvalitě manažera",
+      "data": {
+        "title": "Proč jsou manažeři klíčoví?",
+        "items": [
+          { "stat": "70 %", "text": "variability v engagementu závisí na přímém nadřízeném (Gallup)" },
+          { "stat": "1 ze 2", "text": "zaměstnanců odešel kvůli šéfovi, ne kvůli firmě (Gallup)" },
+          { "stat": "−21 %", "text": "zisku v týmech se špatnými manažery (Gallup)" }
+        ]
+      },
+      "solution": {
+        "title": "Uvidíte kvalitu manažerů očima jejich lidí",
+        "steps": [
+          { "title": "Anonymní zpětná vazba", "text": "Lidé řeknou pravdu, protože vědí, že je to anonymní. 80 %+ odpovídá." },
+          { "title": "Srovnání napříč týmy", "text": "Dashboard ukáže, kteří manažeři vedou dobře a kde jsou problémy." },
+          { "title": "Rozvojový plán", "text": "AI navrhne konkrétní kroky pro každého manažera. Data, ne dojmy." }
+        ]
+      },
+      "alternatives": {
+        "title": "Proč se na špatné manažery přijde pozdě?",
+        "items": [
+          { "method": "360° feedback", "problem": "Jednou ročně. Výsledky za měsíce. Lidé neodpoví upřímně." },
+          { "method": "HR pohovory", "problem": "Zaměstnanec řekne, co chce šéf slyšet." },
+          { "method": "KPIs", "problem": "Ukazují výsledek, ne příčinu. Toxický manažer může mít dobré čísla — krátkodobě." },
+          { "method": "Open door policy", "problem": "Nikdo nepřijde. Zejména ne k problémovému šéfovi." }
+        ]
+      },
+      "urgency": {
+        "title": "Jeden špatný manažer stojí víc než jeho plat",
+        "text": "Každý měsíc, kdy špatný manažer vede tým, klesá engagement, roste fluktuace a ztrácíte lidi, kteří by jinak zůstali. Náklady rostou tiše — dokud neodejde celý tým najednou.",
+        "stat": "1 ze 2",
+        "statLabel": "lidí odchází kvůli přímému nadřízenému, ne kvůli firmě"
+      },
+      "testimonials": [
+        { "quote": "Poprvé jsme měli objektivní data o kvalitě leadershipu. Změnili jsme 2 manažery a spokojenost stoupla o 25 %.", "author": "CEO", "company": "Valxon" },
+        { "quote": "Data ukázala, že problém nebyli lidé v týmu — ale jejich šéf.", "author": "HR Manager", "company": "365.bank" }
+      ],
+      "caseStudy": {
+        "company": "Valxon",
+        "size": "30+ zaměstnanců",
+        "quote": "Zachytili jsme burnout dřív, než způsobil odchod. +25 % spokojenost za kvartál.",
+        "metric": "+25 % spokojenost",
+        "link": "/case-studies/nove-vedeni-a-stiznosti-na-penize"
+      }
+    },
+    "vykon-tymu": {
+      "title": "Týmy nedosahují výsledků?",
+      "subtitle": "Vypadají normálně. Jen nedodávají. A vy to nevíte — dokud se to neprojeví na číslech.",
+      "hero_stat": "−21 %",
+      "hero_stat_label": "zisku u neangažovaných týmů",
+      "data": {
+        "title": "Kolik stojí tichý pokles výkonu?",
+        "items": [
+          { "stat": "−21 %", "text": "zisku v neangažovaných týmech (Gallup)" },
+          { "stat": "−37 %", "text": "produktivita u disengagovaných zaměstnanců (Gallup)" },
+          { "stat": "85 %", "text": "zaměstnanců celosvětově není aktivně angažovaných (Gallup)" }
+        ]
+      },
+      "solution": {
+        "title": "Uvidíte výkon tam, kde ho tabulky neukazují",
+        "steps": [
+          { "title": "Pulse po týmech", "text": "Zjistíte, které týmy jsou v pohodě a kde klesá energie." },
+          { "title": "Příčiny, ne symptomy", "text": "AI odhalí, proč tým nefunguje — zátěž, komunikace, šéf, nebo všechno dohromady." },
+          { "title": "Priority podle dopadu", "text": "Víte, co řešit první. Ne všechno najednou — to, co má největší dopad na byznys." }
+        ]
+      },
+      "alternatives": {
+        "title": "Proč o problému nevíte?",
+        "items": [
+          { "method": "Kvartální reporty", "problem": "Ukazují výsledky, ne příčiny. Čísla klesla — ale proč?" },
+          { "method": "Stand-upy a 1:1", "problem": "Lidé řeknou 'všechno ok'. Pravda je jiná." },
+          { "method": "Výkonnostní metriky", "problem": "Měří output, ne energii, motivaci nebo spolupráci." },
+          { "method": "Manažerský odhad", "problem": "Zkreslený. Nikdo nechce přiznat, že jeho tým nefunguje." }
+        ]
+      },
+      "urgency": {
+        "title": "Tichý pokles výkonu je nejdražší problém",
+        "text": "Na rozdíl od odchodu, pokles výkonu nevidíte. Tým funguje — jen na 60 %. Měsíc za měsícem ztrácíte 20 % zisku, aniž byste věděli proč.",
+        "stat": "−21 %",
+        "statLabel": "zisku u neangažovaných týmů — tiše, bez varování"
+      },
+      "testimonials": [
+        { "quote": "Díky Behavera jsme objevili skrytý talent v týmu a prodeje vzrostly o 37 %.", "author": "CEO", "company": "Expando" },
+        { "quote": "Zjistili jsme, že jeden tým je na pokraji kolapsu. Zasáhli jsme včas.", "author": "HR Director", "company": "365.bank" }
+      ],
+      "caseStudy": {
+        "company": "Expando",
+        "size": "50+ zaměstnanců",
+        "quote": "Díky Behavera jsme objevili skrytý talent v týmu a prodeje vzrostly o 37 %. Ušetřili jsme €11K za kvartál.",
+        "metric": "+37 % prodeje",
+        "link": "/case-studies/jak-expando-objevilo-skryty-talent"
+      }
+    },
+    "chybne-nabory": {
+      "title": "Nabíráte a oni odejdou po zkušebce?",
+      "subtitle": "73 % lidí odchází kvůli nesouladu s firemní kulturou. Zjistěte to za 4 minuty — před nástupem.",
+      "hero_stat": "73 %",
+      "hero_stat_label": "early leavers odchází kvůli culture mismatch",
+      "data": {
+        "title": "Proč noví lidé odcházejí?",
+        "items": [
+          { "stat": "73 %", "text": "brzkých odchodů je kvůli nesouladu s firemní kulturou (SHRM)" },
+          { "stat": "50 %", "text": "nových zaměstnanců zvažuje odchod v prvních 18 měsících (Gallup)" },
+          { "stat": "2×", "text": "dražší je nábor nového člověka než retence stávajícího (SHRM)" }
+        ]
+      },
+      "solution": {
+        "title": "Zjistíte culture fit ještě před nástupem",
+        "steps": [
+          { "title": "Culture Fit screening", "text": "4minutový AI chat odhalí, jak kandidát zapadne do vaší firemní kultury." },
+          { "title": "Onboarding pulse", "text": "Měsíční check-in nového člověka. Vidíte, jestli se adaptuje nebo chystá odejít." },
+          { "title": "Data pro hiring", "text": "Zjistíte, jaký profil lidí ve firmě funguje — a jaký ne." }
+        ]
+      },
+      "alternatives": {
+        "title": "Proč standardní hiring proces nestačí?",
+        "items": [
+          { "method": "Životopis + pohovor", "problem": "Odhalí skills, ne culture fit. 73 % brzkých odchodů je kvůli kultuře." },
+          { "method": "Reference check", "problem": "Bývalý zaměstnavatel řekne to nejlepší. Ne pravdu." },
+          { "method": "Zkušební doba", "problem": "3 měsíce platu + onboarding. A pak zjistíte, že to nesedí." },
+          { "method": "Assessment centra", "problem": "Drahé, pomalé, kandidáty odrazují." }
+        ]
+      },
+      "urgency": {
+        "title": "Každý špatný nábor vás stojí dvojnásobek",
+        "text": "Nástup. Zaškolení. 3 měsíce zkušebky. Odchod. Nový nábor. Celý cyklus znovu. Mezitím tým nese zátěž za chybějícího člověka. Culture Fit to zastaví — za 4 minuty.",
+        "stat": "2×",
+        "statLabel": "dražší je nábor nového člověka než retence stávajícího"
+      },
+      "testimonials": [
+        { "quote": "Od zavedení Culture Fit screeningu nám klesla early attrition o 14 %.", "author": "HR Director", "company": "365.bank" },
+        { "quote": "Konečně víme, jestli kandidát sedne do naší kultury — ještě před nástupem.", "author": "People & Culture", "company": "Prusa Research" }
+      ],
+      "caseStudy": {
+        "company": "365.bank",
+        "size": "400+ zaměstnanců",
+        "quote": "−14 % fluktuace. +36 % rychlejší nábor. Data nám pomohla přehodnotit celý hiring proces.",
+        "metric": "+36 % rychlejší nábor",
+        "link": "/case-studies/how-behaveras-data-helped-365-bank-achieve-a-successful-digital-transformation"
+      }
+    },
+    "rust-firmy": {
+      "title": "Firma roste a ztrácíte přehled?",
+      "subtitle": "Co fungovalo s 20 lidmi, nefunguje s 80. A s 200 je to ještě horší. Behavera vám vrátí přehled.",
+      "hero_stat": "60 %",
+      "hero_stat_label": "zapojení ve výrobě — Prusa Research, 1 000+ lidí",
+      "data": {
+        "title": "Proč škálování zabíjí firemní kulturu?",
+        "items": [
+          { "stat": "46 %", "text": "firem ztrácí firemní kulturu při rychlém růstu (Deloitte)" },
+          { "stat": "3×", "text": "těžší je komunikovat firemní hodnoty při zdvojnásobení týmu" },
+          { "stat": "67 %", "text": "zaměstnanců v rostoucích firmách se cítí odpojených od vedení (Gallup)" }
+        ]
+      },
+      "solution": {
+        "title": "Přehled i na 1 000+ lidech",
+        "steps": [
+          { "title": "Škálovatelný pulse", "text": "Stejný systém pro 30 i 3 000 lidí. Slack, WhatsApp, e-mail." },
+          { "title": "Segmentace", "text": "Dashboard podle oddělení, lokality, manažera. Vidíte kde přesně problém je." },
+          { "title": "Trendy v čase", "text": "Sledujete, jak se kultura mění s růstem. Měsíc po měsíci." }
+        ]
+      },
+      "alternatives": {
+        "title": "Proč škálování bez dat nefunguje?",
+        "items": [
+          { "method": "Town halls", "problem": "100+ lidí v místnosti. Nikdo neřekne, co si doopravdy myslí." },
+          { "method": "Manažerský reporting", "problem": "Každý manažer filtruje informace. CEO dostane zkreslený obraz." },
+          { "method": "Konzultanti", "problem": "Drazí, pomalí, přijdou jednou a odejdou s PowerPointem." },
+          { "method": "Intuice zakladatele", "problem": "Fungovala s 20 lidmi. S 200 jste příliš daleko od frontline." }
+        ]
+      },
+      "urgency": {
+        "title": "Kultura se neškáluje sama",
+        "text": "Každý nový člověk buď kulturu posiluje, nebo ředí. Bez měření nevíte, co se děje — až je pozdě. Prusa Research to vyřešila za 3 minuty. Pro 1 000+ lidí.",
+        "stat": "46 %",
+        "statLabel": "firem ztrácí svou kulturu při rychlém růstu"
+      },
+      "testimonials": [
+        { "quote": "Za 3 minuty jsme měli jasný obraz zapojení 1 000+ lidí. Dřív to trvalo týdny.", "author": "People & Culture", "company": "Prusa Research" },
+        { "quote": "S růstem jsme ztráceli přehled. Behavera nám ho vrátila.", "author": "CEO", "company": "Expando" }
+      ],
+      "caseStudy": {
+        "company": "Prusa Research",
+        "size": "1 000+ zaměstnanců",
+        "quote": "Za 3 minuty jsme měli jasný obraz zapojení 1 000+ lidí. Dřív nám to trvalo týdny.",
+        "metric": "60 % zapojení",
+        "link": "/case-studies/za-3-minuty-jasno-jak-na-employer-branding"
+      }
+    },
+    "novy-ceo": {
+      "title": "Nový CEO? Prvních 90 dní rozhoduje.",
+      "subtitle": "Potřebujete pochopit firmu, týmy a skrytá napětí. Rychle. Bez dat střílíte naslepo.",
+      "hero_stat": "48 h",
+      "hero_stat_label": "a máte první data o celé firmě",
+      "data": {
+        "title": "Proč je prvních 90 dní kritických?",
+        "items": [
+          { "stat": "90 dní", "text": "má nový CEO na to, aby si získal důvěru a nastavil směr (HBR)" },
+          { "stat": "40 %", "text": "nových leaderů selže v prvních 18 měsících (CEB/Gartner)" },
+          { "stat": "#1", "text": "důvod selhání: nepochopení firemní kultury a skrytých dynamik" }
+        ]
+      },
+      "solution": {
+        "title": "Firma pod kontrolou za hodiny, ne měsíce",
+        "steps": [
+          { "title": "Rychlý pulse", "text": "Do 48 hodin máte data od celé firmy. Bez filtrování přes management." },
+          { "title": "Mapa napětí", "text": "Vidíte, kde jsou problémy, kdo je klíčový a kde hrozí odchody." },
+          { "title": "Prioritizace", "text": "AI řekne, co řešit jako první. Data pro vaši prvních 90denní strategii." }
+        ]
+      },
+      "alternatives": {
+        "title": "Proč standardní onboarding CEO nefunguje?",
+        "items": [
+          { "method": "Meetings s managementem", "problem": "Filtrované informace. Každý chce udělat dobrý dojem." },
+          { "method": "Firemní dokumenty", "problem": "Ukazují, jak to má být. Ne jak to je." },
+          { "method": "Konzultanti", "problem": "Měsíce práce, statisíce korun. A závěry, které rychle zastarají." },
+          { "method": "Pocit z terénu", "problem": "Subjektivní. A nemáte čas obejít 200 lidí." }
+        ]
+      },
+      "urgency": {
+        "title": "Prvních 90 dní rozhoduje o vašem úspěchu",
+        "text": "40 % nových leaderů selže. #1 důvod? Nepochopení firemní kultury. Nemáte čas na měsíce hledání. Behavera vám dá kompletní obraz za 48 hodin.",
+        "stat": "40 %",
+        "statLabel": "nových leaderů selže v prvních 18 měsících"
+      },
+      "testimonials": [
+        { "quote": "Nové vedení potřebovalo rychle pochopit firmu. Behavera nám dala obraz za 48 hodin.", "author": "CEO", "company": "Valxon" },
+        { "quote": "Jako nový CEO jsem díky Behavera věděl, co řešit, ještě než jsem se všemi mluvil.", "author": "CEO", "company": "Vodafone CZ" }
+      ],
+      "caseStudy": {
+        "company": "Valxon",
+        "size": "30+ zaměstnanců",
+        "quote": "Nové vedení potřebovalo rychle pochopit firmu. Behavera nám dala obraz za 48 hodin.",
+        "metric": "+25 % spokojenost",
+        "link": "/case-studies/nove-vedeni-a-stiznosti-na-penize"
+      }
+    }
+  },
+  "personas": {
+    "shared": {
+      "ctaPrimary": "Vyzkoušet zdarma",
+      "ctaSecondary": "Domluvit demo",
+      "ctaTrust": "Bez karty · 14 dní zdarma · GDPR compliant",
+      "problemsLabel": "Problémy",
+      "solutionLabel": "Řešení",
+      "dashboardLabel": "Dashboard",
+      "testimonialLabel": "Reference",
+      "back": "Zpět na hlavní stránku"
+    },
+    "ceo": {
+      "title": "Vaši lidé odchází. A vy se to dozvíte poslední.",
+      "subtitle": "Jako CEO dostáváte filtrované informace. Behavera vám dá nefiltovaný obraz toho, co se ve firmě skutečně děje — dřív než to skončí výpovědí.",
+      "problems": [
+        {
+          "stat": "67 %",
+          "text": "zaměstnanců odchází kvůli přímému nadřízenému — ne kvůli penězům. Ale vy to z reportů HR neuvidíte."
+        },
+        {
+          "stat": "€ 45 000",
+          "text": "stojí nahrazení jednoho klíčového zaměstnance. Nábor, zaučení, ztráta know-how. A to se opakuje."
+        },
+        {
+          "stat": "3–6 měsíců",
+          "text": "trvá, než se problém v týmu projeví ve výsledcích. Pak je pozdě. Škody jsou nevratné."
+        }
+      ],
+      "features": [
+        {
+          "icon": "BarChart3",
+          "title": "Nefiltovaný přehled",
+          "text": "Vidíte náladu a rizika napříč celou firmou — bez zkreslení od managementu."
+        },
+        {
+          "icon": "AlertTriangle",
+          "title": "Včasné varování",
+          "text": "AI detekuje krizové signály měsíce předem. Žádná překvapení na boardu."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Data pro rozhodování",
+          "text": "Strategická rozhodnutí podložená tvrdými daty, ne pocity a domněnkami."
+        },
+        {
+          "icon": "Shield",
+          "title": "ROI v číslech",
+          "text": "Průměrná úspora €11K/kvartál na snížené fluktuaci. Investice se vrátí za 2 měsíce."
+        }
+      ],
+      "dashboardTitle": "Váš CEO dashboard",
+      "dashboardText": "Jeden pohled na celou firmu. Bez Excelu, bez čekání na HR report.",
+      "testimonial": {
+        "quote": "Poprvé jsem viděl reálný obraz firmy. Ne to, co mi chtěli říct, ale to, co se skutečně děje. Zachránilo nám to dva klíčové lidi.",
+        "author": "Martin Novák",
+        "role": "CEO, technologická firma (85 zaměstnanců)"
+      },
+      "ctaTitle": "Každý den bez dat vás stojí peníze.",
+      "ctaText": "Zjistěte, co se ve vaší firmě skutečně děje. Za 48 hodin máte první výsledky."
+    },
+    "hr": {
+      "title": "30 % návratnost průzkumů. A vedení chce čísla.",
+      "subtitle": "Trávíte víkendy v Excelu nad daty, která stejně nikdo nečte. Behavera vám dá 80%+ návratnost a AI analýzu — okamžitě.",
+      "problems": [
+        {
+          "stat": "30 %",
+          "text": "návratnost klasických průzkumů. Výsledky jsou nereprezentativní a vedení jim nevěří."
+        },
+        {
+          "stat": "6+ hodin",
+          "text": "strávíte analýzou každého kola. Export, Excel, grafy, prezentace. A nikdo to stejně nečte."
+        },
+        {
+          "stat": "73 %",
+          "text": "HR manažerů říká, že nemá tvrdá data pro strategická rozhodnutí. Board chce čísla, vy máte dojmy."
+        }
+      ],
+      "features": [
+        {
+          "icon": "MessageSquare",
+          "title": "2minutový chat místo formuláře",
+          "text": "AI chatbot, který zaměstnance baví. 80%+ návratnost od prvního měsíce."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "AI analýza v reálném čase",
+          "text": "Žádný Excel. Dashboard s automatickými doporučeními — hned, ne za 3 měsíce."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Tvrdá data pro board",
+          "text": "Trendy, benchmarky, predikce. Konečně máte argumenty, kterým vedení rozumí."
+        },
+        {
+          "icon": "Shield",
+          "title": "Metodologie od psychologů",
+          "text": "Validované otázky. Žádné \u201eco nás napadlo\u201c. Vědecky podložené výsledky."
+        }
+      ],
+      "dashboardTitle": "Váš HR dashboard",
+      "dashboardText": "Přehled všech týmů, trendů a rizik. Bez manuální práce.",
+      "testimonial": {
+        "quote": "Konečně mám data, kterým board věří. Návratnost vyskočila ze 28 % na 84 % za první měsíc. A ušetřila jsem 2 dny práce měsíčně.",
+        "author": "Petra Svobodová",
+        "role": "HR Director, výrobní firma (200 zaměstnanců)"
+      },
+      "ctaTitle": "Další průzkum s 30% návratností?",
+      "ctaText": "Přestaňte hádat. Začněte měřit. První výsledky máte za 48 hodin."
+    },
+    "manazer": {
+      "title": "Váš nejlepší člověk zítra dá výpověď. A vy to netušíte.",
+      "subtitle": "Jako manažer jste zodpovědný za výkon týmu, ale nemáte nástroj, který by vám řekl, co se v něm skutečně děje.",
+      "problems": [
+        {
+          "stat": "52 %",
+          "text": "manažerů říká, že netuší, co jejich lidi trápí. 1-on-1 nestačí — lidé vám neřeknou pravdu."
+        },
+        {
+          "stat": "€ 28 000",
+          "text": "stojí odchod jednoho zaměstnance vašeho týmu. Nábor, zaučení, ztracená produktivita."
+        },
+        {
+          "stat": "4 z 5",
+          "text": "odchodů šlo předejít. Ale jen pokud problém zachytíte včas — ne až na exit interview."
+        }
+      ],
+      "features": [
+        {
+          "icon": "Users",
+          "title": "Anonymní zpětná vazba",
+          "text": "Lidé řeknou pravdu, protože mohou. 100% anonymita = 100% upřímnost."
+        },
+        {
+          "icon": "AlertTriangle",
+          "title": "Signály přetížení",
+          "text": "Víte, kdo je na hraně vyhoření. Dřív než výpověď, ne po ní."
+        },
+        {
+          "icon": "Target",
+          "title": "Konkrétní doporučení",
+          "text": "Co změnit. Koho pochválit. Kde ubrat. AI vám řekne přesně, co dělat."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Trend vašeho týmu",
+          "text": "Sledujte, jestli se situace zlepšuje. Měsíc po měsíci, tvrdá data."
+        }
+      ],
+      "dashboardTitle": "Váš manažerský dashboard",
+      "dashboardText": "Přehled vašeho týmu na jednom místě. Bez dohadů.",
+      "testimonial": {
+        "quote": "Díky Behavera jsem zjistil, že můj nejlepší vývojář zvažoval odchod. Upravil jsem jeho workload a dnes je team lead. Bez dat bych ho ztratil.",
+        "author": "Jakub Kříž",
+        "role": "Engineering Manager, SaaS startup (40 zaměstnanců)"
+      },
+      "ctaTitle": "Kolik lidí ztratíte, než začnete měřit?",
+      "ctaText": "Přestaňte hádat náladu v týmu. Začněte ji měřit — za 2 minuty."
+    },
+    "team-lead": {
+      "title": "Říkají \u201eje to v pohodě\u201c. Ale není.",
+      "subtitle": "Jako team lead jste nejblíž svým lidem. Ale i tak vám neřeknou všechno. Behavera vám dá anonymní pravdu — dřív než problém eskaluje.",
+      "problems": [
+        {
+          "stat": "85 %",
+          "text": "zaměstnanců neřekne svému team leadovi o problému přímo. Bojí se konfliktu nebo důsledků."
+        },
+        {
+          "stat": "2,5×",
+          "text": "vyšší produktivita v týmech, kde se lidé cítí psychologicky bezpečně. Bez zpětné vazby bezpečí nevybudujete."
+        },
+        {
+          "stat": "6 týdnů",
+          "text": "trvá průměrně, než se problém v týmu projeví navenek. Do té doby je pozdě na prevenci."
+        }
+      ],
+      "features": [
+        {
+          "icon": "MessageSquare",
+          "title": "Pulse check vašeho týmu",
+          "text": "Krátký AI chat jednou měsíčně. Vaši lidé odpoví — protože je to anonymní a trvá 2 minuty."
+        },
+        {
+          "icon": "BarChart3",
+          "title": "Nálada v reálném čase",
+          "text": "Vidíte, jak se váš tým cítí. Žádné domněnky, žádné \u201emyslím, že je to ok\u201c."
+        },
+        {
+          "icon": "Target",
+          "title": "Akční kroky",
+          "text": "AI vám řekne, co konkrétně udělat. Ne obecné rady — specifické kroky pro váš tým."
+        },
+        {
+          "icon": "Shield",
+          "title": "Důvěra v týmu",
+          "text": "Lidé vidí, že jejich zpětná vazba vede ke změnám. Důvěra roste, tým funguje lépe."
+        }
+      ],
+      "dashboardTitle": "Váš team dashboard",
+      "dashboardText": "Přehledný pohled na náladu a rizika ve vašem týmu.",
+      "testimonial": {
+        "quote": "Překvapilo mě, kolik věcí mi moji lidé neříkali. Behavera mi otevřela oči. Za měsíc jsem vyřešil tři problémy, o kterých jsem nevěděl.",
+        "author": "Lucie Malá",
+        "role": "Team Lead, marketingová agentura (15 lidí)"
+      },
+      "ctaTitle": "Váš tým vám neříká všechno.",
+      "ctaText": "Zjistěte, co si skutečně myslí. Anonymně, bezpečně, za 2 minuty."
+    }
+  }
+}
