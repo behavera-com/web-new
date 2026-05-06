@@ -1,19 +1,35 @@
 import type { ReactNode } from "react";
-import { Inter } from "next/font/google";
+import { Inter, Inter_Tight, Fraunces, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import type { Viewport } from "next";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import ChatWidget from "@/components/ui/ChatWidget";
 
 import "../globals.css";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const interTight = Inter_Tight({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-inter-tight",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-fraunces",
+  display: "swap",
+  axes: ["opsz", "SOFT"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -149,7 +165,10 @@ export default async function LocaleLayout({
   };
 
   return (
-    <html lang={locale} className={`${inter.variable} h-full antialiased`}>
+    <html
+      lang={locale}
+      className={`${inter.variable} ${interTight.variable} ${fraunces.variable} ${jetbrainsMono.variable} h-full antialiased`}
+    >
       <head>
         <script
           type="application/ld+json"
@@ -168,10 +187,7 @@ export default async function LocaleLayout({
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <ChatWidget />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
