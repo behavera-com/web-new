@@ -14,7 +14,7 @@ import CaseStudies from "@/components/startupjobs/sections/CaseStudies";
 import RoiCalculator from "@/components/startupjobs/sections/RoiCalculator";
 import CoBrandBlock from "@/components/startupjobs/sections/CoBrandBlock";
 import TrustVelocityLine from "@/components/startupjobs/sections/TrustVelocityLine";
-import WebinarSection from "@/components/startupjobs/sections/WebinarSection";
+import ReportSection from "@/components/startupjobs/sections/ReportSection";
 import FaqSection from "@/components/startupjobs/sections/FaqSection";
 import FinalCta from "@/components/startupjobs/sections/FinalCta";
 
@@ -83,7 +83,7 @@ export default async function StartupJobsPage({
         <RoiCalculator />
         <CoBrandBlock />
         <TrustVelocityLine />
-        <WebinarSection />
+        <ReportSection />
         <FaqSection />
         <FinalCta />
       </main>

@@ -38,6 +38,15 @@ function buildSlackMessage(body: LeadBody): string {
     );
   }
 
+  if (source === "startupjobs-report") {
+    return (
+      `📄 Žádost o report zdarma (LP Behavera × StartupJobs)!\n` +
+      `Email: ${body.email ?? "neuvedeno"}\n` +
+      `Telefon: ${body.phone ?? "neuvedeno"}\n` +
+      `Firma: ${body.company ?? "neuvedeno"}`
+    );
+  }
+
   return (
     `🎯 Nový lead z HR Risk Scanner!\n` +
     `Jméno: ${body.name ?? "neuvedeno"}\n` +

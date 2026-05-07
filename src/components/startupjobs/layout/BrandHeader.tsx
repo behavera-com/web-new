@@ -52,8 +52,8 @@ export default function BrandHeader({
           >
             <EnvelopeIcon />
           </a>
-          <a href="#webinar" className="sj-btn-ghost hidden md:inline-flex">
-            Webinář
+          <a href="#report" className="sj-btn-ghost hidden md:inline-flex">
+            Report zdarma
           </a>
           <a
             href="#consult"

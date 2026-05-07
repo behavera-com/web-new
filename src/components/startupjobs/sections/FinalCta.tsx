@@ -34,8 +34,8 @@ export default function FinalCta() {
             </span>
             <ArrowRightIcon size={16} />
           </a>
-          <a href="#webinar" className="sj-btn-textlink">
-            Webinář: Jak nabírat rychleji a líp
+          <a href="#report" className="sj-btn-textlink">
+            Stáhnout report zdarma
             <ArrowRightIcon />
           </a>
         </div>
