@@ -11,7 +11,6 @@ import ManifestoBreak from "@/components/startupjobs/sections/ManifestoBreak";
 import SolutionSection from "@/components/startupjobs/sections/SolutionSection";
 import ProcessSection from "@/components/startupjobs/sections/ProcessSection";
 import CaseStudies from "@/components/startupjobs/sections/CaseStudies";
-import RoiCalculator from "@/components/startupjobs/sections/RoiCalculator";
 import CoBrandBlock from "@/components/startupjobs/sections/CoBrandBlock";
 import TrustVelocityLine from "@/components/startupjobs/sections/TrustVelocityLine";
 import ReportSection from "@/components/startupjobs/sections/ReportSection";
@@ -19,7 +18,8 @@ import FaqSection from "@/components/startupjobs/sections/FaqSection";
 import FinalCta from "@/components/startupjobs/sections/FinalCta";
 
 const BASE_URL = "https://www.behavera.com";
-const PHONE = "+420 000 000 000";
+// Set when real number is available; empty string hides all phone CTAs.
+const PHONE = "";
 const EMAIL = "kontakt@behavera.com";
 const PATH = "/startupjobs";
 
@@ -80,7 +80,6 @@ export default async function StartupJobsPage({
         <SolutionSection />
         <ProcessSection />
         <CaseStudies />
-        <RoiCalculator />
         <CoBrandBlock />
         <TrustVelocityLine />
         <ReportSection />

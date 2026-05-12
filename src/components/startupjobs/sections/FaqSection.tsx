@@ -42,7 +42,7 @@ export default function FaqSection() {
       <div className="max-w-[1240px] mx-auto px-6 md:px-10 py-24 md:py-32">
         <div className="grid lg:grid-cols-12 gap-10 mb-12 md:mb-16">
           <div className="lg:col-span-3">
-            <span className="sj-sec-num">08 / FAQ</span>
+            <span className="sj-sec-num">07 / FAQ</span>
           </div>
           <div className="lg:col-span-9">
             <h2 className="sj-h-section">Časté otázky</h2>

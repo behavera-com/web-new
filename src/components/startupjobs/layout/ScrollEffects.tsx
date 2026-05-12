@@ -4,6 +4,8 @@ import { useEffect } from "react";
 
 export default function ScrollEffects() {
   useEffect(() => {
+    document.documentElement.classList.add("sj-js-ready");
+
     const header = document.getElementById("sj-site-header");
     const mobileCta = document.getElementById("sj-mobile-cta");
     const desktopCta = document.getElementById("sj-desktop-cta");
@@ -21,7 +23,15 @@ export default function ScrollEffects() {
       }
 
       if (desktopCta) {
-        if (y > window.innerHeight * 0.7 && pct < 0.92)
+        // Hide sticky CTA when a section that has its own in-flow CTA is in view
+        // (avoids visual conflict with primary buttons in those sections).
+        const inOwnCta = ["#consult", "#report"].some((sel) => {
+          const el = document.querySelector(sel) as HTMLElement | null;
+          if (!el) return false;
+          const r = el.getBoundingClientRect();
+          return r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.3;
+        });
+        if (y > window.innerHeight * 0.7 && pct < 0.92 && !inOwnCta)
           desktopCta.classList.add("is-shown");
         else desktopCta.classList.remove("is-shown");
       }
@@ -49,6 +59,7 @@ export default function ScrollEffects() {
     return () => {
       window.removeEventListener("scroll", onScroll);
       io?.disconnect();
+      document.documentElement.classList.remove("sj-js-ready");
     };
   }, []);
 

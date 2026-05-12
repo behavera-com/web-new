@@ -31,7 +31,7 @@ export default function Hero() {
           <h1
             className="sj-display"
             style={{
-              fontSize: "clamp(64px, 11vw, 152px)",
+              fontSize: "clamp(52px, 11vw, 152px)",
               fontWeight: 500,
               letterSpacing: "-0.04em",
               lineHeight: 0.92,

@@ -48,7 +48,7 @@ export default function ReportSection() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-3">
             <span className="sj-sec-num" style={{ color: "rgba(255,255,255,0.6)" }}>
-              07 / REPORT
+              06 / REPORT
             </span>
           </div>
           <div className="lg:col-span-9">

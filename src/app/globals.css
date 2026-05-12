@@ -39,6 +39,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.sj-scope :where([id]) {
+  scroll-margin-top: 88px;
+}
+
 body {
   font-family: var(--font-sans);
   color: var(--color-gray-900);
@@ -150,10 +154,11 @@ body {
 
 .sj-sec-num {
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--color-muted);
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  color: var(--color-purple-deep);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
 .sj-step-num {
@@ -206,15 +211,6 @@ body {
   letter-spacing: -0.045em;
   line-height: 0.95;
   color: var(--color-purple-deep);
-}
-
-.sj-roi-num {
-  font-family: var(--font-fraunces);
-  font-variation-settings: "opsz" 144, "SOFT" 30;
-  font-weight: 340;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
-  font-size: clamp(56px, 8vw, 96px);
 }
 
 /* Lockup helpers */
@@ -529,7 +525,9 @@ body {
 .sj-kpi-tip:hover::before,
 .sj-kpi-tip:hover::after,
 .sj-kpi-tip:focus-visible::before,
-.sj-kpi-tip:focus-visible::after {
+.sj-kpi-tip:focus-visible::after,
+.sj-kpi-tip:active::before,
+.sj-kpi-tip:active::after {
   opacity: 1;
   transform: translateY(0);
 }
@@ -538,10 +536,10 @@ body {
 @keyframes sj-pulse-dot {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.6);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.55);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(220, 38, 38, 0);
+    box-shadow: 0 0 0 6px rgba(139, 92, 246, 0);
   }
 }
 .sj-pulse-dot {
@@ -598,61 +596,6 @@ body {
   opacity: 1;
   transform: none;
   pointer-events: auto;
-}
-
-/* ROI calculator inputs */
-.sj-scope input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 4px;
-  background: var(--color-rule);
-  border-radius: 999px;
-  outline: none;
-}
-.sj-scope input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: var(--color-purple-deep);
-  cursor: grab;
-  border: 3px solid var(--color-paper);
-  box-shadow: 0 2px 8px rgba(45, 27, 105, 0.35);
-}
-.sj-scope input[type="range"]::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
-  border-radius: 999px;
-  background: var(--color-purple-deep);
-  cursor: grab;
-  border: 3px solid var(--color-paper);
-  box-shadow: 0 2px 8px rgba(45, 27, 105, 0.35);
-}
-.sj-scope input[type="number"].sj-num-input {
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--color-rule);
-  font-family: var(--font-fraunces);
-  font-size: 28px;
-  font-weight: 380;
-  color: var(--color-ink);
-  letter-spacing: -0.02em;
-  width: 100%;
-  padding: 6px 0;
-}
-.sj-scope input[type="number"].sj-num-input:focus {
-  border-bottom-color: var(--color-purple-deep);
-  outline: none;
-}
-.sj-scope input[type="number"].sj-num-input::-webkit-outer-spin-button,
-.sj-scope input[type="number"].sj-num-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.sj-scope input[type="number"].sj-num-input {
-  -moz-appearance: textfield;
 }
 
 /* FAQ accordion */
@@ -723,16 +666,18 @@ body {
   color: #fff;
 }
 
-/* Reveal-on-scroll */
+/* Reveal-on-scroll — fail-safe: visible by default, animates from hidden state
+   only when the `sj-js-ready` flag is on <html> (added by ScrollEffects on mount).
+   If JS never runs (no-JS crawler, CSP block, slow chunk), sections stay visible. */
 @media (prefers-reduced-motion: no-preference) {
-  .sj-reveal {
+  html.sj-js-ready .sj-reveal {
     opacity: 0;
     transform: translateY(8px);
     transition:
       opacity 0.7s ease,
       transform 0.7s ease;
   }
-  .sj-reveal.is-in {
+  html.sj-js-ready .sj-reveal.is-in {
     opacity: 1;
     transform: none;
   }

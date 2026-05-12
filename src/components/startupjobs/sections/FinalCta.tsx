@@ -11,7 +11,7 @@ export default function FinalCta() {
       }}
     >
       <div className="max-w-[1240px] mx-auto px-6 md:px-10 py-28 md:py-40 text-center">
-        <span className="sj-sec-num">09 / ZAČNĚTE</span>
+        <span className="sj-sec-num">08 / ZAČNĚTE</span>
         <h2 className="sj-h-manifesto mt-8 max-w-[18ch] mx-auto">
           Nabírejte tak, aby to <em>bylo vidět v reportingu.</em>
         </h2>

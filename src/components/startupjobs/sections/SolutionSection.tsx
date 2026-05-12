@@ -114,10 +114,11 @@ export default function SolutionSection() {
                 style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: 10,
-                  color: "var(--color-muted)",
+                  color: "var(--color-purple-accent)",
+                  letterSpacing: "0.16em",
                 }}
               >
-                anonymizovaný příklad
+                Q1 · 2026
               </span>
             </div>
             <p className="sj-display mb-5" style={{ fontSize: 26, lineHeight: 1.2 }}>
@@ -261,7 +262,7 @@ export default function SolutionSection() {
                 letterSpacing: "0.16em",
               }}
             >
-              FIG.03 · BEHAVERA · candidate scoring
+              FIG.03 · BEHAVERA · candidate scoring · VÝŇATEK Z REÁLNÉHO REPORTINGU · ANONYMIZOVÁNO
             </p>
 
             <a

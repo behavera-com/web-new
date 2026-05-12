@@ -10,7 +10,8 @@ export default function BrandHeader({
   phone: string;
   email: string;
 }) {
-  const telHref = `tel:${phone.replace(/\s/g, "")}`;
+  const hasPhone = phone.trim().length > 0;
+  const telHref = hasPhone ? `tel:${phone.replace(/\s/g, "")}` : undefined;
   return (
     <header
       id="sj-site-header"
@@ -38,13 +39,15 @@ export default function BrandHeader({
         </nav>
 
         <div className="flex items-center gap-2 md:gap-3">
-          <a
-            href={telHref}
-            aria-label="Zavolat"
-            className="hidden md:inline-flex w-9 h-9 items-center justify-center text-ink/70 hover:text-purple-accent hover:scale-105 transition-all"
-          >
-            <PhoneIcon />
-          </a>
+          {hasPhone && (
+            <a
+              href={telHref}
+              aria-label="Zavolat"
+              className="hidden md:inline-flex w-9 h-9 items-center justify-center text-ink/70 hover:text-purple-accent hover:scale-105 transition-all"
+            >
+              <PhoneIcon />
+            </a>
+          )}
           <a
             href={`mailto:${email}`}
             aria-label="Napsat email"

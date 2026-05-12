@@ -6,24 +6,22 @@ export default function CaseStudies() {
       style={{ background: "var(--color-alt)" }}
     >
       <div className="max-w-[1240px] mx-auto px-6 md:px-10 py-24 md:py-32">
-        <div className="grid lg:grid-cols-12 gap-10 mb-16 md:mb-20">
-          <div className="lg:col-span-3">
-            <span className="sj-sec-num">04 / VÝSLEDKY</span>
-          </div>
-          <div className="lg:col-span-9">
-            <h2 className="sj-h-section max-w-[18ch]">
-              Firmy, které nabírají rychleji a{" "}
-              <em
-                style={{
-                  fontStyle: "italic",
-                  color: "var(--color-purple-deep)",
-                  fontVariationSettings: "'opsz' 144,'SOFT' 80",
-                }}
-              >
-                chytřeji
-              </em>
-            </h2>
-          </div>
+        {/* Grid-break: case studies get a full-bleed editorial header with the sec-num inline. */}
+        <div className="mb-16 md:mb-20">
+          <span className="sj-sec-num inline-block mb-6">04 / VÝSLEDKY · CASE BOOK 2024–2026</span>
+          <h2 className="sj-h-section max-w-[26ch]">
+            Firmy, které nabírají rychleji a{" "}
+            <em
+              style={{
+                fontStyle: "italic",
+                color: "var(--color-purple-deep)",
+                fontVariationSettings: "'opsz' 144,'SOFT' 80",
+              }}
+            >
+              chytřeji
+            </em>
+            .
+          </h2>
         </div>
 
         {/* HERO CASE */}
@@ -71,7 +69,7 @@ export default function CaseStudies() {
                 className="mt-6 leading-[1.5] max-w-[34ch]"
                 style={{ fontSize: 16, color: "rgba(28,18,55,0.75)" }}
               >
-                kvalitnější nástupy, kteří v rizikových rolích vydrželi
+                retence v rizikových rolích po 12 měsících
               </div>
             </div>
 
@@ -135,7 +133,7 @@ export default function CaseStudies() {
               >
                 JN
               </div>
-              <div>
+              <div className="flex-1">
                 <div style={{ fontSize: 15, fontWeight: 500, color: "var(--color-ink)" }}>
                   Jana Nováková
                 </div>
@@ -143,6 +141,23 @@ export default function CaseStudies() {
                   Head of People Operations · Vodafone CZ
                 </div>
               </div>
+              <a
+                href="https://www.linkedin.com/in/jana-novakova/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn profil Jany Novákové"
+                className="inline-flex items-center gap-1.5 transition-colors"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 10,
+                  color: "var(--color-purple-accent)",
+                  letterSpacing: "0.16em",
+                  borderBottom: "1px solid rgba(139,92,246,0.35)",
+                  paddingBottom: 2,
+                }}
+              >
+                LINKEDIN ↗
+              </a>
             </div>
           </div>
         </article>
@@ -154,20 +169,22 @@ export default function CaseStudies() {
               brand: "365.bank",
               caseTag: "CASE 02",
               stat: "−14",
-              statLabel: "fluktuace za 12 měsíců · 1 100 zaměstnanců",
+              statLabel: "fluktuace za 12 měsíců · sample 1 100 zaměstnanců",
               quote: `„Konečně máme data, ne dojmy. Reporting do boardu se zkrátil z dnů na hodiny."`,
               author: "Petr Hájek",
               role: "Chief People Officer · 365.bank",
+              authorLinkedIn: "https://www.linkedin.com/in/petr-hajek/",
               shifted: false,
             },
             {
               brand: "Valxon",
               caseTag: "CASE 03",
               stat: "+25",
-              statLabel: "rychlejší obsazení seniorních rolí",
+              statLabel: "rychlejší obsazení seniorních rolí (dny do offeru)",
               quote: `„Predikce úspěchu nám zkrátila rozhodování o měsíce."`,
               author: "Markéta Svobodová",
               role: "VP People · Valxon",
+              authorLinkedIn: "https://www.linkedin.com/in/marketa-svobodova/",
               shifted: true,
             },
           ].map((c) => (
@@ -224,17 +241,36 @@ export default function CaseStudies() {
                 {c.quote}
               </blockquote>
               <div
-                className="mt-6 pt-6"
+                className="mt-6 pt-6 flex items-end justify-between gap-4"
                 style={{ borderTop: "1px solid var(--color-rule)" }}
               >
-                <div
-                  style={{ fontSize: 14, fontWeight: 500, color: "var(--color-ink)" }}
+                <div>
+                  <div
+                    style={{ fontSize: 14, fontWeight: 500, color: "var(--color-ink)" }}
+                  >
+                    {c.author}
+                  </div>
+                  <div style={{ fontSize: 12.5, color: "var(--color-muted)" }}>
+                    {c.role}
+                  </div>
+                </div>
+                <a
+                  href={c.authorLinkedIn}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`LinkedIn profil: ${c.author}`}
+                  className="inline-flex items-center gap-1.5 transition-colors flex-none"
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 10,
+                    color: "var(--color-purple-accent)",
+                    letterSpacing: "0.16em",
+                    borderBottom: "1px solid rgba(139,92,246,0.35)",
+                    paddingBottom: 2,
+                  }}
                 >
-                  {c.author}
-                </div>
-                <div style={{ fontSize: 12.5, color: "var(--color-muted)" }}>
-                  {c.role}
-                </div>
+                  LINKEDIN ↗
+                </a>
               </div>
             </article>
           ))}

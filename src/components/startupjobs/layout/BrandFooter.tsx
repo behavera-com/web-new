@@ -9,7 +9,8 @@ export default function BrandFooter({
   phone: string;
   email: string;
 }) {
-  const telHref = `tel:${phone.replace(/\s/g, "")}`;
+  const hasPhone = phone.trim().length > 0;
+  const telHref = hasPhone ? `tel:${phone.replace(/\s/g, "")}` : undefined;
   return (
     <footer style={{ background: "var(--color-paper)", borderTop: "1px solid var(--color-rule)" }}>
       <div className="max-w-[1240px] mx-auto px-6 md:px-10 py-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
@@ -20,16 +21,20 @@ export default function BrandFooter({
             className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px]"
             style={{ color: "var(--color-ink)" }}
           >
-            <a
-              href={telHref}
-              className="inline-flex items-center gap-2 hover:text-purple-accent transition-colors"
-            >
-              <PhoneIcon size={13} className="text-purple-accent" />
-              <span className="font-medium tabular-nums">{phone}</span>
-            </a>
-            <span className="hidden md:inline" style={{ color: "var(--color-rule)" }} aria-hidden="true">
-              ·
-            </span>
+            {hasPhone && (
+              <>
+                <a
+                  href={telHref}
+                  className="inline-flex items-center gap-2 hover:text-purple-accent transition-colors"
+                >
+                  <PhoneIcon size={13} className="text-purple-accent" />
+                  <span className="font-medium tabular-nums">{phone}</span>
+                </a>
+                <span className="hidden md:inline" style={{ color: "var(--color-rule)" }} aria-hidden="true">
+                  ·
+                </span>
+              </>
+            )}
             <a
               href={`mailto:${email}`}
               className="inline-flex items-center gap-2 hover:text-purple-accent transition-colors"
