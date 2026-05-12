@@ -1,16 +1,17 @@
 const steps = [
   {
     num: "01",
-    tag: "DIAGNOSTIKA",
+    tag: "ONBOARDING",
     title: (
       <>
-        30 minut <em>a víme</em>, kde to drhne
+        15 <em>minut</em>
       </>
     ),
     body: (
       <>
-        Krátké volání s vaším HR týmem. Pochopíme váš nábor, role a kontext.{" "}
-        <span className="sj-hl">30 minut.</span>
+        Společně si řekneme, jestli si změříme, jak je na tom aktuální tým,
+        nebo využijeme{" "}
+        <span className="sj-hl">našich předpřipravených benchmarků</span>.
       </>
     ),
   },
@@ -19,29 +20,28 @@ const steps = [
     tag: "IMPLEMENTACE",
     title: (
       <>
-        Nasazení <em>za pár dní</em>
+        Vše <em>na nás</em>
       </>
     ),
     body: (
       <>
-        Behavera nasazena za pár dní.{" "}
-        <span className="sj-hl">Žádná IT integrace</span>, žádné velké změny v
-        procesech. První kandidáti scoringovaní do týdne.
+        Vše za vás nastavíme,{" "}
+        <span className="sj-hl">vy se jen vezete</span> :)
       </>
     ),
   },
   {
     num: "03",
-    tag: "REPORTING",
+    tag: "VÝSLEDKY",
     title: (
       <>
-        Měsíční KPI <em>do reportingu</em>
+        Ihned <em>a online</em>
       </>
     ),
     body: (
       <>
-        Time-to-hire, quality of hire, retention —{" "}
-        <span className="sj-hl">ten samý report</span>, který ukazujete vedení.
+        Live KPI dashboard pro vedení.{" "}
+        <span className="sj-hl">Bez čekání</span> na měsíční report.
       </>
     ),
   },

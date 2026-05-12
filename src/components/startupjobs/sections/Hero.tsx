@@ -7,12 +7,6 @@ const trustPills = [
   "GDPR-ready",
 ];
 
-const stats = [
-  { value: "−38 %", label: "time-to-hire" },
-  { value: "+31 %", label: "quality of hire" },
-  { value: "−24 %", label: "cost per hire" },
-];
-
 export default function Hero() {
   return (
     <section className="sj-grain sj-reveal relative overflow-hidden">
@@ -87,51 +81,6 @@ export default function Hero() {
             ))}
           </div>
 
-          <div
-            className="mt-10 pt-8"
-            style={{ borderTop: "1px solid var(--color-rule)" }}
-          >
-            <p
-              className="mb-5"
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: 10,
-                color: "var(--color-muted)",
-                letterSpacing: "0.16em",
-              }}
-            >
-              PRŮMĚRNÉ VÝSLEDKY KLIENTŮ · BENCHMARK 2024–2026
-            </p>
-            <div className="flex flex-wrap items-baseline gap-x-8 gap-y-5">
-              {stats.map((s, i) => (
-                <div key={s.label} className="contents">
-                  <div className="flex items-baseline gap-2 whitespace-nowrap">
-                    <span
-                      className="sj-display"
-                      style={{
-                        fontSize: 36,
-                        lineHeight: 1.05,
-                        color: "var(--color-purple-deep)",
-                        fontWeight: 500,
-                      }}
-                    >
-                      {s.value}
-                    </span>
-                    <span style={{ fontSize: 13, color: "rgba(28,18,55,0.7)" }}>
-                      {s.label}
-                    </span>
-                  </div>
-                  {i < stats.length - 1 && (
-                    <div
-                      className="hidden sm:block w-px h-6"
-                      style={{ background: "var(--color-rule)" }}
-                      aria-hidden="true"
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         <KpiReportCard />
