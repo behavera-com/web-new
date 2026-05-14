@@ -94,7 +94,7 @@ export default async function StartupJobsPage({
         <FinalCta />
       </main>
       <BrandFooter phone={PHONE} email={EMAIL} />
-      <MobileStickyCta phone={PHONE} email={EMAIL} />
+      <MobileStickyCta />
       <FloatingRepCta />
       <ScrollEffects />
     </div>

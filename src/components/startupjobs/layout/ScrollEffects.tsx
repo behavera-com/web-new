@@ -33,17 +33,18 @@ export default function ScrollEffects() {
       if (header) header.classList.toggle("is-scrolled", scrolled);
       root.classList.toggle("sj-scrolled", scrolled);
 
+      const inOwnCta = ["#consult", "#report"].some((sel) => {
+        const el = document.querySelector(sel) as HTMLElement | null;
+        if (!el) return false;
+        const r = el.getBoundingClientRect();
+        return r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.3;
+      });
+
       if (mobileCta) {
-        mobileCta.classList.toggle("is-shown", pct > 0.25);
+        mobileCta.classList.toggle("is-shown", pct > 0.25 && !inOwnCta);
       }
 
       if (desktopCta) {
-        const inOwnCta = ["#consult", "#report"].some((sel) => {
-          const el = document.querySelector(sel) as HTMLElement | null;
-          if (!el) return false;
-          const r = el.getBoundingClientRect();
-          return r.top < window.innerHeight * 0.5 && r.bottom > window.innerHeight * 0.3;
-        });
         const show = y > window.innerHeight * 0.7 && pct < 0.92 && !inOwnCta;
         desktopCta.classList.toggle("is-shown", show);
       }
