@@ -1567,21 +1567,6 @@ select.sj-consult-input {
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 4px;
-  /* Soft fade on both edges */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 7%,
-    black 86%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 7%,
-    black 86%,
-    transparent 100%
-  );
 }
 .sj-testimonial-track::-webkit-scrollbar {
   display: none;

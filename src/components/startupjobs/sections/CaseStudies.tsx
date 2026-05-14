@@ -718,6 +718,10 @@ function TestimonialMosaic() {
         </div>
       </div>
 
+      <div className="relative">
+        {/* Fade overlays — left & right */}
+        <div aria-hidden style={{ position: "absolute", left: 0, top: 0, bottom: 4, width: "8%", background: "linear-gradient(to right, #f8f6ff, transparent)", zIndex: 2, pointerEvents: "none" }} />
+        <div aria-hidden style={{ position: "absolute", right: 0, top: 0, bottom: 4, width: "14%", background: "linear-gradient(to left, #f8f6ff, transparent)", zIndex: 2, pointerEvents: "none" }} />
       <div
         ref={trackRef}
         className="sj-testimonial-track"
@@ -731,6 +735,7 @@ function TestimonialMosaic() {
         onTouchEnd={() => { handleScroll(); startAuto(); }}
       >
         {TESTIMONIALS.map((t, i) => {
+
           const isActive = i === active || i === active + 1;
           return (
             <div
@@ -748,6 +753,7 @@ function TestimonialMosaic() {
           );
         })}
       </div>
+      </div>{/* end fade wrapper */}
 
       <div className="flex gap-2 justify-center mt-8">
         {TESTIMONIALS.map((t, i) => (
