@@ -1015,8 +1015,8 @@ html.sj-scrolled .sj-site-header > div:first-child {
 }
 
 .sj-floating-rep-avatar {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 999px;
   background: var(--color-purple-accent);
   color: #fff;
@@ -1535,6 +1535,39 @@ select.sj-consult-input {
   /* arrows were positioned for vertical stack — irrelevant in horizontal scroller */
   .sj-triptych-grid .sj-triptych-arrow {
     display: none;
+  }
+}
+
+/* Testimonial slider */
+.sj-testimonial-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+  /* Peek: negative margin + padding trick */
+  margin-right: -48px;
+  padding-right: 48px;
+}
+.sj-testimonial-track::-webkit-scrollbar {
+  display: none;
+}
+.sj-t-slide {
+  flex: 0 0 85%;
+  scroll-snap-align: start;
+  min-width: 0;
+}
+@media (min-width: 768px) {
+  .sj-testimonial-track {
+    margin-right: -80px;
+    padding-right: 80px;
+  }
+  .sj-t-slide {
+    flex: 0 0 calc(50% - 10px);
   }
 }
 

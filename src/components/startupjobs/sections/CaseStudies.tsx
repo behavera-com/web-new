@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import DualCta from "../ui/DualCta";
 
 type CaseStat = { value: string; label: string };
@@ -620,29 +621,112 @@ function TestimonialNote({
 }
 
 function TestimonialMosaic() {
+  const total = TESTIMONIALS.length;
+  const [active, setActive] = React.useState(0);
+  const trackRef = React.useRef<HTMLDivElement>(null);
+  const autoRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const scrollTo = React.useCallback((idx: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const cards = track.querySelectorAll<HTMLElement>(".sj-t-slide");
+    cards[idx]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+  }, []);
+
+  const goTo = React.useCallback((idx: number) => {
+    const next = (idx + total) % total;
+    setActive(next);
+    scrollTo(next);
+  }, [total, scrollTo]);
+
+  const resetAuto = React.useCallback(() => {
+    if (autoRef.current) clearInterval(autoRef.current);
+    autoRef.current = setInterval(() => {
+      setActive((a) => {
+        const next = (a + 2) % total;
+        scrollTo(next);
+        return next;
+      });
+    }, 5000);
+  }, [total, scrollTo]);
+
+  React.useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    if (mq.matches) resetAuto();
+    return () => { if (autoRef.current) clearInterval(autoRef.current); };
+  }, [resetAuto]);
+
+  const handleScroll = React.useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const cards = Array.from(track.querySelectorAll<HTMLElement>(".sj-t-slide"));
+    const trackLeft = track.getBoundingClientRect().left;
+    let closest = 0;
+    let minDist = Infinity;
+    cards.forEach((card, i) => {
+      const dist = Math.abs(card.getBoundingClientRect().left - trackLeft);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    setActive(closest);
+  }, []);
+
   return (
     <div className="relative">
       <div className="flex items-baseline justify-between flex-wrap gap-4 mb-10 md:mb-12">
         <span className="sj-eyebrow">Fig.06 — Citace z reálných reportů</span>
-        <span
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: 10,
-            letterSpacing: "0.16em",
-            color: "var(--color-muted)",
-            textTransform: "uppercase",
-          }}
-        >
-          7 výpovědi · 7 firem · 1 metoda
-        </span>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => { goTo(active - 2); resetAuto(); }}
+            aria-label="Předchozí"
+            style={{ background: "none", border: "1px solid var(--color-rule)", borderRadius: 2, width: 32, height: 32, display: "inline-flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--color-ink)" }}
+          >
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden><path d="M11 7H3m0 0l4-4M3 7l4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          <button
+            onClick={() => { goTo(active + 2); resetAuto(); }}
+            aria-label="Další"
+            style={{ background: "none", border: "1px solid var(--color-rule)", borderRadius: 2, width: 32, height: 32, display: "inline-flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--color-ink)" }}
+          >
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden><path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+      {/* Slider track */}
+      <div
+        ref={trackRef}
+        className="sj-testimonial-track"
+        onScroll={handleScroll}
+        onMouseDown={resetAuto}
+        onTouchStart={resetAuto}
+      >
         {TESTIMONIALS.map((t, i) => (
-          <TestimonialNote
+          <div key={t.slug} className="sj-t-slide">
+            <TestimonialNote
+              t={t}
+              palette={STICKY_PALETTE[i % STICKY_PALETTE.length]}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Dots */}
+      <div className="flex gap-2 justify-center mt-8">
+        {TESTIMONIALS.map((t, i) => (
+          <button
             key={t.slug}
-            t={t}
-            palette={STICKY_PALETTE[i % STICKY_PALETTE.length]}
+            onClick={() => { goTo(i); resetAuto(); }}
+            aria-label={`Přejít na citaci ${i + 1}`}
+            style={{
+              width: i === active ? 20 : 7,
+              height: 7,
+              borderRadius: 4,
+              background: i === active ? "var(--color-purple-deep)" : "rgba(45,27,105,0.2)",
+              transition: "all 0.25s ease",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+            }}
           />
         ))}
       </div>

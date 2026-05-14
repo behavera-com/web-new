@@ -68,8 +68,8 @@ export default function FinalCta() {
                     <div
                       key={r.name}
                       style={{
-                        width: 52,
-                        height: 52,
+                        width: 72,
+                        height: 72,
                         borderRadius: "50%",
                         overflow: "hidden",
                         background: "var(--color-purple-deep)",
