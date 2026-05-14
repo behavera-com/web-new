@@ -68,7 +68,7 @@ export default function ProductDemo() {
                 color: "rgba(28,18,55,0.7)",
               }}
             >
-              Žádný psychotest, žádné self-assessment. 15 minut behaviorální hry
+              Žádný psychotest, žádné self-assessment. 30–60 minut behaviorální hry
               v prohlížeči — kandidát si projde simulovaný pracovní den, vy
               dostanete fit % a strukturovaný podklad k pohovoru.
             </p>

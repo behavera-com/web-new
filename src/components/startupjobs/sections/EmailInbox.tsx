@@ -299,18 +299,6 @@ export default function EmailInbox({ emails }: { emails: EmailCard[] }) {
                       </span>
                     </div>
                     <div
-                      className="mt-1"
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: 11.5,
-                        color: "var(--color-muted)",
-                        letterSpacing: "0.04em",
-                      }}
-                    >
-                      <span style={{ opacity: 0.7 }}>komu:</span>{" "}
-                      {active.meta.replace(/^komu:\s*/i, "")}
-                    </div>
-                    <div
                       className="mt-2"
                       style={{
                         fontFamily: "var(--font-fraunces)",

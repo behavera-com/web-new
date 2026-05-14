@@ -12,6 +12,7 @@ type Card = {
   shotVideo?: string;
   variant?: "default" | "alt" | "dark";
   features: string[];
+  cta?: { label: string; href: string };
 };
 
 const cards: Card[] = [
@@ -55,7 +56,7 @@ const cards: Card[] = [
     tagTone: "green",
     title: "Teprve teď měříme fit konkrétních kandidátů — proti vašemu blueprintu.",
     desc:
-      "Hra v prohlížeči (15 min) místo psych. testu. Výstup: fit % na vaši roli a váš tým, ne na obecnou personu. Recruiter dostává hotový podklad k pohovoru včetně otázek na rizikové oblasti.",
+      "Hra v prohlížeči (30–60 min) místo psych. testu. Výstup: fit % na vaši roli a váš tým, ne na obecnou personu. Recruiter dostává hotový podklad k pohovoru včetně otázek na rizikové oblasti.",
     shot: "/startupjobs/product/candidate-fit.png",
     shotAlt: "Candidate Fit — behaviorální fit kandidáta na konkrétní roli",
     shotW: 651,
@@ -66,6 +67,7 @@ const cards: Card[] = [
       "Fit % na konkrétní tým",
       "Strukturované insighty k pohovoru",
     ],
+    cta: { label: "Podívat se na ukázku hry", href: "#demo" },
   },
 ];
 
@@ -203,6 +205,18 @@ export default function ProductTriptych() {
                   </li>
                 ))}
               </ul>
+
+              {c.cta && (
+                <a
+                  href={c.cta.href}
+                  className="sj-triptych-cta"
+                >
+                  {c.cta.label}
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden>
+                    <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              )}
 
               <div className="sj-product-shot mt-auto">
                 <div

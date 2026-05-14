@@ -228,8 +228,7 @@ export default function PainSection() {
               letterSpacing: "0.04em",
             }}
           >
-            * Příjmení anonymizováno. Originální zprávy v archivu Behavera (CZ/SK/EN);
-            anglické citáty přeloženy do češtiny. Publikováno s ústním souhlasem.
+            Zpětná vazba kandidátů našim klientům
           </p>
         </div>
       </div>

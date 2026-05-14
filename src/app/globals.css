@@ -1538,6 +1538,23 @@ select.sj-consult-input {
   }
 }
 
+.sj-triptych-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-purple-deep);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.18s ease;
+}
+.sj-triptych-cta:hover {
+  opacity: 1;
+}
+
 /* ProductTriptych — narrative connectors between Diagnóza → Blueprint → Match */
 .sj-triptych-arrow {
   position: absolute;

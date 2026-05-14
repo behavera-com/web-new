@@ -61,10 +61,6 @@ const blocks: SolutionBlockData[] = [
         Sortování od shora dolů —{" "}
         <strong style={{ color: "var(--color-ink)" }}>recruiter ví, koho volat první</strong>.
       </Fragment>,
-      <Fragment key="c">
-        Plug & play s vaším ATS —{" "}
-        <strong style={{ color: "var(--color-ink)" }}>žádný re-import</strong>.
-      </Fragment>,
     ],
     image: {
       src: "/startupjobs/hiring/candidate-fit-matrix.png",
@@ -95,7 +91,7 @@ const blocks: SolutionBlockData[] = [
     ),
     details: [
       <Fragment key="a">
-        Hraje se v prohlížeči, ~25 min — kandidáta nesvazujete časovým slotem.
+        Hraje se v prohlížeči, 30–60 min — kandidáta nesvazujete časovým slotem.
       </Fragment>,
       <Fragment key="b">
         Strukturovaný výstup s{" "}

@@ -2,7 +2,7 @@ const principles = [
   {
     tag: "VÍCE INSTRUMENTŮ",
     title: "Fit % nestojí na jednom čísle.",
-    body: "AI prescreening chat (~2 min), behaviorální hra v prohlížeči (~15 min) a kontextové signály z procesu — všechno se kombinuje proti vašemu týmovému blueprintu.",
+    body: "AI prescreening chat (~2 min), behaviorální hra v prohlížeči (30–60 min) a kontextové signály z procesu — všechno se kombinuje proti vašemu týmovému blueprintu.",
   },
   {
     tag: "MODELY NA CZ/SK TRHU",

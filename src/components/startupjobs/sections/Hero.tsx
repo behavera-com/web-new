@@ -106,10 +106,7 @@ export default function Hero() {
             className="mt-7 flex flex-wrap gap-x-3 gap-y-2.5 max-w-[560px] sj-anim"
             style={{ ["--sj-delay" as string]: "520ms" }}
           >
-            <TrustPill label="Plug & play s vaším ATS">
-              <NoIntegrationIcon />
-            </TrustPill>
-            <TrustPill label="Onboarding v řádu hodin">
+            <TrustPill label="Onboarding v řádu minut">
               <FastIcon />
             </TrustPill>
             <TrustPill label="GDPR-ready">
@@ -158,11 +155,14 @@ const heroTrustLogos = [
   { src: "/startupjobs/logos/o2.svg", alt: "O2" },
   { src: "/startupjobs/logos/pwc.svg", alt: "PwC" },
   { src: "/startupjobs/logos/oktagon.svg", alt: "OKTAGON MMA" },
-  { src: "/startupjobs/logos/kdpcr.png", alt: "Komora daňových poradců ČR" },
+  { src: "/startupjobs/logos/raynet.svg", alt: "Raynet CRM" },
   { src: "/startupjobs/logos/365bank.svg", alt: "365.bank" },
   { src: "/startupjobs/logos/prusa.svg", alt: "Průša Research" },
   { src: "/startupjobs/logos/expando.svg", alt: "Expando" },
   { src: "/startupjobs/logos/valxon.svg", alt: "Valxon" },
+  { src: "/startupjobs/logos/alma.svg", alt: "Alma Career" },
+  { src: "/startupjobs/logos/krokitchen.png", alt: "KRO Kitchen" },
+  { src: "/startupjobs/logos/prazske-sluzby.svg", alt: "Pražské služby" },
 ];
 
 function HeroTrustRow() {
@@ -463,9 +463,9 @@ function ExpandoCaseCard() {
         <ExpandoMetric
           label="12mo retention"
           unit="%"
-          before={67}
-          after={91}
-          delta="+24 pp"
+          before={65}
+          after={87}
+          delta="+22 pp"
           improvement="up"
           delayMs={1050}
         />

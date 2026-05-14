@@ -5,11 +5,14 @@ const logos = [
   { src: "/startupjobs/logos/o2.svg", alt: "O2" },
   { src: "/startupjobs/logos/pwc.svg", alt: "PwC" },
   { src: "/startupjobs/logos/oktagon.svg", alt: "OKTAGON MMA" },
-  { src: "/startupjobs/logos/kdpcr.png", alt: "Komora daňových poradců ČR" },
+  { src: "/startupjobs/logos/raynet.svg", alt: "Raynet CRM" },
   { src: "/startupjobs/logos/365bank.svg", alt: "365.bank" },
   { src: "/startupjobs/logos/prusa.svg", alt: "Průša Research" },
   { src: "/startupjobs/logos/expando.svg", alt: "Expando" },
   { src: "/startupjobs/logos/valxon.svg", alt: "Valxon" },
+  { src: "/startupjobs/logos/alma.svg", alt: "Alma Career" },
+  { src: "/startupjobs/logos/krokitchen.png", alt: "KRO Kitchen" },
+  { src: "/startupjobs/logos/prazske-sluzby.svg", alt: "Pražské služby" },
 ];
 
 export default function TrustStrip() {
