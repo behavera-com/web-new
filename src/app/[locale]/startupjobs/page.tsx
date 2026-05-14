@@ -74,12 +74,6 @@ export default async function StartupJobsPage({
 
   return (
     <div className="sj-body sj-scope" style={{ background: "var(--color-paper)" }}>
-      <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
-      <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
-      <link
-        rel="stylesheet"
-        href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
-      />
       <div className="sj-progress-bar" aria-hidden />
       <AmbientLayer />
       <TopUtilityBar phone={PHONE} email={EMAIL} />
