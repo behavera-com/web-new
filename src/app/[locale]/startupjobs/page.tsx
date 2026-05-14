@@ -1,26 +1,29 @@
 import { notFound } from "next/navigation";
 import BrandHeader from "@/components/startupjobs/layout/BrandHeader";
+import TopUtilityBar from "@/components/startupjobs/layout/TopUtilityBar";
 import BrandFooter from "@/components/startupjobs/layout/BrandFooter";
 import MobileStickyCta from "@/components/startupjobs/layout/MobileStickyCta";
-import DesktopStickyCta from "@/components/startupjobs/layout/DesktopStickyCta";
+import FloatingRepCta from "@/components/startupjobs/layout/FloatingRepCta";
+import { consultRep } from "@/components/startupjobs/sections/rep-data";
 import ScrollEffects from "@/components/startupjobs/layout/ScrollEffects";
+import AmbientLayer from "@/components/startupjobs/layout/AmbientLayer";
 import Hero from "@/components/startupjobs/sections/Hero";
-import TrustStrip from "@/components/startupjobs/sections/TrustStrip";
 import PainSection from "@/components/startupjobs/sections/PainSection";
 import ManifestoBreak from "@/components/startupjobs/sections/ManifestoBreak";
 import SolutionSection from "@/components/startupjobs/sections/SolutionSection";
-import ProcessSection from "@/components/startupjobs/sections/ProcessSection";
 import CaseStudies from "@/components/startupjobs/sections/CaseStudies";
 import CoBrandBlock from "@/components/startupjobs/sections/CoBrandBlock";
-import TrustVelocityLine from "@/components/startupjobs/sections/TrustVelocityLine";
-import ReportSection from "@/components/startupjobs/sections/ReportSection";
+import ProcessSection from "@/components/startupjobs/sections/ProcessSection";
+import ReportPreview from "@/components/startupjobs/sections/ReportPreview";
+import ProductTriptych from "@/components/startupjobs/sections/ProductTriptych";
+import ProductDemo from "@/components/startupjobs/sections/ProductDemo";
 import FaqSection from "@/components/startupjobs/sections/FaqSection";
+import OutcomeStrip from "@/components/startupjobs/sections/OutcomeStrip";
 import FinalCta from "@/components/startupjobs/sections/FinalCta";
 
 const BASE_URL = "https://www.behavera.com";
-// Set when real number is available; empty string hides all phone CTAs.
-const PHONE = "";
-const EMAIL = "kontakt@behavera.com";
+const PHONE = "+420 605 839 456";
+const EMAIL = "hello@behavera.com";
 const PATH = "/startupjobs";
 
 export async function generateMetadata({
@@ -71,24 +74,33 @@ export default async function StartupJobsPage({
 
   return (
     <div className="sj-body sj-scope" style={{ background: "var(--color-paper)" }}>
-      <BrandHeader phone={PHONE} email={EMAIL} />
-      <main id="top" className="pt-[68px]">
+      <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+      <link
+        rel="stylesheet"
+        href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap"
+      />
+      <div className="sj-progress-bar" aria-hidden />
+      <AmbientLayer />
+      <TopUtilityBar phone={PHONE} email={EMAIL} />
+      <BrandHeader phone={PHONE} email={EMAIL} rep={consultRep} />
+      <main id="top" className="pt-[112px] md:pt-[148px] pb-[88px] md:pb-0 scroll-pt-[120px] md:scroll-pt-[156px]">
         <Hero />
-        <TrustStrip />
-        <PainSection />
-        <ManifestoBreak />
-        <SolutionSection />
-        <ProcessSection />
-        <CaseStudies />
         <CoBrandBlock />
-        <TrustVelocityLine />
-        <ReportSection />
+        <PainSection />
+        <ProductTriptych />
+        <ProductDemo />
+        <ReportPreview />
+        <SolutionSection />
+        <ManifestoBreak />
+        <CaseStudies />
+        <ProcessSection />
         <FaqSection />
+        <OutcomeStrip />
         <FinalCta />
       </main>
       <BrandFooter phone={PHONE} email={EMAIL} />
-      <MobileStickyCta phone={PHONE} email={EMAIL} />
-      <DesktopStickyCta />
+      <FloatingRepCta rep={consultRep} />
       <ScrollEffects />
     </div>
   );
