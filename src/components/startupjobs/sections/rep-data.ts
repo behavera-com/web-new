@@ -15,7 +15,14 @@ export const veronika: Rep = {
   photo: "/startupjobs/team/Veronika.jpg",
 };
 
-export const consultReps: Rep[] = [jana, veronika];
+export const giuseppe: Rep = {
+  name: "Giuseppe",
+  title: "Konzultant · Behavera",
+  email: "hello@behavera.com",
+  photo: "/startupjobs/team/Giuseppe.jpeg",
+};
+
+export const consultReps: Rep[] = [jana, veronika, giuseppe];
 
 // Primary rep for single-rep contexts (floating CTA, header)
 export const consultRep: Rep = jana;

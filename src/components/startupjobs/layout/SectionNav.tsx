@@ -10,6 +10,7 @@ const ITEMS: Item[] = [
   { id: "produkt", label: "Produkt" },
   { id: "demo", label: "Demo" },
   { id: "report", label: "Report" },
+  { id: "metodika", label: "Metodika" },
   { id: "cases", label: "Případovky" },
   { id: "how", label: "Jak to funguje" },
   { id: "faq", label: "FAQ" },
@@ -74,7 +75,9 @@ export default function SectionNav() {
     };
   }, []);
 
-  // Center the active tab via translateX on the inner track
+  // Center the active tab using native horizontal scroll on the viewport.
+  // Native scroll keeps the bar swipeable on touch devices while we still
+  // animate to the active tab as the user moves through the page.
   useEffect(() => {
     const viewport = viewportRef.current;
     const track = trackRef.current;
@@ -83,11 +86,8 @@ export default function SectionNav() {
       `a[data-sn-id="${active}"]`,
     );
     if (!tab) return;
-    const viewportW = viewport.offsetWidth;
-    const tabLeft = tab.offsetLeft;
-    const tabW = tab.offsetWidth;
-    const shift = viewportW / 2 - tabLeft - tabW / 2;
-    track.style.transform = `translateX(${shift}px)`;
+    const target = tab.offsetLeft - viewport.offsetWidth / 2 + tab.offsetWidth / 2;
+    viewport.scrollTo({ left: Math.max(0, target), behavior: "smooth" });
   }, [active]);
 
   const activeIdx = ITEMS.findIndex((i) => i.id === active);
@@ -99,15 +99,23 @@ export default function SectionNav() {
     >
       <div
         ref={viewportRef}
-        className="max-w-[1240px] mx-auto h-[44px] relative overflow-hidden"
+        className="sj-section-nav-viewport max-w-[1240px] mx-auto"
+        style={{
+          overflowX: "auto",
+          overflowY: "hidden",
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "none",
+          touchAction: "pan-x pan-y",
+        }}
       >
         <div
           ref={trackRef}
-          className="absolute top-1/2 left-0 flex items-center gap-1 whitespace-nowrap will-change-transform"
+          className="sj-section-nav-track flex items-center gap-1 whitespace-nowrap"
           style={{
-            transform: "translateX(0)",
-            translate: "0 -50%",
-            transition: "transform 0.5s cubic-bezier(0.4,0,0.2,1)",
+            width: "max-content",
+            minWidth: "100%",
+            justifyContent: "center",
+            padding: "0 16px",
           }}
         >
           {ITEMS.map((item, i) => {
@@ -122,6 +130,12 @@ export default function SectionNav() {
                 aria-current={state === "active" ? "true" : undefined}
                 data-state={state}
                 className="sj-section-tab"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  minHeight: 44,
+                  padding: "10px 14px",
+                }}
               >
                 {item.label}
               </a>

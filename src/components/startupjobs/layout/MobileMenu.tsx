@@ -13,6 +13,7 @@ const LINKS: Link[] = [
   { href: "#produkt", label: "Co děláme" },
   { href: "#demo", label: "Demo" },
   { href: "#report", label: "Report zdarma" },
+  { href: "#metodika", label: "Metodika" },
   { href: "#cases", label: "Případové studie" },
   { href: "#how", label: "Jak to funguje" },
   { href: "#faq", label: "FAQ" },

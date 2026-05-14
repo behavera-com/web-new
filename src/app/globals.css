@@ -2089,12 +2089,33 @@ select.sj-consult-input {
 
 /* ======================================
    Section indicator tabs (sticky pill nav)
-   Centered active + faded neighbors
+   Centered active + faded neighbors. Native horizontal scroll so the bar
+   is swipeable on touch devices; JS keeps the active tab centered.
    ====================================== */
+.sj-section-nav-viewport {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* Allow vertical page scroll when finger drifts; horizontal swipe pans tabs. */
+  touch-action: pan-x pan-y;
+}
+.sj-section-nav-viewport::-webkit-scrollbar { display: none; }
+.sj-section-nav-track {
+  /* Center-align track contents inside the viewport when narrower than it,
+     otherwise just sit at left and let scroll handle the rest. */
+  width: max-content;
+  min-width: 100%;
+  justify-content: center;
+  padding: 0 16px;
+}
 .sj-section-tab {
   flex-shrink: 0;
-  display: block;
-  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 14px;
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 600;

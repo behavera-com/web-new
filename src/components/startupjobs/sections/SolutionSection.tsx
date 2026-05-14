@@ -116,7 +116,8 @@ const blocks: SolutionBlockData[] = [
 export default function SolutionSection() {
   return (
     <section
-      className="sj-grain sj-reveal"
+      id="metodika"
+      className="sj-grain sj-reveal scroll-mt-[140px] lg:scroll-mt-[160px]"
       style={{ background: "var(--color-paper)" }}
     >
       <div className="max-w-[1240px] mx-auto px-6 md:px-10 py-24 md:py-32">
