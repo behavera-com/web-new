@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useEffect, useRef, useState } from "react";
 import DualCta from "../ui/DualCta";
 
 type CaseStat = { value: string; label: string };
@@ -621,21 +622,313 @@ function TestimonialNote({
   );
 }
 
+const AUTOPLAY_MS = 7000;
+const DRAG_AXIS_THRESHOLD = 8;       // px before we decide horizontal vs vertical
+const DRAG_ADVANCE_RATIO = 0.18;     // % of viewport width that triggers next/prev
+
 function TestimonialMosaic() {
+  const total = TESTIMONIALS.length;
+  const [active, setActive] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  const rootRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const drag = useRef({
+    active: false,
+    startX: 0,
+    startY: 0,
+    dx: 0,
+    axis: null as null | "x" | "y",
+    pid: -1,
+  });
+  const resumeTimer = useRef<number | null>(null);
+
+  // Prefers-reduced-motion
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduceMotion(mq.matches);
+    const onChange = () => setReduceMotion(mq.matches);
+    mq.addEventListener?.("change", onChange);
+    return () => mq.removeEventListener?.("change", onChange);
+  }, []);
+
+  // IntersectionObserver — only autoplay when the slider is on screen
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setIsInView(true); // graceful fallback
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.25 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Pause when the page is hidden (background tab)
+  useEffect(() => {
+    const onVis = () => setIsPaused(document.hidden);
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+  }, []);
+
+  // Pause autoplay while the user is scrolling. A slide change mid-scroll reads
+  // as a "page jump" even though the document didn't move, so we hold autoplay
+  // until the page has been still for ~600ms.
+  useEffect(() => {
+    let id: number | null = null;
+    let scrolling = false;
+    const onScroll = () => {
+      if (!scrolling) {
+        scrolling = true;
+        setIsPaused(true);
+      }
+      if (id) window.clearTimeout(id);
+      id = window.setTimeout(() => {
+        scrolling = false;
+        setIsPaused(false);
+      }, 600);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (id) window.clearTimeout(id);
+    };
+  }, []);
+
+  // Autoplay
+  useEffect(() => {
+    if (reduceMotion || !isInView || isPaused) return;
+    const id = window.setInterval(() => {
+      setActive((a) => (a + 1) % total);
+    }, AUTOPLAY_MS);
+    return () => window.clearInterval(id);
+  }, [reduceMotion, isInView, isPaused, total]);
+
+  const goTo = useCallback(
+    (next: number) => setActive(((next % total) + total) % total),
+    [total],
+  );
+
+  // Pause autoplay briefly after manual interaction so it doesn't fight the user
+  const pauseFor = useCallback((ms: number) => {
+    setIsPaused(true);
+    if (resumeTimer.current) window.clearTimeout(resumeTimer.current);
+    resumeTimer.current = window.setTimeout(() => setIsPaused(false), ms);
+  }, []);
+
+  // Pointer drag — works for mouse + touch + pen via the unified PointerEvent API.
+  // Critical: viewport has `touch-action: pan-y`, so the browser owns vertical scroll;
+  // if the user moves vertically more than horizontally we ignore the drag entirely.
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    drag.current = {
+      active: true,
+      startX: e.clientX,
+      startY: e.clientY,
+      dx: 0,
+      axis: null,
+      pid: e.pointerId,
+    };
+    pauseFor(AUTOPLAY_MS);
+  };
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!drag.current.active) return;
+    const dx = e.clientX - drag.current.startX;
+    const dy = e.clientY - drag.current.startY;
+
+    // Decide axis from the first few px of motion. If the user is scrolling the
+    // page (axis = "y") we never touch the track — vertical pan stays native.
+    if (drag.current.axis === null) {
+      if (Math.abs(dx) < DRAG_AXIS_THRESHOLD && Math.abs(dy) < DRAG_AXIS_THRESHOLD) return;
+      drag.current.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      if (drag.current.axis === "x") {
+        // Lock pointer to viewport so we keep tracking even when the cursor
+        // drifts outside its bounds.
+        e.currentTarget.setPointerCapture?.(e.pointerId);
+      }
+    }
+    if (drag.current.axis !== "x") return;
+
+    drag.current.dx = dx;
+    const track = trackRef.current;
+    if (track) {
+      track.style.transition = "none";
+      track.style.transform = `translate3d(calc(${-active * 100}% + ${dx}px), 0, 0)`;
+    }
+  };
+
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!drag.current.active) return;
+    const { axis, dx, pid } = drag.current;
+    drag.current.active = false;
+    drag.current.axis = null;
+    e.currentTarget.releasePointerCapture?.(pid);
+
+    const track = trackRef.current;
+    if (track) track.style.transition = "";
+
+    if (axis === "x") {
+      const w = viewportRef.current?.clientWidth || 1;
+      if (Math.abs(dx) > w * DRAG_ADVANCE_RATIO) {
+        goTo(active + (dx < 0 ? 1 : -1));
+      } else if (track) {
+        // Snap back to the active slide
+        track.style.transform = `translate3d(${-active * 100}%, 0, 0)`;
+      }
+    }
+  };
+
   return (
-    <div className="relative">
-      <div className="mb-10 md:mb-12">
+    <div ref={rootRef} className="sj-tslider relative">
+      <div className="flex items-baseline justify-between gap-4 mb-8 md:mb-10">
         <span className="sj-eyebrow">Fig.06 — Citace z reálných reportů</span>
+        <span
+          className="font-mono"
+          style={{
+            fontSize: 11,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "rgba(28,18,55,0.55)",
+            fontVariantNumeric: "tabular-nums",
+          }}
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          <span style={{ color: "var(--color-ink)", fontWeight: 600 }}>
+            {String(active + 1).padStart(2, "0")}
+          </span>
+          <span style={{ opacity: 0.5 }}> / {String(total).padStart(2, "0")}</span>
+        </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
-        {TESTIMONIALS.map((t, i) => (
-          <TestimonialNote
-            key={t.slug}
-            t={t}
-            palette={STICKY_PALETTE[i % STICKY_PALETTE.length]}
-          />
-        ))}
+      {/* Viewport */}
+      <div
+        ref={viewportRef}
+        className="sj-tslider-viewport relative"
+        style={{
+          overflow: "hidden",
+          touchAction: "pan-y",
+          userSelect: "none",
+          cursor: "grab",
+        }}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onMouseEnter={() => pauseFor(60_000)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div
+          ref={trackRef}
+          className="sj-tslider-track"
+          style={{
+            display: "flex",
+            transform: `translate3d(${-active * 100}%, 0, 0)`,
+            transition: reduceMotion
+              ? "none"
+              : "transform 700ms cubic-bezier(0.65, 0, 0.35, 1)",
+            willChange: "transform",
+          }}
+        >
+          {TESTIMONIALS.map((t, i) => (
+            <div
+              key={t.slug}
+              className="sj-tslider-slide"
+              style={{
+                flex: "0 0 100%",
+                minWidth: 0,
+                padding: "8px 4px 24px",
+                display: "flex",
+                justifyContent: "center",
+              }}
+              aria-hidden={i !== active}
+            >
+              <div style={{ width: "100%", maxWidth: 680 }}>
+                <TestimonialNote
+                  t={t}
+                  palette={STICKY_PALETTE[i % STICKY_PALETTE.length]}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          aria-label="Předchozí citace"
+          className="sj-tslider-arrow sj-tslider-arrow-prev"
+          onClick={() => { goTo(active - 1); pauseFor(AUTOPLAY_MS); }}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+            <path d="M11 7H3m0 0l4-4M3 7l4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          aria-label="Další citace"
+          className="sj-tslider-arrow sj-tslider-arrow-next"
+          onClick={() => { goTo(active + 1); pauseFor(AUTOPLAY_MS); }}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+            <path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Progress segments — active one fills over AUTOPLAY_MS via CSS keyframe */}
+      <div className="sj-tslider-progress" style={{ display: "flex", gap: 6, marginTop: 32 }}>
+        {TESTIMONIALS.map((t, i) => {
+          const state = i === active ? "active" : i < active ? "past" : "future";
+          const filling = state === "active" && isInView && !isPaused && !reduceMotion;
+          return (
+            <button
+              key={t.slug}
+              type="button"
+              aria-label={`Citace ${i + 1} z ${total}: ${t.author}`}
+              aria-current={state === "active" ? "true" : undefined}
+              onClick={() => { goTo(i); pauseFor(AUTOPLAY_MS); }}
+              className="sj-tslider-progress-seg"
+              data-state={state}
+              style={{
+                flex: 1,
+                height: 3,
+                padding: 0,
+                border: "none",
+                background: "rgba(45, 27, 105, 0.12)",
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: 2,
+                cursor: "pointer",
+              }}
+            >
+              <span
+                // Re-mount the fill node every time `active` changes so the
+                // keyframe restarts cleanly (otherwise it'd continue from where
+                // the previous active was).
+                key={`fill-${i}-${active}-${isPaused}`}
+                aria-hidden
+                style={{
+                  display: "block",
+                  position: "absolute",
+                  inset: 0,
+                  background: "var(--color-purple-deep)",
+                  transformOrigin: "left center",
+                  transform: state === "past" ? "scaleX(1)" : "scaleX(0)",
+                  animation: filling
+                    ? `sjTSliderFill ${AUTOPLAY_MS}ms linear forwards`
+                    : "none",
+                }}
+              />
+            </button>
+          );
+        })}
       </div>
     </div>
   );

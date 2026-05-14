@@ -960,6 +960,39 @@ html.sj-scrolled .sj-site-header > div:first-child {
   transform: translateY(0);
 }
 
+.sj-mobile-cta-pill {
+  background: linear-gradient(135deg, #1c1237 0%, #2a1c52 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 10px 24px -8px rgba(139, 92, 246, 0.45),
+    0 18px 40px -12px rgba(28, 18, 55, 0.55);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.sj-mobile-cta-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    120% 80% at 100% 50%,
+    rgba(139, 92, 246, 0.28) 0%,
+    rgba(139, 92, 246, 0) 60%
+  );
+  pointer-events: none;
+}
+.sj-mobile-cta-pill:active {
+  transform: scale(0.985);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 6px 18px -6px rgba(139, 92, 246, 0.5),
+    0 10px 24px -10px rgba(28, 18, 55, 0.55);
+}
+.sj-mobile-cta-pill:focus-visible {
+  outline: 2px solid var(--color-purple-accent);
+  outline-offset: 3px;
+}
+
 .sj-desktop-cta {
   position: fixed;
   right: 28px;
@@ -2085,6 +2118,72 @@ select.sj-consult-input {
   .sj-scope main[id] {
     scroll-margin-top: 160px;
   }
+}
+
+/* ======================================
+   Testimonial spotlight slider — single-card carousel with autoplay
+   (CaseStudies → TestimonialMosaic). Transform-based; `touch-action: pan-y`
+   on the viewport so vertical page scroll is never blocked.
+   ====================================== */
+.sj-tslider-viewport:active { cursor: grabbing; }
+
+.sj-tslider-arrow {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-rule);
+  color: var(--color-ink);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow:
+    0 4px 14px -8px rgba(45, 27, 105, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+  transform: translateY(-50%);
+}
+@media (min-width: 768px) {
+  .sj-tslider-arrow { display: inline-flex; }
+}
+.sj-tslider-arrow:hover {
+  border-color: var(--color-purple-deep);
+  color: var(--color-purple-deep);
+  background: #fff;
+}
+.sj-tslider-arrow:focus-visible {
+  outline: 2px solid var(--color-purple-deep);
+  outline-offset: 3px;
+}
+.sj-tslider-arrow-prev { left: -10px; }
+.sj-tslider-arrow-next { right: -10px; }
+@media (min-width: 1024px) {
+  .sj-tslider-arrow-prev { left: -28px; }
+  .sj-tslider-arrow-next { right: -28px; }
+}
+
+.sj-tslider-progress-seg[data-state="past"] {
+  background: rgba(45, 27, 105, 0.55) !important;
+}
+.sj-tslider-progress-seg:hover {
+  background: rgba(45, 27, 105, 0.28) !important;
+}
+.sj-tslider-progress-seg:focus-visible {
+  outline: 2px solid var(--color-purple-deep);
+  outline-offset: 4px;
+}
+
+@keyframes sjTSliderFill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 /* ======================================
