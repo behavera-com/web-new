@@ -1,5 +1,6 @@
 import ConsultForm from "./ConsultForm";
-import RepCard from "./RepCard";
+import EnvelopeIcon from "../ui/EnvelopeIcon";
+import PhoneIcon from "../ui/PhoneIcon";
 import { consultReps, consultRep as rep } from "./rep-data";
 
 const bullets: { tag: string; body: string }[] = [
@@ -40,10 +41,85 @@ export default function FinalCta() {
               váš náborový proces a řekneme, kde Behavera dává smysl, a kde ne.
             </p>
 
-            <div className="mt-10 sj-on-light flex flex-col gap-3">
-              {consultReps.map((r) => (
-                <RepCard key={r.name} rep={r} />
-              ))}
+            <div
+              className="mt-10 sj-on-light"
+              style={{
+                background: "#fff",
+                border: "1px solid var(--color-rule)",
+                borderRadius: 2,
+                padding: "20px 20px 20px 20px",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 10,
+                  letterSpacing: "0.18em",
+                  color: "var(--color-purple-deep)",
+                  marginBottom: 14,
+                }}
+              >
+                OZVE SE VÁM
+              </div>
+              <div className="flex items-center gap-4">
+                {/* Overlapping avatars */}
+                <div className="flex items-center shrink-0" style={{ marginRight: 4 }}>
+                  {consultReps.map((r, i) => (
+                    <div
+                      key={r.name}
+                      style={{
+                        width: 52,
+                        height: 52,
+                        borderRadius: "50%",
+                        overflow: "hidden",
+                        background: "var(--color-purple-deep)",
+                        border: "2px solid #fff",
+                        marginLeft: i > 0 ? -16 : 0,
+                        position: "relative",
+                        zIndex: consultReps.length - i,
+                        boxShadow: "0 4px 12px -6px rgba(45,27,105,0.4)",
+                      }}
+                    >
+                      {r.photo ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={r.photo}
+                          alt={r.name}
+                          width={52}
+                          height={52}
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                        />
+                      ) : (
+                        <span style={{ display: "flex", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 16, fontWeight: 500 }}>
+                          {r.name[0]}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                {/* Names + titles */}
+                <div className="flex-1 min-w-0">
+                  {consultReps.map((r) => (
+                    <div key={r.name}>
+                      <span style={{ fontSize: 15, fontWeight: 500, color: "var(--color-ink)" }}>{r.name}</span>
+                      <span style={{ fontSize: 12, color: "var(--color-muted)", marginLeft: 6 }}>{r.title}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Contacts */}
+              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2" style={{ fontSize: 13 }}>
+                <a href={`mailto:${consultReps[0].email}`} className="inline-flex items-center gap-1.5 hover:text-[color:var(--color-purple-deep)]" style={{ color: "var(--color-ink)" }}>
+                  <EnvelopeIcon />
+                  <span>{consultReps[0].email}</span>
+                </a>
+                {consultReps[0].phone && (
+                  <a href={`tel:${consultReps[0].phone.replace(/\s+/g, "")}`} className="inline-flex items-center gap-1.5 hover:text-[color:var(--color-purple-deep)]" style={{ color: "var(--color-ink)" }}>
+                    <PhoneIcon />
+                    <span>{consultReps[0].phone}</span>
+                  </a>
+                )}
+              </div>
             </div>
 
             <ul className="mt-8 space-y-6">

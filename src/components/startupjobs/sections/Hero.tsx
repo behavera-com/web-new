@@ -527,7 +527,7 @@ function ExpandoCaseCard() {
             }}
             aria-hidden
           >
-            BT
+            <img src="/startupjobs/team/Basia.png" alt="Barbora Třeslínová" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", borderRadius: "50%" }} onError={(e)=>{(e.currentTarget as HTMLImageElement).style.display="none"}} />
           </div>
           <div className="flex-1 min-w-0">
             <div

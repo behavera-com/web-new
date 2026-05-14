@@ -30,6 +30,7 @@ const TESTIMONIALS: Testimonial[] = [
     author: "Nina Juríková",
     initials: "NJ",
     photo: "/startupjobs/team/nina.png",
+
     role: "HR Konzultantka · 365.bank",
     context: [
       { tag: "SAMPLE", val: "400+ zaměstnanců" },
@@ -66,7 +67,7 @@ const TESTIMONIALS: Testimonial[] = [
       "Echo Pulse nám dal objektivní pohled na problémy, které jsme tušili, ale neuměli pojmenovat.",
     author: "Dominik Hegedüs",
     initials: "DH",
-    photo: "/startupjobs/team/dominik.png",
+    photo: "/startupjobs/team/Dominik.png",
     role: "CEO · Expando",
     context: [
       { tag: "SAMPLE", val: "50+ zaměstnanců" },
@@ -103,7 +104,7 @@ const TESTIMONIALS: Testimonial[] = [
       "Behavera mi pomáhá připravit se na pohovory. Vidím, na co se zaměřit, jaké jsou silné a slabé stránky kandidáta — a jestli dobře sedí pro práci ve startupu.",
     author: "Anna Skubková",
     initials: "AS",
-    photo: "/startupjobs/team/anna.jpg",
+    photo: "/startupjobs/team/Anna_Skubkova.jpg",
     role: "Commercial Director · Medevio",
     context: [],
   },
@@ -117,7 +118,7 @@ const TESTIMONIALS: Testimonial[] = [
       "Dříve jsme nabírali lidi čistě na základě právních kvalifikací. Jakmile jsme začali používat Behaveru pro posouzení fit s kulturou a týmem, firma začala fungovat výrazně hladčeji.",
     author: "Adam Swierczek",
     initials: "AS",
-    photo: "/startupjobs/team/adam.jpg",
+    photo: "/startupjobs/team/Adam 2.jpg",
     role: "Partner a advokát · Hajduk & Partners",
     context: [],
   },

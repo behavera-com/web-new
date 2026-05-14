@@ -5,14 +5,14 @@ export const jana: Rep = {
   title: "Konzultantka · Behavera",
   email: "hello@behavera.com",
   phone: "+420 605 839 456",
-  photo: "/startupjobs/team/jana.jpg",
+  photo: "/startupjobs/team/Jana.png",
 };
 
 export const veronika: Rep = {
   name: "Veronika",
-  title: "Konzultantka · Behavera",
+  title: "HR konzultantka · Behavera",
   email: "hello@behavera.com",
-  photo: "/startupjobs/team/veronika.jpg",
+  photo: "/startupjobs/team/Veronika.jpg",
 };
 
 export const consultReps: Rep[] = [jana, veronika];
