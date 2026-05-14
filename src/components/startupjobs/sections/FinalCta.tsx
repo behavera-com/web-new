@@ -1,6 +1,6 @@
 import ConsultForm from "./ConsultForm";
 import RepCard from "./RepCard";
-import { consultRep as rep } from "./rep-data";
+import { consultReps, consultRep as rep } from "./rep-data";
 
 const bullets: { tag: string; body: string }[] = [
   {
@@ -40,8 +40,10 @@ export default function FinalCta() {
               váš náborový proces a řekneme, kde Behavera dává smysl, a kde ne.
             </p>
 
-            <div className="mt-10 sj-on-light">
-              <RepCard rep={rep} />
+            <div className="mt-10 sj-on-light flex flex-col gap-3">
+              {consultReps.map((r) => (
+                <RepCard key={r.name} rep={r} />
+              ))}
             </div>
 
             <ul className="mt-8 space-y-6">

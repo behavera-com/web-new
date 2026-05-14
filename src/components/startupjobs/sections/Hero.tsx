@@ -527,7 +527,7 @@ function ExpandoCaseCard() {
             }}
             aria-hidden
           >
-            BB
+            BT
           </div>
           <div className="flex-1 min-w-0">
             <div
@@ -538,7 +538,7 @@ function ExpandoCaseCard() {
                 lineHeight: 1.2,
               }}
             >
-              Basia Bralewska
+              Barbora Třeslínová
             </div>
             <div
               style={{

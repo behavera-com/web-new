@@ -13,6 +13,7 @@ type Testimonial = {
   quote: string;
   author: string;
   initials: string;
+  photo?: string;
   role: string;
   context: { tag: string; val: string }[];
 };
@@ -28,6 +29,7 @@ const TESTIMONIALS: Testimonial[] = [
       "Díky Behaveře jsme dokázali objektivně posoudit, kdo je schopen vést změnu — a kdo potřebuje podporu.",
     author: "Nina Juríková",
     initials: "NJ",
+    photo: "/startupjobs/team/nina.png",
     role: "HR Konzultantka · 365.bank",
     context: [
       { tag: "SAMPLE", val: "400+ zaměstnanců" },
@@ -64,6 +66,7 @@ const TESTIMONIALS: Testimonial[] = [
       "Echo Pulse nám dal objektivní pohled na problémy, které jsme tušili, ale neuměli pojmenovat.",
     author: "Dominik Hegedüs",
     initials: "DH",
+    photo: "/startupjobs/team/dominik.png",
     role: "CEO · Expando",
     context: [
       { tag: "SAMPLE", val: "50+ zaměstnanců" },
@@ -89,6 +92,48 @@ const TESTIMONIALS: Testimonial[] = [
       { tag: "VÝSLEDEK", val: "+25 % spokojenost" },
       { tag: "VÝSLEDEK", val: "200+ hodin ušetřeno" },
     ],
+  },
+  {
+    caseNo: "06",
+    slug: "medevio",
+    logo: "/startupjobs/logos/medevio.svg",
+    logoAlt: "Medevio",
+    url: "https://www.behavera.com/case-studies",
+    quote:
+      "Behavera mi pomáhá připravit se na pohovory. Vidím, na co se zaměřit, jaké jsou silné a slabé stránky kandidáta — a jestli dobře sedí pro práci ve startupu.",
+    author: "Anna Skubková",
+    initials: "AS",
+    photo: "/startupjobs/team/anna.jpg",
+    role: "Commercial Director · Medevio",
+    context: [],
+  },
+  {
+    caseNo: "07",
+    slug: "hajduk",
+    logo: "/startupjobs/logos/hajduk.png",
+    logoAlt: "Hajduk & Partners",
+    url: "https://www.behavera.com/case-studies",
+    quote:
+      "Dříve jsme nabírali lidi čistě na základě právních kvalifikací. Jakmile jsme začali používat Behaveru pro posouzení fit s kulturou a týmem, firma začala fungovat výrazně hladčeji.",
+    author: "Adam Swierczek",
+    initials: "AS",
+    photo: "/startupjobs/team/adam.jpg",
+    role: "Partner a advokát · Hajduk & Partners",
+    context: [],
+  },
+  {
+    caseNo: "08",
+    slug: "o2-sk",
+    logo: "/startupjobs/logos/o2.svg",
+    logoAlt: "O2 Slovakia",
+    url: "https://www.behavera.com/case-studies",
+    quote:
+      "Online assessmenty Behavery byly zábavné a bez stresu — na rozdíl od assessment center. Náš tým ocenil jejich inovativní formát.",
+    author: "Radoslav Volný",
+    initials: "RV",
+    photo: "/startupjobs/team/radoslav.webp",
+    role: "Head of Online Transformation · O2 Slovakia",
+    context: [],
   },
 ];
 type CaseCard = {
@@ -509,19 +554,42 @@ function TestimonialNote({
         style={{ borderTop: `1px solid ${palette.accent}` }}
       >
         <div
-          className="rounded-full text-white flex items-center justify-center shrink-0"
+          className="rounded-full overflow-hidden shrink-0"
           style={{
             width: 38,
             height: 38,
             background: "var(--color-purple-deep)",
-            fontFamily: "var(--font-inter-tight)",
-            fontSize: 13,
-            fontWeight: 500,
-            letterSpacing: "0.02em",
           }}
           aria-hidden
         >
-          {t.initials}
+          {t.photo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={t.photo}
+              alt=""
+              width={38}
+              height={38}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+            />
+          ) : (
+            <span
+              style={{
+                display: "flex",
+                width: "100%",
+                height: "100%",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#fff",
+                fontFamily: "var(--font-inter-tight)",
+                fontSize: 13,
+                fontWeight: 500,
+                letterSpacing: "0.02em",
+              }}
+            >
+              {t.initials}
+            </span>
+          )}
         </div>
         <div className="flex-1 min-w-0">
           <div
@@ -564,7 +632,7 @@ function TestimonialMosaic() {
             textTransform: "uppercase",
           }}
         >
-          4 výpovědi · 4 firmy · 1 metoda
+          7 výpovědi · 7 firem · 1 metoda
         </span>
       </div>
 
