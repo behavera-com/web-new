@@ -558,9 +558,10 @@ function TestimonialNote({
         <div
           className="rounded-full overflow-hidden shrink-0"
           style={{
-            width: 38,
-            height: 38,
+            width: 60,
+            height: 60,
             background: "var(--color-purple-deep)",
+            boxShadow: "0 4px 12px -6px rgba(45,27,105,0.4)",
           }}
           aria-hidden
         >
@@ -569,8 +570,8 @@ function TestimonialNote({
             <img
               src={t.photo}
               alt=""
-              width={38}
-              height={38}
+              width={60}
+              height={60}
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
               onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
             />
@@ -584,7 +585,7 @@ function TestimonialNote({
                 justifyContent: "center",
                 color: "#fff",
                 fontFamily: "var(--font-inter-tight)",
-                fontSize: 13,
+                fontSize: 20,
                 fontWeight: 500,
                 letterSpacing: "0.02em",
               }}
@@ -625,6 +626,7 @@ function TestimonialMosaic() {
   const [active, setActive] = React.useState(0);
   const trackRef = React.useRef<HTMLDivElement>(null);
   const autoRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
+  const dragRef = React.useRef({ dragging: false, startX: 0, scrollLeft: 0 });
 
   const scrollTo = React.useCallback((idx: number) => {
     const track = trackRef.current;
@@ -634,13 +636,17 @@ function TestimonialMosaic() {
   }, []);
 
   const goTo = React.useCallback((idx: number) => {
-    const next = (idx + total) % total;
+    const next = ((idx % total) + total) % total;
     setActive(next);
     scrollTo(next);
   }, [total, scrollTo]);
 
-  const resetAuto = React.useCallback(() => {
+  const stopAuto = React.useCallback(() => {
     if (autoRef.current) clearInterval(autoRef.current);
+  }, []);
+
+  const startAuto = React.useCallback(() => {
+    stopAuto();
     autoRef.current = setInterval(() => {
       setActive((a) => {
         const next = (a + 2) % total;
@@ -648,21 +654,20 @@ function TestimonialMosaic() {
         return next;
       });
     }, 5000);
-  }, [total, scrollTo]);
+  }, [total, scrollTo, stopAuto]);
 
   React.useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    if (mq.matches) resetAuto();
-    return () => { if (autoRef.current) clearInterval(autoRef.current); };
-  }, [resetAuto]);
+    if (window.matchMedia("(min-width: 768px)").matches) startAuto();
+    return stopAuto;
+  }, [startAuto, stopAuto]);
 
   const handleScroll = React.useCallback(() => {
+    if (dragRef.current.dragging) return;
     const track = trackRef.current;
     if (!track) return;
     const cards = Array.from(track.querySelectorAll<HTMLElement>(".sj-t-slide"));
     const trackLeft = track.getBoundingClientRect().left;
-    let closest = 0;
-    let minDist = Infinity;
+    let closest = 0, minDist = Infinity;
     cards.forEach((card, i) => {
       const dist = Math.abs(card.getBoundingClientRect().left - trackLeft);
       if (dist < minDist) { minDist = dist; closest = i; }
@@ -670,52 +675,85 @@ function TestimonialMosaic() {
     setActive(closest);
   }, []);
 
+  // Mouse drag handlers
+  const onMouseDown = React.useCallback((e: React.MouseEvent) => {
+    const track = trackRef.current;
+    if (!track) return;
+    stopAuto();
+    dragRef.current = { dragging: true, startX: e.pageX - track.offsetLeft, scrollLeft: track.scrollLeft };
+    track.style.cursor = "grabbing";
+    track.style.scrollSnapType = "none";
+  }, [stopAuto]);
+
+  const onMouseMove = React.useCallback((e: React.MouseEvent) => {
+    if (!dragRef.current.dragging) return;
+    const track = trackRef.current;
+    if (!track) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = dragRef.current.scrollLeft - (x - dragRef.current.startX);
+  }, []);
+
+  const onMouseUp = React.useCallback(() => {
+    const track = trackRef.current;
+    if (!track || !dragRef.current.dragging) return;
+    dragRef.current.dragging = false;
+    track.style.cursor = "grab";
+    track.style.scrollSnapType = "x mandatory";
+    handleScroll();
+    startAuto();
+  }, [handleScroll, startAuto]);
+
   return (
     <div className="relative">
       <div className="flex items-baseline justify-between flex-wrap gap-4 mb-10 md:mb-12">
         <span className="sj-eyebrow">Fig.06 — Citace z reálných reportů</span>
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => { goTo(active - 2); resetAuto(); }}
-            aria-label="Předchozí"
-            style={{ background: "none", border: "1px solid var(--color-rule)", borderRadius: 2, width: 32, height: 32, display: "inline-flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--color-ink)" }}
-          >
+          <button onClick={() => { goTo(active - 2); startAuto(); }} aria-label="Předchozí" className="sj-slider-btn">
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden><path d="M11 7H3m0 0l4-4M3 7l4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
-          <button
-            onClick={() => { goTo(active + 2); resetAuto(); }}
-            aria-label="Další"
-            style={{ background: "none", border: "1px solid var(--color-rule)", borderRadius: 2, width: 32, height: 32, display: "inline-flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--color-ink)" }}
-          >
+          <button onClick={() => { goTo(active + 2); startAuto(); }} aria-label="Další" className="sj-slider-btn">
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden><path d="M3 7h8m0 0L7 3m4 4l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </button>
         </div>
       </div>
 
-      {/* Slider track */}
       <div
         ref={trackRef}
         className="sj-testimonial-track"
+        style={{ cursor: "grab" }}
         onScroll={handleScroll}
-        onMouseDown={resetAuto}
-        onTouchStart={resetAuto}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseUp}
+        onTouchStart={stopAuto}
+        onTouchEnd={() => { handleScroll(); startAuto(); }}
       >
-        {TESTIMONIALS.map((t, i) => (
-          <div key={t.slug} className="sj-t-slide">
-            <TestimonialNote
-              t={t}
-              palette={STICKY_PALETTE[i % STICKY_PALETTE.length]}
-            />
-          </div>
-        ))}
+        {TESTIMONIALS.map((t, i) => {
+          const isActive = i === active || i === active + 1;
+          return (
+            <div
+              key={t.slug}
+              className="sj-t-slide"
+              style={{
+                filter: isActive ? "none" : "blur(3px)",
+                opacity: isActive ? 1 : 0.45,
+                transition: "filter 0.4s ease, opacity 0.4s ease",
+                userSelect: "none",
+              }}
+            >
+              <TestimonialNote t={t} palette={STICKY_PALETTE[i % STICKY_PALETTE.length]} />
+            </div>
+          );
+        })}
       </div>
 
-      {/* Dots */}
       <div className="flex gap-2 justify-center mt-8">
         {TESTIMONIALS.map((t, i) => (
           <button
             key={t.slug}
-            onClick={() => { goTo(i); resetAuto(); }}
+            onClick={() => { goTo(i); startAuto(); }}
             aria-label={`Přejít na citaci ${i + 1}`}
             style={{
               width: i === active ? 20 : 7,
