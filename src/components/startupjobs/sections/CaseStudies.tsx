@@ -719,9 +719,6 @@ function TestimonialMosaic() {
       </div>
 
       <div className="relative">
-        {/* Fade overlays — pouze na krajích kde je peek předchozí/následující karty */}
-        <div aria-hidden style={{ position: "absolute", left: 0, top: 0, bottom: 4, width: "5%", background: "linear-gradient(to right, #f8f6ff 30%, transparent 100%)", zIndex: 2, pointerEvents: "none" }} />
-        <div aria-hidden style={{ position: "absolute", right: 0, top: 0, bottom: 4, width: "5%", background: "linear-gradient(to left, #f8f6ff 30%, transparent 100%)", zIndex: 2, pointerEvents: "none" }} />
       <div
         ref={trackRef}
         className="sj-testimonial-track"
