@@ -53,8 +53,8 @@ export default function ManifestoBreak() {
             lineHeight: 1.4,
           }}
         >
-          První report — a najednou jste strategický partner, ne provozní
-          oddělení.
+          Místo intuice máte filtr. Místo odchodů ve zkušebce máte tým, který
+          drží. Místo obhajoby na boardu máte čísla.
         </p>
         <p
           className="mt-8 max-w-[42ch] mx-auto"
@@ -65,8 +65,30 @@ export default function ManifestoBreak() {
           }}
         >
           Příští čtvrtletí prezentujete vedení něco jiného než výmluvy: tvrdá
-          data, která ukazují, že nábor zrychlil a kvalita stoupla.
+          data, která ukazují, koho jste pustili dál a proč u vás zůstává.
         </p>
+        <a
+          href="#consult"
+          className="sj-manifesto-link group mt-14 inline-flex items-center gap-2"
+          style={{
+            color: "rgba(255,255,255,0.85)",
+            fontFamily: "var(--font-fraunces)",
+            fontStyle: "italic",
+            fontVariationSettings: "'opsz' 144,'SOFT' 80",
+            fontWeight: 360,
+            fontSize: 18,
+            letterSpacing: "-0.01em",
+          }}
+        >
+          <span className="sj-manifesto-link__text">Chci taková čísla</span>
+          <span
+            aria-hidden="true"
+            className="sj-manifesto-link__arrow"
+            style={{ display: "inline-block", transition: "transform 320ms cubic-bezier(.2,.7,.2,1)" }}
+          >
+            →
+          </span>
+        </a>
       </div>
     </section>
   );
