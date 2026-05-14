@@ -1572,13 +1572,14 @@ select.sj-consult-input {
   display: none;
 }
 .sj-t-slide {
-  flex: 0 0 88%;
+  flex: 0 0 82%;
   scroll-snap-align: start;
   min-width: 0;
 }
 @media (min-width: 768px) {
   .sj-t-slide {
-    flex: 0 0 calc(50% - 10px);
+    /* 2 karty + gap = ~96%, zbývá ~4% peek na každé straně */
+    flex: 0 0 calc(48% - 10px);
   }
 }
 
