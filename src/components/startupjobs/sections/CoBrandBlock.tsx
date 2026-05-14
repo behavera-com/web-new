@@ -5,14 +5,14 @@ export default function CoBrandBlock() {
     <section
       className="sj-grain sj-reveal"
       style={{
-        background: "var(--color-paper)",
+        background: "var(--color-alt)",
         borderTop: "1px solid var(--color-rule)",
       }}
     >
       <div className="max-w-[1240px] mx-auto px-6 md:px-10 py-24 md:py-32">
         <div className="grid lg:grid-cols-12 gap-10 mb-16">
           <div className="lg:col-span-3">
-            <span className="sj-sec-num">05 / SPOLUPRÁCE</span>
+            <span className="sj-section-anchor">× StartupJobs × Behavera</span>
           </div>
           <div className="lg:col-span-9">
             <h2 className="sj-h-section max-w-[18ch]">
@@ -26,10 +26,12 @@ export default function CoBrandBlock() {
           style={{
             background: "var(--color-rule)",
             border: "1px solid var(--color-rule)",
+            borderRadius: 4,
+            overflow: "hidden",
           }}
         >
           <div
-            className="p-10 md:p-14"
+            className="p-10 md:p-14 sj-on-light"
             style={{ background: "var(--color-paper)" }}
           >
             <Image
@@ -47,7 +49,7 @@ export default function CoBrandBlock() {
             </p>
           </div>
           <div
-            className="p-10 md:p-14"
+            className="p-10 md:p-14 sj-on-light"
             style={{ background: "var(--color-paper)" }}
           >
             <Image
@@ -67,7 +69,7 @@ export default function CoBrandBlock() {
           {/* Centered × ampersand badge bridging the two columns */}
           <span
             aria-hidden="true"
-            className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center w-[88px] h-[88px] rounded-full"
+            className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center w-[88px] h-[88px] rounded-full sj-on-light"
             style={{
               fontFamily: "var(--font-fraunces)",
               fontVariationSettings: "'opsz' 144,'SOFT' 80",

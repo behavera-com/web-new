@@ -16,7 +16,7 @@ const OUTCOMES: Outcome[] = [
     slug: "365bank",
     brand: "365.bank",
     logo: "/startupjobs/logos/365bank.svg",
-    metric: "−36 %",
+    metric: "+36 %",
     label: "Rychlejší náborový proces",
   },
   {
@@ -50,7 +50,7 @@ export default function OutcomeStrip() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-10 md:mb-12">
           <div className="lg:col-span-7">
             <span className="sj-section-anchor mb-4 inline-flex">
-              09b · Reálné dopady
+              08b · Reálné dopady
             </span>
             <h2
               className="sj-h-section max-w-[26ch]"

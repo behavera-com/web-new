@@ -594,7 +594,7 @@ function ExpandoCaseCard() {
             color: "var(--color-purple-deep)",
           }}
         >
-          Otevřít
+          Stáhnout
           <span aria-hidden>→</span>
         </span>
       </a>

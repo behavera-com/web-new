@@ -5,6 +5,12 @@ type CalculatorPayload = {
   estimatedAnnualSavingCzk?: number;
 };
 
+type ConsultPayload = {
+  employees?: number;
+  hiresPerYear?: number;
+  message?: string;
+};
+
 type LeadBody = {
   name?: string;
   email?: string;
@@ -15,6 +21,7 @@ type LeadBody = {
   overallScore?: number;
   source?: string;
   calculator?: CalculatorPayload;
+  consult?: ConsultPayload;
 };
 
 function fmtCzk(n?: number) {
@@ -47,6 +54,20 @@ function buildSlackMessage(body: LeadBody): string {
     );
   }
 
+  if (source === "startupjobs-consult") {
+    const c = body.consult ?? {};
+    return (
+      `🔥 Žádost o konzultaci (LP Behavera × StartupJobs)!\n` +
+      `Jméno: ${body.name ?? "neuvedeno"}\n` +
+      `Email: ${body.email ?? "neuvedeno"}\n` +
+      `Telefon: ${body.phone ?? "neuvedeno"}\n` +
+      `Firma: ${body.company ?? "neuvedeno"}\n` +
+      `Zaměstnanců: ${c.employees ?? "—"}\n` +
+      `Náborů ročně: ${c.hiresPerYear ?? "—"}` +
+      (c.message ? `\n— Zpráva:\n${c.message}` : "")
+    );
+  }
+
   return (
     `🎯 Nový lead z HR Risk Scanner!\n` +
     `Jméno: ${body.name ?? "neuvedeno"}\n` +
@@ -62,6 +83,21 @@ function buildSlackMessage(body: LeadBody): string {
 function sanitize(value: unknown, max = 200): string | undefined {
   if (typeof value !== "string") return undefined;
   return value.replace(/[\r\n\t]+/g, " ").trim().slice(0, max);
+}
+
+function sanitizeMultiline(value: unknown, max = 1000): string | undefined {
+  if (typeof value !== "string") return undefined;
+  return value.replace(/\r/g, "").trim().slice(0, max);
+}
+
+function sanitizeConsult(v: unknown): ConsultPayload | undefined {
+  if (!v || typeof v !== "object") return undefined;
+  const r = v as Record<string, unknown>;
+  return {
+    employees: typeof r.employees === "number" ? r.employees : undefined,
+    hiresPerYear: typeof r.hiresPerYear === "number" ? r.hiresPerYear : undefined,
+    message: sanitizeMultiline(r.message, 1000),
+  };
 }
 
 export async function POST(req: Request) {
@@ -88,6 +124,7 @@ export async function POST(req: Request) {
       r.calculator && typeof r.calculator === "object"
         ? (r.calculator as CalculatorPayload)
         : undefined,
+    consult: sanitizeConsult(r.consult),
   };
 
   const webhookUrl = process.env.WEBHOOK_URL;

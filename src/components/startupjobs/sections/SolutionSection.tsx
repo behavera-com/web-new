@@ -1,79 +1,121 @@
-import ArrowRightIcon from "../ui/ArrowRightIcon";
-import CheckMark from "../ui/CheckMark";
+import { Fragment } from "react";
+import ReportGallery from "./ReportGallery";
+import SolutionBlock, { type SolutionBlockData } from "./SolutionBlock";
 
-type Candidate = {
-  label: string;
-  scores: [number, number, number];
-  proceed?: boolean;
-};
-
-const candidates: Candidate[] = [
-  { label: "KAND. 01", scores: [78, 64, 52] },
-  { label: "KAND. 02", scores: [62, 88, 71] },
-  { label: "KAND. 03", scores: [92, 89, 84], proceed: true },
-  { label: "KAND. 04", scores: [71, 55, 68] },
-  { label: "KAND. 05", scores: [48, 72, 41] },
+const blocks: SolutionBlockData[] = [
+  {
+    num: "01",
+    tag: "BENCHMARK",
+    title: (
+      <>
+        Najdeme skutečné prediktory <em>úspěchu</em>.
+      </>
+    ),
+    body: (
+      <>
+        Analyzujeme váš stávající tým a zjistíme, co odlišuje top performery od
+        ostatních. <span className="sj-hl">Často to není to, co byste čekali.</span>
+      </>
+    ),
+    details: [
+      <Fragment key="a">
+        Hard skills, soft skills, motivace a kontext —{" "}
+        <strong style={{ color: "var(--color-ink)" }}>vše v jednom profilu</strong>.
+      </Fragment>,
+      <Fragment key="b">
+        Pozitiva i obavy přímo z dat —{" "}
+        <strong style={{ color: "var(--color-ink)" }}>žádné dojmy z pohovoru</strong>.
+      </Fragment>,
+    ],
+    image: {
+      src: "/startupjobs/hiring/top-performers-comparison.png",
+      alt: "Behavera — porovnání pozitiv a obav top performera s competency bary z Office Day simulace.",
+      caption: "FIG.03A · BEHAVERA · top performer analysis · ANONYMIZOVÁNO",
+    },
+    pins: [
+      { x: "26%", y: "30%" },
+      { x: "78%", y: "62%" },
+    ],
+  },
+  {
+    num: "02",
+    tag: "FIT MATRIX",
+    title: (
+      <>
+        Postavíme z toho <em>filtr</em>.
+      </>
+    ),
+    body: (
+      <>
+        Stejné kompetence, které vidíme ve vašem týmu, měříme u uchazečů.{" "}
+        <span className="sj-hl">Dál jdou jen ti</span>, jejichž DNA sedí
+        náročnosti role.
+      </>
+    ),
+    details: [
+      <Fragment key="a">
+        Jeden přehled —{" "}
+        <strong style={{ color: "var(--color-ink)" }}>fit %, kompetence, datum</strong>.
+      </Fragment>,
+      <Fragment key="b">
+        Sortování od shora dolů —{" "}
+        <strong style={{ color: "var(--color-ink)" }}>recruiter ví, koho volat první</strong>.
+      </Fragment>,
+      <Fragment key="c">
+        Plug & play s vaším ATS —{" "}
+        <strong style={{ color: "var(--color-ink)" }}>žádný re-import</strong>.
+      </Fragment>,
+    ],
+    image: {
+      src: "/startupjobs/hiring/candidate-fit-matrix.png",
+      alt: "Behavera — výňatek z reálného reportingu (anonymizováno): seznam kandidátů na pozici Enterprise Salesperson s procentuálním fit skóre.",
+      caption: "FIG.03B · BEHAVERA · candidate scoring · ANONYMIZOVÁNO",
+    },
+    pins: [
+      { x: "84%", y: "22%" },
+      { x: "18%", y: "48%" },
+      { x: "62%", y: "82%" },
+    ],
+    reverse: true,
+  },
+  {
+    num: "03",
+    tag: "OFFICE DAY",
+    title: (
+      <>
+        Vy dostanete data, <em>kandidát zážitek</em>.
+      </>
+    ),
+    body: (
+      <>
+        Office Day simulace, ne další test.{" "}
+        <span className="sj-hl">Uchazeči ji dokončují</span> i u seniorních
+        rolí — a píšou, že to bylo nejlepší první kolo, jaké zažili.
+      </>
+    ),
+    details: [
+      <Fragment key="a">
+        Hraje se v prohlížeči, ~25 min — kandidáta nesvazujete časovým slotem.
+      </Fragment>,
+      <Fragment key="b">
+        Strukturovaný výstup s{" "}
+        <strong style={{ color: "var(--color-ink)" }}>
+          Stands Out · Watch Out · Solid Foundations
+        </strong>{" "}
+        — recruiter si připraví otázky předem.
+      </Fragment>,
+    ],
+    image: {
+      src: "/startupjobs/hiring/office-day-output.png",
+      alt: "Behavera — výstupní profil kandidáta po Office Day simulaci: Role Fit %, Stands Out, Watch Out For, Solid Foundations.",
+      caption: "FIG.03C · BEHAVERA · Office Day output · DEMO PROFIL",
+    },
+    pins: [
+      { x: "30%", y: "26%" },
+      { x: "72%", y: "70%" },
+    ],
+  },
 ];
-
-const bullets = [
-  {
-    title: "Predikce úspěchu kandidáta",
-    body: (
-      <>
-        Než pošlete nabídku, víte, jestli kandidát sedí roli i kultuře.{" "}
-        <span className="sj-hl">Žádné drahé chyby</span> v seniorních pozicích.
-      </>
-    ),
-  },
-  {
-    title: "Rychlejší rozhodování v procesu",
-    body: (
-      <>
-        Strukturovaná data o silných stránkách, vedoucímu potenciálu a
-        kompatibilitě týmu. <span className="sj-hl">Méně iterací, méně debat.</span>
-      </>
-    ),
-  },
-  {
-    title: "Reporting, který má váhu",
-    body: (
-      <>
-        KPI metriky, které ukážete CFO i CEO.{" "}
-        <span className="sj-hl">Time-to-hire, quality of hire, retence 6m/12m</span> — vše měřitelně.
-      </>
-    ),
-  },
-];
-
-function ScoreBar({
-  score,
-  highlight,
-}: {
-  score: number;
-  highlight?: boolean;
-}) {
-  const fill = (score / 100) * 88;
-  const color = highlight ? "#8B5CF6" : "#2D1B69";
-  return (
-    <div className="flex items-center gap-3">
-      <span
-        className="w-7 text-right"
-        style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: 12,
-          color: "var(--color-ink)",
-          fontWeight: 500,
-        }}
-      >
-        {score}
-      </span>
-      <svg width="88" height="6" viewBox="0 0 88 6" className="flex-none">
-        <rect x="0" y="0" width="88" height="6" fill="#E5E1F2" />
-        <rect x="0" y="0" width={fill} height="6" fill={color} />
-      </svg>
-    </div>
-  );
-}
 
 export default function SolutionSection() {
   return (
@@ -84,7 +126,7 @@ export default function SolutionSection() {
       <div className="max-w-[1240px] mx-auto px-6 md:px-10 py-24 md:py-32">
         <div className="grid lg:grid-cols-12 gap-10 mb-16 md:mb-20">
           <div className="lg:col-span-3">
-            <span className="sj-sec-num">02 / ŘEŠENÍ</span>
+            <span className="sj-section-anchor">05 · Datová vrstva v praxi</span>
           </div>
           <div className="lg:col-span-9">
             <h2 className="sj-h-section max-w-[18ch]">
@@ -103,222 +145,41 @@ export default function SolutionSection() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <figure
-            className="bg-white p-6 md:p-8 relative"
-            style={{ border: "1px solid var(--color-rule)" }}
-          >
-            <div className="flex items-baseline justify-between mb-1">
-              <span className="sj-eyebrow">Fig.03 — Candidate fit matrix</span>
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 10,
-                  color: "var(--color-purple-accent)",
-                  letterSpacing: "0.16em",
-                }}
+        <div className="space-y-24 md:space-y-32">
+          {blocks.map((b, i) => (
+            <SolutionBlock
+              key={b.num}
+              block={b}
+              showCta={i === blocks.length - 1}
+            />
+          ))}
+        </div>
+
+
+        <div className="mt-20 md:mt-28">
+          <div className="flex items-end justify-between gap-6 mb-6 md:mb-8 flex-wrap">
+            <div>
+              <span className="sj-eyebrow">Fig.04 — Co uvidíte v reportu</span>
+              <h3
+                className="sj-display mt-2 max-w-[22ch]"
+                style={{ fontSize: 28, lineHeight: 1.15 }}
               >
-                Q1 · 2026
-              </span>
+                Z jednoho reportu pět pohledů.
+              </h3>
             </div>
-            <p className="sj-display mb-5" style={{ fontSize: 26, lineHeight: 1.2 }}>
-              Kdo sedí roli, kultuře, vedení týmu.
-            </p>
-
-            <div
-              className="flex items-center justify-between mb-6 pb-5"
-              style={{ borderBottom: "1px solid var(--color-rule)" }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 10,
-                  color: "var(--color-muted)",
-                  letterSpacing: "0.16em",
-                }}
-              >
-                FILTROVAT PODLE ROLE
-              </span>
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 px-3 py-2"
-                style={{
-                  border: "1px solid var(--color-rule)",
-                  background: "var(--color-paper)",
-                  fontSize: 13,
-                  color: "var(--color-ink)",
-                  fontWeight: 500,
-                }}
-                aria-haspopup="listbox"
-              >
-                <span>Senior Engineering</span>
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  aria-hidden="true"
-                  style={{ color: "var(--color-muted)" }}
-                >
-                  <path
-                    d="M2 4l3 3 3-3"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <div
-              className="grid gap-4 px-4 pb-3"
-              style={{
-                gridTemplateColumns: "1.4fr 1fr 1fr 1fr",
-                borderBottom: "1px solid var(--color-rule)",
-              }}
-            >
-              {["KANDIDÁT", "ROLE FIT", "CULTURE FIT", "VEDOUCÍ POTENCIÁL"].map(
-                (h) => (
-                  <span
-                    key={h}
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: 10,
-                      color: "var(--color-muted)",
-                      letterSpacing: "0.16em",
-                    }}
-                  >
-                    {h}
-                  </span>
-                )
-              )}
-            </div>
-
-            {candidates.map((c) => (
-              <div
-                key={c.label}
-                className="grid gap-4 items-center py-4 px-4"
-                style={{
-                  gridTemplateColumns: "1.4fr 1fr 1fr 1fr",
-                  ...(c.proceed
-                    ? {
-                        border: "1px solid var(--color-purple-accent)",
-                        background: "rgba(139,92,246,0.06)",
-                      }
-                    : {
-                        borderTop: "1px solid var(--color-rule)",
-                      }),
-                }}
-              >
-                {c.proceed ? (
-                  <div className="flex items-center gap-2">
-                    <span
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: 12,
-                        color: "var(--color-ink)",
-                        fontWeight: 500,
-                      }}
-                    >
-                      {c.label}
-                    </span>
-                    <span
-                      className="px-1.5 py-0.5"
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: 9,
-                        color: "var(--color-purple-accent)",
-                        letterSpacing: "0.16em",
-                        border: "1px solid var(--color-purple-accent)",
-                      }}
-                    >
-                      → PROCEED
-                    </span>
-                  </div>
-                ) : (
-                  <span
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: 12,
-                      color: "var(--color-muted)",
-                    }}
-                  >
-                    {c.label}
-                  </span>
-                )}
-                {c.scores.map((s, i) => (
-                  <ScoreBar key={i} score={s} highlight={c.proceed} />
-                ))}
-              </div>
-            ))}
-
             <p
-              className="mt-7 text-right"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: 10,
                 color: "var(--color-muted)",
                 letterSpacing: "0.16em",
+                textTransform: "uppercase",
               }}
             >
-              FIG.03 · BEHAVERA · candidate scoring · VÝŇATEK Z REÁLNÉHO REPORTINGU · ANONYMIZOVÁNO
+              klik na dlaždici = zvětšit
             </p>
-
-            <a
-              href="#consult"
-              className="mt-6 inline-flex items-baseline gap-2 pb-px transition-colors"
-              style={{
-                fontSize: 13.5,
-                color: "var(--color-purple-accent)",
-                fontWeight: 500,
-                borderBottom: "1px solid rgba(139,92,246,0.3)",
-              }}
-            >
-              Stejnou matrici nasadíme na vaše reálné kandidáty — během 2 týdnů
-              <ArrowRightIcon size={13} />
-            </a>
-          </figure>
-
-          <div className="lg:pl-6 lg:pt-4">
-            <h3
-              className="sj-display mb-8 max-w-[22ch]"
-              style={{ fontSize: 34 }}
-            >
-              Datová vrstva, která <em>rozhoduje za vás</em>.
-            </h3>
-
-            <ul className="space-y-7">
-              {bullets.map((b) => (
-                <li key={b.title} className="flex gap-5">
-                  <CheckMark />
-                  <div>
-                    <h4
-                      className="mb-1.5 tracking-tight"
-                      style={{
-                        fontSize: 18,
-                        fontWeight: 500,
-                        color: "var(--color-ink)",
-                      }}
-                    >
-                      {b.title}
-                    </h4>
-                    <p
-                      className="leading-[1.65] max-w-[44ch]"
-                      style={{ color: "rgba(28,18,55,0.75)" }}
-                    >
-                      {b.body}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            <a href="#consult" className="sj-btn-textlink mt-12">
-              Domluvit konzultaci · 15 min
-              <ArrowRightIcon />
-            </a>
           </div>
+          <ReportGallery />
         </div>
       </div>
     </section>
