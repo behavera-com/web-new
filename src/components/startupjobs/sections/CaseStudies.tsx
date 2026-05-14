@@ -718,7 +718,7 @@ function TestimonialMosaic() {
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative overflow-hidden">
       <div
         ref={trackRef}
         className="sj-testimonial-track"
