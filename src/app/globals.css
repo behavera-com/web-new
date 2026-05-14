@@ -1567,23 +1567,31 @@ select.sj-consult-input {
   -ms-overflow-style: none;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 4px;
-  /* Peek: negative margin + padding trick */
-  margin-right: -48px;
-  padding-right: 48px;
+  /* Soft fade on both edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 86%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 86%,
+    transparent 100%
+  );
 }
 .sj-testimonial-track::-webkit-scrollbar {
   display: none;
 }
 .sj-t-slide {
-  flex: 0 0 85%;
+  flex: 0 0 88%;
   scroll-snap-align: start;
   min-width: 0;
 }
 @media (min-width: 768px) {
-  .sj-testimonial-track {
-    margin-right: -80px;
-    padding-right: 80px;
-  }
   .sj-t-slide {
     flex: 0 0 calc(50% - 10px);
   }

@@ -517,7 +517,7 @@ function ExpandoCaseCard() {
 
         <div className="mt-5 flex items-center gap-3">
           <div
-            className="w-9 h-9 rounded-full flex items-center justify-center text-white shrink-0"
+            className="w-14 h-14 rounded-full flex items-center justify-center text-white shrink-0"
             style={{
               background: "var(--color-purple-deep)",
               fontFamily: "var(--font-inter-tight)",
