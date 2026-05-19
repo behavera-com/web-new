@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import ReportGallery from "./ReportGallery";
+import SoftScrollCta from "../ui/SoftScrollCta";
 import SolutionBlock, { type SolutionBlockData } from "./SolutionBlock";
 
 const blocks: SolutionBlockData[] = [
@@ -177,6 +178,8 @@ export default function SolutionSection() {
             </p>
           </div>
           <ReportGallery />
+
+          <SoftScrollCta target="#cases" label="Reálné výsledky klientů" />
         </div>
       </div>
     </section>

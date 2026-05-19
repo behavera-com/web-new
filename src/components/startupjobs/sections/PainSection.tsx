@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import EmailInbox, { type EmailCard } from "./EmailInbox";
+import SoftScrollCta from "../ui/SoftScrollCta";
 import { CountUpNumber, useCountUp } from "../ui/useCountUp";
 
 type Impact = {
@@ -230,6 +231,12 @@ export default function PainSection() {
           >
             Zpětná vazba kandidátů našim klientům
           </p>
+
+          <SoftScrollCta
+            target="#produkt"
+            label="Jak to řešíme"
+            tone="dark"
+          />
         </div>
       </div>
     </section>

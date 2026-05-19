@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SoftScrollCta from "../ui/SoftScrollCta";
 
 type Card = {
   tag: string;
@@ -272,6 +273,8 @@ export default function ProductTriptych() {
             </div>
           ))}
         </div>
+
+        <SoftScrollCta target="#demo" label="Ukázat v praxi" />
       </div>
     </section>
   );

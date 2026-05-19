@@ -2163,11 +2163,14 @@ select.sj-consult-input {
   outline: 2px solid var(--color-purple-deep);
   outline-offset: 3px;
 }
-.sj-tslider-arrow-prev { left: -10px; }
-.sj-tslider-arrow-next { right: -10px; }
+/* Šipky uvnitř viewportu (positive offsets), aby `overflow-x: hidden`
+   na viewportu je nezakrývalo. Mírný overlay na slidy je OK — arrows
+   jsou nad ostatním obsahem (z-index: 10). */
+.sj-tslider-arrow-prev { left: 8px; }
+.sj-tslider-arrow-next { right: 8px; }
 @media (min-width: 1024px) {
-  .sj-tslider-arrow-prev { left: -28px; }
-  .sj-tslider-arrow-next { right: -28px; }
+  .sj-tslider-arrow-prev { left: 24px; }
+  .sj-tslider-arrow-next { right: 24px; }
 }
 
 .sj-tslider-progress-seg[data-state="past"] {
@@ -2906,15 +2909,16 @@ select.sj-consult-input {
   font-weight: 800;
   font-variation-settings: normal;
   color: inherit;
-  /* viewBox je natažený o 16px horizontálně a 16px vertikálně, takže path
-     má vlastní vnitřní padding a nepřesahuje sám sebe → kruh sedí uvnitř
-     em boxu i když na něj použijeme background-size: 100%/120%. */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-12 -12 264 144' preserveAspectRatio='none'><path d='M 120 22 C 56 20, 8 38, 14 60 C 20 84, 80 98, 130 96 C 200 94, 232 76, 230 56 C 228 32, 186 18, 120 22 Z' fill='none' stroke='%231f8a5a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  /* Symetrický ellipse path. ViewBox 0 0 240 100 — path je čistý ovál
+     centered v (120, 50) s poloosami a=110 b=42 (rx=110, ry=42).
+     Stroke-width 4 a hand-drawn feel přes lehkou „cikcak" deformaci
+     v Bezier kontrol pointech (jinak je oval moc geometrický). */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 100' preserveAspectRatio='none'><path d='M 120 10 C 50 11, 8 25, 10 50 C 12 75, 60 90, 122 89 C 188 89, 232 73, 230 48 C 228 24, 184 10, 120 10 Z' fill='none' stroke='%231f8a5a' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 100% 130%;
-  padding: 0.22em 0.32em 0.3em 0.32em;
-  margin: 0 0.06em;
+  background-size: 102% 115%;
+  padding: 0.14em 0.28em 0.22em 0.28em;
+  margin: 0 0.04em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   display: inline-block;
@@ -3348,7 +3352,11 @@ select.sj-consult-input {
 .bh-scope .sj-hero-stage > div:first-of-type::before {
   content: "#peoplefirst";
   position: absolute;
-  left: 24px;
+  /* Posunuto blíž k okraji (8px → 12px) ať se text neořezne paddingem
+     content wrapperu. Plus zvětšen max-height aby celé slovo bylo
+     vidět bez ořezu shora. Zmenšen breakpoint z 1440 na 1180 — text
+     se vejde už od 1180px wide. */
+  left: 12px;
   top: 50%;
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
@@ -3360,13 +3368,13 @@ select.sj-consult-input {
   text-transform: uppercase;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.6;
+  opacity: 0.55;
   white-space: nowrap;
-  max-height: 200px;
-  overflow: hidden;
+  max-height: 320px;
+  overflow: visible;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1180px) {
   .bh-scope .sj-hero-stage > div:first-of-type::before {
     display: none;
   }
@@ -3451,6 +3459,25 @@ select.sj-consult-input {
 .bh-scope img[src*="/logos/"] {
   filter: none !important;
   opacity: 0.92;
+}
+
+/* Curated 8 logos pro brand variant — schovat 4 méně-rozpoznatelné
+   (Oktagon MMA, Valxon, KRO Kitchen, Pražské služby), zbývajících 8
+   (Vodafone, O2, PwC, Raynet, 365.bank, Prusa, Expando, Alma) sedne do
+   jedné řady na desktop bez scrollu. Non-destruktivní: originální
+   /startupjobs route si drží všech 12. */
+.bh-scope .sj-hero-stage .sj-marquee-track img[alt="OKTAGON MMA"],
+.bh-scope .sj-hero-stage .sj-marquee-track img[alt="Valxon"],
+.bh-scope .sj-hero-stage .sj-marquee-track img[alt="KRO Kitchen"],
+.bh-scope .sj-hero-stage .sj-marquee-track img[alt="Pražské služby"] {
+  display: none !important;
+}
+
+/* Zvětšit logo height v bh-scope hero (26px → 34px) pro lepší prominence */
+.bh-scope .sj-hero-stage .sj-marquee-track .sj-logo-mark,
+.bh-scope .sj-hero-stage .sj-marquee-track img[src*="/logos/"] {
+  max-height: 34px !important;
+  height: auto;
 }
 
 /* === STEP 2C — MarqueeTrack → static logo wall ==========================
@@ -3548,10 +3575,41 @@ select.sj-consult-input {
   padding: 0 !important;
 }
 
-/* Větší padding na sekce — brand má generous white space */
+/* ===== SoftScrollCta — diskrétní scroll-down hint mezi sekcemi ===== */
+.sj-soft-cta {
+  transition: color 220ms ease, opacity 220ms ease;
+}
+.sj-soft-cta:hover,
+.sj-soft-cta:focus-visible {
+  opacity: 1;
+}
+.bh-scope .sj-soft-cta:hover {
+  color: var(--bh-purple) !important;
+}
+.bh-scope .sj-on-dark .sj-soft-cta:hover,
+.bh-scope #proc .sj-soft-cta:hover,
+.bh-scope #metodika .sj-soft-cta:hover {
+  color: var(--bh-mint) !important;
+}
+.sj-soft-cta-chev {
+  animation: sj-soft-cta-bob 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+@keyframes sj-soft-cta-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sj-soft-cta-chev { animation: none; }
+}
+
+/* Větší padding na sekce — brand má generous white space.
+   Sníženo z clamp(80px, 8vw, 140px) protože sekce s málo obsahem
+   (SolutionBlock, ManifestoBreak, OutcomeStrip) měly příliš mnoho
+   prázdného pozadí — 280px vertical padding na 4 řádky textu. */
 .bh-scope main > section {
-  padding-top: clamp(80px, 8vw, 140px);
-  padding-bottom: clamp(80px, 8vw, 140px);
+  padding-top: clamp(56px, 6vw, 96px);
+  padding-bottom: clamp(56px, 6vw, 96px);
 }
 
 /* Hero stage si zachovává své padding-y z komponenty */
@@ -4073,6 +4131,10 @@ select.sj-consult-input {
   background:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'><path d='M 0,0 L 1440,0 L 1440,40 C 1260,65 1080,20 720,55 C 360,80 180,30 0,50 Z' fill='%23ffd5ca'/></svg>") top left / 100% 80px no-repeat,
     var(--bh-purple) !important;
+  /* Zrušit `borderTop: 1px solid rgba(255,255,255,0.08)` z inline style
+     v FinalCta.tsx — na coral-to-coral hranici vytváří viditelnou
+     tmavou čáru mezi OutcomeStrip a consult wave. */
+  border-top: 0 !important;
 }
 
 /* ============================================================

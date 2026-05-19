@@ -1,3 +1,5 @@
+import SoftScrollCta from "../ui/SoftScrollCta";
+
 type Reveal = {
   tag: string;
   title: string;
@@ -233,6 +235,8 @@ export default function ProductDemo() {
             ))}
           </div>
         </div>
+
+        <SoftScrollCta target="#report" label="Co vidí vedení" />
       </div>
     </section>
   );

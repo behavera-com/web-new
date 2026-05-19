@@ -277,12 +277,14 @@ function CaseCardItem({ c }: { c: CaseCard }) {
         }}
       />
 
-      {/* Layered overlays — dark base + bottom darkening for legibility */}
+      {/* Layered overlays — dark base + bottom darkening for legibility.
+          Silnější gradient ve spodní třetině (0.92 vs 0.78), aby
+          název firmy + industry byly čitelné i na světlých fotkách. */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(20,12,42,0.10) 0%, rgba(20,12,42,0.20) 45%, rgba(20,12,42,0.78) 100%)",
+            "linear-gradient(180deg, rgba(20,12,42,0.10) 0%, rgba(20,12,42,0.30) 45%, rgba(20,12,42,0.92) 100%)",
         }}
       />
       <div
@@ -322,17 +324,20 @@ function CaseCardItem({ c }: { c: CaseCard }) {
         </div>
 
         <div
-          className="inline-flex items-center gap-1.5 text-white"
+          className="sj-case-size-chip inline-flex items-center gap-1.5"
           style={{
-            background: "rgba(20,12,42,0.55)",
+            background: "rgba(102, 228, 169, 0.92)",
+            color: "#0e3d27",
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
-            border: "1px solid rgba(255,255,255,0.12)",
+            border: "1px solid rgba(102, 228, 169, 0.55)",
             padding: "6px 10px",
             borderRadius: 999,
             fontFamily: "var(--font-mono)",
             fontSize: 11,
             letterSpacing: "0.04em",
+            fontWeight: 600,
+            boxShadow: "0 4px 12px -6px rgba(0,0,0,0.25)",
           }}
         >
           <BuildingIcon />
@@ -401,6 +406,7 @@ function CaseCardItem({ c }: { c: CaseCard }) {
             color: "#fff",
             marginBottom: 4,
             letterSpacing: "-0.01em",
+            textShadow: "0 2px 12px rgba(0,0,0,0.55), 0 1px 2px rgba(0,0,0,0.45)",
           }}
         >
           {c.brand}
@@ -410,9 +416,10 @@ function CaseCardItem({ c }: { c: CaseCard }) {
             fontFamily: "var(--font-mono)",
             fontSize: 11,
             letterSpacing: "0.08em",
-            color: "rgba(255,255,255,0.72)",
+            color: "rgba(255,255,255,0.88)",
             textTransform: "uppercase",
             marginBottom: 12,
+            textShadow: "0 1px 6px rgba(0,0,0,0.5)",
           }}
         >
           {c.industry}
@@ -813,7 +820,12 @@ function TestimonialMosaic() {
         ref={viewportRef}
         className="sj-tslider-viewport relative"
         style={{
-          overflow: "hidden",
+          /* overflowX: hidden klipne horizontalní track slide-to-slide.
+             overflowY: visible umožní tape strip (top:-10px) na sticky-note
+             aby nebyl ořezán horní hranou viewportu. */
+          overflowX: "hidden",
+          overflowY: "visible",
+          paddingTop: 16,
           touchAction: "pan-y",
           userSelect: "none",
           cursor: "grab",
