@@ -160,7 +160,7 @@ const heroTrustLogos = [
   { src: "/startupjobs/logos/prusa.svg", alt: "Průša Research" },
   { src: "/startupjobs/logos/expando.svg", alt: "Expando" },
   { src: "/startupjobs/logos/valxon.svg", alt: "Valxon" },
-  { src: "/startupjobs/logos/alma.svg", alt: "Alma Career" },
+  { src: "/startupjobs/logos/alma-transparent.png", alt: "Alma Career" },
   { src: "/startupjobs/logos/krokitchen.png", alt: "KRO Kitchen" },
   { src: "/startupjobs/logos/prazske-sluzby.svg", alt: "Pražské služby" },
 ];
@@ -317,25 +317,22 @@ function ExpandoCaseCard() {
           background: "linear-gradient(180deg, #fbfafd 0%, #f4f0fb 100%)",
         }}
       >
-        {/* Brand mark */}
+        {/* Brand wordmark — manuál str. 5: subbrand label v Object Sans lowercase.
+            Žádné samostatné "B" v boxu (manuál str. 3: "Nikdy nelze písmeno b
+            použít jako samotné logo") a žádný Fraunces. */}
         <span
-          className="inline-flex items-center justify-center shrink-0"
+          className="shrink-0"
           style={{
-            width: 22,
-            height: 22,
-            borderRadius: 5,
-            background: "var(--color-purple-deep)",
-            color: "#fff",
-            fontFamily: "var(--font-fraunces)",
+            color: "var(--color-purple-deep)",
+            fontFamily: "var(--font-inter-tight)",
             fontSize: 13,
-            fontWeight: 500,
-            fontVariationSettings: '"opsz" 144, "SOFT" 30',
-            letterSpacing: "-0.02em",
+            fontWeight: 800,
+            letterSpacing: "-0.015em",
             lineHeight: 1,
           }}
           aria-hidden
         >
-          B
+          behavera
         </span>
 
         {/* Breadcrumb */}

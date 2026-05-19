@@ -140,6 +140,8 @@ export default function BrandFooter({
             <span>© 2026 Behavera s.r.o.</span>
             <span aria-hidden="true" style={{ color: "var(--color-rule)" }}>·</span>
             <span>IČO: 03525520</span>
+            <span aria-hidden="true" style={{ color: "var(--color-rule)" }}>·</span>
+            <span>DIČ: CZ03525520</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
             <a

@@ -87,9 +87,9 @@ export default function ProductDemo() {
           }}
         >
           <iframe
-            src="https://www.loom.com/embed/b4584b6184cb48dcadd7bc2f64291768?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
+            src="https://www.youtube-nocookie.com/embed/yM7JCF3WMfU?rel=0&modestbranding=1"
             title="Behavera — ukázka behaviorální hry pro nábor"
-            allow="fullscreen; clipboard-write"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
             allowFullScreen
             loading="lazy"
             style={{

@@ -10,7 +10,7 @@ const logos = [
   { src: "/startupjobs/logos/prusa.svg", alt: "Průša Research" },
   { src: "/startupjobs/logos/expando.svg", alt: "Expando" },
   { src: "/startupjobs/logos/valxon.svg", alt: "Valxon" },
-  { src: "/startupjobs/logos/alma.svg", alt: "Alma Career" },
+  { src: "/startupjobs/logos/alma-transparent.png", alt: "Alma Career" },
   { src: "/startupjobs/logos/krokitchen.png", alt: "KRO Kitchen" },
   { src: "/startupjobs/logos/prazske-sluzby.svg", alt: "Pražské služby" },
 ];

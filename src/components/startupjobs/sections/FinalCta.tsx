@@ -146,8 +146,9 @@ export default function FinalCta() {
             </ul>
           </div>
 
-          {/* RIGHT — form card (sticks on desktop until end of section) */}
-          <div className="lg:col-span-7 sj-on-light lg:sticky lg:top-24">
+          {/* RIGHT — form card (sticks on desktop until end of section).
+              top-40 = 160px → clear fixed header (36px+108px ≈ 144px). */}
+          <div className="lg:col-span-7 sj-on-light lg:sticky lg:top-40">
             <ConsultForm rep={rep} />
           </div>
         </div>

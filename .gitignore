@@ -42,3 +42,17 @@ next-env.d.ts
 
 # repomix
 repomix-output.xml
+
+# audit/test screenshots from playwright
+*.png
+!public/**/*.png
+
+# tooling/local
+.claude/
+.playwright-mcp/
+LP/
+
+# duplicate files macOS sometimes creates
+* 2.css
+* 2.tsx
+* 2.ts

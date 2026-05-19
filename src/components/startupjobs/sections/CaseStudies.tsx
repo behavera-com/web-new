@@ -21,7 +21,7 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    caseNo: "05",
+    caseNo: "01",
     slug: "365bank",
     logo: "/startupjobs/logos/365bank.svg",
     logoAlt: "365.bank",
@@ -41,7 +41,7 @@ const TESTIMONIALS: Testimonial[] = [
     ],
   },
   {
-    caseNo: "01",
+    caseNo: "02",
     slug: "vodafone",
     logo: "/startupjobs/logos/vodafone.svg",
     logoAlt: "Vodafone",
@@ -59,7 +59,7 @@ const TESTIMONIALS: Testimonial[] = [
     ],
   },
   {
-    caseNo: "02",
+    caseNo: "03",
     slug: "expando",
     logo: "/startupjobs/logos/expando.svg",
     logoAlt: "Expando",
@@ -78,7 +78,7 @@ const TESTIMONIALS: Testimonial[] = [
     ],
   },
   {
-    caseNo: "03",
+    caseNo: "04",
     slug: "valxon",
     logo: "/startupjobs/logos/valxon.svg",
     logoAlt: "Valxon",
@@ -97,7 +97,7 @@ const TESTIMONIALS: Testimonial[] = [
     ],
   },
   {
-    caseNo: "06",
+    caseNo: "05",
     slug: "medevio",
     logo: "/startupjobs/logos/medevio.svg",
     logoAlt: "Medevio",
@@ -111,7 +111,7 @@ const TESTIMONIALS: Testimonial[] = [
     context: [],
   },
   {
-    caseNo: "07",
+    caseNo: "06",
     slug: "hajduk",
     logo: "/startupjobs/logos/hajduk.png",
     logoAlt: "Hajduk & Partners",
@@ -125,7 +125,7 @@ const TESTIMONIALS: Testimonial[] = [
     context: [],
   },
   {
-    caseNo: "08",
+    caseNo: "07",
     slug: "o2-sk",
     logo: "/startupjobs/logos/o2.svg",
     logoAlt: "O2 Slovakia",
