@@ -17,6 +17,23 @@ export default function Hero() {
         }}
       />
 
+      {/* Brand-only vertical "#peoplefirst" side rail — styling via
+          .bh-hero-side-rail v globals.css, hidden mimo bh-scope a pod 1180px */}
+      <aside aria-hidden className="bh-hero-side-rail">
+        <span>#</span>
+        <span>p</span>
+        <span>e</span>
+        <span>o</span>
+        <span>p</span>
+        <span>l</span>
+        <span>e</span>
+        <span>f</span>
+        <span>i</span>
+        <span>r</span>
+        <span>s</span>
+        <span>t</span>
+      </aside>
+
       <div className="relative max-w-[1280px] mx-auto px-6 md:px-10 pt-10 md:pt-12 lg:pt-14 pb-10 md:pb-12">
       <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
         {/* LEFT: editorial copy */}

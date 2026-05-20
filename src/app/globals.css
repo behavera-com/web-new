@@ -3349,33 +3349,42 @@ select.sj-consult-input {
    Manuál str. 21–22: vertical #peoplefirst rail na levém okraji hero.
    Schovat na <1440px (potřebuje opravdu wide viewport, jinak useklá). */
 
-.bh-scope .sj-hero-stage > div:first-of-type::before {
-  content: "#peoplefirst";
+/* Side rail nyní rendrovaný jako real DOM element v Hero.tsx
+   (.bh-hero-side-rail). Předchozí pseudo-element pokus s `\A` escape +
+   `writing-mode` byl nespolehlivý.
+
+   Default = display: none (originální /startupjobs route nemá brand
+   side rail). V bh-scope se zapne na display: flex pro >1180px. */
+.bh-hero-side-rail {
+  display: none;
+}
+
+.bh-scope .bh-hero-side-rail {
   position: absolute;
-  /* Posunuto z top:50% na top:62% — předtím se začátek textu ztrácel
-     pod fixed headerem (utility bar 36px + nav 108px = ~144px). Při
-     vertical-rl + rotate(180), text čte odshora-dolů a začátek je
-     nahoře. Posun dolů zajistí že začátek je pod headerem. */
-  left: 12px;
-  top: 62%;
-  transform: translateY(-50%) rotate(180deg);
-  writing-mode: vertical-rl;
+  left: 16px;
+  bottom: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
   color: var(--bh-purple);
   font-family: var(--bh-font-body);
   font-weight: 800;
   font-size: 11px;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.04em;
+  line-height: 1;
   text-transform: uppercase;
   z-index: 2;
   pointer-events: none;
-  opacity: 0.55;
-  white-space: nowrap;
-  max-height: 320px;
-  overflow: visible;
+  opacity: 0.5;
+}
+
+.bh-scope .bh-hero-side-rail span {
+  display: block;
 }
 
 @media (max-width: 1180px) {
-  .bh-scope .sj-hero-stage > div:first-of-type::before {
+  .bh-scope .bh-hero-side-rail {
     display: none;
   }
 }
