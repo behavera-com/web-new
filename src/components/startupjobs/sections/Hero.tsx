@@ -1,5 +1,6 @@
 import ArrowRightIcon from "../ui/ArrowRightIcon";
 import BrandLockup from "../ui/BrandLockup";
+import SoftScrollCta from "../ui/SoftScrollCta";
 import { CountUpNumber } from "../ui/useCountUp";
 import MarqueeTrack from "./MarqueeTrack";
 
@@ -55,15 +56,20 @@ export default function Hero() {
             className="sj-display sj-anim"
             style={{
               ["--sj-delay" as string]: "100ms",
-              fontSize: "clamp(44px, 7.2vw, 84px)",
+              /* Sníženo z (44px, 7.2vw, 84px) — na <=900px viewportech
+                 se "Nabírejte" + sentence wrapuje slovo na řádek. Užší
+                 lower bound + plynulejší vw škálování drží 2 řádky. */
+              fontSize: "clamp(38px, 5.8vw, 78px)",
               fontWeight: 460,
-              letterSpacing: "-0.038em",
-              lineHeight: 0.96,
+              letterSpacing: "-0.04em",
+              lineHeight: 1.0,
+              textWrap: "balance",
             }}
           >
-            Nabírejte rychleji.
-            <br />
-            Nabírejte <em>správně</em>.
+            <span className="block">Nabírejte rychleji.</span>
+            <span className="block">
+              Nabírejte <em>správně</em>.
+            </span>
           </h1>
 
           <p
@@ -145,6 +151,8 @@ export default function Hero() {
 
       {/* Above-the-fold trust row: static logos + eyebrow */}
       <HeroTrustRow />
+
+      <SoftScrollCta target="#cobrand" label="Proč StartupJobs × Behavera" />
       </div>
     </section>
   );

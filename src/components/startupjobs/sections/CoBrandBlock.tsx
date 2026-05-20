@@ -1,8 +1,10 @@
 import Image from "next/image";
+import SoftScrollCta from "../ui/SoftScrollCta";
 
 export default function CoBrandBlock() {
   return (
     <section
+      id="cobrand"
       className="sj-grain sj-reveal"
       style={{
         background: "var(--color-alt)",
@@ -94,6 +96,8 @@ export default function CoBrandBlock() {
           1 + 1 = celý lifecycle:{" "}
           <em>od kandidáta po stabilního zaměstnance.</em>
         </p>
+
+        <SoftScrollCta target="#proc" label="Proč to dnes nestačí" />
       </div>
     </section>
   );

@@ -3352,12 +3352,12 @@ select.sj-consult-input {
 .bh-scope .sj-hero-stage > div:first-of-type::before {
   content: "#peoplefirst";
   position: absolute;
-  /* Posunuto blíž k okraji (8px → 12px) ať se text neořezne paddingem
-     content wrapperu. Plus zvětšen max-height aby celé slovo bylo
-     vidět bez ořezu shora. Zmenšen breakpoint z 1440 na 1180 — text
-     se vejde už od 1180px wide. */
+  /* Posunuto z top:50% na top:62% — předtím se začátek textu ztrácel
+     pod fixed headerem (utility bar 36px + nav 108px = ~144px). Při
+     vertical-rl + rotate(180), text čte odshora-dolů a začátek je
+     nahoře. Posun dolů zajistí že začátek je pod headerem. */
   left: 12px;
-  top: 50%;
+  top: 62%;
   transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   color: var(--bh-purple);
@@ -3461,22 +3461,13 @@ select.sj-consult-input {
   opacity: 0.92;
 }
 
-/* Curated 8 logos pro brand variant — schovat 4 méně-rozpoznatelné
-   (Oktagon MMA, Valxon, KRO Kitchen, Pražské služby), zbývajících 8
-   (Vodafone, O2, PwC, Raynet, 365.bank, Prusa, Expando, Alma) sedne do
-   jedné řady na desktop bez scrollu. Non-destruktivní: originální
-   /startupjobs route si drží všech 12. */
-.bh-scope .sj-hero-stage .sj-marquee-track img[alt="OKTAGON MMA"],
-.bh-scope .sj-hero-stage .sj-marquee-track img[alt="Valxon"],
-.bh-scope .sj-hero-stage .sj-marquee-track img[alt="KRO Kitchen"],
-.bh-scope .sj-hero-stage .sj-marquee-track img[alt="Pražské služby"] {
-  display: none !important;
-}
-
-/* Zvětšit logo height v bh-scope hero (26px → 34px) pro lepší prominence */
+/* Všech 12 originálních log ponecháno — různé loga rezonují s různými
+   cílovkami (Oktagon = sports/entertainment, Valxon = SMB, KRO =
+   gastro/HoReCa, Pražské služby = enterprise/state-owned). Pouze
+   zvětšujeme výšku v bh-scope (26px → 32px) pro lepší prominence. */
 .bh-scope .sj-hero-stage .sj-marquee-track .sj-logo-mark,
 .bh-scope .sj-hero-stage .sj-marquee-track img[src*="/logos/"] {
-  max-height: 34px !important;
+  max-height: 32px !important;
   height: auto;
 }
 
