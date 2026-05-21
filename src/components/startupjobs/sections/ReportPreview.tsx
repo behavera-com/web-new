@@ -23,7 +23,7 @@ export default function ReportPreview() {
               className="sj-h-section"
               style={{ fontSize: "clamp(34px, 4.5vw, 56px)" }}
             >
-              Tohle dostane HR{" "}
+              Report na kandidáta{" "}
               <em
                 style={{
                   fontStyle: "italic",
@@ -31,9 +31,9 @@ export default function ReportPreview() {
                   color: "var(--color-purple-deep)",
                 }}
               >
-                do 48 hodin
+                ihned po dokončení
               </em>{" "}
-              po průzkumu.
+              dotazníku.
             </h2>
           </div>
           <div className="lg:col-span-5 lg:col-start-8 self-end">
@@ -44,22 +44,23 @@ export default function ReportPreview() {
                 color: "rgba(28,18,55,0.75)",
               }}
             >
-              Žádné PDF s 80 stránkami textu. Čtyři obrazovky se signály nálady,
-              doporučeními per tým a hiring angles — připravené k použití v
-              kampaních a inzerátech.
+              Fit na roli, fit do týmu, srovnání s ostatními kandidáty, otázky
+              k pohovoru — a tipy, jak s nováčkem pracovat po nástupu: na co si
+              dát pozor, kde má prostor růst. Tři strany, podle kterých dáte
+              rozhodnutí dohromady v řádu minut — ne dnů.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 items-center">
               <a
-                href="/startupjobs/behavera-report-preview.pdf"
+                href="/startupjobs/behavera-report-sample.pdf"
                 className="sj-btn-primary"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Stáhnout vzor (PDF)
+                Stáhnout ukázku reportu (PDF)
                 <ArrowRightIcon size={14} />
               </a>
-              <span className="sj-eyebrow">4 strany · 1.2 MB</span>
+              <span className="sj-eyebrow">3 strany · 2 MB</span>
             </div>
           </div>
         </div>
@@ -75,7 +76,7 @@ export default function ReportPreview() {
             }}
           >
             <span className="sj-annot-dot" />
-            6 signálů nálady · barometr
+            Fit na roli · 0–100 %
           </span>
           <span
             className="sj-annot sj-annot-green hidden lg:flex"
@@ -85,7 +86,7 @@ export default function ReportPreview() {
             }}
           >
             <span className="sj-annot-dot" />
-            Doporučení per tým
+            7 pracovních kompetencí
           </span>
           <span
             className="sj-annot sj-annot-amber hidden lg:flex"
@@ -95,7 +96,7 @@ export default function ReportPreview() {
             }}
           >
             <span className="sj-annot-dot" />
-            Hiring angles · ready-to-use
+            Tipy pro onboarding · rizika a rozvoj
           </span>
 
           <div className="sj-report-frame">
@@ -104,7 +105,7 @@ export default function ReportPreview() {
               <span className="sj-chrome-dot" />
               <span className="sj-chrome-dot" />
               <span className="sj-chrome-title">
-                behavera-report.pdf · Echo Pulse · Leadership
+                behavera-report.pdf · Jan Behavera · Sales Person
               </span>
               <span
                 className="ml-auto"
@@ -153,15 +154,15 @@ export default function ReportPreview() {
           >
             <li className="flex items-start gap-2">
               <span className="sj-annot-dot mt-1.5" />
-              6 signálů nálady · barometr
+              Fit na roli · 0–100 %
             </li>
             <li className="flex items-start gap-2">
               <span className="sj-annot-dot mt-1.5" style={{ background: "var(--sj-signal-green, #16a34a)" }} />
-              Doporučení per tým
+              7 pracovních kompetencí
             </li>
             <li className="flex items-start gap-2">
               <span className="sj-annot-dot mt-1.5" style={{ background: "var(--sj-signal-amber, #f59e0b)" }} />
-              Hiring angles · ready-to-use
+              Tipy pro onboarding · rizika a rozvoj
             </li>
           </ul>
 
