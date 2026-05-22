@@ -2,23 +2,9 @@ import DualCta from "../ui/DualCta";
 
 const faqs = [
   {
-    q: "Kolik to stojí?",
-    aHtml: (
-      <>
-        Ceny začínají na{" "}
-        <strong style={{ color: "var(--color-ink)" }}>
-          99 Kč na osobu měsíčně
-        </strong>
-        . Finální nabídka se odvíjí od velikosti firmy a objemu náboru —
-        konkrétní propočet připravíme po krátké konzultaci. Pilot je vždy
-        bez lock-in: žádná setup fee, smlouva flexibilní.
-      </>
-    ),
-    open: true,
-  },
-  {
     q: "Jak rychle uvidím dopad na náborové KPI?",
     a: "Time-to-hire metrika klesá od prvního měsíce, kdy jsou v procesu noví kandidáti scoringovaní Behaverou. Plný dopad (quality of hire, 6m retention) je měřitelný po 4–6 měsících.",
+    open: true,
   },
   {
     q: "Jak Behavera poznává „dobrého kandidáta“?",

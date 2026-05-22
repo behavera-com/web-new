@@ -30,13 +30,11 @@ const blocks: SolutionBlockData[] = [
     ],
     image: {
       src: "/startupjobs/hiring/top-performers-comparison.png",
-      alt: "Behavera — porovnání pozitiv a obav top performera s competency bary z Office Day simulace.",
-      caption: "Top performeři vs. zbytek týmu",
+      alt: "Behavera — Profil kandidáta: pozitiva, obavy a kompetence z Office Day simulace.",
+      caption: "Profil kandidáta",
+      video: "/startupjobs/product/profil-kandidata.mp4",
     },
-    pins: [
-      { x: "26%", y: "30%" },
-      { x: "78%", y: "62%" },
-    ],
+    pins: [],
   },
   {
     num: "02",

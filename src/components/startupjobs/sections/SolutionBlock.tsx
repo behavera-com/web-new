@@ -11,7 +11,7 @@ export type SolutionBlockData = {
   title: React.ReactNode;
   body: React.ReactNode;
   details: React.ReactNode[];
-  image: { src: string; alt: string; caption: string };
+  image: { src: string; alt: string; caption: string; video?: string };
   pins: Pin[];
   reverse?: boolean;
 };
@@ -103,14 +103,29 @@ export default function SolutionBlock({
             zIndex: 1,
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={block.image.src}
-            alt={block.image.alt}
-            className="block w-full h-auto"
-            loading="lazy"
-            decoding="async"
-          />
+          {block.image.video ? (
+            <video
+              src={block.image.video}
+              poster={block.image.src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label={block.image.alt}
+              className="block w-full h-auto"
+              style={{ display: "block", width: "100%", height: "auto" }}
+            />
+          ) : (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={block.image.src}
+              alt={block.image.alt}
+              className="block w-full h-auto"
+              loading="lazy"
+              decoding="async"
+            />
+          )}
 
           {block.pins.map((pin, pi) => (
             <button

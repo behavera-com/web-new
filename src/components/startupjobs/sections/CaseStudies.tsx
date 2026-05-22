@@ -65,16 +65,15 @@ const TESTIMONIALS: Testimonial[] = [
     logoAlt: "Expando",
     url: "https://www.behavera.com/case-studies/jak-expando-objevilo-skryty-talent",
     quote:
-      "Echo Pulse nám dal objektivní pohled na problémy, které jsme tušili, ale neuměli pojmenovat.",
-    author: "Dominik Hegedüs",
-    initials: "DH",
-    photo: "/startupjobs/team/Dominik.png",
-    role: "CEO · Expando",
+      "Díky Behaveře ušetřím celý týden práce každý měsíc a firma 20 tisíc korun, a to nejen na pre-screeningu, ale také na vyhodnocování životopisů a výstupů z prvních pohovorů. 5 dní navíc se mi hodí na rozvoj zaměstnanců a zlepšování interních procesů.",
+    author: "Ema Nováková",
+    initials: "EN",
+    role: "HR Hiring Manager · Expando",
     context: [
       { tag: "SAMPLE", val: "50+ zaměstnanců" },
       { tag: "SECTOR", val: "E-commerce" },
-      { tag: "VÝSLEDEK", val: "+37 % prodejů klienta" },
-      { tag: "VÝSLEDEK", val: "€11 000 ušetřeno ročně" },
+      { tag: "VÝSLEDEK", val: "5 dní/měsíc ušetřeno" },
+      { tag: "VÝSLEDEK", val: "20 000 Kč/měsíc ušetřeno" },
     ],
   },
   {
@@ -169,11 +168,11 @@ const CASES: CaseCard[] = [
     brand: "Expando",
     industry: "E-Commerce",
     size: "50+",
-    tags: ["Engagement", "Promotion", "Communication"],
+    tags: ["Hiring", "Pre-screening", "Efficiency"],
     photo: "/startupjobs/cases/expando.webp",
     stats: [
-      { value: "37%", label: "nárůst prodejů klienta" },
-      { value: "€11 000", label: "ušetřeno ročně" },
+      { value: "5 dní", label: "ušetřeno měsíčně" },
+      { value: "20 000 Kč", label: "ušetřeno měsíčně" },
     ],
   },
   {

@@ -38,9 +38,9 @@ const steps = [
       </>
     ),
     image: {
-      src: "/startupjobs/hiring/step-02-template-digest.png",
-      alt: "Behavera — připravený profil s Culture Fit dimenzemi a sekcí Digest, naplněný automaticky z odpovědí kandidáta.",
-      caption: "Připravený template",
+      src: "/startupjobs/hiring/implementace-nova-pozice.png",
+      alt: "Behavera — formulář Nová pozice s předvybranými charakteristikami pracovní agendy, hierarchie a procesů.",
+      caption: "Nastavení pozice za pár kliků",
     },
   },
   {

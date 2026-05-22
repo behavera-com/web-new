@@ -162,7 +162,7 @@ export default function Hero() {
       {/* Above-the-fold trust row: static logos + eyebrow */}
       <HeroTrustRow />
 
-      <SoftScrollCta target="#cobrand" label="Proč StartupJobs × Behavera" />
+      <SoftScrollCta target="#cobrand" label="Proč StartupJobs ve spolupráci Behavera" />
       </div>
     </section>
   );
