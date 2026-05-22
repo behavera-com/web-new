@@ -209,19 +209,6 @@ export default function EmailInbox({ emails }: { emails: EmailCard[] }) {
                           {snippet(email.body)}
                         </div>
                         <div className="mt-2 flex items-center gap-2">
-                          <span
-                            style={{
-                              fontFamily: "var(--font-mono)",
-                              fontSize: 9,
-                              letterSpacing: "0.16em",
-                              color: "var(--color-purple-accent)",
-                              border: "1px solid rgba(139,92,246,0.3)",
-                              padding: "2px 6px",
-                              borderRadius: 2,
-                            }}
-                          >
-                            {email.badge.split("·")[1]?.trim() || "CZ"}
-                          </span>
                           {isActive && (
                             <span
                               style={{

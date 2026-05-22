@@ -31,7 +31,7 @@ const blocks: SolutionBlockData[] = [
     image: {
       src: "/startupjobs/hiring/top-performers-comparison.png",
       alt: "Behavera — porovnání pozitiv a obav top performera s competency bary z Office Day simulace.",
-      caption: "FIG.03A · BEHAVERA · top performer analysis · ANONYMIZOVÁNO",
+      caption: "Top performeři vs. zbytek týmu",
     },
     pins: [
       { x: "26%", y: "30%" },
@@ -66,7 +66,7 @@ const blocks: SolutionBlockData[] = [
     image: {
       src: "/startupjobs/hiring/candidate-fit-matrix.png",
       alt: "Behavera — výňatek z reálného reportingu (anonymizováno): seznam kandidátů na pozici Enterprise Salesperson s procentuálním fit skóre.",
-      caption: "FIG.03B · BEHAVERA · candidate scoring · ANONYMIZOVÁNO",
+      caption: "Kandidátský scoring",
     },
     pins: [
       { x: "84%", y: "22%" },
@@ -95,17 +95,17 @@ const blocks: SolutionBlockData[] = [
         Hraje se v prohlížeči, 30–60 min — kandidáta nesvazujete časovým slotem.
       </Fragment>,
       <Fragment key="b">
-        Strukturovaný výstup s{" "}
+        Strukturovaný výstup se{" "}
         <strong style={{ color: "var(--color-ink)" }}>
-          Stands Out · Watch Out · Solid Foundations
+          silnými stránkami, tím, na co dát pozor, a pevnými základy
         </strong>{" "}
         — recruiter si připraví otázky předem.
       </Fragment>,
     ],
     image: {
       src: "/startupjobs/hiring/office-day-output.png",
-      alt: "Behavera — výstupní profil kandidáta po Office Day simulaci: Role Fit %, Stands Out, Watch Out For, Solid Foundations.",
-      caption: "FIG.03C · BEHAVERA · Office Day output · DEMO PROFIL",
+      alt: "Behavera — výstupní profil kandidáta po Office Day simulaci: Fit na roli %, silné stránky, na co dát pozor, pevné základy.",
+      caption: "Office Day · výstup",
     },
     pins: [
       { x: "30%", y: "26%" },
@@ -157,7 +157,7 @@ export default function SolutionSection() {
         <div className="mt-20 md:mt-28">
           <div className="flex items-end justify-between gap-6 mb-6 md:mb-8 flex-wrap">
             <div>
-              <span className="sj-eyebrow">Fig.04 — Co uvidíte v reportu</span>
+              <span className="sj-eyebrow">Co uvidíte v reportu</span>
               <h3
                 className="sj-display mt-2 max-w-[22ch]"
                 style={{ fontSize: 28, lineHeight: 1.15 }}

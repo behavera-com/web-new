@@ -39,7 +39,6 @@ const compliance = [
   "GDPR-ready",
   "EU AI Act compliant",
   "EU hosting",
-  "ISO 27001",
 ];
 
 export default function PilotBlock() {

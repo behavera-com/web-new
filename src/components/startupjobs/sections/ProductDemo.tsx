@@ -9,7 +9,7 @@ type Reveal = {
 const reveals: Reveal[] = [
   {
     tag: "FIT NA ROLI",
-    title: "Sedí roli, kterou nabíráte — ne obecné personě.",
+    title: "Sedí na roli, kterou nabíráte — ne obecné personě.",
     body:
       "Fit % se počítá proti blueprintu role z vašich dat, ne proti generickému profilu z učebnice.",
   },
@@ -23,7 +23,7 @@ const reveals: Reveal[] = [
     tag: "FIT NA TÝM",
     title: "Kompatibilita s lidmi, ke kterým nastupuje.",
     body:
-      "Predikce, jak kandidát zapadne do dynamiky vašeho konkrétního týmu — z echo pulsu, ne z dojmu.",
+      "Predikce, jak kandidát zapadne do dynamiky vašeho konkrétního týmu — z Culture Fitu, ne z dojmu.",
   },
 ];
 

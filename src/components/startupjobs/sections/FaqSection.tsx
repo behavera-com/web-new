@@ -50,7 +50,7 @@ const faqs = [
             EU hosting, žádný transfer mimo EU/EEA.
           </li>
           <li>
-            <strong style={{ color: "var(--color-ink)" }}>DPA + ISO 27001:</strong>{" "}
+            <strong style={{ color: "var(--color-ink)" }}>DPA:</strong>{" "}
             kompletní compliance dokumentace na vyžádání pro váš legal review.
           </li>
         </ul>

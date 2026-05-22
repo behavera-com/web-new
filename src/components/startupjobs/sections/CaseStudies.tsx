@@ -795,7 +795,7 @@ function TestimonialMosaic() {
   return (
     <div ref={rootRef} className="sj-tslider relative">
       <div className="flex items-baseline justify-between gap-4 mb-8 md:mb-10">
-        <span className="sj-eyebrow">Fig.06 — Citace z reálných reportů</span>
+        <span className="sj-eyebrow">Citace z reálných reportů</span>
         <span
           className="font-mono"
           style={{

@@ -34,7 +34,7 @@ export default function BrandFooter({
             postaví z toho filtr pro nábor.
           </p>
           <div className="flex flex-wrap items-center gap-2 pt-1">
-            {["GDPR compliant", "ISO 27001"].map((label) => (
+            {["GDPR compliant"].map((label) => (
               <span
                 key={label}
                 className="inline-flex items-center gap-2 px-3 py-1.5 border rounded-full"

@@ -136,17 +136,6 @@ export default function ProductTriptych() {
             >
               <div className="flex items-center justify-between">
                 <span className={`sj-tag sj-tag-${c.tagTone}`}>{c.tag}</span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 10,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    color: "var(--color-muted)",
-                  }}
-                >
-                  v1.0
-                </span>
               </div>
 
               <h3

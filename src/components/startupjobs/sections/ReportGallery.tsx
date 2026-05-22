@@ -21,7 +21,7 @@ type LegendItem = {
 const legend: LegendItem[] = [
   {
     idx: "01",
-    label: "fit",
+    label: "kulturní fit",
     icon: (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="9" />
@@ -32,7 +32,7 @@ const legend: LegendItem[] = [
   },
   {
     idx: "02",
-    label: "kompetence",
+    label: "manažerské kompetence",
     icon: (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <line x1="4" y1="8" x2="20" y2="8" />
@@ -44,7 +44,7 @@ const legend: LegendItem[] = [
   },
   {
     idx: "03",
-    label: "culture",
+    label: "kulturní preference",
     icon: (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="8.5" cy="9" r="3.2" />
@@ -66,7 +66,7 @@ const legend: LegendItem[] = [
   },
   {
     idx: "05",
-    label: "pracovní",
+    label: "pracovní kompetence",
     icon: (
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M4 18l5-5 3 3 4-5 4 5" />
@@ -81,7 +81,7 @@ const slides: Slide[] = [
     key: "fit",
     src: "/startupjobs/product/report-culture-fit.png",
     alt: "Behavera — Culture Fit srovnání kandidáta vs. profil role na 7 dimenzích (Výkon/Vztahy, Otevřenost/Tradicionalismus, Individualita/Tým, Jistota/Dynamika, Nezávislost/Hierarchie, Chaos/Řád, Osobní postavení/Odbornost).",
-    label: "Culture Fit",
+    label: "Kulturní fit",
     benefit: "Srovnání kandidáta s profilem role na 7 dimenzích — na první pohled vidíte, kde sedí a kde si nárokuje pozornost.",
     objectPosition: "left center",
   },
@@ -96,7 +96,7 @@ const slides: Slide[] = [
     key: "culture",
     src: "/startupjobs/product/report-culture-pref.png",
     alt: "Behavera — culture preference Výkon/Vztahy s konkrétními doporučeními jak motivovat, vést a odměňovat.",
-    label: "Culture preference",
+    label: "Kulturní preference",
     benefit: "Konkrétní návod, jak člověka vést, motivovat a odměnit.",
   },
   {

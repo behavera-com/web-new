@@ -129,6 +129,12 @@ export default function Hero() {
             className="mt-7 flex flex-wrap gap-x-3 gap-y-2.5 max-w-[560px] sj-anim"
             style={{ ["--sj-delay" as string]: "520ms" }}
           >
+            <TrustPill label="Na trhu 10+ let">
+              <HistoryIcon />
+            </TrustPill>
+            <TrustPill label="50 000+ účastníků">
+              <UsersIcon />
+            </TrustPill>
             <TrustPill label="Onboarding v řádu minut">
               <FastIcon />
             </TrustPill>
@@ -150,19 +156,6 @@ export default function Hero() {
             <ExpandoCaseCard />
           </div>
 
-          <div
-            className="mt-5 text-right sj-anim"
-            style={{
-              ["--sj-delay" as string]: "820ms",
-              fontFamily: "var(--font-mono)",
-              fontSize: 11,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "var(--color-muted)",
-            }}
-          >
-            Fig.01 — Reálný klient · Customer Success · 2024–2026
-          </div>
         </div>
       </div>
 
@@ -259,7 +252,7 @@ function TrustPill({
   );
 }
 
-function NoIntegrationIcon() {
+function HistoryIcon() {
   return (
     <svg
       width="18"
@@ -271,13 +264,29 @@ function NoIntegrationIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      {/* Plug body */}
-      <path d="M5 9.5L9.5 5l3.5 3.5-4.5 4.5z" />
-      <path d="M3.5 12.5l2 2" />
-      <path d="M11 4.5l2-2" />
-      <path d="M14 5.5l-2 2" />
-      {/* Diagonal strike */}
-      <path d="M2 16L16 2" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M2.6 6.5A6.4 6.4 0 1 1 2.4 11" />
+      <path d="M2.4 3.4v3.1h3.1" />
+      <path d="M9 5.6v3.7l2.4 1.5" />
+    </svg>
+  );
+}
+
+function UsersIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="6.5" cy="7" r="2.6" />
+      <path d="M1.6 15c.5-2.4 2.5-3.9 4.9-3.9s4.4 1.5 4.9 3.9" />
+      <path d="M12.5 4.6a2.4 2.4 0 1 1 0 4.6" />
+      <path d="M12.6 11.4c1.7.3 3 1.6 3.4 3.4" />
     </svg>
   );
 }
@@ -406,7 +415,7 @@ function ExpandoCaseCard() {
         </span>
       </div>
 
-      {/* Header row — logo + finding chip */}
+      {/* Header row — logo */}
       <div className="px-7 md:px-9 pt-7 pb-5 flex items-start justify-between gap-4 flex-wrap">
         <img
           src="/startupjobs/logos/expando.svg"
@@ -414,26 +423,6 @@ function ExpandoCaseCard() {
           height={26}
           style={{ height: 26, width: "auto", opacity: 0.92 }}
         />
-        <span
-          className="inline-flex items-center gap-1.5"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: 10,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "var(--color-purple-deep)",
-            background: "rgba(45,27,105,0.06)",
-            border: "1px solid rgba(45,27,105,0.14)",
-            padding: "5px 9px",
-            borderRadius: 4,
-            fontWeight: 500,
-          }}
-        >
-          <span aria-hidden style={{ fontSize: 8, lineHeight: 1 }}>
-            ◆
-          </span>
-          Pattern · Customer Empathy
-        </span>
       </div>
 
       {/* Punchline */}
@@ -450,7 +439,7 @@ function ExpandoCaseCard() {
             textWrap: "balance",
           }}
         >
-          „Jeden ze 3 nevydržel.{" "}
+          „1 ze 3 nevydržel.{" "}
           <em
             style={{
               fontStyle: "italic",
@@ -532,9 +521,10 @@ function ExpandoCaseCard() {
             borderLeft: "2px solid var(--color-purple-deep)",
           }}
         >
-          „Mysleli jsme, že hledáme customer centricity. Realita: každý třetí
-          odešel do dvou měsíců. Behavera nám ukázala, který kompetenční
-          pattern držet — teď přesně vím, kdo v týmu bude fungovat.”
+          „Mysleli jsme, že hledáme silnou kompetenci zaměření na zákazníka.
+          Realita: každý třetí odešel do dvou měsíců. Behavera nám ukázala,
+          které kompetence a kulturní preference jsou právě u nás klíčové —
+          teď přesně vím, kdo v týmu bude fungovat.”
         </blockquote>
 
         <div className="mt-5 flex items-center gap-3">
@@ -578,7 +568,7 @@ function ExpandoCaseCard() {
         </div>
       </div>
 
-      {/* CTA bar — file-row vibe */}
+      {/* CTA bar — link to full case study */}
       <a
         href="#cases"
         className="group flex items-center justify-between gap-3 px-7 md:px-9 py-4 transition-colors hover:bg-[#f6f3ff]"
@@ -586,60 +576,22 @@ function ExpandoCaseCard() {
           background: "var(--color-paper)",
           borderTop: "1px solid var(--color-rule)",
           color: "var(--color-ink)",
+          fontSize: 14,
+          fontWeight: 500,
         }}
       >
-        <span
-          className="inline-flex items-center gap-2.5 min-w-0"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: 11,
-            letterSpacing: "0.08em",
-            color: "var(--color-muted)",
-            textTransform: "uppercase",
-          }}
-        >
-          <FileIcon />
-          <span className="truncate" style={{ color: "var(--color-ink)" }}>
-            EXP-2025
-          </span>
-          <span aria-hidden style={{ opacity: 0.4 }}>·</span>
-          <span className="hidden sm:inline">Celý příběh</span>
+        <span style={{ color: "var(--color-ink)" }}>
+          Celá case study Expando
         </span>
         <span
           className="inline-flex items-center gap-2 shrink-0 transition-transform group-hover:translate-x-0.5"
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: 11,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            fontWeight: 500,
-            color: "var(--color-purple-deep)",
-          }}
+          style={{ color: "var(--color-purple-deep)" }}
+          aria-hidden
         >
-          Stáhnout
-          <span aria-hidden>→</span>
+          →
         </span>
       </a>
     </div>
-  );
-}
-
-function FileIcon() {
-  return (
-    <svg
-      width="13"
-      height="13"
-      viewBox="0 0 14 14"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M3 1.5h5l3 3v8a.5.5 0 0 1-.5.5h-7.5a.5.5 0 0 1-.5-.5v-10.5a.5.5 0 0 1 .5-.5z" />
-      <path d="M8 1.5v3h3" />
-    </svg>
   );
 }
 

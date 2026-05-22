@@ -20,7 +20,7 @@ const steps = [
     image: {
       src: "/startupjobs/hiring/step-01-team-culture-fit.png",
       alt: "Behavera — Culture Fit profile týmu: distribuce preferencí napříč osmi dimenzemi (Výkon/Vztahy, Otevřenost/Tradicionalismus aj.).",
-      caption: "FIG.07A · Team culture fit",
+      caption: "Kulturní fit týmu",
     },
   },
   {
@@ -40,7 +40,7 @@ const steps = [
     image: {
       src: "/startupjobs/hiring/step-02-template-digest.png",
       alt: "Behavera — připravený profil s Culture Fit dimenzemi a sekcí Digest, naplněný automaticky z odpovědí kandidáta.",
-      caption: "FIG.07B · Připravený template",
+      caption: "Připravený template",
     },
   },
   {
@@ -53,14 +53,15 @@ const steps = [
     ),
     body: (
       <>
-        Live KPI dashboard pro vedení.{" "}
-        <span className="sj-hl">Bez čekání</span> na měsíční report.
+        Strukturovaný report přímo k recruiterovi i manažerovi — hned po
+        dokončení assessmentu.{" "}
+        <span className="sj-hl">Žádné čekání</span> na měsíční report.
       </>
     ),
     image: {
       src: "/startupjobs/hiring/step-03-live-readout.png",
       alt: "Behavera — výstupní kompetenční report kandidáta s konkrétními skóre, doporučeními a flag markery.",
-      caption: "FIG.07C · Live kandidátský report",
+      caption: "Kandidátský report",
     },
   },
 ];
