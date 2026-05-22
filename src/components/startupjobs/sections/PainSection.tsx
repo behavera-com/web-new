@@ -147,7 +147,7 @@ export default function PainSection() {
                   fontVariationSettings: '"opsz" 144,"SOFT" 80',
                 }}
               >
-                ukáže vedení
+                ukážete vedení
               </em>
               .
             </h2>

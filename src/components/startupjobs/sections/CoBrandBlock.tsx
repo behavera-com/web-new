@@ -14,11 +14,11 @@ export default function CoBrandBlock() {
       <div className="max-w-[1240px] mx-auto px-6 md:px-10 py-24 md:py-32">
         <div className="grid lg:grid-cols-12 gap-10 mb-16">
           <div className="lg:col-span-3">
-            <span className="sj-section-anchor">× StartupJobs × Behavera</span>
+            <span className="sj-section-anchor">StartupJobs + Behavera</span>
           </div>
           <div className="lg:col-span-9">
             <h2 className="sj-h-section max-w-[18ch]">
-              Proč StartupJobs <em>×</em> Behavera
+              Proč StartupJobs <em>ve&nbsp;spolupráci</em> Behavera
             </h2>
           </div>
         </div>
@@ -68,16 +68,15 @@ export default function CoBrandBlock() {
               Pomůžeme vám vybrat <em>ty správné</em> — a měřitelně to dokážeme.
             </p>
           </div>
-          {/* Centered × ampersand badge bridging the two columns */}
+          {/* Centered + badge bridging the two columns */}
           <span
             aria-hidden="true"
             className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center w-[88px] h-[88px] rounded-full sj-on-light"
             style={{
               fontFamily: "var(--font-fraunces)",
-              fontVariationSettings: "'opsz' 144,'SOFT' 80",
-              fontStyle: "italic",
+              fontVariationSettings: "'opsz' 144,'SOFT' 60",
               fontWeight: 300,
-              fontSize: 56,
+              fontSize: 52,
               lineHeight: 1,
               color: "var(--color-purple-accent)",
               background: "var(--color-paper)",
@@ -85,7 +84,7 @@ export default function CoBrandBlock() {
               boxShadow: "0 12px 32px -16px rgba(45,27,105,0.35)",
             }}
           >
-            ×
+            +
           </span>
         </div>
 
