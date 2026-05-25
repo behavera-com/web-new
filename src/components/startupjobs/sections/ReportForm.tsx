@@ -3,7 +3,21 @@
 import { useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
 
-export default function ReportForm() {
+type ReportFormProps = {
+  variant?: "inline" | "modal";
+};
+
+const FIELD_HELP: Record<"name" | "email" | "phone" | "company", string> = {
+  name: 'Abychom vám psali jménem, ne jako „Vážený zákazníku".',
+  email: "Sem dorazí link na report. Žádný newsletter, žádný spam.",
+  phone:
+    "Občas se ozveme s krátkým dotazem, jestli vše dorazilo a report dává smysl. Žádné cold cally.",
+  company:
+    "Behavera dává smysl od ~50 zaměstnanců nahoru. Pokud jste menší, řekneme to upřímně.",
+};
+
+export default function ReportForm({ variant = "inline" }: ReportFormProps) {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
@@ -13,7 +27,7 @@ export default function ReportForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email || !phone || !company || loading) return;
+    if (!name || !email || !phone || !company || loading) return;
     setLoading(true);
     setError(null);
     try {
@@ -21,6 +35,7 @@ export default function ReportForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          name,
           email,
           phone,
           company,
@@ -69,42 +84,96 @@ export default function ReportForm() {
     fontSize: 14,
   };
 
+  const helpStyle: React.CSSProperties = {
+    fontFamily: "var(--font-mono)",
+    fontSize: 10.5,
+    color: "rgba(255,255,255,0.55)",
+    letterSpacing: "0.04em",
+    marginTop: 6,
+    lineHeight: 1.5,
+  };
+
+  const gridGap = variant === "modal" ? "gap-4" : "gap-3";
+  const maxW = variant === "modal" ? "" : "max-w-[560px]";
+
   return (
     <>
       <form
         onSubmit={handleSubmit}
-        className="grid sm:grid-cols-2 gap-3 max-w-[560px]"
+        className={`grid sm:grid-cols-2 ${gridGap} ${maxW}`}
       >
-        <input
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="vase@firma.cz"
-          className="px-4 py-3 transition-colors sm:col-span-2 placeholder:text-white/40"
-          style={inputStyle}
-          aria-label="E-mail"
-        />
-        <input
-          type="tel"
-          required
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          placeholder="Telefon"
-          className="px-4 py-3 transition-colors placeholder:text-white/40"
-          style={inputStyle}
-          aria-label="Telefon"
-        />
-        <input
-          type="text"
-          required
-          value={company}
-          onChange={(e) => setCompany(e.target.value)}
-          placeholder="Název firmy"
-          className="px-4 py-3 transition-colors placeholder:text-white/40"
-          style={inputStyle}
-          aria-label="Název firmy"
-        />
+        <div className="sm:col-span-2">
+          <input
+            id="rf-name"
+            type="text"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Jméno a příjmení"
+            className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
+            style={inputStyle}
+            aria-label="Jméno a příjmení"
+            aria-describedby="rf-name-help"
+          />
+          <p id="rf-name-help" style={helpStyle}>
+            {FIELD_HELP.name}
+          </p>
+        </div>
+
+        <div className="sm:col-span-2">
+          <input
+            id="rf-email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="vase@firma.cz"
+            className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
+            style={inputStyle}
+            aria-label="E-mail"
+            aria-describedby="rf-email-help"
+          />
+          <p id="rf-email-help" style={helpStyle}>
+            {FIELD_HELP.email}
+          </p>
+        </div>
+
+        <div>
+          <input
+            id="rf-phone"
+            type="tel"
+            required
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="Telefon"
+            className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
+            style={inputStyle}
+            aria-label="Telefon"
+            aria-describedby="rf-phone-help"
+          />
+          <p id="rf-phone-help" style={helpStyle}>
+            {FIELD_HELP.phone}
+          </p>
+        </div>
+
+        <div>
+          <input
+            id="rf-company"
+            type="text"
+            required
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+            placeholder="Název firmy"
+            className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
+            style={inputStyle}
+            aria-label="Název firmy"
+            aria-describedby="rf-company-help"
+          />
+          <p id="rf-company-help" style={helpStyle}>
+            {FIELD_HELP.company}
+          </p>
+        </div>
+
         <button
           type="submit"
           disabled={loading}
