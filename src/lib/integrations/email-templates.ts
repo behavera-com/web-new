@@ -70,11 +70,12 @@ export function internalEmail(body: LeadBody): { subject: string; html: string; 
   }
 
   if (src === "startupjobs-report") {
-    const subject = `📄 Žádost o report — ${body.company ?? body.email ?? "?"}`;
+    const subject = `📄 Žádost o report — ${body.company ?? body.name ?? body.email ?? "?"}`;
     const inner = `
       <h1 style="margin:0 0 8px;font-size:22px;font-weight:600;color:${INK};">Žádost o report zdarma</h1>
       <p style="margin:0 0 24px;color:${MUTED};font-size:14px;">LP Behavera + StartupJobs</p>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        ${row("Jméno", escape(body.name))}
         ${row("E-mail", escape(body.email))}
         ${row("Telefon", escape(body.phone))}
         ${row("Firma", escape(body.company))}
@@ -131,7 +132,7 @@ export function autoReplyEmail(body: LeadBody): { subject: string; html: string;
   if (src === "startupjobs-report") {
     const subject = "Váš report od Behavera + StartupJobs";
     const inner = `
-      <h1 style="margin:0 0 16px;font-size:24px;font-weight:600;color:${INK};letter-spacing:-0.02em;">Děkujeme za zájem o ukázkový report.</h1>
+      <h1 style="margin:0 0 16px;font-size:24px;font-weight:600;color:${INK};letter-spacing:-0.02em;">Děkujeme za zájem o ukázkový report${body.name ? `, ${escape(body.name.split(" ")[0])}` : ""}.</h1>
       <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:${INK};">
         Připravujeme pro vás link na kompletní ukázkový report. Pošleme ho na <strong>${escape(body.email)}</strong> během následujících 24 hodin.
       </p>
@@ -165,7 +166,7 @@ function autoReplyText(kind: "consult" | "report" | "roi", body: LeadBody): stri
     return `Děkujeme za zájem o konzultaci${body.name ? `, ${body.name.split(" ")[0]}` : ""}.\n\nMáme vaši žádost. Náš konzultant vám pošle 2–3 termíny pro 15minutový hovor během následujících 24 hodin.\n\nKontakt: david.skoupy@behavera.com`;
   }
   if (kind === "report") {
-    return `Děkujeme za zájem o ukázkový report.\n\nPřipravujeme pro vás link a pošleme ho na ${body.email} během 24 hodin.\n\nKontakt: david.skoupy@behavera.com`;
+    return `Děkujeme za zájem o ukázkový report${body.name ? `, ${body.name.split(" ")[0]}` : ""}.\n\nPřipravujeme pro vás link a pošleme ho na ${body.email} během 24 hodin.\n\nKontakt: david.skoupy@behavera.com`;
   }
   return `Děkujeme za zájem o Behaveru. Ozveme se vám během 24 hodin.\n\nKontakt: david.skoupy@behavera.com`;
 }

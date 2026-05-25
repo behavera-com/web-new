@@ -43,6 +43,7 @@ function buildSlackMessage(body: LeadBody): string {
   if (source === "startupjobs-report") {
     return (
       `📄 Žádost o report zdarma (LP Behavera + StartupJobs)!\n` +
+      `Jméno: ${body.name ?? "neuvedeno"}\n` +
       `Email: ${body.email ?? "neuvedeno"}\n` +
       `Telefon: ${body.phone ?? "neuvedeno"}\n` +
       `Firma: ${body.company ?? "neuvedeno"}`
