@@ -117,7 +117,7 @@ const blocks: SolutionBlockData[] = [
     ],
     image: {
       src: "/startupjobs/hiring/office-day-output.png",
-      alt: "Behavera — Přehled kandidáta po Office Day simulaci: Fit na roli %, sekce Vyniká, Pozor na a Solidní základy s konkrétními kompetencemi.",
+      alt: "Behavera — detail manažerských kompetencí Elisa Moore (The Game Changer): koučovací přístup, otevřenost k názorům, rozhodnost, důraz na výkon s rozkladem rizik a doporučeními pro rozvoj.",
       caption: "Office Day · výstup",
     },
     pins: [

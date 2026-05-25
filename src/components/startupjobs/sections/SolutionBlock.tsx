@@ -83,10 +83,10 @@ export default function SolutionBlock({
     <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
       <figure
         ref={figureRef}
-        className={`lg:col-span-7 relative ${
-          block.reverse ? "lg:order-2" : "lg:order-1"
+        className={`lg:col-span-5 relative ${
+          block.reverse ? "lg:order-2 lg:ml-auto" : "lg:order-1"
         }`}
-        style={{ paddingTop: 12, paddingBottom: 12 }}
+        style={{ paddingTop: 12, paddingBottom: 12, maxWidth: 440 }}
         data-revealed={revealed ? "true" : "false"}
       >
         {/* atmosferický radial bloom */}
@@ -273,7 +273,7 @@ export default function SolutionBlock({
       </figure>
 
       <div
-        className={`lg:col-span-5 ${
+        className={`lg:col-span-7 ${
           block.reverse ? "lg:order-1 lg:pr-4" : "lg:order-2 lg:pl-4"
         }`}
       >

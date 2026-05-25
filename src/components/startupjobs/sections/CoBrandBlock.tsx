@@ -89,11 +89,22 @@ export default function CoBrandBlock() {
         </div>
 
         <p
-          className="sj-display text-center mt-16 max-w-[40ch] mx-auto"
-          style={{ fontSize: 32, lineHeight: 1.3 }}
+          className="text-center mt-16 max-w-[44ch] mx-auto"
+          style={{
+            fontFamily: "var(--font-fraunces)",
+            fontVariationSettings: "'opsz' 144,'SOFT' 80",
+            fontStyle: "italic",
+            fontWeight: 360,
+            fontSize: 22,
+            lineHeight: 1.4,
+            letterSpacing: "-0.01em",
+            color: "rgba(28,18,55,0.78)",
+          }}
         >
           1 + 1 = celý lifecycle:{" "}
-          <em>od kandidáta po stabilního zaměstnance.</em>
+          <em style={{ color: "var(--color-purple-deep)" }}>
+            od kandidáta po stabilního zaměstnance.
+          </em>
         </p>
 
         <SoftScrollCta target="#proc" label="Proč to dnes nestačí" />

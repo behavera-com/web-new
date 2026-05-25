@@ -28,7 +28,7 @@ export default function FinalCta() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* LEFT — headline + rep + trust copy */}
           <div className="lg:col-span-5">
-            <span className="sj-section-anchor">09 · Začněte</span>
+            <span className="sj-section-anchor">10 · Začněte</span>
             <h2 className="sj-h-manifesto mt-6 max-w-[14ch]" style={{ fontSize: "clamp(44px, 6.4vw, 76px)" }}>
               15 minut.{" "}
               <em>Nula obchodního tlaku.</em>
@@ -146,9 +146,9 @@ export default function FinalCta() {
             </ul>
           </div>
 
-          {/* RIGHT — form card (sticks on desktop until end of section).
-              top-40 = 160px → clear fixed header (36px+108px ≈ 144px). */}
-          <div className="lg:col-span-7 sj-on-light lg:sticky lg:top-40">
+          {/* RIGHT — form card. Sticky removed: ConsultForm je vyšší než lg viewport,
+              takže sticky neaktivuje a jen blokuje scroll-fix v Safari. */}
+          <div className="lg:col-span-7 sj-on-light">
             <ConsultForm rep={rep} />
           </div>
         </div>

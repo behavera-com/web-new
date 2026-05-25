@@ -1,3 +1,7 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import SoftScrollCta from "../ui/SoftScrollCta";
 
@@ -42,9 +46,9 @@ const cards: Card[] = [
     desc:
       "Co konkrétně chybí, co by tým posílilo, jaké chování ve vaší kultuře přežije. Manažer dostane strukturovaný blueprint role — ne generický JD, ale behaviorální profil postavený na realitě vašeho týmu.",
     shot: "/startupjobs/product/manager-playbook.png",
-    shotAlt: "Manager Playbook — behaviorální blueprint role z týmových dat",
-    shotW: 768,
-    shotH: 512,
+    shotAlt: "Behavera — behaviorální blueprint role: detail dimenze Individualita/Tým s popisem chování a doporučeními.",
+    shotW: 682,
+    shotH: 568,
     variant: "alt",
     features: [
       "Behaviorální profil role z dat",
@@ -73,6 +77,38 @@ const cards: Card[] = [
 ];
 
 export default function ProductTriptych() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const isOpen = openIndex !== null;
+
+  const close = useCallback(() => setOpenIndex(null), []);
+  const prev = useCallback(
+    () =>
+      setOpenIndex((i) =>
+        i === null ? null : (i - 1 + cards.length) % cards.length,
+      ),
+    [],
+  );
+  const next = useCallback(
+    () => setOpenIndex((i) => (i === null ? null : (i + 1) % cards.length)),
+    [],
+  );
+
+  useEffect(() => {
+    if (!isOpen) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowRight") next();
+      else if (e.key === "ArrowLeft") prev();
+    }
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen, close, next, prev]);
+
   return (
     <section
       id="produkt"
@@ -122,11 +158,11 @@ export default function ProductTriptych() {
           </div>
         </div>
 
-        <div className="sj-triptych-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8 lg:gap-10">
+        <div className="sj-triptych-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8 lg:gap-10 items-stretch">
           {cards.map((c, i) => (
-            <div key={c.tag} className="sj-triptych-cell relative">
+            <div key={c.tag} className="sj-triptych-cell relative flex h-full">
             <article
-              className={`sj-product-card ${
+              className={`sj-product-card flex-1 h-full ${
                 c.variant === "alt"
                   ? "sj-product-card--alt"
                   : c.variant === "dark"
@@ -209,15 +245,26 @@ export default function ProductTriptych() {
               )}
 
               <div className="sj-product-shot mt-auto">
-                <div
-                  className="relative w-full overflow-hidden rounded-t-lg"
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(i)}
+                  aria-label={`Zvětšit náhled: ${c.shotAlt}`}
+                  className="sj-product-shot-link group relative block w-full overflow-hidden rounded-t-lg text-left"
                   style={{
-                    aspectRatio: `${c.shotW} / ${Math.min(c.shotH, c.shotW * 1.1)}`,
+                    /* Aspect 3:4 (portrait) — sized to fit the tallest media
+                       (card 03 phone screenshot 651×902). Video 16:9 a
+                       landscape obrázky se vycentrují s pillarbox/letterbox,
+                       který splývá s gradient pozadím. Click → otevře
+                       lightbox (stejný pattern jako ReportGallery). */
+                    aspectRatio: "3 / 4",
                     border: "1px solid var(--color-rule)",
                     borderBottom: 0,
-                    background: "#fff",
+                    background:
+                      "linear-gradient(180deg, #fbfafd 0%, #f4eefc 100%)",
                     boxShadow:
                       "0 20px 40px -22px rgba(45, 27, 105, 0.18)",
+                    cursor: "zoom-in",
+                    padding: 0,
                   }}
                 >
                   {c.shotVideo ? (
@@ -235,8 +282,9 @@ export default function ProductTriptych() {
                         inset: 0,
                         width: "100%",
                         height: "100%",
-                        objectFit: "cover",
-                        objectPosition: "top center",
+                        objectFit: "contain",
+                        objectPosition: "center center",
+                        pointerEvents: "none",
                       }}
                     />
                   ) : (
@@ -246,12 +294,59 @@ export default function ProductTriptych() {
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
                       style={{
-                        objectFit: "cover",
-                        objectPosition: "top center",
+                        objectFit: "contain",
+                        objectPosition: "center center",
+                        pointerEvents: "none",
                       }}
                     />
                   )}
-                </div>
+                  {/* Hover zoom affordance — appears on hover/focus */}
+                  <span
+                    aria-hidden
+                    className="sj-product-shot-zoom"
+                    style={{
+                      position: "absolute",
+                      top: 12,
+                      right: 12,
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 6,
+                      padding: "6px 10px 6px 8px",
+                      borderRadius: 999,
+                      background: "rgba(28,18,55,0.78)",
+                      color: "#fff",
+                      fontFamily: "var(--font-mono)",
+                      fontSize: 10.5,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      opacity: 0,
+                      transform: "translateY(-4px)",
+                      transition:
+                        "opacity 240ms ease, transform 240ms cubic-bezier(0.2,0.8,0.2,1)",
+                      backdropFilter: "blur(6px)",
+                      WebkitBackdropFilter: "blur(6px)",
+                      pointerEvents: "none",
+                    }}
+                  >
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <line x1="16.5" y1="16.5" x2="21" y2="21" />
+                      <line x1="11" y1="8" x2="11" y2="14" />
+                      <line x1="8" y1="11" x2="14" y2="11" />
+                    </svg>
+                    <span>Klik · zvětšit</span>
+                  </span>
+                </button>
               </div>
             </article>
             {i < cards.length - 1 && (
@@ -265,6 +360,117 @@ export default function ProductTriptych() {
 
         <SoftScrollCta target="#demo" label="Ukázat v praxi" />
       </div>
+
+      {isOpen && openIndex !== null && typeof document !== "undefined" &&
+        createPortal(
+          <Lightbox
+            card={cards[openIndex]}
+            index={openIndex}
+            total={cards.length}
+            onClose={close}
+            onPrev={prev}
+            onNext={next}
+          />,
+          document.body,
+        )}
     </section>
+  );
+}
+
+function Lightbox({
+  card,
+  index,
+  total,
+  onClose,
+  onPrev,
+  onNext,
+}: {
+  card: Card;
+  index: number;
+  total: number;
+  onClose: () => void;
+  onPrev: () => void;
+  onNext: () => void;
+}) {
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Náhled: ${card.tag}`}
+      onClick={onClose}
+      className="sj-lightbox"
+    >
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        aria-label="Zavřít náhled"
+        className="sj-lightbox-close"
+      >
+        ×
+      </button>
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onPrev();
+        }}
+        aria-label="Předchozí snímek"
+        className="sj-lightbox-nav sj-lightbox-nav--prev"
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onNext();
+        }}
+        aria-label="Další snímek"
+        className="sj-lightbox-nav sj-lightbox-nav--next"
+      >
+        ›
+      </button>
+
+      <figure
+        onClick={(e) => e.stopPropagation()}
+        className="sj-lightbox-figure"
+      >
+        {card.shotVideo ? (
+          <video
+            src={card.shotVideo}
+            poster={card.shot}
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+            className="sj-lightbox-img"
+            aria-label={card.shotAlt}
+          />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={card.shot} alt={card.shotAlt} className="sj-lightbox-img" />
+        )}
+        <figcaption
+          className="sj-lightbox-caption"
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: 11,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.85)",
+          }}
+        >
+          <span style={{ color: "#c4b0ff", marginRight: 10 }}>
+            {String(index + 1).padStart(2, "0")} /{" "}
+            {String(total).padStart(2, "0")}
+          </span>
+          {card.tag} — {card.title}
+        </figcaption>
+      </figure>
+    </div>
   );
 }

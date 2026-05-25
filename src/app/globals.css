@@ -1595,6 +1595,18 @@ select.sj-consult-input {
   margin-left: -28px;
   margin-right: -28px;
 }
+
+/* ProductTriptych — click-to-open media affordance.
+   Link wraps the image/video; the zoom icon top-right fades in on hover. */
+.sj-scope .sj-product-shot-link:hover .sj-product-shot-zoom,
+.sj-scope .sj-product-shot-link:focus-visible .sj-product-shot-zoom {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sj-scope .sj-product-shot-link:focus-visible {
+  outline: 2px solid var(--color-purple-deep);
+  outline-offset: 2px;
+}
 .sj-product-card.sj-product-card--alt {
   background: linear-gradient(180deg, #f3eeff 0%, #ffffff 60%);
 }

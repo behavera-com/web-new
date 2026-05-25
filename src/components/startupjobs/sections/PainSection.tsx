@@ -225,7 +225,7 @@ export default function PainSection() {
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: 11,
-              color: "rgba(255,255,255,0.45)",
+              color: "rgba(255,255,255,0.6)",
               letterSpacing: "0.04em",
             }}
           >

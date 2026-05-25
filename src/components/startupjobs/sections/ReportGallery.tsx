@@ -80,10 +80,10 @@ const slides: Slide[] = [
   {
     key: "fit",
     src: "/startupjobs/product/report-culture-fit.png",
-    alt: "Behavera — Culture Fit srovnání kandidáta vs. profil role na 7 dimenzích (Výkon/Vztahy, Otevřenost/Tradicionalismus, Individualita/Tým, Jistota/Dynamika, Nezávislost/Hierarchie, Chaos/Řád, Osobní postavení/Odbornost).",
+    alt: "Behavera — Culture Fit srovnání více kandidátů (Claire Gibson, Paul Gillies, Andrew Irvine, Elisa Moore, Jason Gilbert) napříč sedmi dimenzemi.",
     label: "Kulturní fit",
-    benefit: "Srovnání kandidáta s profilem role na 7 dimenzích — na první pohled vidíte, kde sedí a kde si nárokuje pozornost.",
-    objectPosition: "left center",
+    benefit: "Srovnání kandidátů s profilem role na 7 dimenzích — na první pohled vidíte, kdo sedí a kde si kdo nárokuje pozornost.",
+    objectPosition: "center center",
   },
   {
     key: "kompetence",
