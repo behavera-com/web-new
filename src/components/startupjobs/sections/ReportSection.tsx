@@ -67,7 +67,7 @@ export default function ReportSection() {
             >
               Benchmark dat z 80+ klientů Behavera ve 12 oborech.{" "}
               <span className="sj-hl-on-dark">Zdarma, do e-mailu</span>, žádný
-              obchodní follow-up.
+              spam.
             </p>
 
             <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 mt-12 items-start">

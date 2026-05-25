@@ -4904,7 +4904,7 @@ select.sj-consult-input {
   color: #fff;
   border-radius: 16px;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
-  overflow: auto;
+  overflow: hidden;
 }
 
 .sj-modal::backdrop {
@@ -4915,6 +4915,8 @@ select.sj-consult-input {
 
 .sj-modal-body {
   padding: 32px 28px 28px;
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
 }
 
 .sj-modal-close {

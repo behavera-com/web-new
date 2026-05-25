@@ -201,7 +201,7 @@ export default function Hero() {
         >
           PDF s reálným anonymizovaným reportem. Dorazí na váš e-mail do 24 hodin.
         </p>
-        <ReportForm variant="modal" />
+        <ReportForm key={reportModalOpen ? "open" : "closed"} variant="modal" />
       </Modal>
     </section>
   );
