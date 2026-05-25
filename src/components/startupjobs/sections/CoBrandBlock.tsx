@@ -39,9 +39,9 @@ export default function CoBrandBlock() {
             <Image
               src="/startupjobs/logo-startupjobs.svg"
               alt="StartupJobs"
-              width={160}
-              height={32}
-              style={{ height: 32, width: "auto", marginBottom: 32 }}
+              width={170}
+              height={56}
+              style={{ height: 56, width: "auto", marginBottom: 32 }}
             />
             <p
               className="sj-display max-w-[20ch]"

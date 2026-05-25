@@ -4,10 +4,10 @@ type Size = "sm" | "md" | "lg" | "xl";
 type Stack = "inline" | "stacked";
 
 const sizeMap: Record<Size, { behavera: number; startupjobs: number; gap: number; label: number }> = {
-  sm: { behavera: 26, startupjobs: 17, gap: 14, label: 9 },
-  md: { behavera: 34, startupjobs: 22, gap: 18, label: 10 },
-  lg: { behavera: 44, startupjobs: 28, gap: 22, label: 11 },
-  xl: { behavera: 64, startupjobs: 38, gap: 28, label: 12 },
+  sm: { behavera: 36, startupjobs: 34, gap: 16, label: 8 },
+  md: { behavera: 44, startupjobs: 42, gap: 20, label: 9 },
+  lg: { behavera: 54, startupjobs: 50, gap: 24, label: 10 },
+  xl: { behavera: 76, startupjobs: 70, gap: 30, label: 11 },
 };
 
 export default function BrandLockup({
@@ -51,9 +51,9 @@ export default function BrandLockup({
       <Image
         src="/startupjobs/logo-startupjobs.svg"
         alt="StartupJobs"
-        width={partnerSjHeight * 5}
+        width={Math.round(partnerSjHeight * 3.04)}
         height={partnerSjHeight}
-        style={{ height: partnerSjHeight, width: "auto", opacity: 0.85 }}
+        style={{ height: partnerSjHeight, width: "auto" }}
       />
     </span>
   );
