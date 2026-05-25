@@ -1,6 +1,6 @@
 import type { LeadBody } from "./lead-types";
 
-const SITE = "https://www.behavera.com";
+const SITE = process.env.EMAIL_ASSETS_URL || "https://new-behavera.vercel.app";
 const BRAND_PURPLE = "#2d1b69";
 const INK = "#1c1237";
 const MUTED = "#6b6483";
@@ -113,12 +113,15 @@ function trustStripBlock(): string {
     </div>`;
 }
 
-type Rep = { name: string; title: string; photo: string; email: string; phone?: string };
+type Rep = { name: string; title: string; photo: string };
 const REPS: Rep[] = [
-  { name: "Jana", title: "Konzultantka", photo: "Jana.png", email: "hello@behavera.com", phone: "+420 605 839 456" },
-  { name: "Veronika", title: "HR konzultantka", photo: "Veronika.jpg", email: "hello@behavera.com" },
-  { name: "Giuseppe", title: "Konzultant", photo: "Giuseppe.jpeg", email: "hello@behavera.com" },
+  { name: "Jana", title: "Konzultantka", photo: "Jana.png" },
+  { name: "Veronika", title: "HR konzultantka", photo: "Veronika.jpg" },
+  { name: "Giuseppe", title: "Konzultant", photo: "Giuseppe.jpeg" },
 ];
+
+const SHARED_EMAIL = "hello@behavera.com";
+const SHARED_PHONE = "+420 605 839 456";
 
 function teamBlock(intro: string): string {
   const cells = REPS.map((r) => `
@@ -126,7 +129,6 @@ function teamBlock(intro: string): string {
       <img src="${SITE}/startupjobs/team/${r.photo}" alt="${r.name}" width="56" height="56" style="width:56px;height:56px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 8px;">
       <div style="font-size:13px;font-weight:600;color:${INK};line-height:1.2;">${r.name}</div>
       <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;color:${MUTED};margin-top:3px;line-height:1.3;">${r.title}</div>
-      ${r.phone ? `<div style="font-size:11.5px;color:${MUTED};margin-top:4px;"><a href="tel:${r.phone.replace(/\s/g, "")}" style="color:${MUTED};text-decoration:none;">${r.phone}</a></div>` : ""}
     </td>`).join("");
   return `
     <div style="margin:24px 0 8px;padding-top:20px;border-top:1px solid ${RULE};">
@@ -136,8 +138,11 @@ function teamBlock(intro: string): string {
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
         <tr>${cells}</tr>
       </table>
-      <p style="margin:16px 0 0;font-size:12px;color:${MUTED};text-align:center;">
-        Společný kontakt: <a href="mailto:hello@behavera.com" style="color:${BRAND_PURPLE};">hello@behavera.com</a>
+      <p style="margin:16px 0 0;font-size:12px;color:${MUTED};text-align:center;line-height:1.6;">
+        Společný kontakt:
+        <a href="mailto:${SHARED_EMAIL}" style="color:${BRAND_PURPLE};">${SHARED_EMAIL}</a>
+        &nbsp;·&nbsp;
+        <a href="tel:${SHARED_PHONE.replace(/\s/g, "")}" style="color:${BRAND_PURPLE};">${SHARED_PHONE}</a>
       </p>
     </div>`;
 }
