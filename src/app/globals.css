@@ -4899,12 +4899,12 @@ select.sj-consult-input {
   margin: auto;
   max-width: 560px;
   width: calc(100% - 32px);
+  max-height: calc(100dvh - 32px);
   background: linear-gradient(180deg, #0d0f23 0%, #14132e 100%);
   color: #fff;
   border-radius: 16px;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
-  overflow: visible;
-  position: relative;
+  overflow: auto;
 }
 
 .sj-modal::backdrop {
@@ -4937,6 +4937,11 @@ select.sj-consult-input {
 .sj-modal-close:hover {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
+}
+
+.sj-modal-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

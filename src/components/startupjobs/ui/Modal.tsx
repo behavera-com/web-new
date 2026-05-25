@@ -17,24 +17,34 @@ export default function Modal({ open, onClose, labelledBy, children }: ModalProp
     const dialog = dialogRef.current;
     if (!dialog) return;
     if (open && !dialog.open) {
-      triggerRef.current = (document.activeElement as HTMLElement) ?? null;
+      const active = document.activeElement;
+      triggerRef.current =
+        active && active !== document.body ? (active as HTMLElement) : null;
       dialog.showModal();
     } else if (!open && dialog.open) {
       dialog.close();
-      triggerRef.current?.focus?.();
+      const trigger = triggerRef.current;
       triggerRef.current = null;
+      if (trigger?.isConnected) {
+        requestAnimationFrame(() => trigger.focus());
+      }
     }
   }, [open]);
+
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
     const handleCancel = (e: Event) => {
       e.preventDefault();
-      onClose();
+      onCloseRef.current();
     };
     const handleClick = (e: MouseEvent) => {
-      if (e.target === dialog) onClose();
+      if (e.target === dialog) onCloseRef.current();
     };
     dialog.addEventListener("cancel", handleCancel);
     dialog.addEventListener("click", handleClick);
@@ -42,7 +52,7 @@ export default function Modal({ open, onClose, labelledBy, children }: ModalProp
       dialog.removeEventListener("cancel", handleCancel);
       dialog.removeEventListener("click", handleClick);
     };
-  }, [onClose]);
+  }, []);
 
   return (
     <dialog
@@ -50,7 +60,6 @@ export default function Modal({ open, onClose, labelledBy, children }: ModalProp
       aria-labelledby={labelledBy}
       aria-modal="true"
       className="sj-modal"
-      onClose={onClose}
     >
       <button
         type="button"
