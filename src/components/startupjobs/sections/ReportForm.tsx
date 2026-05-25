@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
 
 type ReportFormProps = {
@@ -24,6 +24,7 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const uid = useId();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -104,79 +105,83 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
       >
         <div className="sm:col-span-2">
           <input
-            id="rf-name"
+            id={`${uid}-name`}
             type="text"
             required
+            autoComplete="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Jméno a příjmení"
             className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
             style={inputStyle}
             aria-label="Jméno a příjmení"
-            aria-describedby="rf-name-help"
+            aria-describedby={`${uid}-name-help`}
           />
-          <p id="rf-name-help" style={helpStyle}>
+          <p id={`${uid}-name-help`} style={helpStyle}>
             {FIELD_HELP.name}
           </p>
         </div>
 
         <div className="sm:col-span-2">
           <input
-            id="rf-email"
+            id={`${uid}-email`}
             type="email"
             required
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="vase@firma.cz"
             className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
             style={inputStyle}
             aria-label="E-mail"
-            aria-describedby="rf-email-help"
+            aria-describedby={`${uid}-email-help`}
           />
-          <p id="rf-email-help" style={helpStyle}>
+          <p id={`${uid}-email-help`} style={helpStyle}>
             {FIELD_HELP.email}
           </p>
         </div>
 
         <div>
           <input
-            id="rf-phone"
+            id={`${uid}-phone`}
             type="tel"
             required
+            autoComplete="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="Telefon"
             className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
             style={inputStyle}
             aria-label="Telefon"
-            aria-describedby="rf-phone-help"
+            aria-describedby={`${uid}-phone-help`}
           />
-          <p id="rf-phone-help" style={helpStyle}>
+          <p id={`${uid}-phone-help`} style={helpStyle}>
             {FIELD_HELP.phone}
           </p>
         </div>
 
         <div>
           <input
-            id="rf-company"
+            id={`${uid}-company`}
             type="text"
             required
+            autoComplete="organization"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
             placeholder="Název firmy"
             className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
             style={inputStyle}
             aria-label="Název firmy"
-            aria-describedby="rf-company-help"
+            aria-describedby={`${uid}-company-help`}
           />
-          <p id="rf-company-help" style={helpStyle}>
+          <p id={`${uid}-company-help`} style={helpStyle}>
             {FIELD_HELP.company}
           </p>
         </div>
 
         <button
           type="submit"
-          disabled={loading}
+          disabled={loading || !name || !email || !phone || !company}
           className="sj-btn-on-dark sm:col-span-2 justify-center disabled:opacity-60"
         >
           {loading ? "Odesílám…" : "Stáhnout report zdarma"}
@@ -184,7 +189,12 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
         </button>
       </form>
       {error && (
-        <p className="mt-3 text-sm" style={{ color: "#fca5a5" }}>
+        <p
+          role="alert"
+          aria-live="polite"
+          className="mt-3 text-sm"
+          style={{ color: "#fca5a5" }}
+        >
           {error}
         </p>
       )}
