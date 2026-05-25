@@ -1,32 +1,27 @@
-type CalculatorPayload = {
-  positions?: number;
-  timeToHireDays?: number;
-  estimatedAnnualCostCzk?: number;
-  estimatedAnnualSavingCzk?: number;
-};
+import { sendEmail } from "@/lib/integrations/sendgrid";
+import { createLead } from "@/lib/integrations/pipedrive";
+import {
+  autoReplyEmail,
+  internalEmail,
+  pipedriveLeadInput,
+} from "@/lib/integrations/email-templates";
+import type {
+  CalculatorPayload,
+  ConsultPayload,
+  LeadBody,
+} from "@/lib/integrations/lead-types";
 
-type ConsultPayload = {
-  employees?: number;
-  hiresPerYear?: number;
-  message?: string;
-};
+const STARTUPJOBS_SOURCES = new Set([
+  "startupjobs",
+  "startupjobs-consult",
+  "startupjobs-report",
+]);
 
-type LeadBody = {
-  name?: string;
-  email?: string;
-  phone?: string;
-  company?: string;
-  employees?: number;
-  scores?: Array<{ label: string; score: number }>;
-  overallScore?: number;
-  source?: string;
-  calculator?: CalculatorPayload;
-  consult?: ConsultPayload;
-};
+const INTERNAL_NOTIFICATION_TO = "david.skoupy@behavera.com";
 
 function fmtCzk(n?: number) {
   if (typeof n !== "number") return "—";
-  return Math.round(n).toLocaleString("cs-CZ").replace(/ /g, " ") + " Kč";
+  return Math.round(n).toLocaleString("cs-CZ") + " Kč";
 }
 
 function buildSlackMessage(body: LeadBody): string {
@@ -100,6 +95,71 @@ function sanitizeConsult(v: unknown): ConsultPayload | undefined {
   };
 }
 
+function sanitizeCalculator(v: unknown): CalculatorPayload | undefined {
+  if (!v || typeof v !== "object") return undefined;
+  const r = v as Record<string, unknown>;
+  return {
+    positions: typeof r.positions === "number" ? r.positions : undefined,
+    timeToHireDays:
+      typeof r.timeToHireDays === "number" ? r.timeToHireDays : undefined,
+    estimatedAnnualCostCzk:
+      typeof r.estimatedAnnualCostCzk === "number"
+        ? r.estimatedAnnualCostCzk
+        : undefined,
+    estimatedAnnualSavingCzk:
+      typeof r.estimatedAnnualSavingCzk === "number"
+        ? r.estimatedAnnualSavingCzk
+        : undefined,
+  };
+}
+
+async function sendSlack(body: LeadBody) {
+  const webhookUrl = process.env.WEBHOOK_URL;
+  if (!webhookUrl) return;
+  try {
+    await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: buildSlackMessage(body) }),
+    });
+  } catch (err) {
+    console.error("[leads] Slack webhook failed:", err);
+  }
+}
+
+async function sendInternalNotification(body: LeadBody) {
+  const { subject, html, text } = internalEmail(body);
+  const res = await sendEmail({
+    to: INTERNAL_NOTIFICATION_TO,
+    subject,
+    html,
+    text,
+    replyTo: body.email,
+  });
+  if (!res.ok) console.error("[leads] internal email failed:", res.error);
+}
+
+async function sendAutoReply(body: LeadBody) {
+  const tpl = autoReplyEmail(body);
+  if (!tpl || !body.email) return;
+  const res = await sendEmail({
+    to: body.email,
+    toName: body.name,
+    subject: tpl.subject,
+    html: tpl.html,
+    text: tpl.text,
+    replyTo: INTERNAL_NOTIFICATION_TO,
+  });
+  if (!res.ok) console.error("[leads] auto-reply failed:", res.error);
+}
+
+async function pushPipedrive(body: LeadBody) {
+  const input = pipedriveLeadInput(body);
+  if (!input) return;
+  const res = await createLead(input);
+  if (!res.ok) console.error("[leads] pipedrive failed:", res.error);
+}
+
 export async function POST(req: Request) {
   let raw: unknown;
   try {
@@ -120,25 +180,21 @@ export async function POST(req: Request) {
     scores: Array.isArray(r.scores) ? (r.scores as LeadBody["scores"]) : undefined,
     overallScore: typeof r.overallScore === "number" ? r.overallScore : undefined,
     source: sanitize(r.source, 50),
-    calculator:
-      r.calculator && typeof r.calculator === "object"
-        ? (r.calculator as CalculatorPayload)
-        : undefined,
+    calculator: sanitizeCalculator(r.calculator),
     consult: sanitizeConsult(r.consult),
   };
 
-  const webhookUrl = process.env.WEBHOOK_URL;
-  if (webhookUrl) {
-    try {
-      await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: buildSlackMessage(body) }),
-      });
-    } catch (err) {
-      console.error("Webhook failed:", err);
-    }
+  const isStartupjobs = body.source ? STARTUPJOBS_SOURCES.has(body.source) : false;
+
+  const tasks: Array<Promise<unknown>> = [sendSlack(body)];
+
+  if (isStartupjobs) {
+    tasks.push(sendInternalNotification(body));
+    tasks.push(sendAutoReply(body));
+    tasks.push(pushPipedrive(body));
   }
+
+  await Promise.allSettled(tasks);
 
   return Response.json({ success: true });
 }
