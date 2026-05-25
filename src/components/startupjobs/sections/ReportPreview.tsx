@@ -1,6 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
+import Modal from "../ui/Modal";
+import ReportForm from "./ReportForm";
 
 export default function ReportPreview() {
+  const [reportModalOpen, setReportModalOpen] = useState(false);
   return (
     <section
       id="report"
@@ -50,16 +56,14 @@ export default function ReportPreview() {
               rozhodnete v řádu minut — ne dnů.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 items-center">
-              <a
-                href="/startupjobs/behavera-report-sample.pdf"
+              <button
+                type="button"
+                onClick={() => setReportModalOpen(true)}
                 className="sj-btn-primary"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Stáhnout ukázku reportu (PDF)
                 <ArrowRightIcon size={14} />
-              </a>
+              </button>
               <span className="sj-eyebrow">3 strany · 2 MB</span>
             </div>
           </div>
@@ -170,19 +174,50 @@ export default function ReportPreview() {
             className="relative flex justify-center lg:-mt-[54px]"
             style={{ zIndex: 4 }}
           >
-            <a
-              href="/startupjobs/behavera-report-sample.pdf"
+            <button
+              type="button"
+              onClick={() => setReportModalOpen(true)}
               className="sj-btn-primary-xl"
-              download
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Stáhnout ukázku reportu (PDF)
               <ArrowRightIcon size={16} />
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      <Modal
+        open={reportModalOpen}
+        onClose={() => setReportModalOpen(false)}
+        labelledBy="report-preview-modal-title"
+      >
+        <h2
+          id="report-preview-modal-title"
+          style={{
+            margin: 0,
+            fontSize: 22,
+            fontWeight: 600,
+            letterSpacing: "-0.01em",
+            color: "#fff",
+          }}
+        >
+          Stáhnout vzor reportu
+        </h2>
+        <p
+          style={{
+            margin: "8px 0 24px",
+            fontSize: 14,
+            color: "rgba(255,255,255,0.65)",
+            lineHeight: 1.5,
+          }}
+        >
+          PDF s reálným anonymizovaným reportem. Dorazí na váš e-mail do 24 hodin.
+        </p>
+        <ReportForm
+          key={reportModalOpen ? "open" : "closed"}
+          variant="modal"
+        />
+      </Modal>
     </section>
   );
 }

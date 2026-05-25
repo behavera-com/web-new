@@ -53,27 +53,36 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
   }
 
   if (submitted) {
+    const firstName = name.trim().split(" ")[0];
     return (
-      <div
-        className="inline-flex items-center gap-2"
-        style={{ fontSize: 15, color: "rgba(255,255,255,0.95)" }}
-      >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 14 14"
-          fill="none"
-          aria-hidden="true"
+      <div style={{ color: "rgba(255,255,255,0.95)" }}>
+        <div className="inline-flex items-center gap-2" style={{ fontSize: 15 }}>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 14 14"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M2.5 7.5l3 3 6-6"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span>Hotovo{firstName ? `, ${firstName}` : ""}. Report máte připravený níže — a poslali jsme ho i na váš e-mail.</span>
+        </div>
+        <a
+          href="/startupjobs/behavera-report-sample.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="sj-btn-on-dark mt-5 inline-flex justify-center"
         >
-          <path
-            d="M2.5 7.5l3 3 6-6"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-        <span>Hotovo. Link na report vám pošleme do 24 hodin.</span>
+          Stáhnout vzor reportu (PDF)
+          <ArrowRightIcon />
+        </a>
       </div>
     );
   }
