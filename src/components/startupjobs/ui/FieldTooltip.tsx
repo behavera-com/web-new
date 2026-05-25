@@ -2,18 +2,27 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
-type FieldTooltipProps = {
-  id: string;
-  text: string;
+type UseFieldTooltipResult = {
+  tooltipBtn: React.ReactNode;
+  tooltipBody: React.ReactNode;
 };
 
 /**
- * Inline-expanding "?" helper. Click toggles a slide-down text below the
- * input — flows naturally within the field column, never overflows modal.
- * ESC + outside-click close it. Screen readers always get the text via a
- * visually-hidden span (id="${id}-sr") regardless of expanded state.
+ * Hook + render helpers for a per-field "?" tooltip. The `?` button is rendered
+ * inline (e.g. next to a label) and the helper body is a sibling that slides
+ * down where you place it (e.g. below the input). Both share state via this
+ * single hook call.
+ *
+ * Behavior:
+ * - Click `?` toggles open
+ * - ESC closes
+ * - Click outside both elements closes
+ *
+ * A11y:
+ * - `aria-controls`, `aria-expanded` on the button
+ * - Hidden `<span id="${id}-sr">` text is always available to screen readers
  */
-export default function FieldTooltip({ id, text }: FieldTooltipProps) {
+export function useFieldTooltip(id: string, text: string): UseFieldTooltipResult {
   const [open, setOpen] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -39,23 +48,26 @@ export default function FieldTooltip({ id, text }: FieldTooltipProps) {
     };
   }, [open]);
 
-  return (
+  const tooltipBtn = (
+    <button
+      ref={btnRef}
+      id={btnId}
+      type="button"
+      className="sj-tip-btn"
+      aria-label={open ? "Skrýt vysvětlení" : "Proč to chceme"}
+      aria-controls={id}
+      aria-expanded={open}
+      onClick={(e) => {
+        e.preventDefault();
+        setOpen((o) => !o);
+      }}
+    >
+      ?
+    </button>
+  );
+
+  const tooltipBody = (
     <>
-      <button
-        ref={btnRef}
-        id={btnId}
-        type="button"
-        className="sj-tip-btn"
-        aria-label={open ? "Skrýt vysvětlení" : "Proč to chceme"}
-        aria-controls={id}
-        aria-expanded={open}
-        onClick={(e) => {
-          e.preventDefault();
-          setOpen((o) => !o);
-        }}
-      >
-        ?
-      </button>
       <div
         ref={bodyRef}
         id={id}
@@ -70,4 +82,6 @@ export default function FieldTooltip({ id, text }: FieldTooltipProps) {
       </span>
     </>
   );
+
+  return { tooltipBtn, tooltipBody };
 }

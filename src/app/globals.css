@@ -4909,7 +4909,7 @@ select.sj-consult-input {
   border: 0;
   padding: 0;
   margin: auto;
-  max-width: 560px;
+  max-width: 860px;
   width: calc(100% - 32px);
   max-height: calc(100dvh - 32px);
   background: linear-gradient(180deg, #0d0f23 0%, #14132e 100%);
@@ -4975,99 +4975,192 @@ select.sj-consult-input {
   }
 }
 
-/* === Report modal: abstract mockup, summary, tooltips === */
+/* === Report modal: 2-col layout, mockup ve stylu candidate reportu === */
 
-/* Abstract CSS-only "ukázka reportu" — no image dependency.
-   Renders stylized rows that suggest a report layout without pretending
-   to be a specific real screenshot. */
-.sj-modal-mock {
-  margin-top: 14px;
-  padding: 14px 14px 12px;
-  border-radius: 10px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.06)),
-    #0a0c1e;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.sj-modal-grid {
   display: grid;
-  gap: 10px;
+  gap: 24px;
+  grid-template-columns: 1fr;
 }
 
-.sj-modal-mock-head {
+@media (min-width: 760px) {
+  .sj-modal-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px;
+  }
+}
+
+/* Mockup ve stylu candidate assessment reportu (Jan Behavera, 63% Fit).
+   Pure HTML/CSS — žádný screenshot, sleduje styl reálné `report-preview.html`. */
+.sj-modal-mock {
+  background: linear-gradient(180deg, #f6f3ff 0%, #ffffff 100%);
+  color: #1c1237;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  font-family: var(--font-sans);
+}
+
+.sj-modal-mock-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.sj-modal-mock-title {
+  padding: 7px 12px;
+  background: rgba(28, 18, 55, 0.04);
+  border-bottom: 1px solid rgba(28, 18, 55, 0.08);
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: 8.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(28, 18, 55, 0.5);
+}
+
+.sj-modal-mock-bar-dots {
+  display: inline-flex;
+  gap: 4px;
+  margin-right: 8px;
+}
+
+.sj-modal-mock-bar-dots i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(28, 18, 55, 0.18);
+}
+
+.sj-modal-mock-body {
+  padding: 18px 16px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: start;
+}
+
+.sj-modal-mock-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(28, 18, 55, 0.5);
+}
+
+.sj-modal-mock-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1c1237;
+  margin-top: 2px;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+.sj-modal-mock-role {
+  font-size: 11px;
+  color: rgba(28, 18, 55, 0.65);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.sj-modal-mock-role b {
+  color: #1c1237;
+  font-weight: 600;
+}
+
+.sj-modal-mock-meta {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(28, 18, 55, 0.45);
 }
 
 .sj-modal-mock-score {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 4px;
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
+  background: #d4f0db;
+  border-radius: 12px;
+  padding: 12px 14px;
+  text-align: center;
+  min-width: 96px;
 }
 
-.sj-modal-mock-score b {
-  font-family: var(--font-sans);
-  font-size: 18px;
+.sj-modal-mock-score-num {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0a3d20;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.sj-modal-mock-score-num small {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sj-modal-mock-score-pill {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  background: #16a34a;
+  color: #fff;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.14em;
   font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--sj-signal-green, #16a34a);
+  text-transform: uppercase;
 }
 
-.sj-modal-mock-rows {
-  display: grid;
-  gap: 8px;
+.sj-modal-mock-summary {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(28, 18, 55, 0.08);
 }
 
-.sj-modal-mock-row {
-  display: grid;
-  grid-template-columns: 92px 1fr 30px;
+.sj-modal-mock-summary-title {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 11.5px;
-  color: rgba(255, 255, 255, 0.78);
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1c1237;
 }
 
-.sj-modal-mock-row .sj-bar {
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-.sj-modal-mock-row .sj-bar > i {
+.sj-modal-mock-summary-title::before {
+  content: "";
   display: block;
-  height: 100%;
-  background: linear-gradient(90deg, var(--sj-signal-green, #16a34a), rgba(255,255,255,0.7));
-  border-radius: 999px;
+  width: 3px;
+  height: 13px;
+  background: #16a34a;
+  border-radius: 1px;
 }
 
-.sj-modal-mock-row .sj-val {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  color: rgba(255, 255, 255, 0.62);
-  text-align: right;
+.sj-modal-mock-summary-lines {
+  margin-top: 8px;
+  display: grid;
+  gap: 5px;
 }
 
-/* Compact "Co v reportu uvidíte" — denser than full bullet list */
+.sj-modal-mock-summary-lines i {
+  display: block;
+  height: 4px;
+  background: rgba(28, 18, 55, 0.1);
+  border-radius: 2px;
+}
+
+.sj-modal-mock-summary-lines i:nth-child(1) { width: 96%; }
+.sj-modal-mock-summary-lines i:nth-child(2) { width: 84%; }
+.sj-modal-mock-summary-lines i:nth-child(3) { width: 78%; }
+.sj-modal-mock-summary-lines i:nth-child(4) { width: 58%; }
+
+/* "Co v reportu uvidíte" — kompaktní bullet list pod mockupem */
 .sj-modal-summary {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 14px;
+  grid-template-columns: 1fr;
+  gap: 6px;
   margin: 12px 0 0;
   padding: 0;
   list-style: none;
@@ -5076,7 +5169,7 @@ select.sj-consult-input {
 .sj-modal-summary li {
   display: flex;
   align-items: flex-start;
-  gap: 7px;
+  gap: 8px;
   font-size: 12.5px;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.85);
@@ -5093,10 +5186,27 @@ select.sj-consult-input {
   flex-shrink: 0;
 }
 
-@media (max-width: 480px) {
-  .sj-modal-summary {
-    grid-template-columns: 1fr;
-  }
+/* === Field with visible label === */
+
+.sj-field {
+  display: grid;
+  gap: 6px;
+}
+
+.sj-field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sj-field-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
 }
 
 /* === Inline-expanding field tooltip ===
@@ -5104,17 +5214,14 @@ select.sj-consult-input {
    within its grid column — never overflows modal. */
 
 .sj-tip-btn {
-  position: absolute;
-  right: 8px;
-  top: 10px;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: rgba(255, 255, 255, 0.7);
   font-family: inherit;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
@@ -5122,7 +5229,7 @@ select.sj-consult-input {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  flex-shrink: 0;
   transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
 }
 
@@ -5177,11 +5284,7 @@ select.sj-consult-input {
   border: 0 !important;
 }
 
-/* Field wrap: positions `?` icon, gives input space on the right */
+/* Legacy field wrap (kept for any non-modal uses; new code uses .sj-field) */
 .sj-field-wrap {
   position: relative;
-}
-
-.sj-field-wrap input {
-  padding-right: 40px !important;
 }

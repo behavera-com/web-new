@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
-import FieldTooltip from "../ui/FieldTooltip";
+import { useFieldTooltip } from "../ui/FieldTooltip";
 
 type ReportFormProps = {
   variant?: "inline" | "modal";
@@ -26,6 +26,11 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const uid = useId();
+
+  const nameTip = useFieldTooltip(`${uid}-name-help`, FIELD_HELP.name);
+  const emailTip = useFieldTooltip(`${uid}-email-help`, FIELD_HELP.email);
+  const phoneTip = useFieldTooltip(`${uid}-phone-help`, FIELD_HELP.phone);
+  const companyTip = useFieldTooltip(`${uid}-company-help`, FIELD_HELP.company);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -95,7 +100,7 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
     fontSize: 14,
   };
 
-  const gridGap = variant === "modal" ? "gap-4" : "gap-3";
+  const gridGap = variant === "modal" ? "gap-3.5" : "gap-3";
   const maxW = variant === "modal" ? "" : "max-w-[560px]";
 
   return (
@@ -104,7 +109,13 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
         onSubmit={handleSubmit}
         className={`grid sm:grid-cols-2 ${gridGap} ${maxW}`}
       >
-        <div className="sm:col-span-2 sj-field-wrap">
+        <div className="sm:col-span-2 sj-field">
+          <div className="sj-field-row">
+            <label htmlFor={`${uid}-name`} className="sj-field-label">
+              Jméno a příjmení
+            </label>
+            {nameTip.tooltipBtn}
+          </div>
           <input
             id={`${uid}-name`}
             type="text"
@@ -112,16 +123,21 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             autoComplete="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Jméno a příjmení"
-            className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
+            placeholder="Např. Jan Novák"
+            className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
             style={inputStyle}
-            aria-label="Jméno a příjmení"
             aria-describedby={`${uid}-name-help-sr`}
           />
-          <FieldTooltip id={`${uid}-name-help`} text={FIELD_HELP.name} />
+          {nameTip.tooltipBody}
         </div>
 
-        <div className="sm:col-span-2 sj-field-wrap">
+        <div className="sm:col-span-2 sj-field">
+          <div className="sj-field-row">
+            <label htmlFor={`${uid}-email`} className="sj-field-label">
+              Pracovní e-mail
+            </label>
+            {emailTip.tooltipBtn}
+          </div>
           <input
             id={`${uid}-email`}
             type="email"
@@ -130,15 +146,20 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="vase@firma.cz"
-            className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
+            className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
             style={inputStyle}
-            aria-label="E-mail"
             aria-describedby={`${uid}-email-help-sr`}
           />
-          <FieldTooltip id={`${uid}-email-help`} text={FIELD_HELP.email} />
+          {emailTip.tooltipBody}
         </div>
 
-        <div className="sj-field-wrap">
+        <div className="sj-field">
+          <div className="sj-field-row">
+            <label htmlFor={`${uid}-phone`} className="sj-field-label">
+              Telefon
+            </label>
+            {phoneTip.tooltipBtn}
+          </div>
           <input
             id={`${uid}-phone`}
             type="tel"
@@ -146,16 +167,21 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             autoComplete="tel"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            placeholder="Telefon"
-            className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
+            placeholder="+420 …"
+            className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
             style={inputStyle}
-            aria-label="Telefon"
             aria-describedby={`${uid}-phone-help-sr`}
           />
-          <FieldTooltip id={`${uid}-phone-help`} text={FIELD_HELP.phone} />
+          {phoneTip.tooltipBody}
         </div>
 
-        <div className="sj-field-wrap">
+        <div className="sj-field">
+          <div className="sj-field-row">
+            <label htmlFor={`${uid}-company`} className="sj-field-label">
+              Název firmy
+            </label>
+            {companyTip.tooltipBtn}
+          </div>
           <input
             id={`${uid}-company`}
             type="text"
@@ -163,13 +189,12 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             autoComplete="organization"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
-            placeholder="Název firmy"
-            className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
+            placeholder="Firma s.r.o."
+            className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
             style={inputStyle}
-            aria-label="Název firmy"
             aria-describedby={`${uid}-company-help-sr`}
           />
-          <FieldTooltip id={`${uid}-company-help`} text={FIELD_HELP.company} />
+          {companyTip.tooltipBody}
         </div>
 
         <button
