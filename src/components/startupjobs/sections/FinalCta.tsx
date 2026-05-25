@@ -146,9 +146,9 @@ export default function FinalCta() {
             </ul>
           </div>
 
-          {/* RIGHT — form card. Sticky removed: ConsultForm je vyšší než lg viewport,
-              takže sticky neaktivuje a jen blokuje scroll-fix v Safari. */}
-          <div className="lg:col-span-7 sj-on-light">
+          {/* RIGHT — form card, sticky on lg+ tak aby zůstal viditelný zatímco
+              uživatel čte trust copy vlevo. top-40 = 160px (header 36+108≈144). */}
+          <div className="lg:col-span-7 sj-on-light lg:sticky lg:top-40 lg:self-start">
             <ConsultForm rep={rep} />
           </div>
         </div>

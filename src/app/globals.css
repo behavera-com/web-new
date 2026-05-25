@@ -5239,12 +5239,10 @@ select.sj-consult-input {
   transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
 }
 
-.sj-tip:hover,
-.sj-tip:focus-visible {
+.sj-tip:hover {
   background: rgba(255, 255, 255, 0.16);
   color: #fff;
   border-color: rgba(255, 255, 255, 0.3);
-  outline: none;
 }
 
 .sj-tip-icon {
@@ -5290,9 +5288,7 @@ select.sj-consult-input {
   border-bottom-color: #1f1a3a;
 }
 
-.sj-tip:hover .sj-tip-pop,
-.sj-tip:focus-visible .sj-tip-pop,
-.sj-tip:focus-within .sj-tip-pop {
+.sj-tip:hover .sj-tip-pop {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);

@@ -53,12 +53,16 @@ const blocks: SolutionBlockData[] = [
     ),
     details: [
       <Fragment key="a">
-        Jeden přehled —{" "}
-        <strong style={{ color: "var(--color-ink)" }}>fit %, kompetence, datum</strong>.
-      </Fragment>,
-      <Fragment key="b">
         Seřazené odshora dolů —{" "}
         <strong style={{ color: "var(--color-ink)" }}>recruiter ví, komu volat jako prvnímu</strong>.
+      </Fragment>,
+      <Fragment key="b">
+        Fit % vůči blueprintu role —{" "}
+        <strong style={{ color: "var(--color-ink)" }}>ne generická šablona</strong>.
+      </Fragment>,
+      <Fragment key="c">
+        Markery shody s top performery —{" "}
+        <strong style={{ color: "var(--color-ink)" }}>kompetenční overlap z vašich dat</strong>.
       </Fragment>,
     ],
     image: {

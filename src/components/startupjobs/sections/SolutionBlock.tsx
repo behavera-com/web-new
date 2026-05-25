@@ -83,10 +83,10 @@ export default function SolutionBlock({
     <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
       <figure
         ref={figureRef}
-        className={`lg:col-span-5 relative ${
+        className={`lg:col-span-4 relative ${
           block.reverse ? "lg:order-2 lg:ml-auto" : "lg:order-1"
         }`}
-        style={{ paddingTop: 12, paddingBottom: 12, maxWidth: 440 }}
+        style={{ paddingTop: 12, paddingBottom: 12, maxWidth: 360 }}
         data-revealed={revealed ? "true" : "false"}
       >
         {/* atmosferický radial bloom */}
@@ -121,7 +121,7 @@ export default function SolutionBlock({
 
         {/* screenshot */}
         <div
-          className="relative overflow-hidden bg-white"
+          className="relative bg-white"
           style={{
             border: "1px solid var(--color-rule)",
             borderRadius: 2,
@@ -130,29 +130,34 @@ export default function SolutionBlock({
             zIndex: 1,
           }}
         >
-          {block.image.video ? (
-            <video
-              src={block.image.video}
-              poster={block.image.src}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label={block.image.alt}
-              className="block w-full h-auto"
-              style={{ display: "block", width: "100%", height: "auto" }}
-            />
-          ) : (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              src={block.image.src}
-              alt={block.image.alt}
-              className="block w-full h-auto"
-              loading="lazy"
-              decoding="async"
-            />
-          )}
+          {/* Vnitřní klip jen na image/video — tooltipy a piny zůstávají
+              nad oblastí ořezu, takže můžou volně přečnívat přes okraj
+              figure bez zaříznutí (jako u úzkých col-span-4 layoutů). */}
+          <div style={{ overflow: "hidden", borderRadius: 2 }}>
+            {block.image.video ? (
+              <video
+                src={block.image.video}
+                poster={block.image.src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label={block.image.alt}
+                className="block w-full h-auto"
+                style={{ display: "block", width: "100%", height: "auto" }}
+              />
+            ) : (
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img
+                src={block.image.src}
+                alt={block.image.alt}
+                className="block w-full h-auto"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+          </div>
 
           {block.pins.map((pin, pi) => {
             const xNum = parseFloat(pin.x);
@@ -241,7 +246,7 @@ export default function SolutionBlock({
         ))}
 
         <figcaption
-          className="mt-5 flex items-baseline gap-4"
+          className="mt-5"
           style={{ position: "relative", zIndex: 1 }}
         >
           <span
@@ -252,28 +257,16 @@ export default function SolutionBlock({
               letterSpacing: "0.18em",
               borderTop: "1px solid var(--color-rule)",
               paddingTop: 6,
-              flex: 1,
+              display: "block",
             }}
           >
             {block.image.caption}
-          </span>
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 10,
-              color: "var(--color-muted)",
-              letterSpacing: "0.16em",
-              borderTop: "1px solid var(--color-rule)",
-              paddingTop: 6,
-            }}
-          >
-            n = {block.pins.length} markers
           </span>
         </figcaption>
       </figure>
 
       <div
-        className={`lg:col-span-7 ${
+        className={`lg:col-span-8 ${
           block.reverse ? "lg:order-1 lg:pr-4" : "lg:order-2 lg:pl-4"
         }`}
       >
