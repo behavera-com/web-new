@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useCallback, useContext, useState } from "react";
-import Image from "next/image";
 import Modal from "./Modal";
 import ReportForm from "../sections/ReportForm";
 
@@ -21,23 +20,20 @@ export function useReportModal(): ReportModalContextValue {
   return ctx;
 }
 
-const REPORT_BULLETS = [
-  {
-    title: "Fit na roli, 0–100 %",
-    body: "Skóre vůči vašemu týmu — ne generický psychotest.",
-  },
-  {
-    title: "7 pracovních kompetencí",
-    body: "Silné stránky, slepá místa a rizika konkrétně podle role.",
-  },
-  {
-    title: "Manager Playbook",
-    body: "Jak člověka vést, kde dohlížet, kde dát volnost. Onboarding tipy.",
-  },
-  {
-    title: "Srovnání s týmem",
-    body: "Kde doplní mezery a kde nasedne na stávající kulturu.",
-  },
+type MockRow = { label: string; pct: number; val: string };
+
+const MOCK_ROWS: MockRow[] = [
+  { label: "Fit na roli", pct: 88, val: "88 %" },
+  { label: "Týmová spolupráce", pct: 74, val: "74 %" },
+  { label: "Tlak a deadlines", pct: 62, val: "62 %" },
+  { label: "Učení & adaptace", pct: 81, val: "81 %" },
+];
+
+const SUMMARY_BULLETS = [
+  "Fit na roli (0–100 %)",
+  "7 pracovních kompetencí",
+  "Manager Playbook",
+  "Srovnání s týmem",
 ];
 
 export function ReportModalProvider({
@@ -61,7 +57,7 @@ export function ReportModalProvider({
           id="report-modal-title"
           style={{
             margin: 0,
-            fontSize: 22,
+            fontSize: 20,
             fontWeight: 600,
             letterSpacing: "-0.01em",
             color: "#fff",
@@ -71,61 +67,47 @@ export function ReportModalProvider({
         </h2>
         <p
           style={{
-            margin: "8px 0 18px",
-            fontSize: 13.5,
+            margin: "6px 0 16px",
+            fontSize: 13,
             color: "rgba(255,255,255,0.6)",
             lineHeight: 1.5,
           }}
         >
-          PDF s reálným anonymizovaným reportem. Pošleme na e-mail, k dispozici hned po odeslání.
+          PDF dorazí na e-mail. Co v něm uvidíte ↓
         </p>
 
-        {/* Mockup — náhled stránky reportu */}
-        <div className="sj-modal-mockup" aria-hidden>
-          <div className="sj-modal-mockup-frame">
-            <Image
-              src="/startupjobs/product/report-culture-fit.png"
-              alt=""
-              width={1200}
-              height={780}
-              sizes="480px"
-              className="sj-modal-mockup-img"
-              priority={false}
-            />
-            <span className="sj-modal-mockup-corner">app.behavera.cz / report</span>
-          </div>
-        </div>
+        {/* Form — prominent, above the supplementary preview */}
+        <ReportForm
+          key={isOpen ? "open" : "closed"}
+          variant="modal"
+        />
 
-        {/* Co v reportu uvidíte */}
-        <p
-          style={{
-            margin: "18px 0 8px",
-            fontFamily: "var(--font-mono)",
-            fontSize: 10.5,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.55)",
-          }}
-        >
-          Co v reportu uvidíte
-        </p>
-        <ul className="sj-modal-bullets">
-          {REPORT_BULLETS.map((b) => (
-            <li key={b.title}>
-              <span className="sj-modal-bullet-dot" aria-hidden />
-              <span>
-                <strong>{b.title}</strong>
-                <span className="sj-modal-bullet-body"> — {b.body}</span>
-              </span>
-            </li>
+        {/* Co v reportu uvidíte — kompaktní 2-sloupcové bullety */}
+        <ul className="sj-modal-summary" aria-label="Co v reportu uvidíte">
+          {SUMMARY_BULLETS.map((b) => (
+            <li key={b}>{b}</li>
           ))}
         </ul>
 
-        <div style={{ marginTop: 20 }}>
-          <ReportForm
-            key={isOpen ? "open" : "closed"}
-            variant="modal"
-          />
+        {/* Abstract mockup — CSS-only, no specific screenshot */}
+        <div className="sj-modal-mock" aria-hidden>
+          <div className="sj-modal-mock-head">
+            <span className="sj-modal-mock-title">Ukázka · Fit na roli</span>
+            <span className="sj-modal-mock-score">
+              Celkové <b>76</b>%
+            </span>
+          </div>
+          <div className="sj-modal-mock-rows">
+            {MOCK_ROWS.map((r) => (
+              <div key={r.label} className="sj-modal-mock-row">
+                <span>{r.label}</span>
+                <span className="sj-bar">
+                  <i style={{ width: `${r.pct}%` }} />
+                </span>
+                <span className="sj-val">{r.val}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </Modal>
     </ReportModalContext.Provider>
