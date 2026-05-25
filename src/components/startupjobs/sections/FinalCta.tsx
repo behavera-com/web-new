@@ -108,7 +108,7 @@ export default function FinalCta() {
                 </div>
               </div>
               {/* Contacts */}
-              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2" style={{ fontSize: 13 }}>
+              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2" style={{ fontSize: 13 }} data-link-location="consult_card">
                 <a href={`mailto:${consultReps[0].email}`} className="inline-flex items-center gap-1.5 hover:text-[color:var(--color-purple-deep)]" style={{ color: "var(--color-ink)" }}>
                   <EnvelopeIcon />
                   <span>{consultReps[0].email}</span>

@@ -6,6 +6,11 @@ export default function DesktopStickyCta() {
       id="sj-desktop-cta"
       href="#consult"
       className="sj-desktop-cta sj-btn-primary-xl hidden md:inline-flex"
+      data-event-name="cta_click"
+      data-event-cta-id="sticky_desktop"
+      data-event-cta-label="Domluvit konzultaci"
+      data-event-cta-location="sticky_desktop"
+      data-event-cta-target="consult"
     >
       Domluvit konzultaci
       <span

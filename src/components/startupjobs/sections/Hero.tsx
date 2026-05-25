@@ -93,7 +93,15 @@ export default function Hero() {
             className="mt-7 flex flex-wrap items-center gap-5 sj-anim"
             style={{ ["--sj-delay" as string]: "360ms" }}
           >
-            <a href="#consult" className="sj-btn-primary-xl">
+            <a
+              href="#consult"
+              className="sj-btn-primary-xl"
+              data-event-name="cta_click"
+              data-event-cta-id="hero_consult"
+              data-event-cta-label="Domluvit konzultaci"
+              data-event-cta-location="hero"
+              data-event-cta-target="consult"
+            >
               Domluvit konzultaci
               <span
                 className="opacity-65 -ml-1"
@@ -103,7 +111,15 @@ export default function Hero() {
               </span>
               <ArrowRightIcon size={16} />
             </a>
-            <a href="#report" className="sj-btn-outline-xl">
+            <a
+              href="#report"
+              className="sj-btn-outline-xl"
+              data-event-name="cta_click"
+              data-event-cta-id="hero_report"
+              data-event-cta-label="Stáhnout vzor reportu"
+              data-event-cta-location="hero"
+              data-event-cta-target="report_anchor"
+            >
               Stáhnout vzor reportu
               <ArrowRightIcon size={16} />
             </a>

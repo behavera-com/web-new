@@ -180,6 +180,11 @@ export default function OutcomeStrip() {
               padding: "14px 22px",
               fontSize: 14,
             }}
+            data-event-name="cta_click"
+            data-event-cta-id="outcome_consult"
+            data-event-cta-label="Domluvit 15min hovor"
+            data-event-cta-location="outcome"
+            data-event-cta-target="consult"
           >
             <span>Domluvit 15min hovor</span>
             <svg

@@ -123,7 +123,7 @@ export default function MobileMenu({
               <div className="sj-menu-contact-role">{rep.title}</div>
             </div>
           </div>
-          <div className="sj-menu-contact-links">
+          <div className="sj-menu-contact-links" data-link-location="mobile_menu">
             {hasPhone && (
               <a href={telHref} onClick={close}>
                 <span className="sj-menu-contact-icon">
@@ -145,6 +145,11 @@ export default function MobileMenu({
           href="#consult"
           onClick={close}
           className="sj-btn-primary sj-menu-cta"
+          data-event-name="cta_click"
+          data-event-cta-id="mobile_menu_consult"
+          data-event-cta-label="Domluvit konzultaci"
+          data-event-cta-location="mobile_menu"
+          data-event-cta-target="consult"
         >
           Domluvit konzultaci
           <ArrowRightIcon />

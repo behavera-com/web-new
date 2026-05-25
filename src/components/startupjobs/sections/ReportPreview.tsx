@@ -56,7 +56,7 @@ export default function ReportPreview() {
             <div className="mt-5 flex flex-wrap gap-3 items-center">
               <button
                 type="button"
-                onClick={openReportModal}
+                onClick={() => openReportModal("report_preview")}
                 className="sj-btn-primary"
               >
                 Stáhnout ukázku reportu (PDF)
@@ -174,7 +174,7 @@ export default function ReportPreview() {
           >
             <button
               type="button"
-              onClick={openReportModal}
+              onClick={() => openReportModal("report_preview_below")}
               className="sj-btn-primary-xl"
             >
               Stáhnout ukázku reportu (PDF)

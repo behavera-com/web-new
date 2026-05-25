@@ -14,6 +14,11 @@ export default function MobileStickyCta() {
         href="#consult"
         aria-label="Domluvit nezávazný 15minutový hovor"
         className="sj-mobile-cta-pill pointer-events-auto group relative flex items-center gap-3 rounded-full pl-1.5 pr-4 py-1.5 overflow-hidden"
+        data-event-name="cta_click"
+        data-event-cta-id="sticky_mobile"
+        data-event-cta-label="Promluvte si s námi"
+        data-event-cta-location="sticky_mobile"
+        data-event-cta-target="consult"
       >
         <div className="flex -space-x-3 shrink-0">
           {reps.map((rep, i) => (

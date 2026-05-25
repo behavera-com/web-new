@@ -6,12 +6,14 @@ type ReportSoftCtaProps = {
   label: string;
   tone?: "light" | "dark";
   className?: string;
+  location?: string;
 };
 
 export default function ReportSoftCta({
   label,
   tone = "light",
   className = "",
+  location = "report_soft_cta",
 }: ReportSoftCtaProps) {
   const { open } = useReportModal();
   const isDark = tone === "dark";
@@ -19,7 +21,7 @@ export default function ReportSoftCta({
     <div className={`flex justify-center mt-12 md:mt-16 ${className}`}>
       <button
         type="button"
-        onClick={open}
+        onClick={() => open(location)}
         className="sj-soft-cta group inline-flex flex-col items-center gap-2 transition-opacity"
         style={{
           color: isDark

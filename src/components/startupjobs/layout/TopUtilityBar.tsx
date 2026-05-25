@@ -12,7 +12,7 @@ export default function TopUtilityBar({
   const telHref = hasPhone ? `tel:${phone.replace(/\s/g, "")}` : undefined;
 
   return (
-    <div className="sj-utility-bar hidden md:block fixed top-0 inset-x-0 z-[51]">
+    <div className="sj-utility-bar hidden md:block fixed top-0 inset-x-0 z-[51]" data-link-location="utility_bar">
       <div className="max-w-[1240px] mx-auto px-6 md:px-10 h-9 flex items-center justify-end">
         <div className="flex items-center gap-5">
           {hasPhone && (

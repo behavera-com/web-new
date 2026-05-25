@@ -2,31 +2,26 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { track } from "@/lib/analytics";
 
 const STORAGE_KEY = "sj-cookie-consent-v1";
 
 type Consent = "granted" | "denied";
 
-declare global {
-  interface Window {
-    dataLayer: unknown[];
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
 function pushConsent(value: Consent) {
   if (typeof window === "undefined") return;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "cookie_consent_update",
-    consent_state: value,
-  });
-  window.dataLayer.push("consent", "update", {
-    ad_storage: value,
-    ad_user_data: value,
-    ad_personalization: value,
-    analytics_storage: value,
-  });
+  track("cookie_consent_update", { consent_state: value });
+  // Consent Mode v2 update — must go through gtag() so GTM's typed
+  // consent processor (not the standard event queue) handles it.
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+  if (typeof w.gtag === "function") {
+    w.gtag("consent", "update", {
+      ad_storage: value,
+      ad_user_data: value,
+      ad_personalization: value,
+      analytics_storage: value,
+    });
+  }
 }
 
 export default function CookieBanner() {

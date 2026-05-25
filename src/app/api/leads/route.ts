@@ -172,6 +172,7 @@ export async function POST(req: Request) {
     overallScore: typeof r.overallScore === "number" ? r.overallScore : undefined,
     source: sanitize(r.source, 50),
     consult: sanitizeConsult(r.consult),
+    event_id: sanitize(r.event_id, 64),
   };
 
   const isStartupjobs = body.source ? STARTUPJOBS_SOURCES.has(body.source) : false;
@@ -186,5 +187,5 @@ export async function POST(req: Request) {
 
   await Promise.allSettled(tasks);
 
-  return Response.json({ success: true });
+  return Response.json({ success: true, event_id: body.event_id });
 }

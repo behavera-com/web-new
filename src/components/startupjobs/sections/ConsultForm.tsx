@@ -1,10 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
 import RepCard, { type Rep } from "./RepCard";
+import { generateEventId, setUserProperty, track } from "@/lib/analytics";
 
 const MSG_MAX = 500;
+const FORM_ID = "consult";
+const FORM_LOCATION = "consult_section";
 
 export default function ConsultForm({ rep }: { rep?: Rep }) {
   const [name, setName] = useState("");
@@ -20,6 +23,13 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const startedRef = useRef(false);
+
+  function onFirstFocus() {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    track("form_start", { form_id: FORM_ID, form_location: FORM_LOCATION });
+  }
 
   const canSubmit =
     !!name &&
@@ -37,6 +47,8 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
     if (website) return; // honeypot: silent drop
     setLoading(true);
     setError(null);
+    const eventId = generateEventId();
+    track("form_submit", { form_id: FORM_ID, form_location: FORM_LOCATION });
     try {
       const res = await fetch("/api/leads", {
         method: "POST",
@@ -47,6 +59,7 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
           phone,
           company,
           source: "startupjobs-consult",
+          event_id: eventId,
           consult: {
             employees: Number(employees) || undefined,
             hiresPerYear: Number(hiresPerYear) || undefined,
@@ -55,8 +68,22 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
         }),
       });
       if (!res.ok) throw new Error("network");
+      track("generate_lead", {
+        form_id: FORM_ID,
+        lead_source: "startupjobs-lp",
+        value: 0,
+        currency: "CZK",
+        event_id: eventId,
+      });
+      setUserProperty("lead_type", FORM_ID);
       setSubmitted(true);
-    } catch {
+    } catch (err) {
+      track("form_error", {
+        form_id: FORM_ID,
+        form_location: FORM_LOCATION,
+        error_type: "network",
+        error_message: err instanceof Error ? err.message : "unknown",
+      });
       setError("Nepodařilo se odeslat. Zkuste to prosím znovu.");
     } finally {
       setLoading(false);
@@ -137,6 +164,7 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
   return (
     <form
       onSubmit={handleSubmit}
+      onFocus={onFirstFocus}
       className="sj-consult-card p-7 md:p-10"
       noValidate
     >

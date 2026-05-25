@@ -3,11 +3,13 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import Modal from "./Modal";
 import ReportForm from "../sections/ReportForm";
+import { track } from "@/lib/analytics";
 
 type ReportModalContextValue = {
-  open: () => void;
+  open: (triggerLocation?: string) => void;
   close: () => void;
   isOpen: boolean;
+  triggerLocation: string;
 };
 
 const ReportModalContext = createContext<ReportModalContextValue | null>(null);
@@ -33,11 +35,16 @@ export function ReportModalProvider({
   children: React.ReactNode;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const open = useCallback(() => setIsOpen(true), []);
+  const [triggerLocation, setTriggerLocation] = useState("unknown");
+  const open = useCallback((loc: string = "unknown") => {
+    setTriggerLocation(loc);
+    setIsOpen(true);
+    track("report_modal_open", { trigger_location: loc });
+  }, []);
   const close = useCallback(() => setIsOpen(false), []);
 
   return (
-    <ReportModalContext.Provider value={{ open, close, isOpen }}>
+    <ReportModalContext.Provider value={{ open, close, isOpen, triggerLocation }}>
       {children}
       <Modal
         open={isOpen}

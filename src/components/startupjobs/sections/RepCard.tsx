@@ -114,6 +114,7 @@ export default function RepCard({
           <div
             className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2"
             style={{ fontSize: 13 }}
+            data-link-location="rep_card"
           >
             <a
               href={`mailto:${rep.email}`}

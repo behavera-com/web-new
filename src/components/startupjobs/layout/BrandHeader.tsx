@@ -33,13 +33,26 @@ export default function BrandHeader({
         </a>
 
         <div className="flex items-center gap-2 md:gap-3 ml-auto">
-          <a href="#report" className="sj-btn-ghost hidden md:inline-flex">
+          <a
+            href="#report"
+            className="sj-btn-ghost hidden md:inline-flex"
+            data-event-name="cta_click"
+            data-event-cta-id="header_report"
+            data-event-cta-label="Report zdarma"
+            data-event-cta-location="header"
+            data-event-cta-target="report_anchor"
+          >
             Report zdarma
           </a>
           <a
             href="#consult"
             className="sj-btn-primary hidden lg:inline-flex"
             style={{ fontSize: 14, padding: "12px 20px" }}
+            data-event-name="cta_click"
+            data-event-cta-id="header_consult"
+            data-event-cta-label="Domluvit konzultaci"
+            data-event-cta-location="header"
+            data-event-cta-target="consult"
           >
             Domluvit konzultaci
             <ArrowRightIcon />

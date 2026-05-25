@@ -1,4 +1,5 @@
 import DualCta from "../ui/DualCta";
+import FaqItem from "./FaqItem";
 
 const faqs = [
   {
@@ -74,29 +75,17 @@ export default function FaqSection() {
           <div className="lg:col-span-3" />
           <div className="lg:col-span-9 max-w-[800px]">
             {faqs.map((f, i) => (
-              <details
+              <FaqItem
                 key={i}
-                className="sj-faq-item"
-                {...(f.open ? { open: true } : {})}
+                index={i}
+                question={f.q}
+                defaultOpen={!!f.open}
               >
-                <summary>
-                  {f.q}
-                  <span className="sj-faq-icon" aria-hidden="true">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path
-                        d="M6 1.5v9M1.5 6h9"
-                        stroke="currentColor"
-                        strokeWidth="1.4"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="sj-faq-answer">{f.aHtml ?? f.a}</div>
-              </details>
+                {f.aHtml ?? f.a}
+              </FaqItem>
             ))}
 
-            <DualCta className="mt-12 md:mt-14" />
+            <DualCta className="mt-12 md:mt-14" location="faq" />
           </div>
         </div>
       </div>

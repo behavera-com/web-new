@@ -7,6 +7,7 @@ import MobileStickyCta from "@/components/startupjobs/layout/MobileStickyCta";
 import FloatingRepCta from "@/components/startupjobs/layout/FloatingRepCta";
 import { consultRep } from "@/components/startupjobs/sections/rep-data";
 import ScrollEffects from "@/components/startupjobs/layout/ScrollEffects";
+import AnalyticsBridge from "@/components/startupjobs/layout/AnalyticsBridge";
 import AmbientLayer from "@/components/startupjobs/layout/AmbientLayer";
 import Hero from "@/components/startupjobs/sections/Hero";
 import PainSection from "@/components/startupjobs/sections/PainSection";
@@ -52,16 +53,8 @@ export async function generateMetadata({
       description,
       url,
       type: "website",
-      images: [
-        {
-          url: "/og-default.jpg",
-          width: 1200,
-          height: 630,
-          alt: "Behavera + StartupJobs",
-        },
-      ],
     },
-    twitter: { title, description, images: ["/og-default.jpg"] },
+    twitter: { title, description, card: "summary_large_image" },
   };
 }
 
@@ -99,6 +92,7 @@ export default async function StartupJobsPage({
         <MobileStickyCta />
         <FloatingRepCta />
         <ScrollEffects />
+        <AnalyticsBridge />
       </div>
     </ReportModalProvider>
   );

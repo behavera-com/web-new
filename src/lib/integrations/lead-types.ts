@@ -14,4 +14,5 @@ export type LeadBody = {
   overallScore?: number;
   source?: string;
   consult?: ConsultPayload;
+  event_id?: string;
 };

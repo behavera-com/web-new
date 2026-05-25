@@ -57,7 +57,7 @@ export default function BrandFooter({
         </div>
 
         {/* Contact column */}
-        <div className="md:col-span-3 flex flex-col gap-3">
+        <div className="md:col-span-3 flex flex-col gap-3" data-link-location="footer">
           <h3 style={headingStyle}>Kontakt</h3>
           <ul className="flex flex-col gap-2 text-[14px]" style={{ color: "var(--color-ink)" }}>
             {hasPhone && (

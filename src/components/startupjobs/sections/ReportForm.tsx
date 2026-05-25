@@ -1,12 +1,15 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
 import FieldTooltip from "../ui/FieldTooltip";
+import { generateEventId, setUserProperty, track } from "@/lib/analytics";
 
 type ReportFormProps = {
   variant?: "inline" | "modal";
 };
+
+const FORM_ID = "report";
 
 const FIELD_HELP: Record<"name" | "email" | "phone" | "company", string> = {
   name: 'Abychom vám psali jménem, ne jako „Vážený zákazníku".',
@@ -26,12 +29,22 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const uid = useId();
+  const startedRef = useRef(false);
+  const formLocation = variant === "modal" ? "report_modal" : "report_section";
+
+  function onFirstFocus() {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    track("form_start", { form_id: FORM_ID, form_location: formLocation });
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !email || !phone || !company || loading) return;
     setLoading(true);
     setError(null);
+    const eventId = generateEventId();
+    track("form_submit", { form_id: FORM_ID, form_location: formLocation });
     try {
       const res = await fetch("/api/leads", {
         method: "POST",
@@ -42,11 +55,26 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
           phone,
           company,
           source: "startupjobs-report",
+          event_id: eventId,
         }),
       });
       if (!res.ok) throw new Error("network");
+      track("generate_lead", {
+        form_id: FORM_ID,
+        lead_source: "startupjobs-lp",
+        value: 0,
+        currency: "CZK",
+        event_id: eventId,
+      });
+      setUserProperty("lead_type", FORM_ID);
       setSubmitted(true);
-    } catch {
+    } catch (err) {
+      track("form_error", {
+        form_id: FORM_ID,
+        form_location: formLocation,
+        error_type: "network",
+        error_message: err instanceof Error ? err.message : "unknown",
+      });
       setError("Nepodařilo se odeslat. Zkuste to prosím znovu.");
     } finally {
       setLoading(false);
@@ -102,6 +130,7 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
     <>
       <form
         onSubmit={handleSubmit}
+        onFocus={onFirstFocus}
         className={`grid sm:grid-cols-2 ${gridGap} ${maxW}`}
       >
         <div className="sm:col-span-2 sj-field">

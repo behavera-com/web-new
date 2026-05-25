@@ -70,6 +70,11 @@ export default function ManifestoBreak() {
         <a
           href="#consult"
           className="sj-manifesto-link group mt-14 inline-flex items-center gap-2"
+          data-event-name="cta_click"
+          data-event-cta-id="manifesto_consult"
+          data-event-cta-label="Manifesto link → konzultace"
+          data-event-cta-location="manifesto"
+          data-event-cta-target="consult"
           style={{
             color: "rgba(255,255,255,0.85)",
             fontFamily: "var(--font-fraunces)",

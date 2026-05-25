@@ -8,6 +8,11 @@ export default function FloatingRepCta() {
       href="#consult"
       aria-label="Nezávazný hovor s naším týmem, 15 minut"
       className="sj-desktop-cta sj-floating-rep hidden xl:inline-flex"
+      data-event-name="cta_click"
+      data-event-cta-id="floating_rep"
+      data-event-cta-label="Promluvte si s námi"
+      data-event-cta-location="floating_desktop"
+      data-event-cta-target="consult"
     >
       {/* Overlapping avatars */}
       <span className="flex items-center shrink-0" aria-hidden="true" style={{ marginRight: 2 }}>
