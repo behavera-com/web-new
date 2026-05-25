@@ -20,7 +20,7 @@ function wrapHtml(title: string, body: string) {
     <tr><td align="center">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border:1px solid ${RULE};border-radius:8px;overflow:hidden;">
         <tr><td style="padding:24px 32px;border-bottom:1px solid ${RULE};">
-          <div style="font-weight:800;letter-spacing:-0.015em;color:${BRAND_PURPLE};font-size:18px;">behavera</div>
+          <img src="${SITE}/startupjobs/logo-behavera-email.png" alt="Behavera" height="24" style="height:24px;width:auto;display:block;">
         </td></tr>
         <tr><td style="padding:32px;">${body}</td></tr>
         <tr><td style="padding:20px 32px;border-top:1px solid ${RULE};background:#fbfafd;color:${MUTED};font-size:12px;line-height:1.5;">
