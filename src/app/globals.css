@@ -4892,3 +4892,66 @@ select.sj-consult-input {
 
 /* Manifesto už používá `var(--color-purple-deep)`, který bh-scope remaplo
    na #4B3066 (manuál). Žádný override nepotřebujeme. */
+
+.sj-modal {
+  border: 0;
+  padding: 0;
+  margin: auto;
+  max-width: 560px;
+  width: calc(100% - 32px);
+  background: linear-gradient(180deg, #0d0f23 0%, #14132e 100%);
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  overflow: visible;
+  position: relative;
+}
+
+.sj-modal::backdrop {
+  background: rgba(8, 10, 24, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.sj-modal-body {
+  padding: 32px 28px 28px;
+}
+
+.sj-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.sj-modal-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sj-modal[open] {
+    animation: sj-modal-in 180ms ease-out;
+  }
+  .sj-modal[open]::backdrop {
+    animation: sj-backdrop-in 180ms ease-out;
+  }
+  @keyframes sj-modal-in {
+    from { opacity: 0; transform: scale(0.96) translateY(8px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes sj-backdrop-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
