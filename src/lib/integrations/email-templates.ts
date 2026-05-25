@@ -1,6 +1,6 @@
 import type { LeadBody } from "./lead-types";
 
-const SITE = "https://behavera.com";
+const SITE = "https://www.behavera.com";
 const BRAND_PURPLE = "#2d1b69";
 const INK = "#1c1237";
 const MUTED = "#6b6483";
@@ -94,7 +94,10 @@ function trustStripBlock(): string {
   const cells = TRUST_LOGOS.map((l) => `
     <td align="center" valign="middle" style="padding:8px 6px;">
       <img src="${SITE}/startupjobs/logos/${l.file}" alt="${l.alt}" height="20" style="height:20px;width:auto;display:block;opacity:0.7;">
-    </td>`).join("");
+    </td>`);
+  const half = Math.ceil(cells.length / 2);
+  const row1 = cells.slice(0, half).join("");
+  const row2 = cells.slice(half).join("");
   return `
     <div style="margin:24px 0 8px;padding:18px 16px;background:${ALT};border-radius:6px;text-align:center;">
       <p style="margin:0 0 12px;font-size:13px;color:${INK};font-weight:500;">
@@ -104,8 +107,8 @@ function trustStripBlock(): string {
         Důvěřují nám HR týmy ve firmách 50–5 000 zaměstnanců
       </p>
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-        <tr>${cells.slice(0, cells.length / 2 + cells.length % 2)}</tr>
-        <tr>${cells.slice(cells.length / 2 + cells.length % 2)}</tr>
+        <tr>${row1}</tr>
+        <tr>${row2}</tr>
       </table>
     </div>`;
 }
