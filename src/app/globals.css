@@ -5313,6 +5313,97 @@ select.sj-consult-input {
 }
 
 /* =====================================================================
+   Form validation states — editorial, not bootstrap-red
+   Light: garnet on white surface (#9b1c2c) / sienna for soft warn (#a06a1b)
+   Dark:  warm red (#fca5a5)            / amber for soft warn (#fbbf24)
+   ===================================================================== */
+
+/* Light variant (ConsultForm — .sj-consult-input) */
+.sj-consult-input[data-status="error"],
+.sj-consult-input[aria-invalid="true"] {
+  border-color: #9b1c2c;
+  box-shadow: 0 0 0 3px rgba(155, 28, 44, 0.12);
+}
+.sj-consult-input[data-status="error"]:focus,
+.sj-consult-input[aria-invalid="true"]:focus,
+.sj-consult-input[data-status="error"]:focus-visible,
+.sj-consult-input[aria-invalid="true"]:focus-visible {
+  border-color: #9b1c2c;
+  box-shadow: 0 0 0 3px rgba(155, 28, 44, 0.22);
+}
+.sj-consult-input[data-status="warn"] {
+  border-color: #a06a1b;
+}
+.sj-consult-input[data-status="warn"]:focus,
+.sj-consult-input[data-status="warn"]:focus-visible {
+  border-color: #a06a1b;
+  box-shadow: 0 0 0 3px rgba(160, 106, 27, 0.18);
+}
+
+/* Dark variant (ReportForm — .sj-report-input) */
+.sj-report-input[data-status="error"],
+.sj-report-input[aria-invalid="true"] {
+  border-color: #fca5a5 !important;
+  box-shadow: 0 0 0 3px rgba(252, 165, 165, 0.18);
+}
+.sj-report-input[data-status="warn"] {
+  border-color: #fbbf24 !important;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.14);
+}
+
+/* Per-field message text (sits directly under input, 6px gap from .sj-field) */
+.sj-field-error,
+.sj-field-warn {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.sj-field-error::before {
+  content: "⚠";
+  display: inline-block;
+  font-size: 11px;
+  line-height: 1.3;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+.sj-field-warn::before {
+  content: "ⓘ";
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1.2;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.sj-field-error--light {
+  color: #9b1c2c !important;
+}
+.sj-field-warn--light {
+  color: #a06a1b !important;
+}
+.sj-field-error--dark {
+  color: #fca5a5 !important;
+}
+.sj-field-warn--dark {
+  color: #fbbf24 !important;
+}
+
+/* When the field is in error/warn state, accent the .sj-field-label too (dark variant) */
+.sj-field:has(input[data-status="error"]) .sj-field-label {
+  color: #fca5a5;
+}
+.sj-field:has(input[data-status="warn"]) .sj-field-label {
+  color: #fbbf24;
+}
+
+/* =====================================================================
    Cookie consent banner — GDPR/Consent Mode v2
    Big, opaque bar; backdrop blocks page scroll perception until decided.
    ===================================================================== */

@@ -3,11 +3,22 @@
 import { useRef, useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
 import RepCard, { type Rep } from "./RepCard";
+import { useFormValidation } from "../ui/useFormValidation";
 import { generateEventId, setUserProperty, track } from "@/lib/analytics";
 
 const MSG_MAX = 500;
 const FORM_ID = "consult";
 const FORM_LOCATION = "consult_section";
+
+const FIELDS = {
+  name: { rule: "name" as const, required: true },
+  email: { rule: "workEmail" as const, required: true },
+  phone: { rule: "phoneCZ" as const, required: true },
+  company: { rule: "company" as const, required: true },
+  employees: { rule: "employees" as const, required: true },
+  hiresPerYear: { rule: "hiresPerYear" as const, required: true },
+  consent: { rule: "consent" as const, required: true },
+};
 
 export default function ConsultForm({ rep }: { rep?: Rep }) {
   const [name, setName] = useState("");
@@ -24,6 +35,17 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const startedRef = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const validation = useFormValidation(FIELDS, () => ({
+    name,
+    email,
+    phone,
+    company,
+    employees,
+    hiresPerYear,
+    consent,
+  }));
 
   function onFirstFocus() {
     if (startedRef.current) return;
@@ -31,20 +53,41 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
     track("form_start", { form_id: FORM_ID, form_location: FORM_LOCATION });
   }
 
-  const canSubmit =
-    !!name &&
-    !!email &&
-    !!phone &&
-    !!company &&
-    !!employees &&
-    !!hiresPerYear &&
-    consent &&
-    !loading;
+  function makeChange(field: string, setter: (v: string) => void) {
+    return (v: string) => {
+      setter(v);
+      validation.onChange(field);
+    };
+  }
+
+  function focusFirstError(fieldName: string) {
+    const el = formRef.current?.querySelector<HTMLElement>(
+      `[data-field="${fieldName}"]`,
+    );
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      const input = el.querySelector<HTMLElement>("input, textarea, select");
+      input?.focus();
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!canSubmit) return;
+    if (loading) return;
     if (website) return; // honeypot: silent drop
+
+    const { valid, firstErrorField } = validation.validateAll();
+    if (!valid) {
+      track("form_error", {
+        form_id: FORM_ID,
+        form_location: FORM_LOCATION,
+        error_type: "validation",
+        error_message: firstErrorField ?? "unknown",
+      });
+      if (firstErrorField) focusFirstError(firstErrorField);
+      return;
+    }
+
     setLoading(true);
     setError(null);
     const eventId = generateEventId();
@@ -161,8 +204,12 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
     );
   }
 
+  const consentError = validation.errors.consent;
+  const summaryCount = validation.errorCount;
+
   return (
     <form
+      ref={formRef}
       onSubmit={handleSubmit}
       onFocus={onFirstFocus}
       className="sj-consult-card p-7 md:p-10"
@@ -191,42 +238,59 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
 
       <div className="grid sm:grid-cols-2 gap-4">
         <TextField
+          name="name"
           label="Jméno a příjmení"
           type="text"
           autoComplete="name"
           required
           value={name}
-          onChange={setName}
+          onChange={makeChange("name", setName)}
+          onBlur={() => validation.onBlur("name")}
           placeholder="Jan Novák"
+          error={validation.errors.name}
+          warn={validation.warns.name}
         />
         <TextField
+          name="email"
           label="Pracovní e-mail"
           type="email"
           autoComplete="email"
           required
           value={email}
-          onChange={setEmail}
+          onChange={makeChange("email", setEmail)}
+          onBlur={() => validation.onBlur("email")}
           placeholder="jan@firma.cz"
+          error={validation.errors.email}
+          warn={validation.warns.email}
         />
         <TextField
+          name="phone"
           label="Telefon"
           type="tel"
           autoComplete="tel"
           required
           value={phone}
-          onChange={setPhone}
+          onChange={makeChange("phone", setPhone)}
+          onBlur={() => validation.onBlur("phone")}
           placeholder="+420 …"
+          error={validation.errors.phone}
+          warn={validation.warns.phone}
         />
         <TextField
+          name="company"
           label="Firma"
           type="text"
           autoComplete="organization"
           required
           value={company}
-          onChange={setCompany}
+          onChange={makeChange("company", setCompany)}
+          onBlur={() => validation.onBlur("company")}
           placeholder="Behavera s.r.o."
+          error={validation.errors.company}
+          warn={validation.warns.company}
         />
         <TextField
+          name="employees"
           label="Zaměstnanců"
           hint="(odhad)"
           type="text"
@@ -234,10 +298,16 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
           pattern="[0-9]*"
           required
           value={employees}
-          onChange={(v) => setEmployees(v.replace(/[^0-9]/g, "").slice(0, 6))}
+          onChange={makeChange("employees", (v) =>
+            setEmployees(v.replace(/[^0-9]/g, "").slice(0, 6)),
+          )}
+          onBlur={() => validation.onBlur("employees")}
           placeholder="~50"
+          error={validation.errors.employees}
+          warn={validation.warns.employees}
         />
         <TextField
+          name="hiresPerYear"
           label="Náborů ročně"
           hint="(odhad)"
           type="text"
@@ -245,8 +315,13 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
           pattern="[0-9]*"
           required
           value={hiresPerYear}
-          onChange={(v) => setHiresPerYear(v.replace(/[^0-9]/g, "").slice(0, 4))}
+          onChange={makeChange("hiresPerYear", (v) =>
+            setHiresPerYear(v.replace(/[^0-9]/g, "").slice(0, 4)),
+          )}
+          onBlur={() => validation.onBlur("hiresPerYear")}
           placeholder="~10"
+          error={validation.errors.hiresPerYear}
+          warn={validation.warns.hiresPerYear}
         />
       </div>
 
@@ -266,38 +341,72 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
         />
       </div>
 
-      <label
-        className="flex items-start gap-3 mt-6 cursor-pointer select-none"
-        style={{ fontSize: 13, color: "rgba(28,18,55,0.75)", lineHeight: 1.5 }}
-      >
-        <input
-          type="checkbox"
-          checked={consent}
-          onChange={(e) => setConsent(e.target.checked)}
-          className="mt-1 flex-none"
-          style={{ accentColor: "var(--color-purple-deep)" }}
-          required
-          aria-label="Souhlas se zpracováním osobních údajů"
-        />
-        <span>
-          Souhlasím se zpracováním osobních údajů za účelem domluvení
-          konzultace. Více v{" "}
-          <a
-            href="/cs/ochrana-udaju"
-            className="underline"
-            style={{ color: "var(--color-purple-deep)" }}
-            target="_blank"
-            rel="noopener"
+      <div data-field="consent">
+        <label
+          className="flex items-start gap-3 mt-6 cursor-pointer select-none"
+          style={{ fontSize: 13, color: "rgba(28,18,55,0.75)", lineHeight: 1.5 }}
+        >
+          <input
+            type="checkbox"
+            checked={consent}
+            onChange={(e) => {
+              setConsent(e.target.checked);
+              validation.onChange("consent");
+            }}
+            onBlur={() => validation.onBlur("consent")}
+            className="mt-1 flex-none"
+            style={{ accentColor: "var(--color-purple-deep)" }}
+            aria-invalid={!!consentError}
+            aria-describedby={consentError ? "consent-error" : undefined}
+            aria-label="Souhlas se zpracováním osobních údajů"
+          />
+          <span>
+            Souhlasím se zpracováním osobních údajů za účelem domluvení
+            konzultace. Více v{" "}
+            <a
+              href="/cs/ochrana-udaju"
+              className="underline"
+              style={{ color: "var(--color-purple-deep)" }}
+              target="_blank"
+              rel="noopener"
+            >
+              ochraně osobních údajů
+            </a>
+            .
+          </span>
+        </label>
+        {consentError && (
+          <p
+            id="consent-error"
+            role="alert"
+            className="sj-field-error sj-field-error--light"
+            style={{ marginTop: 6, marginLeft: 28 }}
           >
-            ochraně osobních údajů
-          </a>
-          .
-        </span>
-      </label>
+            {consentError}
+          </p>
+        )}
+      </div>
+
+      {summaryCount > 1 && (
+        <p
+          role="alert"
+          aria-live="polite"
+          className="mt-5"
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: 11,
+            letterSpacing: "0.14em",
+            color: "#9b1c2c",
+            textTransform: "uppercase",
+          }}
+        >
+          {summaryCount} {pluralizePolozku(summaryCount)} k doplnění
+        </p>
+      )}
 
       <button
         type="submit"
-        disabled={!canSubmit}
+        disabled={loading}
         className="sj-btn-primary-xl justify-center mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
         style={{ padding: "18px 28px", fontSize: 16, width: "100%" }}
       >
@@ -325,19 +434,29 @@ export default function ConsultForm({ rep }: { rep?: Rep }) {
   );
 }
 
+function pluralizePolozku(n: number): string {
+  if (n === 1) return "položka";
+  if (n >= 2 && n <= 4) return "položky";
+  return "položek";
+}
+
 /* ---------- Sub-components ---------- */
 
 function FieldLabel({
   children,
   className = "",
+  htmlFor,
 }: {
   children: React.ReactNode;
   className?: string;
+  htmlFor?: string;
 }) {
   return (
-    <div
+    <label
+      htmlFor={htmlFor}
       className={className}
       style={{
+        display: "block",
         fontSize: 13,
         fontWeight: 500,
         color: "var(--color-ink)",
@@ -345,36 +464,48 @@ function FieldLabel({
       }}
     >
       {children}
-    </div>
+    </label>
   );
 }
 
 function TextField({
+  name,
   label,
   type,
   required,
   value,
   onChange,
+  onBlur,
   placeholder,
   autoComplete,
   inputMode,
   pattern,
   hint,
+  error,
+  warn,
 }: {
+  name: string;
   label: string;
   type: string;
   required?: boolean;
   value: string;
   onChange: (v: string) => void;
+  onBlur?: () => void;
   placeholder?: string;
   autoComplete?: string;
   inputMode?: "numeric" | "tel" | "email" | "text" | "url";
   pattern?: string;
   hint?: string;
+  error?: string;
+  warn?: string;
 }) {
+  const inputId = `consult-${name}`;
+  const msgId = error ? `${inputId}-error` : warn ? `${inputId}-warn` : undefined;
+  const status: "error" | "warn" | undefined = error ? "error" : warn ? "warn" : undefined;
+
   return (
-    <label className="block">
-      <FieldLabel>
+    <div data-field={name} className="block">
+      <FieldLabel htmlFor={inputId}>
         {label}
         {required && (
           <span style={{ color: "var(--color-purple-accent)" }}> *</span>
@@ -392,16 +523,30 @@ function TextField({
         )}
       </FieldLabel>
       <input
+        id={inputId}
         type={type}
-        required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onBlur={onBlur}
         placeholder={placeholder}
         autoComplete={autoComplete}
         inputMode={inputMode}
         pattern={pattern}
         className="sj-consult-input w-full"
+        aria-invalid={!!error}
+        aria-describedby={msgId}
+        data-status={status}
       />
-    </label>
+      {error && (
+        <p id={msgId} role="alert" className="sj-field-error sj-field-error--light">
+          {error}
+        </p>
+      )}
+      {!error && warn && (
+        <p id={msgId} className="sj-field-warn sj-field-warn--light">
+          {warn}
+        </p>
+      )}
+    </div>
   );
 }

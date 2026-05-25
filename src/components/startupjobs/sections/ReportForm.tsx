@@ -3,6 +3,7 @@
 import { useId, useRef, useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
 import FieldTooltip from "../ui/FieldTooltip";
+import { useFormValidation } from "../ui/useFormValidation";
 import { generateEventId, setUserProperty, track } from "@/lib/analytics";
 
 type ReportFormProps = {
@@ -10,6 +11,13 @@ type ReportFormProps = {
 };
 
 const FORM_ID = "report";
+
+const FIELDS = {
+  name: { rule: "name" as const, required: true },
+  email: { rule: "workEmail" as const, required: true },
+  phone: { rule: "phoneCZ" as const, required: true },
+  company: { rule: "company" as const, required: true },
+};
 
 const FIELD_HELP: Record<"name" | "email" | "phone" | "company", string> = {
   name: 'Abychom vám psali jménem, ne jako „Vážený zákazníku".',
@@ -30,7 +38,15 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
   const [error, setError] = useState<string | null>(null);
   const uid = useId();
   const startedRef = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
   const formLocation = variant === "modal" ? "report_modal" : "report_section";
+
+  const validation = useFormValidation(FIELDS, () => ({
+    name,
+    email,
+    phone,
+    company,
+  }));
 
   function onFirstFocus() {
     if (startedRef.current) return;
@@ -38,9 +54,32 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
     track("form_start", { form_id: FORM_ID, form_location: formLocation });
   }
 
+  function focusFirstError(fieldName: string) {
+    const el = formRef.current?.querySelector<HTMLElement>(
+      `[data-field="${fieldName}"]`,
+    );
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      const input = el.querySelector<HTMLInputElement>("input");
+      input?.focus();
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!name || !email || !phone || !company || loading) return;
+    if (loading) return;
+    const { valid, firstErrorField } = validation.validateAll();
+    if (!valid) {
+      track("form_error", {
+        form_id: FORM_ID,
+        form_location: formLocation,
+        error_type: "validation",
+        error_message: firstErrorField ?? "unknown",
+      });
+      if (firstErrorField) focusFirstError(firstErrorField);
+      return;
+    }
+
     setLoading(true);
     setError(null);
     const eventId = generateEventId();
@@ -126,100 +165,82 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
   const gridGap = variant === "modal" ? "gap-3.5" : "gap-3";
   const maxW = variant === "modal" ? "" : "max-w-[560px]";
 
+  const renderField = (
+    fieldName: "name" | "email" | "phone" | "company",
+    label: string,
+    inputType: string,
+    autoComplete: string,
+    placeholder: string,
+    value: string,
+    setter: (v: string) => void,
+    colSpanFull: boolean,
+  ) => {
+    const err = validation.errors[fieldName];
+    const wrn = validation.warns[fieldName];
+    const inputId = `${uid}-${fieldName}`;
+    const helpId = `${inputId}-help`;
+    const msgId = err ? `${inputId}-error` : wrn ? `${inputId}-warn` : undefined;
+    const status: "error" | "warn" | undefined = err ? "error" : wrn ? "warn" : undefined;
+
+    return (
+      <div
+        data-field={fieldName}
+        className={`${colSpanFull ? "sm:col-span-2 " : ""}sj-field`}
+      >
+        <div className="sj-field-row">
+          <label htmlFor={inputId} className="sj-field-label">
+            {label}
+          </label>
+          <FieldTooltip id={helpId} text={FIELD_HELP[fieldName]} />
+        </div>
+        <input
+          id={inputId}
+          type={inputType}
+          autoComplete={autoComplete}
+          value={value}
+          onChange={(e) => {
+            setter(e.target.value);
+            validation.onChange(fieldName);
+          }}
+          onBlur={() => validation.onBlur(fieldName)}
+          placeholder={placeholder}
+          className="sj-report-input w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
+          style={inputStyle}
+          aria-invalid={!!err}
+          aria-describedby={[helpId, msgId].filter(Boolean).join(" ") || undefined}
+          data-status={status}
+        />
+        {err && (
+          <p id={msgId} role="alert" className="sj-field-error sj-field-error--dark">
+            {err}
+          </p>
+        )}
+        {!err && wrn && (
+          <p id={msgId} className="sj-field-warn sj-field-warn--dark">
+            {wrn}
+          </p>
+        )}
+      </div>
+    );
+  };
+
   return (
     <>
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
         onFocus={onFirstFocus}
         className={`grid sm:grid-cols-2 ${gridGap} ${maxW}`}
+        noValidate
       >
-        <div className="sm:col-span-2 sj-field">
-          <div className="sj-field-row">
-            <label htmlFor={`${uid}-name`} className="sj-field-label">
-              Jméno a příjmení
-            </label>
-            <FieldTooltip id={`${uid}-name-help`} text={FIELD_HELP.name} />
-          </div>
-          <input
-            id={`${uid}-name`}
-            type="text"
-            required
-            autoComplete="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Např. Jan Novák"
-            className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
-            style={inputStyle}
-            aria-describedby={`${uid}-name-help`}
-          />
-        </div>
-
-        <div className="sm:col-span-2 sj-field">
-          <div className="sj-field-row">
-            <label htmlFor={`${uid}-email`} className="sj-field-label">
-              Pracovní e-mail
-            </label>
-            <FieldTooltip id={`${uid}-email-help`} text={FIELD_HELP.email} />
-          </div>
-          <input
-            id={`${uid}-email`}
-            type="email"
-            required
-            autoComplete="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="vase@firma.cz"
-            className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
-            style={inputStyle}
-            aria-describedby={`${uid}-email-help`}
-          />
-        </div>
-
-        <div className="sj-field">
-          <div className="sj-field-row">
-            <label htmlFor={`${uid}-phone`} className="sj-field-label">
-              Telefon
-            </label>
-            <FieldTooltip id={`${uid}-phone-help`} text={FIELD_HELP.phone} />
-          </div>
-          <input
-            id={`${uid}-phone`}
-            type="tel"
-            required
-            autoComplete="tel"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            placeholder="+420 …"
-            className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
-            style={inputStyle}
-            aria-describedby={`${uid}-phone-help`}
-          />
-        </div>
-
-        <div className="sj-field">
-          <div className="sj-field-row">
-            <label htmlFor={`${uid}-company`} className="sj-field-label">
-              Název firmy
-            </label>
-            <FieldTooltip id={`${uid}-company-help`} text={FIELD_HELP.company} />
-          </div>
-          <input
-            id={`${uid}-company`}
-            type="text"
-            required
-            autoComplete="organization"
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}
-            placeholder="Firma s.r.o."
-            className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
-            style={inputStyle}
-            aria-describedby={`${uid}-company-help`}
-          />
-        </div>
+        {renderField("name", "Jméno a příjmení", "text", "name", "Např. Jan Novák", name, setName, true)}
+        {renderField("email", "Pracovní e-mail", "email", "email", "vase@firma.cz", email, setEmail, true)}
+        {renderField("phone", "Telefon", "tel", "tel", "+420 …", phone, setPhone, false)}
+        {renderField("company", "Název firmy", "text", "organization", "Firma s.r.o.", company, setCompany, false)}
 
         <button
           type="submit"
-          disabled={loading || !name || !email || !phone || !company}
+          disabled={loading}
           className="sj-btn-on-dark sm:col-span-2 justify-center disabled:opacity-60"
         >
           {loading ? "Odesílám…" : "Stáhnout report zdarma"}
