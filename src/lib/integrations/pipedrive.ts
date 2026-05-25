@@ -1,3 +1,14 @@
+type PipedriveColor =
+  | "green"
+  | "blue"
+  | "red"
+  | "yellow"
+  | "purple"
+  | "gray"
+  | "brown";
+
+type LeadLabel = { name: string; color: PipedriveColor };
+
 type LeadInput = {
   title: string;
   personName: string;
@@ -5,6 +16,7 @@ type LeadInput = {
   phone?: string;
   companyName?: string;
   note?: string;
+  labels?: LeadLabel[];
 };
 
 type PipedriveResult = { ok: boolean; leadId?: string; error?: string };
@@ -38,6 +50,47 @@ async function pdFetch<T = unknown>(
   }
 }
 
+/* ---------- Lead label cache (in-memory, per process) ---------- */
+
+const labelCache = new Map<string, string>(); // name → id (UUID)
+
+async function ensureLabelId(
+  baseUrl: string,
+  apiToken: string,
+  label: LeadLabel,
+): Promise<string | null> {
+  const cached = labelCache.get(label.name);
+  if (cached) return cached;
+
+  const list = await pdFetch<Array<{ id: string; name: string; color: string }>>(
+    baseUrl,
+    apiToken,
+    "/leadLabels",
+  );
+  if (list.ok && Array.isArray(list.data)) {
+    for (const l of list.data) labelCache.set(l.name, l.id);
+    const found = labelCache.get(label.name);
+    if (found) return found;
+  }
+
+  const created = await pdFetch<{ id: string; name: string }>(
+    baseUrl,
+    apiToken,
+    "/leadLabels",
+    {
+      method: "POST",
+      body: JSON.stringify({ name: label.name, color: label.color }),
+    },
+  );
+  if (created.ok && created.data?.id) {
+    labelCache.set(label.name, created.data.id);
+    return created.data.id;
+  }
+  return null;
+}
+
+/* ---------- Main entry ---------- */
+
 export async function createLead(input: LeadInput): Promise<PipedriveResult> {
   const cfg = getConfig();
   if (!cfg) return { ok: false, error: "missing PIPEDRIVE_API_TOKEN/PIPEDRIVE_DOMAIN" };
@@ -65,11 +118,20 @@ export async function createLead(input: LeadInput): Promise<PipedriveResult> {
     return { ok: false, error: `person: ${person.error}` };
   }
 
+  const labelIds: string[] = [];
+  if (input.labels?.length) {
+    for (const label of input.labels) {
+      const id = await ensureLabelId(baseUrl, apiToken, label);
+      if (id) labelIds.push(id);
+    }
+  }
+
   const leadPayload: Record<string, unknown> = {
     title: input.title,
     person_id: person.data.id,
   };
   if (orgId) leadPayload.organization_id = orgId;
+  if (labelIds.length) leadPayload.label_ids = labelIds;
 
   const lead = await pdFetch<{ id: string }>(baseUrl, apiToken, "/leads", {
     method: "POST",

@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { sendEmail } from "@/lib/integrations/sendgrid";
 import { createLead } from "@/lib/integrations/pipedrive";
 import {
@@ -5,40 +7,32 @@ import {
   internalEmail,
   pipedriveLeadInput,
 } from "@/lib/integrations/email-templates";
-import type {
-  CalculatorPayload,
-  ConsultPayload,
-  LeadBody,
-} from "@/lib/integrations/lead-types";
+import type { ConsultPayload, LeadBody } from "@/lib/integrations/lead-types";
 
 const STARTUPJOBS_SOURCES = new Set([
-  "startupjobs",
   "startupjobs-consult",
   "startupjobs-report",
 ]);
 
 const INTERNAL_NOTIFICATION_TO = "david.skoupy@behavera.com";
+const REPORT_PDF_PATH = "public/startupjobs/behavera-report-sample.pdf";
 
-function fmtCzk(n?: number) {
-  if (typeof n !== "number") return "—";
-  return Math.round(n).toLocaleString("cs-CZ") + " Kč";
+let cachedReportPdf: string | null = null;
+async function loadReportPdfBase64(): Promise<string | null> {
+  if (cachedReportPdf) return cachedReportPdf;
+  try {
+    const filePath = path.join(process.cwd(), REPORT_PDF_PATH);
+    const buf = await readFile(filePath);
+    cachedReportPdf = buf.toString("base64");
+    return cachedReportPdf;
+  } catch (err) {
+    console.error("[leads] failed to load report PDF:", err);
+    return null;
+  }
 }
 
 function buildSlackMessage(body: LeadBody): string {
   const { source } = body;
-
-  if (source === "startupjobs") {
-    const c = body.calculator ?? {};
-    return (
-      `📥 Nový lead z LP Behavera + StartupJobs!\n` +
-      `Email: ${body.email ?? "neuvedeno"}\n` +
-      `— ROI kalkulačka:\n` +
-      `  • Otevřených pozic ročně: ${c.positions ?? "—"}\n` +
-      `  • Time-to-hire: ${c.timeToHireDays ?? "—"} dní\n` +
-      `  • Roční náklad pomalého náboru: ${fmtCzk(c.estimatedAnnualCostCzk)}\n` +
-      `  • Potenciální úspora s Behaverou: ${fmtCzk(c.estimatedAnnualSavingCzk)}`
-    );
-  }
 
   if (source === "startupjobs-report") {
     return (
@@ -96,24 +90,6 @@ function sanitizeConsult(v: unknown): ConsultPayload | undefined {
   };
 }
 
-function sanitizeCalculator(v: unknown): CalculatorPayload | undefined {
-  if (!v || typeof v !== "object") return undefined;
-  const r = v as Record<string, unknown>;
-  return {
-    positions: typeof r.positions === "number" ? r.positions : undefined,
-    timeToHireDays:
-      typeof r.timeToHireDays === "number" ? r.timeToHireDays : undefined,
-    estimatedAnnualCostCzk:
-      typeof r.estimatedAnnualCostCzk === "number"
-        ? r.estimatedAnnualCostCzk
-        : undefined,
-    estimatedAnnualSavingCzk:
-      typeof r.estimatedAnnualSavingCzk === "number"
-        ? r.estimatedAnnualSavingCzk
-        : undefined,
-  };
-}
-
 async function sendSlack(body: LeadBody) {
   const webhookUrl = process.env.WEBHOOK_URL;
   if (!webhookUrl) return;
@@ -143,6 +119,19 @@ async function sendInternalNotification(body: LeadBody) {
 async function sendAutoReply(body: LeadBody) {
   const tpl = autoReplyEmail(body);
   if (!tpl || !body.email) return;
+
+  const attachments = [];
+  if (body.source === "startupjobs-report") {
+    const pdf = await loadReportPdfBase64();
+    if (pdf) {
+      attachments.push({
+        filename: "behavera-report-sample.pdf",
+        contentBase64: pdf,
+        type: "application/pdf",
+      });
+    }
+  }
+
   const res = await sendEmail({
     to: body.email,
     toName: body.name,
@@ -150,6 +139,7 @@ async function sendAutoReply(body: LeadBody) {
     html: tpl.html,
     text: tpl.text,
     replyTo: INTERNAL_NOTIFICATION_TO,
+    attachments: attachments.length ? attachments : undefined,
   });
   if (!res.ok) console.error("[leads] auto-reply failed:", res.error);
 }
@@ -181,7 +171,6 @@ export async function POST(req: Request) {
     scores: Array.isArray(r.scores) ? (r.scores as LeadBody["scores"]) : undefined,
     overallScore: typeof r.overallScore === "number" ? r.overallScore : undefined,
     source: sanitize(r.source, 50),
-    calculator: sanitizeCalculator(r.calculator),
     consult: sanitizeConsult(r.consult),
   };
 

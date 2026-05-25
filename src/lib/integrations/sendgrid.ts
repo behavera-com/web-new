@@ -1,3 +1,9 @@
+type Attachment = {
+  filename: string;
+  contentBase64: string;
+  type: string;
+};
+
 type SendArgs = {
   to: string;
   toName?: string;
@@ -5,6 +11,7 @@ type SendArgs = {
   html: string;
   text?: string;
   replyTo?: string;
+  attachments?: Attachment[];
 };
 
 const FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || "hello@behavera.com";
@@ -29,6 +36,16 @@ export async function sendEmail(args: SendArgs): Promise<{ ok: boolean; status?:
       ...(args.text ? [{ type: "text/plain", value: args.text }] : []),
       { type: "text/html", value: args.html },
     ],
+    ...(args.attachments?.length
+      ? {
+          attachments: args.attachments.map((a) => ({
+            content: a.contentBase64,
+            filename: a.filename,
+            type: a.type,
+            disposition: "attachment",
+          })),
+        }
+      : {}),
   };
 
   try {
