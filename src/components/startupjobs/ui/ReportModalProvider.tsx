@@ -68,16 +68,16 @@ export function ReportModalProvider({
         </p>
 
         <div className="sj-modal-grid">
-          {/* Left column — form */}
-          <div>
+          {/* Desktop: vpravo (order: 2). Mobile: DOM-first = nahoře. */}
+          <div className="sj-modal-form-col">
             <ReportForm
               key={isOpen ? "open" : "closed"}
               variant="modal"
             />
           </div>
 
-          {/* Right column — mockup + summary */}
-          <aside>
+          {/* Desktop: vlevo (order: 1). Mobile: DOM-second = pod formem. */}
+          <aside className="sj-modal-aside-col">
             <p
               style={{
                 margin: "0 0 8px",

@@ -4988,6 +4988,14 @@ select.sj-consult-input {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 28px;
   }
+  /* Desktop: mockup vlevo, form vpravo. Na mobile zůstává DOM order
+     (form první, mockup pod ním — protože form je primární akce). */
+  .sj-modal-form-col {
+    order: 2;
+  }
+  .sj-modal-aside-col {
+    order: 1;
+  }
 }
 
 /* Mockup ve stylu candidate assessment reportu (Jan Behavera, 63% Fit).
@@ -5209,66 +5217,85 @@ select.sj-consult-input {
   font-weight: 600;
 }
 
-/* === Inline-expanding field tooltip ===
-   `?` button anchored top-right inside input, body slides down below input
-   within its grid column — never overflows modal. */
+/* === Pure-CSS field tooltip ===
+   Hover/focus `?` → popup pod ikonou. Žádný JS state, žádný click toggle.
+   Mobil: native `title` atribut funguje jako long-press fallback. */
 
-.sj-tip-btn {
+.sj-tip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 18px;
   height: 18px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: rgba(255, 255, 255, 0.7);
-  font-family: inherit;
   font-size: 10.5px;
   font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  cursor: help;
   flex-shrink: 0;
   transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
 }
 
-.sj-tip-btn:hover,
-.sj-tip-btn:focus-visible {
+.sj-tip:hover,
+.sj-tip:focus-visible {
   background: rgba(255, 255, 255, 0.16);
   color: #fff;
   border-color: rgba(255, 255, 255, 0.3);
   outline: none;
 }
 
-.sj-tip-body {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 180ms ease, margin-top 180ms ease;
-  margin-top: 0;
+.sj-tip-icon {
+  line-height: 1;
+  pointer-events: none;
 }
 
-.sj-tip-body.is-open {
-  grid-template-rows: 1fr;
-  margin-top: 6px;
-}
-
-.sj-tip-body-inner {
-  min-height: 0;
-  overflow: hidden;
-  padding: 0 2px;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  color: rgba(255, 255, 255, 0.65);
-  letter-spacing: 0.02em;
+.sj-tip-pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: -4px;
+  width: max-content;
+  max-width: 240px;
+  padding: 9px 11px;
+  background: #1f1a3a;
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  font-family: var(--font-sans);
+  font-size: 12px;
   line-height: 1.5;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
+  font-weight: 400;
+  white-space: normal;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 140ms ease, transform 140ms ease;
 }
 
-.sj-tip-body.is-open .sj-tip-body-inner {
-  padding: 8px 10px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+.sj-tip-pop::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  right: 8px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-bottom-color: #1f1a3a;
+}
+
+.sj-tip:hover .sj-tip-pop,
+.sj-tip:focus-visible .sj-tip-pop,
+.sj-tip:focus-within .sj-tip-pop {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 /* sr-only utility (Tailwind preflight isn't always available here) */

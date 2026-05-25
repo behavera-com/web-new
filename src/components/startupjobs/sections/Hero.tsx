@@ -2,13 +2,11 @@
 
 import ArrowRightIcon from "../ui/ArrowRightIcon";
 import BrandLockup from "../ui/BrandLockup";
-import { useReportModal } from "../ui/ReportModalProvider";
 import SoftScrollCta from "../ui/SoftScrollCta";
 import { CountUpNumber } from "../ui/useCountUp";
 import MarqueeTrack from "./MarqueeTrack";
 
 export default function Hero() {
-  const { open: openReportModal } = useReportModal();
   return (
     <section className="sj-grain sj-hero-stage relative overflow-hidden">
       {/* atmospheric background */}
@@ -105,14 +103,10 @@ export default function Hero() {
               </span>
               <ArrowRightIcon size={16} />
             </a>
-            <button
-              type="button"
-              onClick={openReportModal}
-              className="sj-btn-outline-xl"
-            >
+            <a href="#report" className="sj-btn-outline-xl">
               Stáhnout vzor reportu
               <ArrowRightIcon size={16} />
-            </button>
+            </a>
           </div>
 
           {/* Objection removers — trust pills */}

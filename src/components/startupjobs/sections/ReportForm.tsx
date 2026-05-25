@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
-import { useFieldTooltip } from "../ui/FieldTooltip";
+import FieldTooltip from "../ui/FieldTooltip";
 
 type ReportFormProps = {
   variant?: "inline" | "modal";
@@ -26,11 +26,6 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const uid = useId();
-
-  const nameTip = useFieldTooltip(`${uid}-name-help`, FIELD_HELP.name);
-  const emailTip = useFieldTooltip(`${uid}-email-help`, FIELD_HELP.email);
-  const phoneTip = useFieldTooltip(`${uid}-phone-help`, FIELD_HELP.phone);
-  const companyTip = useFieldTooltip(`${uid}-company-help`, FIELD_HELP.company);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -114,7 +109,7 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             <label htmlFor={`${uid}-name`} className="sj-field-label">
               Jméno a příjmení
             </label>
-            {nameTip.tooltipBtn}
+            <FieldTooltip id={`${uid}-name-help`} text={FIELD_HELP.name} />
           </div>
           <input
             id={`${uid}-name`}
@@ -126,9 +121,8 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             placeholder="Např. Jan Novák"
             className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
             style={inputStyle}
-            aria-describedby={`${uid}-name-help-sr`}
+            aria-describedby={`${uid}-name-help`}
           />
-          {nameTip.tooltipBody}
         </div>
 
         <div className="sm:col-span-2 sj-field">
@@ -136,7 +130,7 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             <label htmlFor={`${uid}-email`} className="sj-field-label">
               Pracovní e-mail
             </label>
-            {emailTip.tooltipBtn}
+            <FieldTooltip id={`${uid}-email-help`} text={FIELD_HELP.email} />
           </div>
           <input
             id={`${uid}-email`}
@@ -148,9 +142,8 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             placeholder="vase@firma.cz"
             className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
             style={inputStyle}
-            aria-describedby={`${uid}-email-help-sr`}
+            aria-describedby={`${uid}-email-help`}
           />
-          {emailTip.tooltipBody}
         </div>
 
         <div className="sj-field">
@@ -158,7 +151,7 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             <label htmlFor={`${uid}-phone`} className="sj-field-label">
               Telefon
             </label>
-            {phoneTip.tooltipBtn}
+            <FieldTooltip id={`${uid}-phone-help`} text={FIELD_HELP.phone} />
           </div>
           <input
             id={`${uid}-phone`}
@@ -170,9 +163,8 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             placeholder="+420 …"
             className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
             style={inputStyle}
-            aria-describedby={`${uid}-phone-help-sr`}
+            aria-describedby={`${uid}-phone-help`}
           />
-          {phoneTip.tooltipBody}
         </div>
 
         <div className="sj-field">
@@ -180,7 +172,7 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             <label htmlFor={`${uid}-company`} className="sj-field-label">
               Název firmy
             </label>
-            {companyTip.tooltipBtn}
+            <FieldTooltip id={`${uid}-company-help`} text={FIELD_HELP.company} />
           </div>
           <input
             id={`${uid}-company`}
@@ -192,9 +184,8 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             placeholder="Firma s.r.o."
             className="w-full px-4 py-2.5 transition-colors placeholder:text-white/35"
             style={inputStyle}
-            aria-describedby={`${uid}-company-help-sr`}
+            aria-describedby={`${uid}-company-help`}
           />
-          {companyTip.tooltipBody}
         </div>
 
         <button
