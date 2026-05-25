@@ -3,12 +3,12 @@ import DualCta from "../ui/DualCta";
 const faqs = [
   {
     q: "Jak rychle uvidím dopad na náborové KPI?",
-    a: "Time-to-hire metrika klesá od prvního měsíce, kdy jsou v procesu noví kandidáti scoringovaní Behaverou. Plný dopad (quality of hire, 6m retention) je měřitelný po 4–6 měsících.",
+    a: "Metrika time-to-hire klesá od prvního měsíce, kdy jsou v procesu noví kandidáti scoringovaní Behaverou. Plný dopad (quality of hire, 6m retention) je měřitelný po 4–6 měsících.",
     open: true,
   },
   {
     q: "Jak Behavera poznává „dobrého kandidáta“?",
-    a: "Strukturovaný behaviorální assessment z více instrumentů — AI prescreening chat, behaviorální hra v prohlížeči a kontextové signály — vyhodnocený proti vašemu týmovému blueprintu. Modely jsou natrénované na desítkách tisíc kandidátů z CZ/SK firem, sedí kontextu místního trhu, ne zahraničním benchmarkům. Score slouží jako podklad pro recruitera, finální rozhodnutí dělá vždy člověk.",
+    a: "Strukturovaný behaviorální assessment z více zdrojů — AI chat pro prescreening, behaviorální hra v prohlížeči a kontextové signály — vyhodnocený proti vašemu týmovému blueprintu. Modely jsou natrénované na desítkách tisíc kandidátů z CZ/SK firem, odpovídají českému a slovenskému trhu, ne zahraničním benchmarkům. Skóre slouží jako podklad pro recruitera, finální rozhodnutí dělá vždy člověk.",
   },
   {
     q: "Je Behavera v souladu s EU AI Act?",
@@ -29,7 +29,7 @@ const faqs = [
           </li>
           <li>
             <strong style={{ color: "var(--color-ink)" }}>Bias monitoring:</strong>{" "}
-            adverse impact audit napříč pohlavím, věkem a vzděláním.
+            audit dopadu na chráněné skupiny (pohlaví, věk, vzdělání).
           </li>
           <li>
             <strong style={{ color: "var(--color-ink)" }}>Data residency:</strong>{" "}
@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     q: "Můžu si výstupy integrovat s naším ATS?",
-    a: "Ano, máme API a integrace s nejběžnějšími ATS systémy. Custom integrace na request.",
+    a: "Ano, máme API a integrace s nejběžnějšími ATS systémy. Vlastní integrace na vyžádání.",
   },
 ];
 

@@ -18,7 +18,7 @@ export default function CoBrandBlock() {
           </div>
           <div className="lg:col-span-9">
             <h2 className="sj-h-section max-w-[18ch]">
-              Proč StartupJobs <em>ve&nbsp;spolupráci</em> Behavera
+              Proč StartupJobs <em>ve&nbsp;spolupráci s&nbsp;Behaverou</em>
             </h2>
           </div>
         </div>

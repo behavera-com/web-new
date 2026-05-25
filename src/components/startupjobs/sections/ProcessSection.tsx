@@ -19,8 +19,8 @@ const steps = [
     ),
     image: {
       src: "/startupjobs/hiring/step-01-team-culture-fit.png",
-      alt: "Behavera — Culture Fit profile týmu: distribuce preferencí napříč osmi dimenzemi (Výkon/Vztahy, Otevřenost/Tradicionalismus aj.).",
-      caption: "Kulturní fit týmu",
+      alt: "Behavera — Culture Fit: srovnání kandidátů napříč sedmi dimenzemi (Výkon/Vztahy, Otevřenost/Tradicionalismus, Individualita/Tým, Jistota/Dynamika, Nezávislost/Hierarchie, Chaos/Řád, Osobní postavení/Odbornost).",
+      caption: "Kulturní fit — srovnání",
     },
   },
   {

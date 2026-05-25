@@ -9,19 +9,19 @@ type Reveal = {
 const reveals: Reveal[] = [
   {
     tag: "FIT NA ROLI",
-    title: "Sedí na roli, kterou nabíráte — ne obecné personě.",
+    title: "Sedí na roli, kterou nabíráte — ne na obecnou personu.",
     body:
       "Fit % se počítá proti blueprintu role z vašich dat, ne proti generickému profilu z učebnice.",
   },
   {
     tag: "PODKLAD K POHOVORU",
-    title: "Silné stránky a rizika, na která se v interview ptát.",
+    title: "Silné stránky a rizika, na která se zeptat na pohovoru.",
     body:
       "Recruiter dostane strukturované otázky šité na míru kandidátovi — žádné „povězte mi o sobě“.",
   },
   {
-    tag: "FIT NA TÝM",
-    title: "Kompatibilita s lidmi, ke kterým nastupuje.",
+    tag: "FIT DO TÝMU",
+    title: "Sedne do týmu, do kterého nastupuje.",
     body:
       "Predikce, jak kandidát zapadne do dynamiky vašeho konkrétního týmu — z Culture Fitu, ne z dojmu.",
   },

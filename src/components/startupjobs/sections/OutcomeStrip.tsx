@@ -50,13 +50,13 @@ export default function OutcomeStrip() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-10 md:mb-12">
           <div className="lg:col-span-7">
             <span className="sj-section-anchor mb-4 inline-flex">
-              08b · Reálné dopady
+              08b · Dopady v praxi
             </span>
             <h2
               className="sj-h-section max-w-[26ch]"
               style={{ fontSize: "clamp(28px, 3.4vw, 40px)" }}
             >
-              Co Behavera doručila ve{" "}
+              Čeho Behavera dosáhla ve{" "}
               <em
                 style={{
                   fontStyle: "italic",

@@ -3,7 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import DualCta from "../ui/DualCta";
 
-type Pin = { x: string; y: string };
+type Pin = {
+  x: string;
+  y: string;
+  /** Short bold headline shown in the popover. */
+  label: string;
+  /** One-line explanation rendered below the label. */
+  description: string;
+};
 
 export type SolutionBlockData = {
   num: string;
@@ -49,6 +56,26 @@ export default function SolutionBlock({
     io.observe(node);
     return () => io.disconnect();
   }, []);
+
+  // Tap-outside / Escape zavře otevřený tooltip — důležité na mobilu, kde
+  // není mouseleave.
+  useEffect(() => {
+    if (hovered === null) return;
+    const onDocClick = (e: MouseEvent) => {
+      const target = e.target as Node | null;
+      const fig = figureRef.current;
+      if (fig && target && !fig.contains(target)) setHovered(null);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setHovered(null);
+    };
+    document.addEventListener("click", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("click", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [hovered]);
 
   const isDimmed = (i: number) => hovered !== null && hovered !== i;
 
@@ -127,33 +154,63 @@ export default function SolutionBlock({
             />
           )}
 
-          {block.pins.map((pin, pi) => (
-            <button
-              key={pi}
-              type="button"
-              className="sj-pin"
-              data-active={hovered === pi ? "true" : "false"}
-              data-dimmed={isDimmed(pi) ? "true" : "false"}
-              data-revealed={revealed ? "true" : "false"}
-              onMouseEnter={() => setHovered(pi)}
-              onMouseLeave={() => setHovered(null)}
-              onFocus={() => setHovered(pi)}
-              onBlur={() => setHovered(null)}
-              aria-label={`Marker ${pi + 1}`}
-              style={
-                {
+          {block.pins.map((pin, pi) => {
+            const xNum = parseFloat(pin.x);
+            const yNum = parseFloat(pin.y);
+            // Flip the popover so it never falls off the figure edge.
+            const flipX = xNum > 55;
+            const flipY = yNum > 60;
+            const isOpen = hovered === pi;
+            return (
+              <div
+                key={pi}
+                className="sj-pin-wrap"
+                style={{
                   position: "absolute",
                   left: pin.x,
                   top: pin.y,
                   transform: "translate(-50%, -50%)",
-                  ["--pin-i" as string]: String(pi),
-                } as React.CSSProperties
-              }
-            >
-              <span className="sj-pin-dot">{pi + 1}</span>
-              <span className="sj-pin-pulse" aria-hidden />
-            </button>
-          ))}
+                  zIndex: isOpen ? 5 : 3,
+                }}
+              >
+                <button
+                  type="button"
+                  className="sj-pin"
+                  data-active={isOpen ? "true" : "false"}
+                  data-dimmed={isDimmed(pi) ? "true" : "false"}
+                  data-revealed={revealed ? "true" : "false"}
+                  onMouseEnter={() => setHovered(pi)}
+                  onMouseLeave={() => setHovered(null)}
+                  onFocus={() => setHovered(pi)}
+                  onBlur={() => setHovered(null)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setHovered(isOpen ? null : pi);
+                  }}
+                  aria-expanded={isOpen}
+                  aria-label={`${pin.label}: ${pin.description}`}
+                  style={
+                    {
+                      ["--pin-i" as string]: String(pi),
+                    } as React.CSSProperties
+                  }
+                >
+                  <span className="sj-pin-dot">{pi + 1}</span>
+                  <span className="sj-pin-pulse" aria-hidden />
+                </button>
+                <div
+                  role="tooltip"
+                  className="sj-pin-tip"
+                  data-open={isOpen ? "true" : "false"}
+                  data-flip-x={flipX ? "true" : "false"}
+                  data-flip-y={flipY ? "true" : "false"}
+                >
+                  <span className="sj-pin-tip-label">{pin.label}</span>
+                  <span className="sj-pin-tip-body">{pin.description}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* corner registration marks */}

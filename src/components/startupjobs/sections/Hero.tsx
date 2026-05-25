@@ -66,7 +66,7 @@ export default function Hero() {
               style={{ background: "var(--color-purple-deep)" }}
               aria-hidden
             />
-            Behavera × StartupJobs
+            Behavera + StartupJobs
           </div>
 
           <h1
@@ -85,7 +85,7 @@ export default function Hero() {
           >
             <span className="block">Nabírejte rychleji.</span>
             <span className="block">
-              Nabírejte <em>správně</em>.
+              Nabírejte <em>ty, co vydrží</em>.
             </span>
           </h1>
 
@@ -101,7 +101,7 @@ export default function Hero() {
             Behavera odhalí, co{" "}
             <span className="sj-hl">opravdu předpovídá úspěch</span> ve vašem
             týmu — a postaví z toho filtr, který pustí dál jen kandidáty,
-            kteří u vás vydrží i mimo zkušebku.
+            kteří u vás vydrží i po zkušební době.
           </p>
 
           <div
@@ -162,7 +162,7 @@ export default function Hero() {
       {/* Above-the-fold trust row: static logos + eyebrow */}
       <HeroTrustRow />
 
-      <SoftScrollCta target="#cobrand" label="Proč StartupJobs ve spolupráci Behavera" />
+      <SoftScrollCta target="#cobrand" label="Proč StartupJobs ve spolupráci s Behaverou" />
       </div>
     </section>
   );
@@ -539,7 +539,7 @@ function ExpandoCaseCard() {
             }}
             aria-hidden
           >
-            <img src="/startupjobs/team/Basia.png" alt="Barbora Třeslínová" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", borderRadius: "50%" }} />
+            <img src="/startupjobs/team/Basia.png" alt="Barbara Třeslínová" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", borderRadius: "50%" }} />
           </div>
           <div className="flex-1 min-w-0">
             <div
@@ -550,7 +550,7 @@ function ExpandoCaseCard() {
                 lineHeight: 1.2,
               }}
             >
-              Barbora Třeslínová
+              Barbara Třeslínová
             </div>
             <div
               style={{

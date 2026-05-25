@@ -47,7 +47,7 @@ const blocks: SolutionBlockData[] = [
     body: (
       <>
         Stejné kompetence, které vidíme ve vašem týmu, měříme u uchazečů.{" "}
-        <span className="sj-hl">Dál jdou jen ti</span>, jejichž DNA sedí
+        <span className="sj-hl">Dál jdou jen ti</span>, jejichž DNA odpovídá
         náročnosti role.
       </>
     ),
@@ -57,8 +57,8 @@ const blocks: SolutionBlockData[] = [
         <strong style={{ color: "var(--color-ink)" }}>fit %, kompetence, datum</strong>.
       </Fragment>,
       <Fragment key="b">
-        Sortování od shora dolů —{" "}
-        <strong style={{ color: "var(--color-ink)" }}>recruiter ví, koho volat první</strong>.
+        Seřazené odshora dolů —{" "}
+        <strong style={{ color: "var(--color-ink)" }}>recruiter ví, komu volat jako prvnímu</strong>.
       </Fragment>,
     ],
     image: {
@@ -67,9 +67,24 @@ const blocks: SolutionBlockData[] = [
       caption: "Kandidátský scoring",
     },
     pins: [
-      { x: "84%", y: "22%" },
-      { x: "18%", y: "48%" },
-      { x: "62%", y: "82%" },
+      {
+        x: "84%",
+        y: "22%",
+        label: "Pořadí podle fit %",
+        description: "Recruiter ví, komu volat jako prvnímu — bez procházení 20 CV.",
+      },
+      {
+        x: "18%",
+        y: "48%",
+        label: "Fit % vůči blueprintu",
+        description: "Skóre proti vašemu týmu, ne proti generické šabloně.",
+      },
+      {
+        x: "62%",
+        y: "82%",
+        label: "Markery shody",
+        description: "Počet kompetenčních shod s top performery ve vaší firmě.",
+      },
     ],
     reverse: true,
   },
@@ -90,24 +105,34 @@ const blocks: SolutionBlockData[] = [
     ),
     details: [
       <Fragment key="a">
-        Hraje se v prohlížeči, 30–60 min — kandidáta nesvazujete časovým slotem.
+        Hraje se v prohlížeči, 30–60 min — kandidáta nesvazujete pevným termínem.
       </Fragment>,
       <Fragment key="b">
         Strukturovaný výstup se{" "}
         <strong style={{ color: "var(--color-ink)" }}>
-          silnými stránkami, tím, na co dát pozor, a pevnými základy
+          silnými stránkami, tím, na co dát pozor, a základními kompetencemi
         </strong>{" "}
         — recruiter si připraví otázky předem.
       </Fragment>,
     ],
     image: {
       src: "/startupjobs/hiring/office-day-output.png",
-      alt: "Behavera — výstupní profil kandidáta po Office Day simulaci: Fit na roli %, silné stránky, na co dát pozor, pevné základy.",
+      alt: "Behavera — Přehled kandidáta po Office Day simulaci: Fit na roli %, sekce Vyniká, Pozor na a Solidní základy s konkrétními kompetencemi.",
       caption: "Office Day · výstup",
     },
     pins: [
-      { x: "30%", y: "26%" },
-      { x: "72%", y: "70%" },
+      {
+        x: "30%",
+        y: "26%",
+        label: "Silné stránky",
+        description: "Konkrétní talking points pro pohovor — kde má kandidát hloubku.",
+      },
+      {
+        x: "72%",
+        y: "70%",
+        label: "Na co dát pozor",
+        description: "Rizika a rozvojové oblasti — vstup do onboardingu od prvního dne.",
+      },
     ],
   },
 ];
@@ -177,7 +202,7 @@ export default function SolutionSection() {
           </div>
           <ReportGallery />
 
-          <SoftScrollCta target="#cases" label="Reálné výsledky klientů" />
+          <SoftScrollCta target="#cases" label="Výsledky klientů" />
         </div>
       </div>
     </section>

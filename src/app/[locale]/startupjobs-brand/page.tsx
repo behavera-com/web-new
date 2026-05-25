@@ -44,7 +44,7 @@ export async function generateMetadata({
     return { robots: { index: false, follow: false } };
   }
   const title =
-    "Behavera × StartupJobs — Nabírejte rychleji, nabírejte správně (brand variant)";
+    "Behavera + StartupJobs — Nabírejte rychleji, nabírejte ty, co vydrží (brand variant)";
   const description =
     "Datová vrstva nad vaším náborem. Méně dní v procesu, méně chyb v rozhodnutí, lepší KPI v reportingu vedení.";
   const url = `${BASE_URL}${PATH}`;

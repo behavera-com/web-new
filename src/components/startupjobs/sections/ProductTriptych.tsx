@@ -64,9 +64,9 @@ const cards: Card[] = [
     shotH: 902,
     variant: "default",
     features: [
-      "Game-based assessment",
+      "Behaviorální hra místo testu",
       "Fit % na konkrétní tým",
-      "Strukturované insighty k pohovoru",
+      "Strukturovaná zjištění k pohovoru",
     ],
     cta: { label: "Podívat se na ukázku hry", href: "#demo" },
   },

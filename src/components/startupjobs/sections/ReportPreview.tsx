@@ -46,8 +46,8 @@ export default function ReportPreview() {
             >
               Fit na roli, fit do týmu, srovnání s ostatními kandidáty, otázky
               k pohovoru — a tipy, jak s nováčkem pracovat po nástupu: na co si
-              dát pozor, kde má prostor růst. Tři strany, podle kterých dáte
-              rozhodnutí dohromady v řádu minut — ne dnů.
+              dát pozor, kde má prostor růst. Tři strany, podle kterých se
+              rozhodnete v řádu minut — ne dnů.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 items-center">
               <a
@@ -105,7 +105,7 @@ export default function ReportPreview() {
               <span className="sj-chrome-dot" />
               <span className="sj-chrome-dot" />
               <span className="sj-chrome-title">
-                behavera-report.pdf · Jan Behavera · Sales Person
+                behavera-report.pdf · Jan Behavera · Obchodník
               </span>
               <span
                 className="ml-auto"
@@ -117,7 +117,7 @@ export default function ReportPreview() {
                   textTransform: "uppercase",
                 }}
               >
-                Live preview
+                Náhled
               </span>
             </div>
             <iframe
@@ -143,7 +143,7 @@ export default function ReportPreview() {
           />
           {/* Mobile / tablet annotation fallback */}
           <ul
-            className="lg:hidden mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3"
+            className="lg:hidden mt-6 mb-12 grid grid-cols-1 sm:grid-cols-3 gap-3"
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: 11,
@@ -167,11 +167,17 @@ export default function ReportPreview() {
           </ul>
 
           <div
-            className="relative flex justify-center"
-            style={{ marginTop: -54, zIndex: 4 }}
+            className="relative flex justify-center lg:-mt-[54px]"
+            style={{ zIndex: 4 }}
           >
-            <a href="#consult" className="sj-btn-primary-xl">
-              Spustit 3min průzkum
+            <a
+              href="/startupjobs/behavera-report-sample.pdf"
+              className="sj-btn-primary-xl"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Stáhnout ukázku reportu (PDF)
               <ArrowRightIcon size={16} />
             </a>
           </div>

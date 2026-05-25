@@ -54,7 +54,7 @@ export default function ManifestoBreak() {
           }}
         >
           Místo intuice máte filtr. Místo odchodů ve zkušebce máte tým, který
-          drží. Místo obhajoby na boardu máte čísla.
+          drží. Místo obhajoby před vedením máte čísla.
         </p>
         <p
           className="mt-8 max-w-[42ch] mx-auto"

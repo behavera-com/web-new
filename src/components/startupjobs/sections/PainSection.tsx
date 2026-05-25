@@ -25,7 +25,7 @@ const impacts: Impact[] = [
     bigSuffix: "dní",
     numColor: "#fff",
     title: "Z přijetí životopisu k offeru o 15 dní rychleji.",
-    body: "Strukturovaný screening odřízne slepá kola hned na začátku. Vedení rozhoduje na základě dat, ne pocitu.",
+    body: "Strukturovaný screening odřízne slepé uličky hned na začátku. Vedení rozhoduje na základě dat, ne pocitu.",
     baseline: { label: "Industry baseline → Behavera", before: "37 dní", after: "22 dní", tone: "good" },
   },
   {
@@ -35,7 +35,7 @@ const impacts: Impact[] = [
     bigSuffix: "%",
     numColor: "#fff",
     title: "Vyšší retence nových lidí v prvním roce.",
-    body: "Když je predikce role i kultury jasná ještě před offerem, noví lidé z firmy po půl roce neodcházejí.",
+    body: "Když je predikce role i kultury jasná ještě před offerem, noví lidé po půl roce z firmy neodcházejí.",
     baseline: { label: "12mo retention", before: "58 %", after: "79 %", tone: "good" },
   },
   {
@@ -45,7 +45,7 @@ const impacts: Impact[] = [
     bigSuffix: "%",
     numColor: "#fff",
     title: "Kandidátů hodnotí náš proces jako pozitivní.",
-    body: "Behavioral games a chat s asistentem lidé dokončí — a baví je to. Vaše značka odchází silnější.",
+    body: "Simulační hry i chat s asistentem lidé dokončí — a ještě je to baví. Vaše značka odchází silnější.",
     baseline: { label: "NPS na konci procesu", before: "+22", after: "+71", tone: "good" },
     proof: { href: "#kandidati-pisi", label: "Důkaz místo slibu" },
   },
@@ -128,7 +128,7 @@ export default function PainSection() {
               style={{ color: "rgba(255,255,255,0.55)" }}
             >
               <span style={{ color: "var(--color-purple-soft)" }}>01</span>
-              <span>Tři čísla pro vedení</span>
+              <span>Dopad v číslech</span>
             </span>
             <h2
               className="sj-h-section mt-5"

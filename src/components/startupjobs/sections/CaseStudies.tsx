@@ -256,9 +256,8 @@ function CaseCardItem({ c }: { c: CaseCard }) {
   const fallback = FALLBACK_GRADIENTS[c.slug] ?? FALLBACK_GRADIENTS.vodafone;
   return (
     <article
-      className="sj-case-photo group relative overflow-hidden"
+      className={`sj-case-photo group relative overflow-hidden aspect-[4/5] ${c.span === "wide" ? "lg:!aspect-[16/11]" : ""}`}
       style={{
-        aspectRatio: c.span === "wide" ? "16 / 11" : "4 / 5",
         background: fallback,
         border: "1px solid rgba(255,255,255,0.06)",
         borderRadius: 18,
@@ -794,7 +793,7 @@ function TestimonialMosaic() {
   return (
     <div ref={rootRef} className="sj-tslider relative">
       <div className="flex items-baseline justify-between gap-4 mb-8 md:mb-10">
-        <span className="sj-eyebrow">Citace z reálných reportů</span>
+        <span className="sj-eyebrow">Citace z reportů</span>
         <span
           className="font-mono"
           style={{
@@ -988,7 +987,7 @@ export default function CaseStudies() {
               }}
             >
               Pět týmů, jedno společné: rozhodují daty místo dojmem — a vedení
-              vidí dopad v boardroom reportingu. Konkrétní čísla od skutečných
+              to vidí v měsíčním reportingu. Konkrétní čísla od skutečných
               firem.
             </p>
           </div>

@@ -35,9 +35,9 @@ export async function generateMetadata({
   if (locale !== "cs") {
     return { robots: { index: false, follow: false } };
   }
-  const title = "Behavera × StartupJobs — Nabírejte rychleji, nabírejte správně";
+  const title = "Behavera + StartupJobs — Nabírejte rychleji, nabírejte ty, co vydrží";
   const description =
-    "Datová vrstva nad vaším náborem. Méně dní v procesu, méně chyb v rozhodnutí, lepší KPI v reportingu vedení.";
+    "Data, podle kterých nabíráte. Méně dní v procesu, méně chyb v rozhodnutí, lepší KPI v reportingu vedení.";
   const url = `${BASE_URL}${PATH}`;
   return {
     title,
@@ -56,7 +56,7 @@ export async function generateMetadata({
           url: "/og-default.jpg",
           width: 1200,
           height: 630,
-          alt: "Behavera × StartupJobs",
+          alt: "Behavera + StartupJobs",
         },
       ],
     },

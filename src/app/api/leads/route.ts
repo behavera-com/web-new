@@ -35,7 +35,7 @@ function buildSlackMessage(body: LeadBody): string {
   if (source === "startupjobs") {
     const c = body.calculator ?? {};
     return (
-      `📥 Nový lead z LP Behavera × StartupJobs!\n` +
+      `📥 Nový lead z LP Behavera + StartupJobs!\n` +
       `Email: ${body.email ?? "neuvedeno"}\n` +
       `— ROI kalkulačka:\n` +
       `  • Otevřených pozic ročně: ${c.positions ?? "—"}\n` +
@@ -47,7 +47,7 @@ function buildSlackMessage(body: LeadBody): string {
 
   if (source === "startupjobs-report") {
     return (
-      `📄 Žádost o report zdarma (LP Behavera × StartupJobs)!\n` +
+      `📄 Žádost o report zdarma (LP Behavera + StartupJobs)!\n` +
       `Email: ${body.email ?? "neuvedeno"}\n` +
       `Telefon: ${body.phone ?? "neuvedeno"}\n` +
       `Firma: ${body.company ?? "neuvedeno"}`
@@ -57,7 +57,7 @@ function buildSlackMessage(body: LeadBody): string {
   if (source === "startupjobs-consult") {
     const c = body.consult ?? {};
     return (
-      `🔥 Žádost o konzultaci (LP Behavera × StartupJobs)!\n` +
+      `🔥 Žádost o konzultaci (LP Behavera + StartupJobs)!\n` +
       `Jméno: ${body.name ?? "neuvedeno"}\n` +
       `Email: ${body.email ?? "neuvedeno"}\n` +
       `Telefon: ${body.phone ?? "neuvedeno"}\n` +
