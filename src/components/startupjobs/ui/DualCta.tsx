@@ -1,4 +1,7 @@
+"use client";
+
 import ArrowRightIcon from "./ArrowRightIcon";
+import { useReportModal } from "./ReportModalProvider";
 
 export default function DualCta({
   align = "start",
@@ -7,6 +10,7 @@ export default function DualCta({
   align?: "start" | "center";
   className?: string;
 }) {
+  const { open: openReportModal } = useReportModal();
   const justify = align === "center" ? "justify-center" : "justify-start";
   return (
     <div
@@ -22,10 +26,14 @@ export default function DualCta({
         </span>
         <ArrowRightIcon size={16} />
       </a>
-      <a href="#report" className="sj-btn-outline-xl">
+      <button
+        type="button"
+        onClick={openReportModal}
+        className="sj-btn-outline-xl"
+      >
         Stáhnout vzor reportu
         <ArrowRightIcon size={16} />
-      </a>
+      </button>
     </div>
   );
 }

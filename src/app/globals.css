@@ -4974,3 +4974,178 @@ select.sj-consult-input {
     to { opacity: 1; }
   }
 }
+
+/* === Report modal: mockup, bullets, tooltips === */
+
+.sj-modal-mockup {
+  margin-top: 4px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sj-modal-mockup-frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  background: #0a0c1e;
+}
+
+.sj-modal-mockup-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.sj-modal-mockup-corner {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(8, 10, 24, 0.66);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sj-modal-bullets {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sj-modal-bullets li {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: 10px;
+  align-items: start;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.sj-modal-bullet-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: var(--sj-signal-green, #16a34a);
+}
+
+.sj-modal-bullet-body {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* === Field tooltip === */
+
+.sj-tooltip-wrap {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.sj-tooltip-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+.sj-tooltip-btn:hover,
+.sj-tooltip-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.sj-tooltip-pop {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: -6px;
+  width: max-content;
+  max-width: min(280px, calc(100vw - 80px));
+  padding: 10px 12px;
+  background: #1f1a3a;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: var(--font-sans);
+  white-space: normal;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.sj-tooltip-pop::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 12px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: #1f1a3a;
+}
+
+.sj-tooltip-pop.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* sr-only utility (some Tailwind configs strip preflight - keep our own) */
+.sj-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* === Input wrap (positions tooltip relative to input) === */
+.sj-field-wrap {
+  position: relative;
+}
+
+.sj-field-wrap input {
+  padding-right: 40px !important;
+}

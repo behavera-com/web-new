@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
+import FieldTooltip from "../ui/FieldTooltip";
 
 type ReportFormProps = {
   variant?: "inline" | "modal";
@@ -94,15 +95,6 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
     fontSize: 14,
   };
 
-  const helpStyle: React.CSSProperties = {
-    fontFamily: "var(--font-mono)",
-    fontSize: 10.5,
-    color: "rgba(255,255,255,0.55)",
-    letterSpacing: "0.04em",
-    marginTop: 6,
-    lineHeight: 1.5,
-  };
-
   const gridGap = variant === "modal" ? "gap-4" : "gap-3";
   const maxW = variant === "modal" ? "" : "max-w-[560px]";
 
@@ -112,7 +104,7 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
         onSubmit={handleSubmit}
         className={`grid sm:grid-cols-2 ${gridGap} ${maxW}`}
       >
-        <div className="sm:col-span-2">
+        <div className="sm:col-span-2 sj-field-wrap">
           <input
             id={`${uid}-name`}
             type="text"
@@ -124,14 +116,12 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
             style={inputStyle}
             aria-label="Jméno a příjmení"
-            aria-describedby={`${uid}-name-help`}
+            aria-describedby={`${uid}-name-help-sr`}
           />
-          <p id={`${uid}-name-help`} style={helpStyle}>
-            {FIELD_HELP.name}
-          </p>
+          <FieldTooltip id={`${uid}-name-help`} text={FIELD_HELP.name} />
         </div>
 
-        <div className="sm:col-span-2">
+        <div className="sm:col-span-2 sj-field-wrap">
           <input
             id={`${uid}-email`}
             type="email"
@@ -143,14 +133,12 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
             style={inputStyle}
             aria-label="E-mail"
-            aria-describedby={`${uid}-email-help`}
+            aria-describedby={`${uid}-email-help-sr`}
           />
-          <p id={`${uid}-email-help`} style={helpStyle}>
-            {FIELD_HELP.email}
-          </p>
+          <FieldTooltip id={`${uid}-email-help`} text={FIELD_HELP.email} />
         </div>
 
-        <div>
+        <div className="sj-field-wrap">
           <input
             id={`${uid}-phone`}
             type="tel"
@@ -162,14 +150,12 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
             style={inputStyle}
             aria-label="Telefon"
-            aria-describedby={`${uid}-phone-help`}
+            aria-describedby={`${uid}-phone-help-sr`}
           />
-          <p id={`${uid}-phone-help`} style={helpStyle}>
-            {FIELD_HELP.phone}
-          </p>
+          <FieldTooltip id={`${uid}-phone-help`} text={FIELD_HELP.phone} />
         </div>
 
-        <div>
+        <div className="sj-field-wrap">
           <input
             id={`${uid}-company`}
             type="text"
@@ -181,11 +167,9 @@ export default function ReportForm({ variant = "inline" }: ReportFormProps) {
             className="w-full px-4 py-3 transition-colors placeholder:text-white/40"
             style={inputStyle}
             aria-label="Název firmy"
-            aria-describedby={`${uid}-company-help`}
+            aria-describedby={`${uid}-company-help-sr`}
           />
-          <p id={`${uid}-company-help`} style={helpStyle}>
-            {FIELD_HELP.company}
-          </p>
+          <FieldTooltip id={`${uid}-company-help`} text={FIELD_HELP.company} />
         </div>
 
         <button

@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
-import Modal from "../ui/Modal";
-import ReportForm from "./ReportForm";
+import { useReportModal } from "../ui/ReportModalProvider";
 
 export default function ReportPreview() {
-  const [reportModalOpen, setReportModalOpen] = useState(false);
+  const { open: openReportModal } = useReportModal();
   return (
     <section
       id="report"
@@ -58,7 +56,7 @@ export default function ReportPreview() {
             <div className="mt-5 flex flex-wrap gap-3 items-center">
               <button
                 type="button"
-                onClick={() => setReportModalOpen(true)}
+                onClick={openReportModal}
                 className="sj-btn-primary"
               >
                 Stáhnout ukázku reportu (PDF)
@@ -176,7 +174,7 @@ export default function ReportPreview() {
           >
             <button
               type="button"
-              onClick={() => setReportModalOpen(true)}
+              onClick={openReportModal}
               className="sj-btn-primary-xl"
             >
               Stáhnout ukázku reportu (PDF)
@@ -185,39 +183,6 @@ export default function ReportPreview() {
           </div>
         </div>
       </div>
-
-      <Modal
-        open={reportModalOpen}
-        onClose={() => setReportModalOpen(false)}
-        labelledBy="report-preview-modal-title"
-      >
-        <h2
-          id="report-preview-modal-title"
-          style={{
-            margin: 0,
-            fontSize: 22,
-            fontWeight: 600,
-            letterSpacing: "-0.01em",
-            color: "#fff",
-          }}
-        >
-          Stáhnout vzor reportu
-        </h2>
-        <p
-          style={{
-            margin: "8px 0 24px",
-            fontSize: 14,
-            color: "rgba(255,255,255,0.65)",
-            lineHeight: 1.5,
-          }}
-        >
-          PDF s reálným anonymizovaným reportem. Dorazí na váš e-mail do 24 hodin.
-        </p>
-        <ReportForm
-          key={reportModalOpen ? "open" : "closed"}
-          variant="modal"
-        />
-      </Modal>
     </section>
   );
 }

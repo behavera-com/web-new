@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ReportModalProvider } from "@/components/startupjobs/ui/ReportModalProvider";
 import BrandHeader from "@/components/startupjobs/layout/BrandHeader";
 import TopUtilityBar from "@/components/startupjobs/layout/TopUtilityBar";
 import BrandFooter from "@/components/startupjobs/layout/BrandFooter";
@@ -73,30 +74,32 @@ export default async function StartupJobsPage({
   if (locale !== "cs") notFound();
 
   return (
-    <div className="sj-body sj-scope" style={{ background: "var(--color-paper)" }}>
-      <div className="sj-progress-bar" aria-hidden />
-      <AmbientLayer />
-      <TopUtilityBar phone={PHONE} email={EMAIL} />
-      <BrandHeader phone={PHONE} email={EMAIL} rep={consultRep} />
-      <main id="top" className="pt-[112px] md:pt-[148px] pb-[88px] md:pb-0 scroll-pt-[120px] md:scroll-pt-[156px]">
-        <Hero />
-        <CoBrandBlock />
-        <PainSection />
-        <ProductTriptych />
-        <ProductDemo />
-        <ReportPreview />
-        <SolutionSection />
-        <ManifestoBreak />
-        <CaseStudies />
-        <ProcessSection />
-        <FaqSection />
-        <OutcomeStrip />
-        <FinalCta />
-      </main>
-      <BrandFooter phone={PHONE} email={EMAIL} />
-      <MobileStickyCta />
-      <FloatingRepCta />
-      <ScrollEffects />
-    </div>
+    <ReportModalProvider>
+      <div className="sj-body sj-scope" style={{ background: "var(--color-paper)" }}>
+        <div className="sj-progress-bar" aria-hidden />
+        <AmbientLayer />
+        <TopUtilityBar phone={PHONE} email={EMAIL} />
+        <BrandHeader phone={PHONE} email={EMAIL} rep={consultRep} />
+        <main id="top" className="pt-[112px] md:pt-[148px] pb-[88px] md:pb-0 scroll-pt-[120px] md:scroll-pt-[156px]">
+          <Hero />
+          <CoBrandBlock />
+          <PainSection />
+          <ProductTriptych />
+          <ProductDemo />
+          <ReportPreview />
+          <SolutionSection />
+          <ManifestoBreak />
+          <CaseStudies />
+          <ProcessSection />
+          <FaqSection />
+          <OutcomeStrip />
+          <FinalCta />
+        </main>
+        <BrandFooter phone={PHONE} email={EMAIL} />
+        <MobileStickyCta />
+        <FloatingRepCta />
+        <ScrollEffects />
+      </div>
+    </ReportModalProvider>
   );
 }

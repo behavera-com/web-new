@@ -1,16 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import ArrowRightIcon from "../ui/ArrowRightIcon";
 import BrandLockup from "../ui/BrandLockup";
-import Modal from "../ui/Modal";
+import { useReportModal } from "../ui/ReportModalProvider";
 import SoftScrollCta from "../ui/SoftScrollCta";
 import { CountUpNumber } from "../ui/useCountUp";
 import MarqueeTrack from "./MarqueeTrack";
-import ReportForm from "./ReportForm";
 
 export default function Hero() {
-  const [reportModalOpen, setReportModalOpen] = useState(false);
+  const { open: openReportModal } = useReportModal();
   return (
     <section className="sj-grain sj-hero-stage relative overflow-hidden">
       {/* atmospheric background */}
@@ -109,7 +107,7 @@ export default function Hero() {
             </a>
             <button
               type="button"
-              onClick={() => setReportModalOpen(true)}
+              onClick={openReportModal}
               className="sj-btn-outline-xl"
             >
               Stáhnout vzor reportu
@@ -157,35 +155,6 @@ export default function Hero() {
 
       <SoftScrollCta target="#cobrand" label="Proč StartupJobs ve spolupráci s Behaverou" />
       </div>
-      <Modal
-        open={reportModalOpen}
-        onClose={() => setReportModalOpen(false)}
-        labelledBy="report-modal-title"
-      >
-        <h2
-          id="report-modal-title"
-          style={{
-            margin: 0,
-            fontSize: 22,
-            fontWeight: 600,
-            letterSpacing: "-0.01em",
-            color: "#fff",
-          }}
-        >
-          Stáhnout vzor reportu
-        </h2>
-        <p
-          style={{
-            margin: "8px 0 24px",
-            fontSize: 14,
-            color: "rgba(255,255,255,0.65)",
-            lineHeight: 1.5,
-          }}
-        >
-          PDF s reálným anonymizovaným reportem. Dorazí na váš e-mail do 24 hodin.
-        </p>
-        <ReportForm key={reportModalOpen ? "open" : "closed"} variant="modal" />
-      </Modal>
     </section>
   );
 }
