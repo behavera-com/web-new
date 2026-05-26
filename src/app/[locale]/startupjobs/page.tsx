@@ -24,7 +24,8 @@ import OutcomeStrip from "@/components/startupjobs/sections/OutcomeStrip";
 import FinalCta from "@/components/startupjobs/sections/FinalCta";
 
 const LP_URL = "https://startupjobs.behavera.com";
-const OG_IMAGE = `${LP_URL}/og.png`;
+const ASSET_PATH = "/startupjobs";
+const OG_IMAGE = `${LP_URL}${ASSET_PATH}/og.png`;
 const PHONE = "+420 605 839 456";
 const EMAIL = "hello@behavera.com";
 
@@ -49,10 +50,10 @@ export async function generateMetadata({
     },
     icons: {
       icon: [
-        { url: `${LP_URL}/icon.svg`, type: "image/svg+xml" },
-        { url: `${LP_URL}/icon-32.png`, type: "image/png", sizes: "32x32" },
+        { url: `${LP_URL}${ASSET_PATH}/icon.svg`, type: "image/svg+xml" },
+        { url: `${LP_URL}${ASSET_PATH}/icon-32.png`, type: "image/png", sizes: "32x32" },
       ],
-      apple: [{ url: `${LP_URL}/apple-touch-icon.png`, sizes: "180x180" }],
+      apple: [{ url: `${LP_URL}${ASSET_PATH}/apple-touch-icon.png`, sizes: "180x180" }],
     },
     openGraph: {
       title,
