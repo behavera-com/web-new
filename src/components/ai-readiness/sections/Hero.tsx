@@ -131,7 +131,7 @@ export default function Hero() {
               <TrustPill label="50 000+ účastníků">
                 <UsersIcon />
               </TrustPill>
-              <TrustPill label="GDPR · AI Act · § 316 ZP">
+              <TrustPill label="GDPR compliant">
                 <ShieldIcon />
               </TrustPill>
             </ul>

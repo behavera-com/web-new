@@ -13,7 +13,6 @@ const LINKS: Link[] = [
   { href: "#produkt", label: "5 fází produktu" },
   { href: "#demo", label: "Demo" },
   { href: "#metodika", label: "Metodika" },
-  { href: "#compliance", label: "Pro HR & odbory" },
   { href: "#pilot", label: "Pilot 2026" },
   { href: "#how", label: "Postup" },
   { href: "#faq", label: "FAQ" },

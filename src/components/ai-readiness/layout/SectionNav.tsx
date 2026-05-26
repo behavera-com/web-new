@@ -10,7 +10,6 @@ const ITEMS: Item[] = [
   { id: "produkt", label: "5 fází" },
   { id: "demo", label: "Demo" },
   { id: "metodika", label: "Metodika" },
-  { id: "compliance", label: "Pro HR & odbory" },
   { id: "pilot", label: "Pilot 2026" },
   { id: "how", label: "Postup" },
   { id: "faq", label: "FAQ" },

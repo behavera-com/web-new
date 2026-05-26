@@ -1,6 +1,5 @@
 type Step = {
   num: string;
-  time: string;
   title: string;
   body: string;
 };
@@ -8,27 +7,23 @@ type Step = {
 const STEPS: Step[] = [
   {
     num: "01",
-    time: "Týden 1",
     title: "Kickoff & co-design",
-    body: "60-minutový workshop. Vyberete fázi rolloutu, dohodneme rozsah, lidi a citlivá místa. Stanovíme, co je success.",
+    body: "Vyberete fázi rolloutu, dohodneme rozsah, lidi a citlivá místa. Stanovíme, co je pro vás success.",
   },
   {
     num: "02",
-    time: "Týden 2–3",
     title: "Měření napříč týmy",
-    body: "Lidé v týmech projdou krátkou interakci s naším nástrojem. Žádné dlouhé dotazníky — krátké simulace, kontextuální otázky, reálné situace.",
+    body: "Lidé v týmech projdou krátkou interakci s naším nástrojem — bez dlouhých dotazníků.",
   },
   {
     num: "03",
-    time: "Týden 4",
     title: "Insight workshop",
     body: "Sedíme s vedením a HR. Vidíte heat-mapu adopce, confidence gapy, stres signály, skill coverage. Společně tvarujeme action plan.",
   },
   {
     num: "04",
-    time: "Průběžně",
     title: "Re-measure & adjust",
-    body: "Pulse měření po 4–6 týdnech ověří, jestli akce zabraly. Pokud ano, škálujeme. Pokud ne, ladíme zásah — ne metodu měření.",
+    body: "Po dohodnutém intervalu ověříme, jestli akce zabraly. Pokud ano, škálujeme. Pokud ne, ladíme zásah — ne metodu měření.",
   },
 ];
 
@@ -53,7 +48,7 @@ export default function ProcessSection() {
               className="sj-h-section mt-5"
               style={{ fontSize: "clamp(32px, 4.2vw, 52px)" }}
             >
-              4 týdny od kickoffu po{" "}
+              Od kickoffu po{" "}
               <em
                 style={{
                   fontStyle: "italic",
@@ -71,11 +66,12 @@ export default function ProcessSection() {
               className="leading-[1.55]"
               style={{ fontSize: 17, color: "rgba(28,18,55,0.7)" }}
             >
-              Žádný projekt na šest měsíců. Postup je krátký, výstup je akční —{" "}
+              Postup je krátký, výstup je akční —{" "}
               <span style={{ color: "var(--color-ink)" }}>
                 jeden cyklus, jasná rozhodnutí
               </span>
-              , poté re-measure.
+              , poté re-measure. Konkrétní harmonogram laděný podle kontextu
+              firmy.
             </p>
           </div>
         </div>
@@ -107,17 +103,6 @@ export default function ProcessSection() {
                   }}
                 >
                   {step.num}
-                </span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 10.5,
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "var(--color-muted)",
-                  }}
-                >
-                  {step.time}
                 </span>
               </div>
 

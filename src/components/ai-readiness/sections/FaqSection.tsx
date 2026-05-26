@@ -8,12 +8,8 @@ const faqs = [
     open: true,
   },
   {
-    q: "V čem se to liší od pulse dotazníku nebo HR survey?",
-    a: "Pulse měří, jak se lidé cítí. Behavera měří, jak reagují, čemu věří a co reálně dělají v práci s AI. Místo abstraktních otázek používáme krátké simulace, kontextuální úlohy a behaviorální signály — proto data dávají vedení podklad pro rozhodnutí, ne jen pocit.",
-  },
-  {
     q: "Jak dlouho pilot trvá a co po něm máme?",
-    a: "Typicky 4 týdny od kickoffu po insight workshop. Výstup: heat-mapa adopce napříč týmy, confidence/skill gap analýza, stres signály, doporučení k akci na nejbližší týdny. Re-measure po 4–6 týdnech ověří, jestli akce zabraly.",
+    a: "Výstupem je heat-mapa adopce napříč týmy, confidence/skill gap analýza, stres signály a doporučení k akci na nejbližší týdny. Konkrétní harmonogram doladíme podle vašeho kontextu na kickoffu.",
   },
   {
     q: "Co když AI ještě skoro nepoužíváme?",
@@ -25,19 +21,11 @@ const faqs = [
   },
   {
     q: "Je to GDPR-compliant?",
-    a: "Ano. EU hosting, žádný transfer mimo EU/EEA, kompletní DPA dokumentace na vyžádání. Účastníci jsou informováni o tom, co se měří a proč. Reporty se vedení vrací agregovaně, aby individuální data nešla zneužít proti konkrétním lidem.",
-  },
-  {
-    q: "Kdo by měl být v pilotu zapojený?",
-    a: "Sponzor z vedení (CEO / COO / CTO nebo Head of Transformation), HR partner a 2–5 týmů, které do AI rolloutu zapojujete. Velikost firmy: pilot dává smysl od 50+ zaměstnanců.",
+    a: "Ano. Reporty se vedení vrací agregovaně na úrovni týmů, aby individuální data nešla zneužít proti konkrétním lidem. Účastníci jsou informováni o tom, co se měří a proč.",
   },
   {
     q: "Kolik to stojí?",
-    a: "Pilot probíhá za zvýhodněných podmínek pro prvních firem — záleží na rozsahu (počet týmů, fází, hloubka re-measure). Konkrétní cenovou kalkulaci dostanete po 15min konzultaci, kde si ujasníme rozsah.",
-  },
-  {
-    q: "Můžeme data integrovat s našimi nástroji?",
-    a: "Ano. Behavera exportuje agregované výstupy do Looker Studio, PowerBI, Tableau i přes API. Standardně dodáváme dashboard přímo v naší aplikaci, integrace na vyžádání.",
+    a: "Cena pilotu záleží na rozsahu (počet týmů, fází, hloubka re-measure). Konkrétní kalkulaci dostanete po 15min konzultaci, kde si ujasníme rozsah.",
   },
 ];
 

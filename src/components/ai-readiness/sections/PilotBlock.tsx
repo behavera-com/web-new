@@ -2,11 +2,6 @@ import ArrowRightIcon from "../ui/ArrowRightIcon";
 
 const BENEFITS = [
   {
-    tag: "Měření zdarma",
-    title: "Pilot vám nic nestojí, dokud nevidíte hodnotu",
-    body: "První readiness snapshot a workshop bez závazku. Pokračujete jen pokud má data pro vás smysl.",
-  },
-  {
     tag: "Onboarding v minutách",
     title: "Žádné IT projekty, žádné integrace na měsíce",
     body: "Setup je v řádu hodin. První signál máte do týdne, kompletní snapshot do 3 týdnů.",
@@ -73,8 +68,8 @@ export default function PilotBlock() {
               className="leading-[1.55]"
               style={{ fontSize: 17, color: "rgba(28,18,55,0.7)" }}
             >
-              Spouštíme pilotní program pro firmy, které se rozhodují, jak na AI
-              jít. Bez závazku, bez ročních smluv —{" "}
+              Spouštíme pilotní program pro firmy, které se rozhodují, jak na
+              AI jít. Krátký cyklus,{" "}
               <span style={{ color: "var(--color-ink)" }}>
                 jen data a doporučení
               </span>{" "}
@@ -83,7 +78,7 @@ export default function PilotBlock() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {BENEFITS.map((b) => (
             <BenefitCard key={b.tag} {...b} />
           ))}

@@ -18,9 +18,9 @@ const IS_ROWS: Pillar[] = [
       "Zjištění reálného stavu používání — kdo, jak, jak často a s jakou důvěrou.",
   },
   {
-    category: "Anonymně & compliance-ready",
+    category: "Anonymně & GDPR compliant",
     translation:
-      "Vidíte týmy, ne jednotlivce. GDPR, AI Act i § 316 zákoníku práce.",
+      "Vidíte týmy, ne jednotlivce. Data se vyhodnocují agregovaně.",
   },
 ];
 

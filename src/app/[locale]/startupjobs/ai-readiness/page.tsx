@@ -15,7 +15,6 @@ import FivePhaseTriptych from "@/components/ai-readiness/sections/FivePhaseTript
 import ProductDemo from "@/components/ai-readiness/sections/ProductDemo";
 import SolutionSection from "@/components/ai-readiness/sections/SolutionSection";
 import ManifestoBreak from "@/components/ai-readiness/sections/ManifestoBreak";
-import ComplianceBlock from "@/components/ai-readiness/sections/ComplianceBlock";
 import PilotBlock from "@/components/ai-readiness/sections/PilotBlock";
 import ProcessSection from "@/components/ai-readiness/sections/ProcessSection";
 import FaqSection from "@/components/ai-readiness/sections/FaqSection";
@@ -83,7 +82,6 @@ export default async function AiReadinessPage({
         <ProductDemo />
         <SolutionSection />
         <ManifestoBreak />
-        <ComplianceBlock />
         <PilotBlock />
         <ProcessSection />
         <FaqSection />
