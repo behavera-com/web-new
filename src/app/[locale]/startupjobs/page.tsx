@@ -23,10 +23,10 @@ import FaqSection from "@/components/startupjobs/sections/FaqSection";
 import OutcomeStrip from "@/components/startupjobs/sections/OutcomeStrip";
 import FinalCta from "@/components/startupjobs/sections/FinalCta";
 
-const BASE_URL = "https://www.behavera.com";
+const LP_URL = "https://startupjobs.behavera.com";
+const OG_IMAGE = `${LP_URL}/og.png`;
 const PHONE = "+420 605 839 456";
 const EMAIL = "hello@behavera.com";
-const PATH = "/startupjobs";
 
 export async function generateMetadata({
   params,
@@ -40,21 +40,40 @@ export async function generateMetadata({
   const title = "Behavera + StartupJobs — Nabírejte rychleji, nabírejte ty, co vydrží";
   const description =
     "Data, podle kterých nabíráte. Méně dní v procesu, méně chyb v rozhodnutí, lepší KPI v reportingu vedení.";
-  const url = `${BASE_URL}${PATH}`;
   return {
     title,
     description,
     alternates: {
-      canonical: url,
-      languages: { cs: url, "x-default": url },
+      canonical: LP_URL,
+      languages: { cs: LP_URL, "x-default": LP_URL },
+    },
+    icons: {
+      icon: [
+        { url: `${LP_URL}/icon.svg`, type: "image/svg+xml" },
+        { url: `${LP_URL}/icon-32.png`, type: "image/png", sizes: "32x32" },
+      ],
+      apple: [{ url: `${LP_URL}/apple-touch-icon.png`, sizes: "180x180" }],
     },
     openGraph: {
       title,
       description,
-      url,
+      url: LP_URL,
       type: "website",
+      images: [
+        {
+          url: OG_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: "Behavera + StartupJobs — Nabírejte rychleji, nabírejte ty, co vydrží",
+        },
+      ],
     },
-    twitter: { title, description, card: "summary_large_image" },
+    twitter: {
+      title,
+      description,
+      card: "summary_large_image",
+      images: [OG_IMAGE],
+    },
   };
 }
 
