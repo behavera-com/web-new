@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import SoftScrollCta from "../ui/SoftScrollCta";
+
+type Logo = { src: string; name: string };
 
 type Pain = {
   tag: string;
@@ -9,17 +12,27 @@ type Pain = {
   body: string;
   signal: string;
   remedy: string;
+  logos?: Logo[];
 };
+
+const SHADOW_AI_LOGOS: Logo[] = [
+  { src: "/startupjobs/ai-logos/chatgpt.svg", name: "ChatGPT" },
+  { src: "/startupjobs/ai-logos/anthropic.svg", name: "Claude" },
+  { src: "/startupjobs/ai-logos/googlegemini.svg", name: "Gemini" },
+  { src: "/startupjobs/ai-logos/githubcopilot.svg", name: "GitHub Copilot" },
+  { src: "/startupjobs/ai-logos/perplexity.svg", name: "Perplexity" },
+];
 
 const PAINS: Pain[] = [
   {
     tag: "Shadow AI",
     icon: <GhostIcon />,
     title: "Lidé používají AI, o které vedení neví.",
-    body: "Týmy testují ChatGPT, Claude, Perplexity nebo Midjourney — bez schválení, bez policy, bez auditní stopy. Citlivá data odcházejí ven, prompty s firemním know-how končí v cizích modelech.",
+    body: "Týmy testují ChatGPT, Claude, Gemini, Copilot, Perplexity — bez schválení, bez policy, bez auditní stopy. Citlivá data odcházejí ven, prompty s firemním know-how končí v cizích modelech.",
     signal: "Neviditelný governance risk",
     remedy:
       "Behavera anonymně zmapuje, které týmy AI používají a na co — bez sledování konkrétních lidí. Dostanete podklad pro policy, který lidi nepřežene do ještě hlubšího podzemí.",
+    logos: SHADOW_AI_LOGOS,
   },
   {
     tag: "Žádná visibility",
@@ -173,6 +186,36 @@ function PainCard({ pain }: { pain: Pain }) {
       >
         {pain.body}
       </p>
+
+      {pain.logos && pain.logos.length > 0 && (
+        <ul
+          className="flex flex-wrap items-center gap-2"
+          aria-label="AI nástroje, které lidé typicky používají"
+        >
+          {pain.logos.map((l) => (
+            <li
+              key={l.name}
+              title={l.name}
+              className="inline-flex items-center justify-center"
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 8,
+                background: "#fff",
+                border: "1px solid rgba(255,255,255,0.12)",
+              }}
+            >
+              <Image
+                src={l.src}
+                alt={l.name}
+                width={20}
+                height={20}
+                style={{ width: 20, height: 20, objectFit: "contain" }}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
 
       <div
         className="mt-auto pt-5"

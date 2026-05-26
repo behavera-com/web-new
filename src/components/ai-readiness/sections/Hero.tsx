@@ -122,6 +122,9 @@ export default function Hero() {
               className="mt-7 flex flex-wrap gap-x-3 gap-y-2.5 max-w-[560px] sj-anim"
               style={{ ["--sj-delay" as string]: "520ms" }}
             >
+              <TrustPill label="Pro HR i vedení">
+                <AudienceIcon />
+              </TrustPill>
               <TrustPill label="Anonymně · týmy, ne jednotlivci">
                 <AnonIcon />
               </TrustPill>
@@ -228,6 +231,27 @@ function UsersIcon() {
       <path d="M1.6 15c.5-2.4 2.5-3.9 4.9-3.9s4.4 1.5 4.9 3.9" />
       <path d="M12.5 4.6a2.4 2.4 0 1 1 0 4.6" />
       <path d="M12.6 11.4c1.7.3 3 1.6 3.4 3.4" />
+    </svg>
+  );
+}
+
+function AudienceIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M3 14.5c.4-2 1.9-3.2 3.7-3.2" />
+      <circle cx="6.7" cy="6.5" r="2.3" />
+      <path d="M15 14.5c-.4-2-1.9-3.2-3.7-3.2" />
+      <circle cx="11.3" cy="6.5" r="2.3" />
+      <path d="M2 16h14" />
     </svg>
   );
 }
