@@ -1,6 +1,9 @@
+export type AiMaturity = "none" | "pilot" | "production";
+
 export type ConsultPayload = {
   employees?: number;
   hiresPerYear?: number;
+  aiMaturity?: AiMaturity;
   message?: string;
 };
 

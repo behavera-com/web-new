@@ -184,6 +184,29 @@ export function internalEmail(body: LeadBody): { subject: string; html: string; 
     return { subject, html: wrapHtml(subject, inner), text: internalText(body) };
   }
 
+  if (src === "ai-readiness-consult") {
+    const c = body.consult ?? {};
+    const maturityLabel: Record<string, string> = {
+      none: "Zvažujeme možnosti",
+      pilot: "Pilot ve vybraných týmech",
+      production: "Produkce napříč firmou",
+    };
+    const subject = `🤖 Nová žádost o AI Readiness konzultaci — ${body.company ?? body.name ?? "?"}`;
+    const inner = `
+      <h1 style="margin:0 0 8px;font-size:22px;font-weight:600;color:${INK};">Nová žádost o konzultaci · AI Readiness</h1>
+      <p style="margin:0 0 24px;color:${MUTED};font-size:14px;">LP Behavera + StartupJobs (AI readiness)</p>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        ${row("Jméno", escape(body.name))}
+        ${row("E-mail", escape(body.email))}
+        ${row("Telefon", escape(body.phone))}
+        ${row("Firma", escape(body.company))}
+        ${row("Zaměstnanců", c.employees)}
+        ${row("AI maturity", c.aiMaturity ? maturityLabel[c.aiMaturity] : undefined)}
+        ${c.message ? row("Zpráva", escape(c.message)) : ""}
+      </table>`;
+    return { subject, html: wrapHtml(subject, inner), text: internalText(body) };
+  }
+
   const subject = `Nový lead — ${body.email ?? "?"}`;
   return { subject, html: wrapHtml(subject, `<pre>${escape(JSON.stringify(body, null, 2))}</pre>`), text: internalText(body) };
 }
@@ -229,6 +252,21 @@ export function autoReplyEmail(body: LeadBody): { subject: string; html: string;
     return { subject, html: wrapHtml(subject, inner), text: autoReplyTextReport(firstName) };
   }
 
+  if (src === "ai-readiness-consult") {
+    const subject = "Děkujeme — ozveme se do 24 hodin (AI Readiness)";
+    const inner = `
+      <h1 style="margin:0 0 16px;font-size:24px;font-weight:600;color:${INK};letter-spacing:-0.02em;">Děkujeme za zájem o AI Readiness konzultaci${salute}.</h1>
+      <p style="margin:0 0 8px;font-size:15px;line-height:1.6;color:${INK};">
+        Máme vaši žádost. Někdo z našeho týmu vám pošle 2–3 termíny pro 15minutový hovor o AI připravenosti během následujících 24 hodin.
+      </p>
+      <p style="margin:0 0 8px;font-size:15px;line-height:1.6;color:${INK};">
+        Co vás na hovoru čeká: projdeme váš AI kontext, pojmenujeme 2–3 místa, kde dnes nemáte visibility, a řekneme, jestli AI Readiness Suite u vás dnes dává smysl — nebo kam jít místo toho.
+      </p>
+      ${trustStripBlock()}
+      ${teamBlock("Kdo se vám ozve")}`;
+    return { subject, html: wrapHtml(subject, inner), text: autoReplyTextAiReadiness(firstName) };
+  }
+
   return null;
 }
 
@@ -242,6 +280,23 @@ function autoReplyTextConsult(firstName: string): string {
     `  • 365.bank — +36 % rychlejší náborový proces`,
     `  • Expando — +24 pp lepší 12mo retention`,
     `  • Vodafone CZ — −40 % fluktuace zaměstnanců`,
+    ``,
+    `Kdo se vám ozve: Jana, Veronika nebo Giuseppe (hello@behavera.com)`,
+    ``,
+    `Naléhavé? Napište přímo: david.skoupy@behavera.com`,
+  ].join("\n");
+}
+
+function autoReplyTextAiReadiness(firstName: string): string {
+  return [
+    `Děkujeme za zájem o AI Readiness konzultaci${firstName ? `, ${firstName}` : ""}.`,
+    ``,
+    `Máme vaši žádost. Někdo z našeho týmu vám pošle 2–3 termíny pro 15minutový hovor o AI připravenosti během následujících 24 hodin.`,
+    ``,
+    `Co vás na hovoru čeká:`,
+    `  • Projdeme váš AI kontext (kde jste dnes, co řešíte)`,
+    `  • Pojmenujeme 2–3 místa, kde nemáte visibility do adopce`,
+    `  • Řekneme, jestli AI Readiness Suite u vás dnes dává smysl`,
     ``,
     `Kdo se vám ozve: Jana, Veronika nebo Giuseppe (hello@behavera.com)`,
     ``,
@@ -273,6 +328,7 @@ const BIG_COMPANY_THRESHOLD = 200;
 type PipedriveLabel = { name: string; color: "green" | "blue" | "red" | "yellow" | "purple" | "gray" | "brown" };
 
 const LABEL_SOURCE: PipedriveLabel = { name: "LP Startupjobs", color: "purple" };
+const LABEL_AI_READINESS: PipedriveLabel = { name: "LP AI Readiness", color: "blue" };
 const LABEL_CONSULT: PipedriveLabel = { name: "Konzultace", color: "red" };
 const LABEL_REPORT: PipedriveLabel = { name: "Report", color: "yellow" };
 const LABEL_BIG: PipedriveLabel = { name: "Velká firma (200+)", color: "green" };
@@ -328,6 +384,41 @@ export function pipedriveLeadInput(body: LeadBody): {
       companyName: body.company,
       note: `Zdroj: LP Behavera + StartupJobs (report form)`,
       labels: [LABEL_SOURCE, LABEL_REPORT],
+    };
+  }
+
+  if (src === "ai-readiness-consult") {
+    const c = body.consult ?? {};
+    const maturityLabel: Record<string, string> = {
+      none: "Zvažujeme možnosti",
+      pilot: "Pilot ve vybraných týmech",
+      production: "Produkce napříč firmou",
+    };
+    const sizeBits: string[] = [];
+    if (c.employees) sizeBits.push(`${c.employees} zam`);
+    if (c.aiMaturity) sizeBits.push(maturityLabel[c.aiMaturity]);
+    const suffix = sizeBits.length ? ` · ${sizeBits.join(" · ")}` : "";
+
+    const labels: PipedriveLabel[] = [LABEL_AI_READINESS, LABEL_CONSULT];
+    if (c.employees && c.employees >= BIG_COMPANY_THRESHOLD) labels.push(LABEL_BIG);
+
+    const notes = [
+      `Zdroj: LP Behavera + StartupJobs (AI Readiness consult)`,
+      c.employees ? `Zaměstnanců: ${c.employees}` : null,
+      c.aiMaturity ? `AI maturity: ${maturityLabel[c.aiMaturity]}` : null,
+      c.message ? `Zpráva:\n${c.message}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    return {
+      title: `🤖 ${company}${suffix} · AI Readiness`,
+      personName,
+      email: body.email,
+      phone: body.phone,
+      companyName: body.company,
+      note: notes,
+      labels,
     };
   }
 

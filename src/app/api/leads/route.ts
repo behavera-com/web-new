@@ -7,12 +7,25 @@ import {
   internalEmail,
   pipedriveLeadInput,
 } from "@/lib/integrations/email-templates";
-import type { ConsultPayload, LeadBody } from "@/lib/integrations/lead-types";
+import type {
+  AiMaturity,
+  ConsultPayload,
+  LeadBody,
+} from "@/lib/integrations/lead-types";
 
 const STARTUPJOBS_SOURCES = new Set([
   "startupjobs-consult",
   "startupjobs-report",
 ]);
+
+const AI_READINESS_SOURCES = new Set(["ai-readiness-consult"]);
+
+const FULL_LP_SOURCES = new Set([
+  ...STARTUPJOBS_SOURCES,
+  ...AI_READINESS_SOURCES,
+]);
+
+const VALID_AI_MATURITY: Set<AiMaturity> = new Set(["none", "pilot", "production"]);
 
 const INTERNAL_NOTIFICATION_TO = "david.skoupy@behavera.com";
 const REPORT_PDF_PATH = "public/startupjobs/behavera-report-sample.pdf";
@@ -58,6 +71,25 @@ function buildSlackMessage(body: LeadBody): string {
     );
   }
 
+  if (source === "ai-readiness-consult") {
+    const c = body.consult ?? {};
+    const maturityLabel: Record<string, string> = {
+      none: "Zvažujeme možnosti",
+      pilot: "Pilot ve vybraných týmech",
+      production: "Produkce napříč firmou",
+    };
+    return (
+      `🤖 Žádost o konzultaci AI Readiness (LP Behavera + StartupJobs)!\n` +
+      `Jméno: ${body.name ?? "neuvedeno"}\n` +
+      `Email: ${body.email ?? "neuvedeno"}\n` +
+      `Telefon: ${body.phone ?? "neuvedeno"}\n` +
+      `Firma: ${body.company ?? "neuvedeno"}\n` +
+      `Zaměstnanců: ${c.employees ?? "—"}\n` +
+      `AI maturity: ${c.aiMaturity ? maturityLabel[c.aiMaturity] : "—"}` +
+      (c.message ? `\n— Zpráva:\n${c.message}` : "")
+    );
+  }
+
   return (
     `🎯 Nový lead z HR Risk Scanner!\n` +
     `Jméno: ${body.name ?? "neuvedeno"}\n` +
@@ -80,12 +112,18 @@ function sanitizeMultiline(value: unknown, max = 1000): string | undefined {
   return value.replace(/\r/g, "").trim().slice(0, max);
 }
 
+function sanitizeAiMaturity(v: unknown): AiMaturity | undefined {
+  if (typeof v !== "string") return undefined;
+  return VALID_AI_MATURITY.has(v as AiMaturity) ? (v as AiMaturity) : undefined;
+}
+
 function sanitizeConsult(v: unknown): ConsultPayload | undefined {
   if (!v || typeof v !== "object") return undefined;
   const r = v as Record<string, unknown>;
   return {
     employees: typeof r.employees === "number" ? r.employees : undefined,
     hiresPerYear: typeof r.hiresPerYear === "number" ? r.hiresPerYear : undefined,
+    aiMaturity: sanitizeAiMaturity(r.aiMaturity),
     message: sanitizeMultiline(r.message, 1000),
   };
 }
@@ -175,11 +213,11 @@ export async function POST(req: Request) {
     event_id: sanitize(r.event_id, 64),
   };
 
-  const isStartupjobs = body.source ? STARTUPJOBS_SOURCES.has(body.source) : false;
+  const isLpSource = body.source ? FULL_LP_SOURCES.has(body.source) : false;
 
   const tasks: Array<Promise<unknown>> = [sendSlack(body)];
 
-  if (isStartupjobs) {
+  if (isLpSource) {
     tasks.push(sendInternalNotification(body));
     tasks.push(sendAutoReply(body));
     tasks.push(pushPipedrive(body));
