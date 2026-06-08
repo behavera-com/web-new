@@ -121,7 +121,12 @@ export default function CoBrandBlock() {
               alt="StartupJobs"
               width={170}
               height={56}
-              style={{ height: 56, width: "auto", marginBottom: 36 }}
+              style={{
+                height: 56,
+                width: "auto",
+                marginBottom: 36,
+                alignSelf: "flex-start",
+              }}
             />
 
             <ul className="flex flex-col gap-4 md:gap-5">
@@ -211,11 +216,16 @@ export default function CoBrandBlock() {
             style={{ background: "var(--color-paper)" }}
           >
             <Image
-              src="/startupjobs/logo-behavera.png"
+              src="/startupjobs/logo-behavera-email.png"
               alt="Behavera"
-              width={140}
-              height={28}
-              style={{ height: 28, width: "auto", marginBottom: 36 }}
+              width={497}
+              height={80}
+              style={{
+                height: 32,
+                width: "auto",
+                marginBottom: 36,
+                alignSelf: "flex-start",
+              }}
             />
             <p
               className="sj-display max-w-[20ch]"
