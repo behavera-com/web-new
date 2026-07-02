@@ -22,7 +22,8 @@ const KEY_PREFIX = "an:events:";
 
 // Blueboard most — stejný secret žije v behavera-ingest.php na hostingu;
 // rotace = přenastavit obě strany přes env (repo je privátní)
-const REMOTE_DEFAULT_URL = "https://www.katalogodpadu.cz/api/behavera-ingest.php";
+// apex bez www — hosting dělá www→apex 301 a POST by se na redirectu ztratil
+const REMOTE_DEFAULT_URL = "https://katalogodpadu.cz/api/behavera-ingest.php";
 const REMOTE_DEFAULT_SECRET = "bcb644dd523b9aa069326211f4bebf9fe04f2624ac00006d";
 
 function remoteEnabled(): boolean {
