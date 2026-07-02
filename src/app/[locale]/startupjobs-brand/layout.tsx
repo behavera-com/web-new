@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Script from "next/script";
+import AnalyticsBeacon from "@/components/startupjobs/ui/AnalyticsBeacon";
 
 export default function StartupJobsBrandLayout({
   children,
@@ -33,6 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           style={{ display: "none", visibility: "hidden" }}
         />
       </noscript>
+      <AnalyticsBeacon />
       {children}
     </>
   );

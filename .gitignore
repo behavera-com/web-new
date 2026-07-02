@@ -43,6 +43,9 @@ next-env.d.ts
 # repomix
 repomix-output.xml
 
+# lokální first-party analytics eventy (dev fallback bez Upstash)
+.analytics-data/
+
 # audit/test screenshots from playwright
 *.png
 !public/**/*.png

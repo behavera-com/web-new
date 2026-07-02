@@ -12,6 +12,7 @@ import type {
   ConsultPayload,
   LeadBody,
 } from "@/lib/integrations/lead-types";
+import { recordEvent } from "@/lib/tracking/store";
 
 const STARTUPJOBS_SOURCES = new Set([
   "startupjobs-consult",
@@ -215,7 +216,23 @@ export async function POST(req: Request) {
 
   const isLpSource = body.source ? FULL_LP_SOURCES.has(body.source) : false;
 
-  const tasks: Array<Promise<unknown>> = [sendSlack(body)];
+  // Server-side conversion event do first-party analytiky — na rozdíl od
+  // client beaconu se nemůže ztratit (adblock, zavření tabu po submitu).
+  let refPath: string | undefined;
+  try {
+    refPath = new URL(req.headers.get("referer") ?? "").pathname;
+  } catch {
+    /* chybějící/nevalidní referer — path se nevyplní */
+  }
+
+  const tasks: Array<Promise<unknown>> = [
+    sendSlack(body),
+    recordEvent(req, {
+      type: "conversion",
+      form: body.source ?? "scanner",
+      path: refPath,
+    }),
+  ];
 
   if (isLpSource) {
     tasks.push(sendInternalNotification(body));

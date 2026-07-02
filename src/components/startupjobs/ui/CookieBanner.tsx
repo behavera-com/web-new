@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { track } from "@/lib/analytics";
+import { trackFirstParty } from "@/lib/tracking/client";
 
 const STORAGE_KEY = "sj-cookie-consent-v1";
 
@@ -47,6 +48,7 @@ export default function CookieBanner() {
       /* ignore */
     }
     pushConsent(value);
+    trackFirstParty("consent", { choice: value, path: window.location.pathname });
     setVisible(false);
   };
 
