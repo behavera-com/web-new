@@ -43,6 +43,13 @@ function upstashEnv(): { url: string; token: string } | null {
   return url && token ? { url, token } : null;
 }
 
+/** Které úložiště je právě aktivní (stejná priorita jako append/read). */
+export function activeStorage(): "upstash" | "bridge" | "local" {
+  if (upstashEnv()) return "upstash";
+  if (remoteEnabled()) return "bridge";
+  return "local";
+}
+
 async function upstashPipeline(commands: (string | number)[][]): Promise<unknown[]> {
   const env = upstashEnv();
   if (!env) throw new Error("upstash env missing");

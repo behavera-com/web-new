@@ -15,7 +15,7 @@
  */
 
 import { createHash, timingSafeEqual } from "node:crypto";
-import { readEvents, readRecent } from "@/lib/tracking/store";
+import { readEvents, readRecent, activeStorage } from "@/lib/tracking/store";
 import { buildReport, type AnalyticsReport, type CountRow } from "@/lib/tracking/report";
 
 const LIVE_MINUTES = 30;
@@ -131,7 +131,7 @@ const SHARED_CSS = `
   :root {
     --ink: #f2eefc; --ink-dim: #a99fc7; --ink-faint: #6f6591;
     --bg: #140d2b; --surface: #1d1440; --line: #2e2358;
-    --mint: #5eead4;
+    --mint: #5eead4; --amber: #fbbf24;
     --mono: ui-monospace, "SF Mono", Menlo, monospace;
   }
   * { box-sizing: border-box; }
@@ -208,8 +208,17 @@ function resolveRange(id: string | null): Range {
   return found;
 }
 
-function html(report: AnalyticsReport, opts: { range: Range; live: boolean; key: string }): string {
-  const { range, live, key } = opts;
+const STORAGE_LABEL: Record<string, string> = {
+  upstash: "Upstash Redis",
+  bridge: "most (katalogodpadu)",
+  local: "lokální soubory",
+};
+
+function html(
+  report: AnalyticsReport,
+  opts: { range: Range; live: boolean; key: string; storage: string }
+): string {
+  const { range, live, key, storage } = opts;
   const base = `?key=${encodeURIComponent(key)}`;
   const nav = [
     `<a href="${base}&live=1" class="nav-link${live ? " active" : ""}">Live</a>`,
@@ -290,6 +299,12 @@ ${live ? '<meta http-equiv="refresh" content="60">' : ""}
   .t-num { font-family: var(--mono); text-align: right; color: var(--mint); }
   .empty td { color: var(--ink-faint); }
   footer { margin-top: 2rem; color: var(--ink-faint); font-size: .75rem; line-height: 1.6; }
+  .badge {
+    font-size: .7rem; font-family: var(--mono); padding: .18rem .5rem; border-radius: 999px;
+    border: 1px solid var(--line); color: var(--ink-dim); white-space: nowrap;
+  }
+  .badge--upstash { color: #0d2b23; background: var(--mint); border-color: var(--mint); }
+  .badge--bridge { color: var(--amber); border-color: var(--amber); }
   /* tooltip „?" — čisté CSS, funguje na hover i focus (tap na mobilu) */
   .info {
     display: inline-flex; align-items: center; justify-content: center;
@@ -325,6 +340,7 @@ ${live ? '<meta http-equiv="refresh" content="60">' : ""}
   <header>
     <h1>Analytika — startupjobs LP</h1>
     <span class="meta">${esc(meta)}</span>
+    <span class="badge badge--${esc(storage)}" title="Aktivní úložiště eventů">${esc(STORAGE_LABEL[storage] ?? storage)}</span>
     <nav>
       ${nav}
     </nav>
@@ -361,7 +377,8 @@ ${live ? '<meta http-equiv="refresh" content="60">' : ""}
   <footer>
     Cookieless first-party analytika — žádné cookies, žádný identifikátor na klientovi,
     návštěvník = týdně rotující hash. Dny jsou UTC, retence dat 90 dní.
-    Konverze se počítají server-side v /api/leads.
+    Konverze se počítají server-side v /api/leads.<br>
+    Úložiště eventů: <strong>${esc(STORAGE_LABEL[storage] ?? storage)}</strong>.
   </footer>
 </div>
 </body>
@@ -392,12 +409,14 @@ export async function GET(req: Request) {
 
   const events = live ? await readRecent(LIVE_MINUTES) : await readEvents(range.days, range.offset);
   const report = buildReport(events);
+  const storage = activeStorage();
 
   if (url.searchParams.get("format") === "json") {
-    return Response.json(report, {
-      headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" },
-    });
+    return Response.json(
+      { ...report, storage },
+      { headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" } }
+    );
   }
 
-  return new Response(html(report, { range, live, key: key! }), { headers: BASE_HEADERS });
+  return new Response(html(report, { range, live, key: key!, storage }), { headers: BASE_HEADERS });
 }
