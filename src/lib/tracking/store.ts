@@ -144,6 +144,61 @@ function parseLines(lines: string[]): AnalyticsEvent[] {
 }
 
 /**
+ * Přečte eventy PŘÍMO z Blueboard mostu bez ohledu na aktivní backend
+ * (na rozdíl od readEvents, které po zapnutí Upstash čte z Upstash).
+ * Slouží jednorázové migraci historie most → Upstash.
+ */
+export async function readBridgeRaw(days: number, offset = 0): Promise<AnalyticsEvent[]> {
+  const { url, secret } = remoteConfig();
+  const res = await fetch(`${url}?days=${days}&offset=${offset}`, {
+    headers: { "X-An-Secret": secret },
+    cache: "no-store",
+  });
+  if (!res.ok) throw new Error(`bridge read failed: ${res.status}`);
+  const data = (await res.json()) as unknown;
+  return Array.isArray(data)
+    ? (data as AnalyticsEvent[]).filter((e) => e && typeof e.type === "string")
+    : [];
+}
+
+/**
+ * Dávkový zápis do Upstash — eventy seskupí po dnech a pošle v jediném
+ * pipeline volání (multi-value RPUSH + EXPIRE), aby migrace stovek eventů
+ * nespadla na timeout serverless funkce. Zachová původní event.ts (den bucket).
+ * Mimo Upstash spadne na sekvenční appendEvent. Vrací počet zapsaných.
+ */
+export async function appendEvents(events: AnalyticsEvent[]): Promise<number> {
+  if (events.length === 0) return 0;
+  try {
+    if (upstashEnv()) {
+      const byDay = new Map<string, string[]>();
+      for (const e of events) {
+        const day = String(e.ts).slice(0, 10);
+        if (!byDay.has(day)) byDay.set(day, []);
+        byDay.get(day)!.push(JSON.stringify(e));
+      }
+      const commands: (string | number)[][] = [];
+      for (const [day, lines] of byDay) {
+        const key = KEY_PREFIX + day;
+        commands.push(["RPUSH", key, ...lines]);
+        commands.push(["EXPIRE", key, RETENTION_DAYS * 86_400]);
+      }
+      await upstashPipeline(commands);
+      return events.length;
+    }
+    let n = 0;
+    for (const e of events) {
+      await appendEvent(e);
+      n++;
+    }
+    return n;
+  } catch (err) {
+    console.error("[analytics] appendEvents failed:", err);
+    return 0;
+  }
+}
+
+/**
  * Přečte eventy za `days` dní počínaje `offset` dní zpátky.
  * offset=0, days=7 → posledních 7 dní včetně dneška (UTC).
  */
