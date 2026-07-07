@@ -38,8 +38,11 @@ function remoteConfig(): { url: string; secret: string } {
 }
 
 function upstashEnv(): { url: string; token: string } | null {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  // Vercel Upstash/Redis integrace vkládá credentials pod různými názvy podle
+  // verze integrace: nativní UPSTASH_REDIS_REST_* nebo Vercel KV_REST_API_*.
+  // Obě míří na stejný Upstash REST endpoint (/pipeline), tak přijmeme obojí.
+  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
   return url && token ? { url, token } : null;
 }
 
@@ -48,6 +51,21 @@ export function activeStorage(): "upstash" | "bridge" | "local" {
   if (upstashEnv()) return "upstash";
   if (remoteEnabled()) return "bridge";
   return "local";
+}
+
+/**
+ * Diagnostika (jen do JSON API, za heslem): které credentials Vercel reálně
+ * nastavil. Bez hodnot — jen true/false, ať se pozná mismatch názvů proměnných.
+ */
+export function storageEnvPresence(): Record<string, boolean> {
+  return {
+    UPSTASH_REDIS_REST_URL: !!process.env.UPSTASH_REDIS_REST_URL,
+    UPSTASH_REDIS_REST_TOKEN: !!process.env.UPSTASH_REDIS_REST_TOKEN,
+    KV_REST_API_URL: !!process.env.KV_REST_API_URL,
+    KV_REST_API_TOKEN: !!process.env.KV_REST_API_TOKEN,
+    ANALYTICS_SALT: !!process.env.ANALYTICS_SALT,
+    ANALYTICS_STATS_KEY: !!process.env.ANALYTICS_STATS_KEY,
+  };
 }
 
 async function upstashPipeline(commands: (string | number)[][]): Promise<unknown[]> {

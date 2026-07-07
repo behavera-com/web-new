@@ -15,7 +15,12 @@
  */
 
 import { createHash, timingSafeEqual } from "node:crypto";
-import { readEvents, readRecent, activeStorage } from "@/lib/tracking/store";
+import {
+  readEvents,
+  readRecent,
+  activeStorage,
+  storageEnvPresence,
+} from "@/lib/tracking/store";
 import { buildReport, type AnalyticsReport, type CountRow } from "@/lib/tracking/report";
 
 const LIVE_MINUTES = 30;
@@ -413,7 +418,7 @@ export async function GET(req: Request) {
 
   if (url.searchParams.get("format") === "json") {
     return Response.json(
-      { ...report, storage },
+      { ...report, storage, storage_env: storageEnvPresence() },
       { headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" } }
     );
   }
